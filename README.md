@@ -1,8 +1,8 @@
 # LCOM Project
 
-LCOM Project for group T&lt;n&gt;G&lt;p&gt;&lt;q&gt;.
+LCOM Project for group T3G04.
 
 Group members:
 
-1. &lt;maria&gt; &lt;carneiro&gt; (&lt;up201907726@fe.up.pt&gt;)
-2. &lt;rodrigo&gt; &lt;tuna&gt; (&lt;up201904967@fe.up.pt&gt;)
+1. maria carneiro (up201907726@fe.up.pt)
+2. rodrigo tuna (up201904967@fe.up.pt)
