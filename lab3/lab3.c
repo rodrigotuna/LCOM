@@ -10,6 +10,7 @@
 
 #include "i8042.h"
 #include "kbc.h"
+#include "keyboard.h"
 
 extern uint32_t sys_counter;
 extern uint32_t interrupts;
