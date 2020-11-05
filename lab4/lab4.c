@@ -6,6 +6,9 @@
 
 #include "mouse.h"
 
+extern int timer_hook_id;
+extern uint32_t interrupts;
+
 // Any header files included below this line should have been created by you
 
 int main(int argc, char *argv[]) {
@@ -68,9 +71,53 @@ int (mouse_test_packet)(uint32_t cnt) {
 }
 
 int (mouse_test_async)(uint8_t idle_time) {
-    /* To be completed */
-    printf("%s(%u): under construction\n", __func__, idle_time);
-    return 1;
+  uint8_t timer_bit_no, mouse_bit_no;
+
+  if(mouse_subscribe_int(&mouse_bit_no)) return 1; //subscribe KBC 
+  if(mouse_data_report(true)) return 1;
+
+  if(timer_subscribe_int(timer_bit_no)) return 1;
+
+  int ipc_status;
+  message msg;
+  uint32_t timer_irq_set = BIT(timer_bit_no);
+  uint32_t mouse_irq_set = BIT(mouse_bit_no);
+
+  uint32_t FREQ = 60;
+  uint8_t idle = idle_time;
+ 
+  while (idle) { 
+    int r;
+    if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) { 
+      printf("driver_receive failed with: %d", r);
+      continue;
+    }
+    if (is_ipc_notify(ipc_status)) { 
+      switch (_ENDPOINT_P(msg.m_source)) {
+        case HARDWARE:
+          if (msg.m_notify.interrupts & mouse_irq_set) { 
+             mouse_ih();
+             if(mouse_count == 3){
+               struct packet pp = make_packet();
+               mouse_print_packet(&pp);
+               idle = idle_time;
+             }
+          }
+          if(msg.m_notify.interrupts & timer_irq_set) {
+            timer_int_handler();
+            if(interrupts % FREQ == 0) idle--;
+          }  
+          break;
+        default: break;
+      }
+    }
+  }
+  if(mouse_data_report(false)) return 1;
+  if(mouse_unsubscribe_int()) return 1;
+
+  if(timer_unsubscribe_int) return 1;
+  return 0;
+
 }
 
 /*int (mouse_test_gesture)() {
@@ -79,7 +126,7 @@ int (mouse_test_async)(uint8_t idle_time) {
     return 1;
 }*/
 
-int (mouse_test_remote)(uint16_t period, uint8_t cnt) {
+int mouse_test_remote(uint16_t period, uint8_t cnt){
     /* To be completed */
     printf("%s(%u, %u): under construction\n", __func__, period, cnt);
     return 1;
