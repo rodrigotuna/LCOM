@@ -4,12 +4,12 @@
 #include <lcom/lcf.h>
 
 #include "mouse_macros.h"
-#include "i8042.h"
+//#include "i8042.h"
 #include "kbc.h"
 
 int mouse_hook_id;
 uint8_t mouse_packet[3];
-uint8_t mouse_count = 0;
+static uint8_t mouse_count = 0;
 
 int mouse_subscribe_int(uint8_t *bit_no);
 

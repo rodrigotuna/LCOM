@@ -76,7 +76,7 @@ int (mouse_test_async)(uint8_t idle_time) {
   if(mouse_subscribe_int(&mouse_bit_no)) return 1; //subscribe KBC 
   if(mouse_data_report(true)) return 1;
 
-  if(timer_subscribe_int(timer_bit_no)) return 1;
+  if(timer_subscribe_int(&timer_bit_no)) return 1;
 
   int ipc_status;
   message msg;
@@ -115,7 +115,7 @@ int (mouse_test_async)(uint8_t idle_time) {
   if(mouse_data_report(false)) return 1;
   if(mouse_unsubscribe_int()) return 1;
 
-  if(timer_unsubscribe_int) return 1;
+  if(timer_unsubscribe_int()) return 1;
   return 0;
 
 }
@@ -126,7 +126,7 @@ int (mouse_test_async)(uint8_t idle_time) {
     return 1;
 }*/
 
-int mouse_test_remote(uint16_t period, uint8_t cnt){
+int (mouse_test_remote)(uint16_t period, uint8_t cnt){
     /* To be completed */
     printf("%s(%u, %u): under construction\n", __func__, period, cnt);
     return 1;
