@@ -13,14 +13,18 @@ int mouse_unsubscribe_int(){
 }
 
 int mouse_data_report(bool mode){
+  uint8_t arg,ack;
+  arg = (mode)? EN_DATA_REP : DIS_DATA_REP;
+  while(TRUE){
   if(kbc_issue_cmd(WRITE_B_MOUSE)) return 1;
+  if(kbc_issue_arg(arg)) return 1;
 
-  if(mode){
-    if(kbc_issue_arg(EN_DATA_REP)) return 1;
-  }else{
-    if(kbc_issue_arg(DIS_DATA_REP)) return 1;
+  if(mouse_read(&ack)) return 1;
+
+  if(ack == ACK) return 0;
+  if(ack == ERROR) return 1;
   }
-  return 0;
+  return 1;
 }
 
 struct packet make_packet(){
@@ -49,10 +53,21 @@ void (mouse_ih)(void){
   if (mouse_count ==3) mouse_count = 0;
 
   uint8_t code;
-  kbc_read(&code);
+  if(mouse_read(&code)) return;
 
   mouse_packet[mouse_count] = code;
   mouse_count++;
+}
+
+int mouse_read(uint8_t *data){
+  uint8_t stat;
+  if(util_sys_inb(KBC_ST_REG, &stat)) return 1; 
+  if ((stat &(KBC_PAR_ERR | KBC_TO_ERR))) return 1;
+  if((stat & KBC_OBF) && (stat & KBC_AUX)) {
+      util_sys_inb(KBC_OUT_BUF, data); /*ass. it returns OK*/
+      return 0;
+  }
+  return 1;
 }
 
 

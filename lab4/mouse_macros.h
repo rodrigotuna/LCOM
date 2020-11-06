@@ -24,3 +24,6 @@
 #define DIS_DATA_REP 0xF5
 #define EN_DATA_REP 0xF4
 
+#define ACK 0xFA
+#define NACK 0xFE
+#define ERROR 0xFC

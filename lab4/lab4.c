@@ -38,13 +38,13 @@ int main(int argc, char *argv[]) {
 
 int (mouse_test_packet)(uint32_t cnt) {
   uint8_t bit_no;
+  if(mouse_data_report(true)) return 1; 
   if(mouse_subscribe_int(&bit_no)) return 1; //subscribe KBC 
-  if(mouse_data_report(true)) return 1;
   int ipc_status;
   message msg;
   uint32_t irq_set = BIT(bit_no);
  
-  while (cnt--) { 
+  while (cnt) { 
     int r;
     if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) { 
       printf("driver_receive failed with: %d", r);
@@ -58,14 +58,15 @@ int (mouse_test_packet)(uint32_t cnt) {
              if(mouse_count == 3){
                struct packet pp = make_packet();
                mouse_print_packet(&pp);
+               cnt--;
              }
           }  
           break;
         default: break;
       }
     }
-    if(mouse_data_report(false)) return 1;
     if(mouse_unsubscribe_int()) return 1;
+    if(mouse_data_report(false)) return 1;
   }
   return 0;
 }

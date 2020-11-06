@@ -22,3 +22,5 @@ struct packet make_packet();
 void (mouse_ih)(void);
 
 uint16_t sign_extend(bool sign, uint8_t byte);
+
+int mouse_read(uint8_t *data);
