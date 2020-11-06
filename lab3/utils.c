@@ -25,11 +25,13 @@ int (util_sys_inb)(int port, uint8_t *value) {
 
   uint32_t var;
   
-  if(sys_inb(port,&var) != OK) return 1;
-
-  *value = var;
   #ifdef LAB3
     sys_counter++;
   #endif
+  
+  if(sys_inb(port,&var) != OK) return 1;
+
+  *value = var;
+
   return 0;
 }
