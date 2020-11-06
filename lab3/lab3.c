@@ -83,10 +83,11 @@ int(kbd_test_poll)() {
     }
 
   }while(scancode[size-1] != ESC_BREAK_CODE);
+  
+  if(kbd_print_no_sysinb(sys_counter)) return 1;
 
   if (kbc_restore()) return 1;
 
-  if(kbd_print_no_sysinb(sys_counter)) return 1;
 
   return 0;
 }
