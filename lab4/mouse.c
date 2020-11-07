@@ -1,5 +1,7 @@
 #include "mouse.h"
 
+uint8_t mouse_count = 0;
+
 int mouse_subscribe_int(uint8_t* bit_no){
   mouse_hook_id = MOUSE_IRQ;
   *bit_no = mouse_hook_id;
@@ -23,6 +25,8 @@ int mouse_data_report(bool mode){
 
   if(ack == ACK) return 0;
   if(ack == ERROR) return 1;
+
+  tickdelay(micros_to_ticks(DELAY_US));
   }
   return 1;
 }

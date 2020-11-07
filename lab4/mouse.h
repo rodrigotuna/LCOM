@@ -9,7 +9,7 @@
 
 int mouse_hook_id;
 uint8_t mouse_packet[3];
-static uint8_t mouse_count = 0;
+uint8_t mouse_count;
 
 int mouse_subscribe_int(uint8_t *bit_no);
 
