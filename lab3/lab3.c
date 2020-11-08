@@ -77,17 +77,14 @@ int(kbd_test_scan)() {
 
 int(kbd_test_poll)() {
   do{
-    kbc_ih();
-    if (code_completed){
-      kbd_print_scancode(!(scancode[size-1] & BREAK_CODE), size, scancode);
-    }
+    kb_poll();
+    kbd_print_scancode(!(scancode[size-1] & BREAK_CODE), size, scancode);
 
   }while(scancode[size-1] != ESC_BREAK_CODE);
   
   if(kbd_print_no_sysinb(sys_counter)) return 1;
 
   if (kbc_restore()) return 1;
-
 
   return 0;
 }
@@ -126,7 +123,7 @@ int(kbd_test_timed_scan)(uint8_t n) {
              kbc_ih(); //handler reads bytes from the KBC's Output_buf
             if (code_completed){
               kbd_print_scancode(!(scancode[size-1] & BREAK_CODE), size, scancode);
-              time = n;
+              time = n; interrupts = 0;
             }
             if(scancode[size-1] == ESC_BREAK_CODE) running = false;
           }

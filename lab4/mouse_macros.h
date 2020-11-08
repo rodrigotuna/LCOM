@@ -23,6 +23,8 @@
 /*mouse args*/
 #define DIS_DATA_REP 0xF5
 #define EN_DATA_REP 0xF4
+#define READ_DATA 0xEB
+#define SET_STREAM_MODE 0xEA
 
 #define ACK 0xFA
 #define NACK 0xFE

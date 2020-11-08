@@ -15,20 +15,10 @@ int mouse_unsubscribe_int(){
 }
 
 int mouse_data_report(bool mode){
-  uint8_t arg,ack;
+  uint8_t arg;
   arg = (mode)? EN_DATA_REP : DIS_DATA_REP;
-  while(TRUE){
-  if(kbc_issue_cmd(WRITE_B_MOUSE)) return 1;
-  if(kbc_issue_arg(arg)) return 1;
-
-  if(mouse_read(&ack)) return 1;
-
-  if(ack == ACK) return 0;
-  if(ack == ERROR) return 1;
-
-  tickdelay(micros_to_ticks(DELAY_US));
-  }
-  return 1;
+  if(mouse_set_arg(arg)) return 1;
+  return 0;
 }
 
 struct packet make_packet(){
@@ -74,4 +64,39 @@ int mouse_read(uint8_t *data){
   return 1;
 }
 
+int mouse_set_arg(uint8_t arg){
+  uint8_t ack;
+  while(TRUE){
+  if(kbc_issue_cmd(WRITE_B_MOUSE)) return 1;
+  if(kbc_issue_arg(arg)) return 1;
 
+  if(mouse_read(&ack)) return 1;
+
+  if(ack == ACK) return 0;
+  if(ack == ERROR) return 1;
+
+  tickdelay(micros_to_ticks(DELAY_US));
+  }
+}
+
+int mouse_poll_byte(uint8_t *data){
+  while (true){
+  uint8_t stat;
+  if(util_sys_inb(KBC_ST_REG, &stat)) return 1; 
+  if ((stat &(KBC_PAR_ERR | KBC_TO_ERR))) return 1;
+  if((stat & KBC_OBF) && (stat & KBC_AUX)) {
+      util_sys_inb(KBC_OUT_BUF, data); /*ass. it returns OK*/
+      return 0;
+  }
+ }
+}
+
+
+void mouse_poll(){
+  uint8_t byte;
+  for(int i = 0; i < 3; i++){
+    mouse_set_arg(READ_DATA);
+    mouse_poll_byte(&byte);
+    mouse_packet[i] = byte;
+  }
+}

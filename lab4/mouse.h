@@ -24,3 +24,9 @@ void (mouse_ih)(void);
 uint16_t sign_extend(bool sign, uint8_t byte);
 
 int mouse_read(uint8_t *data);
+
+void mouse_poll();
+
+int mouse_poll_byte(uint8_t *data);
+
+int mouse_set_arg(uint8_t arg);

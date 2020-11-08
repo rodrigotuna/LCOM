@@ -19,3 +19,5 @@ int(kb_subscribe_int)(uint8_t *bit_no);
 int(kb_unsubscribe_int)();
 
 void (kbc_ih)(void);
+
+int kb_poll();
