@@ -28,14 +28,15 @@ int(kbc_issue_cmd_b)(uint8_t cmd){
 }
 
 int kbc_read(uint8_t *data){
-  uint8_t stat;
-  if(util_sys_inb(KBC_ST_REG, &stat)) return 1; 
-  if ((stat &(KBC_PAR_ERR | KBC_TO_ERR))) return 1;
-  if(stat & KBC_OBF) {
-      util_sys_inb(KBC_OUT_BUF, data); /*ass. it returns OK*/
-      return 0;
+  while (TRUE){
+    uint8_t stat;
+    if(util_sys_inb(KBC_ST_REG, &stat)) return 1; 
+    if ((stat &(KBC_PAR_ERR | KBC_TO_ERR))) return 1;
+    if(stat & KBC_OBF) {
+        util_sys_inb(KBC_OUT_BUF, data); /*ass. it returns OK*/
+        return 0;
+    }
   }
-  return 1;
 }
 
 int (kbc_read_cmd)(uint8_t *cmd){
