@@ -15,7 +15,7 @@ struct mouse_ev* mouse_detect_ev( struct packet * pp){
   } else if ((buttons_pressed ^ new_button) & R_BUTTON && (buttons_pressed == R_BUTTON)){
     event.type = RB_RELEASED;
   } else if ((buttons_pressed ^ new_button) & R_BUTTON && (new_button == R_BUTTON)){
-    event.type = RB_RELEASED;
+    event.type = RB_PRESSED;
   }
   else {
     event.type = BUTTON_EV;
@@ -29,8 +29,8 @@ struct mouse_ev* mouse_detect_ev( struct packet * pp){
 
 States state_machine(struct mouse_ev *ev, uint8_t x_len, uint8_t tolerance){
   static States state = INITIAL;
-  static uint16_t d_x = 0;
-  static uint16_t d_y = 0;
+  static int d_x = 0;
+  static int d_y = 0;
 
   switch(state){
     case INITIAL: 
@@ -45,15 +45,17 @@ States state_machine(struct mouse_ev *ev, uint8_t x_len, uint8_t tolerance){
           state = INITIAL;
           d_x = 0;
           d_y = 0;
+          break;
         }
-        d_x += ev->delta_x;
-        d_y += ev->delta_y;
+          d_x += ev->delta_x;
+          d_y += ev->delta_y;
       }
       else if(ev->type == LB_RELEASED){
-        if(d_y >= d_x && d_x >= x_len){
+        if(abs(d_y) >= abs(d_x) && abs(d_x) >= x_len){
             state = VERTIX;
             d_x = 0;
             d_y = 0;
+            break;
         }
         state = INITIAL;
         d_x = 0;
@@ -66,16 +68,30 @@ States state_machine(struct mouse_ev *ev, uint8_t x_len, uint8_t tolerance){
       break;
 
     case VERTIX:
-      if(ev->type == MOUSE_MOV && ev->delta_x == 0 && ev->delta_y == 0){
+      if(ev->type == MOUSE_MOV){
+        if(abs(ev->delta_x) <= tolerance && abs(ev->delta_y) <= tolerance){
         state = VERTIX;
+        d_x += ev->delta_x;
+        d_y += ev->delta_y;
+        break;
+        }
+        state = INITIAL;
+        d_x = 0;
+        d_y = 0;
       }
       else if(ev->type == LB_PRESSED){
         state = UP;
+        d_x = 0;
+        d_y = 0;
       }
       else if (ev->type == RB_PRESSED){
         state = DOWN;
+        d_x = 0;
+        d_y = 0;
       }else{
         state = INITIAL;
+        d_x = 0;
+        d_y = 0;
       }
       break;
 
@@ -85,17 +101,19 @@ States state_machine(struct mouse_ev *ev, uint8_t x_len, uint8_t tolerance){
           state = INITIAL;
           d_x = 0;
           d_y = 0;
+          break;
         }
-        d_x += -ev->delta_x;
-        d_y += -ev->delta_y;
+        d_x += ev->delta_x;
+        d_y += ev->delta_y;
       }
       else if(ev->type == RB_RELEASED){
-        if(d_y >= d_x && d_x >= x_len){
+          if(abs(d_y) >= abs(d_x) && abs(d_x) >= x_len){
             state = END;
-        }
-        state = INITIAL;
-        d_x = 0;
-        d_y = 0;
+            break;
+          }
+          state = INITIAL;
+          d_x = 0;
+          d_y = 0;
       } else {
         state = INITIAL;
         d_x = 0;

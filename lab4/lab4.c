@@ -144,6 +144,7 @@ int (mouse_test_gesture)(uint8_t x_len, uint8_t tolerance) {
              mouse_ih();
              if(mouse_count == 3){
                struct packet pp = make_packet();
+               mouse_print_packet(&pp);
                struct mouse_ev* ev = mouse_detect_ev(&pp);
                state = state_machine(ev, x_len, tolerance);
              }
