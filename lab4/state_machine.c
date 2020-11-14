@@ -1,12 +1,12 @@
 #include "state_machine.h"
 
-struct mouse_ev* mouse_detect_event( struct packet * pp){
+struct mouse_ev* mouse_detect_ev( struct packet * pp){
   static struct mouse_ev event;
-  static buttons_pressed = 0;
+  static uint8_t buttons_pressed = 0;
 
   uint8_t new_button = pp->bytes[0] & (L_BUTTON | R_BUTTON | M_BUTTON);
 
-  if((pp->delta_x || pp->delta_y) && (buttons_pressed == new_button)){
+  if(buttons_pressed == new_button){
     event.type = MOUSE_MOV;
   } else if((buttons_pressed ^ new_button) & L_BUTTON && (buttons_pressed == L_BUTTON)){
     event.type = LB_RELEASED;
@@ -29,12 +29,80 @@ struct mouse_ev* mouse_detect_event( struct packet * pp){
 
 States state_machine(struct mouse_ev *ev, uint8_t x_len, uint8_t tolerance){
   static States state = INITIAL;
-  int d_x = 0;
-  int d_y = 0;
+  static uint16_t d_x = 0;
+  static uint16_t d_y = 0;
 
   switch(state){
-    INITIAL:
+    case INITIAL: 
+      if(ev->type == LB_PRESSED){
+        state = UP;
+      }
+      break;
 
+    case UP: 
+      if(ev->type == MOUSE_MOV){
+        if(ev->delta_y < -tolerance || ev->delta_x < -tolerance){
+          state = INITIAL;
+          d_x = 0;
+          d_y = 0;
+        }
+        d_x += ev->delta_x;
+        d_y += ev->delta_y;
+      }
+      else if(ev->type == LB_RELEASED){
+        if(d_y >= d_x && d_x >= x_len){
+            state = VERTIX;
+            d_x = 0;
+            d_y = 0;
+        }
+        state = INITIAL;
+        d_x = 0;
+        d_y = 0;
+      } else {
+        state = INITIAL;
+        d_x = 0;
+        d_y = 0;
+      }
+      break;
 
+    case VERTIX:
+      if(ev->type == MOUSE_MOV && ev->delta_x == 0 && ev->delta_y == 0){
+        state = VERTIX;
+      }
+      else if(ev->type == LB_PRESSED){
+        state = UP;
+      }
+      else if (ev->type == RB_PRESSED){
+        state = DOWN;
+      }else{
+        state = INITIAL;
+      }
+      break;
+
+    case DOWN:
+      if(ev->type == MOUSE_MOV){
+        if(ev->delta_y > tolerance || ev->delta_x > tolerance){
+          state = INITIAL;
+          d_x = 0;
+          d_y = 0;
+        }
+        d_x += -ev->delta_x;
+        d_y += -ev->delta_y;
+      }
+      else if(ev->type == RB_RELEASED){
+        if(d_y >= d_x && d_x >= x_len){
+            state = END;
+        }
+        state = INITIAL;
+        d_x = 0;
+        d_y = 0;
+      } else {
+        state = INITIAL;
+        d_x = 0;
+        d_y = 0;
+      }
+      break;
+      default: state = INITIAL;
   }
+  return state;
 }

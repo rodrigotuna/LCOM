@@ -5,6 +5,7 @@
 #include <stdio.h>
 
 #include "mouse.h"
+#include "state_machine.h"
 
 extern int timer_hook_id;
 extern uint32_t interrupts;
@@ -128,9 +129,9 @@ int (mouse_test_gesture)(uint8_t x_len, uint8_t tolerance) {
   message msg;
   uint32_t irq_set = BIT(bit_no);
 
-  bool running = true;
+  States state = INITIAL;
  
-  while (running) { 
+  while (state != END) { 
     int r;
     if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) { 
       printf("driver_receive failed with: %d", r);
@@ -143,7 +144,8 @@ int (mouse_test_gesture)(uint8_t x_len, uint8_t tolerance) {
              mouse_ih();
              if(mouse_count == 3){
                struct packet pp = make_packet();
-               mouse_print_packet(&pp);
+               struct mouse_ev* ev = mouse_detect_ev(&pp);
+               state = state_machine(ev, x_len, tolerance);
              }
           }  
           break;
