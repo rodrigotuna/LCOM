@@ -167,6 +167,7 @@ int (mouse_test_remote)(uint16_t period, uint8_t cnt){
       cnt--;
       tickdelay(micros_to_ticks(period*1000));
     }
+    
     if(mouse_set_arg(SET_STREAM_MODE)) return 1;
     if(mouse_data_report(false)) return 1;
     uint8_t cmd = minix_get_dflt_kbc_cmd_byte();
