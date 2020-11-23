@@ -78,7 +78,7 @@ int set_pixel(uint16_t x, uint16_t y, uint32_t color){
 
   unsigned int pos = (x + inf.XResolution * y)*bytesPerPixel();
 
-  memset((void*)((unsigned int)video_mem + pos), color, 1);
+  memcpy((void*)((unsigned int)video_mem + pos), &color, bytesPerPixel());
   return 0;
 }
 
