@@ -7,6 +7,7 @@
 #include <stdio.h>
 
 #include "video.h"
+#include "keyboard.h"
 
 // Any header files included below this line should have been created by you
 
@@ -45,19 +46,104 @@ int(video_test_init)(uint16_t mode, uint8_t delay) {
 
 int(video_test_rectangle)(uint16_t mode, uint16_t x, uint16_t y,
                           uint16_t width, uint16_t height, uint32_t color) {
-  /* To be completed */
-  printf("%s(0x%03X, %u, %u, %u, %u, 0x%08x): under construction\n",
-         __func__, mode, x, y, width, height, color);
 
-  return 1;
+  memset(&inf, 0, sizeof(vbe_mode_info_t));
+  if(vbe_get_mode_info(mode,&inf)) return 1;
+
+  map_memory();
+
+  if(video_init_mode(mode)) return 1;
+  
+  if(vg_draw_rectangle(x,y,width,height,color)) return 1;
+
+  uint8_t bit_no;
+  if(kb_subscribe_int(&bit_no)) return 1; //subscribe KBC 
+  int ipc_status;
+  message msg;
+  uint32_t irq_set = BIT(bit_no);
+
+  bool running = true;
+ 
+  while (running) { 
+    int r;
+    if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) { 
+      printf("driver_receive failed with: %d", r);
+      continue;
+    }
+    if (is_ipc_notify(ipc_status)) { 
+      switch (_ENDPOINT_P(msg.m_source)) {
+        case HARDWARE:
+          if (msg.m_notify.interrupts & irq_set) { 
+             kbc_ih(); //handler reads bytes from the KBC's Output_buf
+            if(scancode[size-1] == ESC_BREAK_CODE) running = false;
+          }
+          break;
+        default: break;
+      }
+    }
+  }
+  if(kb_unsubscribe_int()) return 1;
+  if(vg_exit()) return 1;
+
+  return 0;
 }
 
 int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, uint8_t step) {
-  /* To be completed */
-  printf("%s(0x%03x, %u, 0x%08x, %d): under construction\n", __func__,
-         mode, no_rectangles, first, step);
 
-  return 1;
+  memset(&inf, 0, sizeof(vbe_mode_info_t));
+  if(vbe_get_mode_info(mode,&inf)) return 1;
+
+  map_memory();
+
+  if(video_init_mode(mode)) return 1;
+
+  uint16_t xPos = 0;
+  uint16_t yPos = 0;
+
+  uint16_t width = inf.XResolution /no_rectangles;
+  uint16_t height = inf.YResolution /no_rectangles;
+
+  for(uint8_t i = 0; i < no_rectangles; i++){
+    xPos = 0;
+    for(uint8_t j = 0; j < no_rectangles; j++){
+      uint32_t color = new_color(j, i, no_rectangles, first, step);
+      vg_draw_rectangle(xPos, yPos, width, height, color);
+      xPos+= width;
+    }
+    yPos+= height;
+  }
+  
+
+  uint8_t bit_no;
+  if(kb_subscribe_int(&bit_no)) return 1; //subscribe KBC 
+  int ipc_status;
+  message msg;
+  uint32_t irq_set = BIT(bit_no);
+
+  bool running = true;
+ 
+  while (running) { 
+    int r;
+    if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) { 
+      printf("driver_receive failed with: %d", r);
+      continue;
+    }
+    if (is_ipc_notify(ipc_status)) { 
+      switch (_ENDPOINT_P(msg.m_source)) {
+        case HARDWARE:
+          if (msg.m_notify.interrupts & irq_set) { 
+             kbc_ih(); //handler reads bytes from the KBC's Output_buf
+            if(scancode[size-1] == ESC_BREAK_CODE) running = false;
+          }
+          break;
+        default: break;
+      }
+    }
+  }
+  if(kb_unsubscribe_int()) return 1;
+  if(vg_exit()) return 1;
+
+  return 0;
 }
 
 int(video_test_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
