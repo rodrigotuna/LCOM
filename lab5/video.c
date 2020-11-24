@@ -1,8 +1,30 @@
 #include "video.h"
 
+int video_get_inf(uint16_t mode){
+  memset(&inf, 0, sizeof(vbe_mode_info_t));
+
+  reg86_t r;
+  memset(&r, 0, sizeof(reg86_t));
+
+  vbe_mode_info_t *virtual_addr = lm_alloc(sizeof(vbe_mode_info_t), &map);
+
+  r.intno = BIOS_VIDEO_SERV;
+  r.ax = VBE_MODE_INFO;
+  r.cx = mode;
+  r.es = PB2BASE(map.phys);
+  r.di = PB2OFF(map.phys);
+
+  if( sys_int86(&r) != OK ) {
+    printf("set_vbe_mode: sys_int86() failed \n");
+    return 1;
+  }
+
+  memcpy((void*)&inf, (void*)virtual_addr, map.size);
+  return 0;
+}
+
 int video_init_mode(uint16_t mode){
   reg86_t r;
-
   memset(&r, 0, sizeof(reg86_t));
   
   r.ax = VBE_MODE; // VBE call, function 02 -- set VBE mode
@@ -96,6 +118,6 @@ int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height,
   return 0;
 }
 
-int free_mem_map(){
-  return lm_free(&map);
+void free_mem_map(){
+  lm_free(&map);
 }

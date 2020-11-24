@@ -10,6 +10,8 @@ vbe_mode_info_t inf;
 static mmap_t map;
 static void *video_mem;
 
+int video_get_inf(uint16_t mode);
+
 int video_init_mode(uint16_t mode);
 
 void map_memory();
@@ -32,4 +34,4 @@ int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color);
 
 int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color);
 
-int free_mem_map();
+void free_mem_map();
