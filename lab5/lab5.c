@@ -148,10 +148,16 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
 }
 
 int(video_test_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
-  /* To be completed */
-  printf("%s(%8p, %u, %u): under construction\n", __func__, xpm, x, y);
+  if(video_get_inf(0x105)) return 1;
 
-  return 1;
+  map_memory();
+
+  if(video_init_mode(0x105)) return 1;
+
+  free_mem_map();
+  if(vg_exit()) return 1;
+
+  return 0;
 }
 
 int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint16_t yf,

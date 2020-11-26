@@ -68,15 +68,15 @@ void map_memory(){
 }
 
 uint32_t getRed(uint32_t color){
-  return (color >> inf.RedFieldPosition) & (BIT(inf.RedMaskSize + 1) - 1);
+  return (color >> inf.RedFieldPosition) & (BIT(inf.RedMaskSize) - 1);
 }
 
 uint32_t getBlue(uint32_t color){
-  return (color >> inf.BlueFieldPosition) & (BIT(inf.BlueMaskSize + 1) - 1);
+  return (color >> inf.BlueFieldPosition) & (BIT(inf.BlueMaskSize) - 1);
 }
 
 uint32_t getGreen(uint32_t color){
-  return (color >> inf.GreenFieldPosition) & (BIT(inf.GreenMaskSize + 1) - 1);
+  return (color >> inf.GreenFieldPosition) & (BIT(inf.GreenMaskSize) - 1);
 }
 
 uint32_t setColor(uint32_t red, uint32_t green, uint32_t blue){
