@@ -9,3 +9,5 @@
 
 #define BIOS_VIDEO_SERV 0x10
 #define VBE_CALL 0x4F
+
+#define INDEXED_MODE 0x105

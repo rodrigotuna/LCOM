@@ -68,15 +68,15 @@ void map_memory(){
 }
 
 uint32_t getRed(uint32_t color){
-  return (color >> inf.RedFieldPosition) & (BIT(inf.RedMaskSize + 1) - 1);
+  return (color >> inf.RedFieldPosition) & (BIT(inf.RedMaskSize) - 1);
 }
 
 uint32_t getBlue(uint32_t color){
-  return (color >> inf.BlueFieldPosition) & (BIT(inf.BlueMaskSize + 1) - 1);
+  return (color >> inf.BlueFieldPosition) & (BIT(inf.RedMaskSize) - 1);
 }
 
 uint32_t getGreen(uint32_t color){
-  return (color >> inf.GreenFieldPosition) & (BIT(inf.GreenMaskSize + 1) - 1);
+  return (color >> inf.GreenFieldPosition) & (BIT(inf.RedMaskSize) - 1);
 }
 
 uint32_t setColor(uint32_t red, uint32_t green, uint32_t blue){
@@ -120,4 +120,20 @@ int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height,
 
 void free_mem_map(){
   lm_free(&map);
+}
+
+int display_xpm(xpm_map_t xpm, uint16_t x, uint16_t y){
+
+  xpm_image_t img;
+  uint8_t *img_map;
+
+  img_map =  xpm_load(xpm, XPM_INDEXED, &img);
+
+
+  for(int i = 0; i < img.height; i++){
+    for(int j = 0; j < img.width; j++){
+        if(set_pixel(x+j,y+i,img_map[i*img.width + j])) return 1;     
+    }
+  }
+  return 0;
 }
