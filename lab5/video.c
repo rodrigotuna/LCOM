@@ -121,3 +121,19 @@ int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height,
 void free_mem_map(){
   lm_free(&map);
 }
+
+int display_xpm(xpm_map_t xpm, uint16_t x, uint16_t y){
+
+  xpm_image_t img;
+  uint8_t *img_map;
+
+  img_map =  xpm_load(xpm, XPM_INDEXED, &img);
+
+
+  for(int i = 0; i < img.height; i++){
+    for(int j = 0; j < img.width; j++){
+        if(set_pixel(x+j,y+i,img_map[i*img.width + j])) return 1;     
+    }
+  }
+  return 0;
+}
