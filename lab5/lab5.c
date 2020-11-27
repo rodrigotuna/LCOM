@@ -9,6 +9,7 @@
 #include "video.h"
 #include "keyboard.h"
 
+extern int interrupts;
 // Any header files included below this line should have been created by you
 
 int main(int argc, char *argv[]) {
@@ -192,11 +193,57 @@ int(video_test_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
 
 int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint16_t yf,
                      int16_t speed, uint8_t fr_rate) {
-  /* To be completed */
-  printf("%s(%8p, %u, %u, %u, %u, %d, %u): under construction\n",
-         __func__, xpm, xi, yi, xf, yf, speed, fr_rate);
 
-  return 1;
+  if(video_get_inf(INDEXED_MODE)) return 1;
+
+  map_memory();
+
+  if(video_init_mode(INDEXED_MODE)) return 1;
+  
+  uint8_t bit_no_timer;  
+  uint8_t bit_no_kb;
+  if(timer_subscribe_int(&bit_no_timer)) return 1;
+  if(kb_subscribe_int(&bit_no_kb)) return 1; //subscribe KBC 
+  int ipc_status;
+
+  message msg;
+  uint32_t irq_set_timer = BIT(bit_no_timer);
+  uint32_t irq_set_kb = BIT(bit_no_kb);
+
+  uint32_t FREQ = fr_rate;
+  bool running = true;
+ 
+  while (running) { 
+    int r;
+    if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) { 
+      printf("driver_receive failed with: %d", r);
+      continue;
+    }
+    if (is_ipc_notify(ipc_status)) { 
+      switch (_ENDPOINT_P(msg.m_source)) {
+        case HARDWARE:
+          if (msg.m_notify.interrupts & irq_set_timer){
+             timer_int_handler();
+            if(interrupts % FREQ == 0){
+              if(move(xpm,xi,yi,xf,yf,speed)) return 1;
+            }
+          }
+          if (msg.m_notify.interrupts & irq_set_kb){
+             kbc_ih(); //handler reads bytes from the KBC's Output_buf
+            if(scancode[size-1] == ESC_BREAK_CODE) running = false;
+          }
+          break;
+        default: break;
+      }
+    }
+  }
+
+  free_mem_map();
+  if(timer_unsubscribe_int()) return 1;
+  if(kb_unsubscribe_int()) return 1;
+  if(vg_exit()) return 1;
+
+  return 0;
 }
 
 int(video_test_controller)() {
