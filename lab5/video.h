@@ -40,4 +40,7 @@ void free_mem_map();
 
 int display_xpm(xpm_map_t xpm, uint16_t x, uint16_t y);
 
-int move(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint16_t yf, int16_t speed);
+int move(xpm_map_t xpm, uint16_t *xi, uint16_t *yi, uint16_t xf, uint16_t yf, int16_t speed);
+
+uint16_t min(uint16_t a, uint16_t b);
+

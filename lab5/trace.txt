@@ -1,0 +1,3246 @@
+@lcflib.a:2019, lcf_start
+  video_test_move(xpm, xi, yi, xf, yf, speed, fps)
+> video_test_move(0x81e1a0c, 20, 20, 197, 20, 3, 60)
+  @video.c:9, video_get_inf
+    lm_alloc(sizeof(vbe_mode_info_t), &map)
+  < lm_alloc(256, addr: 0x822f2a8 [phys: 0x0008e000, virt: 0xefb8b000, size: 256 bytes]) -> (ret: 0xefb8b000)
+  @video.c:17, video_get_inf
+    sys_int86(&r)
+  > sys_int86(addr: 0xeffff558 [AX: 4f01, BX: 0000, CX: 0105, DX: 0000, ES: 8000, DI: e000])
+  < sys_int86(addr: 0xeffff558 [AX: 004f, BX: 0000, CX: 0105, DX: 0000, ES: 8000, DI: e000]) -> (ret: 0)
+  @video.c:58, map_memory
+    sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mr)
+  > sys_privctl(SELF, SYS_PRIV_ADD_MEM, addr: 0xeffff588 [0xe0000000 - 0xe00c0000 <768 KiB>])
+  < sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mr) -> (ret: 0)
+  @video.c:63, map_memory
+    vm_map_phys(SELF, (void *)mr.mr_base, vram_size)
+  < vm_map_phys(SELF, addr: 0xe0000000, 768 KiB) -> (ret: 0xef93b000)
+  @video.c:34, video_init_mode
+    sys_int86(&r)
+  > sys_int86(addr: 0xeffff560 [AX: 4f02, BX: 4105, CX: 0000, DX: 0000, ES: 0000, DI: 0000])
+  < sys_int86(addr: 0xeffff560 [AX: 004f, BX: 4105, CX: 0000, DX: 0000, ES: 0000, DI: 0000]) -> (ret: 0)
+  @lab5.c:205, video_test_move
+    timer_subscribe_int(&bit_no_timer)
+  > timer_subscribe_int(addr: 0xeffff627 [8])
+    @timer.c:35, timer_subscribe_int
+      sys_irqsetpolicy(TIMER0_IRQ, IRQ_REENABLE, &hook_id)
+    > sys_irqsetpolicy(0, 1, addr: 0x824b164 [0])
+    < sys_irqsetpolicy(0, 1, addr: 0x824b164 [10]) -> (ret: 0)
+  < timer_subscribe_int(addr: 0xeffff627 [0]) -> (ret: 0)
+  @keyboard.c:11, kb_subscribe_int
+    sys_irqsetpolicy(KB_IRQ, IRQ_REENABLE | IRQ_EXCLUSIVE, &kb_hook_id)
+  > sys_irqsetpolicy(1, 3, addr: 0x824b17c [1])
+  < sys_irqsetpolicy(1, 3, addr: 0x824b17c [11]) -> (ret: 0)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8251000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8252000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8253000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8254000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8255000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8256000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8257000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000010]>)
+  @lab5.c:232, video_test_move
+    kbc_ih()
+    @utils.c:28, util_sys_inb
+      sys_inb(port, &var)
+    > sys_inb(0x64, addr: 0xeffff4d0)
+    < sys_inb(0x64, addr: 0xeffff4d0 [0x1d = 0b00011101])
+    @utils.c:28, util_sys_inb
+      sys_inb(port, &var)
+    > sys_inb(0x60, addr: 0xeffff4d0)
+    < sys_inb(0x60, addr: 0xeffff4d0 [0x9c = 0b10011100])
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8258000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8259000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x825a000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x825b000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x825c000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x825d000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x825e000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x825f000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8260000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8261000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8262000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8263000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8264000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8265000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8266000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8267000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8268000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8269000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x826a000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x826b000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x826c000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x826d000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x826e000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x826f000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8270000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8271000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8272000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8273000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8274000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8275000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8276000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8277000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8278000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8279000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x827a000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x827b000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x827c000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x827d000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x827e000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x827f000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8280000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8281000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8282000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8283000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8284000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8285000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8286000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8287000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8288000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8289000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x828a000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x828b000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x828c000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x828d000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x828e000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x828f000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8290000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8291000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8292000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8293000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8294000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8295000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8296000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8297000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8298000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8299000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x829a000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x829b000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x829c000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x829d000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x829e000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x829f000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82a0000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82a1000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82a2000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82a3000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82a4000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82a5000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82a6000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82a7000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82a8000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82a9000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82aa000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82ab000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82ac000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82ad000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82ae000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82af000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82b0000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82b1000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82b2000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82b3000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82b4000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82b5000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82b6000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82b7000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82b8000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82b9000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82ba000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82bb000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82bc000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82bd000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82be000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82bf000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82c0000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82c1000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82c2000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82c3000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82c4000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82c5000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82c6000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82c7000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82c8000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82c9000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82ca000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82cb000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82cc000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82cd000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82ce000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82cf000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82d0000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82d1000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82d2000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82d3000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82d4000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82d5000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82d6000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82d7000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82d8000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82d9000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82da000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82db000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82dc000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82dd000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82de000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82df000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82e0000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82e1000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82e2000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82e3000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82e4000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82e5000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82e6000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82e7000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82e8000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82e9000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82ea000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82eb000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82ec000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82ed000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82ee000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82ef000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82f0000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82f1000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82f2000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82f3000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82f4000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82f5000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82f6000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82f7000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82f8000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82f9000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82fa000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82fb000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82fc000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82fd000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82fe000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x82ff000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8300000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8301000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8302000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8303000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8304000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8305000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8306000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8307000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8308000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8309000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x830a000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x830b000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x830c000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x830d000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x830e000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x830f000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8310000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8311000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8312000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8313000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8314000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8315000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8316000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8317000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8318000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8319000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x831a000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x831b000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x831c000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x831d000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x831e000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x831f000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8320000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8321000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8322000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8323000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8324000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8325000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8326000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8327000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8328000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8329000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x832a000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x832b000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x832c000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x832d000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x832e000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x832f000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8330000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8331000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8332000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8333000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8334000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8335000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8336000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8337000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8338000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8339000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x833a000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x833b000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x833c000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x833d000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x833e000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x833f000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8340000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8341000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8342000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8343000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8344000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8345000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8346000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8347000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8348000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8349000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x834a000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x834b000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x834c000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x834d000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x834e000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x834f000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8350000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8351000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8352000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8353000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8354000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8355000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8356000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8357000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8358000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8359000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x835a000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x835b000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x835c000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x835d000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x835e000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x835f000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8360000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8361000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8362000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8363000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8364000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8365000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8366000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8367000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8368000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8369000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x836a000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x836b000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x836c000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x836d000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x836e000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x836f000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8370000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8371000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8372000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8373000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8374000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8375000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8376000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8377000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8378000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8379000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x837a000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x837b000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x837c000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x837d000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x837e000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x837f000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8380000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8381000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8382000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8383000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000010]>)
+  @lab5.c:232, video_test_move
+    kbc_ih()
+    @utils.c:28, util_sys_inb
+      sys_inb(port, &var)
+    > sys_inb(0x64, addr: 0xeffff4d0)
+    < sys_inb(0x64, addr: 0xeffff4d0 [0x1d = 0b00011101])
+    @utils.c:28, util_sys_inb
+      sys_inb(port, &var)
+    > sys_inb(0x60, addr: 0xeffff4d0)
+    < sys_inb(0x60, addr: 0xeffff4d0 [0x01 = 0b00000001])
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8384000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8385000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8386000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8387000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8388000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x8389000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x838a000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000001]>)
+  @lab5.c:226, video_test_move
+    timer_int_handler()
+  @video.c:126, display_xpm
+    xpm_load(xpm, XPM_INDEXED, &img)
+  > xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c)
+  < xpm_load(addr: 0x81e1a0c, XPM_INDEXED, addr: 0x824b16c [64x64 : 4096 bytes]) -> (ret: 0x838b000)
+  @lab5.c:218, video_test_move
+    driver_receive(ANY, &msg, &ipc_status)
+  > driver_receive(ANY, addr: 0xeffff5e0, addr: 0xeffff620)
+  < driver_receive(<[HARDWARE: 0b0000000000000000000000000000000000000000000000000000000000000010]>)
+  @lab5.c:232, video_test_move
+    kbc_ih()
+    @utils.c:28, util_sys_inb
+      sys_inb(port, &var)
+    > sys_inb(0x64, addr: 0xeffff4d0)
+    < sys_inb(0x64, addr: 0xeffff4d0 [0x1d = 0b00011101])
+    @utils.c:28, util_sys_inb
+      sys_inb(port, &var)
+    > sys_inb(0x60, addr: 0xeffff4d0)
+    < sys_inb(0x60, addr: 0xeffff4d0 [0x81 = 0b10000001])
+  @video.c:122, free_mem_map
+    lm_free(&map)
+  < lm_free(addr: 0x822f2a8 [phys: 0x0008e000, virt: 0xefb8b000, size: 256 bytes]) -> (ret: 1)
+  @lab5.c:242, video_test_move
+    timer_unsubscribe_int()
+    @timer.c:40, timer_unsubscribe_int
+      sys_irqrmpolicy(&hook_id)
+    > sys_irqrmpolicy(addr: 0x824b164 [10])
+    < sys_irqrmpolicy(addr: 0x824b164 [10]) -> (ret: 0)
+  @keyboard.c:15, kb_unsubscribe_int
+    sys_irqdisable(&kb_hook_id)
+  > sys_irqdisable(addr: 0x824b17c [11])
+  < sys_irqdisable(addr: 0x824b17c [11]) -> (ret: 0)
+  @keyboard.c:16, kb_unsubscribe_int
+    sys_irqrmpolicy(&kb_hook_id)
+  > sys_irqrmpolicy(addr: 0x824b17c [11])
+  < sys_irqrmpolicy(addr: 0x824b17c [11]) -> (ret: 0)
+  @lab5.c:244, video_test_move
+    vg_exit()
+  < vg_exit() -> (ret: 0)
+< video_test_move(0x81e1a0c, 20, 20, 197, 20, 3, 60) -> (ret: 0)
