@@ -123,17 +123,25 @@ void free_mem_map(){
 }
 
 int display_xpm(xpm_map_t xpm, uint16_t x, uint16_t y){
-
-  xpm_image_t img;
-  uint8_t *img_map;
-
   img_map =  xpm_load(xpm, XPM_INDEXED, &img);
-
 
   for(int i = 0; i < img.height; i++){
     for(int j = 0; j < img.width; j++){
         if(set_pixel(x+j,y+i,img_map[i*img.width + j])) return 1;     
     }
   }
+  return 0;
+}
+
+int move(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint16_t yf, int16_t speed){
+  uint16_t x = 0, y = 0;
+  if(speed > 0){
+     if(xi == xf) y = (yf-yi)*speed;
+     if(yi == yf) x = (xf-xi)*speed;
+  }
+  else{
+    return 1;
+  }
+  if(display_xpm(xpm,x,y)) return 1;
   return 0;
 }

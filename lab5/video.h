@@ -9,6 +9,8 @@
 vbe_mode_info_t inf;
 static mmap_t map;
 static void *video_mem;
+xpm_image_t img;
+uint8_t *img_map;
 
 int video_get_inf(uint16_t mode);
 
@@ -38,3 +40,4 @@ void free_mem_map();
 
 int display_xpm(xpm_map_t xpm, uint16_t x, uint16_t y);
 
+int move(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint16_t yf, int16_t speed);
