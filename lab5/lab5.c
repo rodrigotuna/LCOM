@@ -155,7 +155,8 @@ int(video_test_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
 
   if(video_init_mode(INDEXED_MODE)) return 1;
 
-  if(display_xpm(xpm,x,y)) return 1;
+  load_xpm(xpm);
+  if(display_xpm(x,y)) return 1;
 
   uint8_t bit_no;
   if(kb_subscribe_int(&bit_no)) return 1; //subscribe KBC 
@@ -199,6 +200,7 @@ int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint1
   map_memory();
 
   if(video_init_mode(INDEXED_MODE)) return 1;
+  load_xpm(xpm);
   
   uint8_t bit_no_timer;  
   uint8_t bit_no_kb;
@@ -210,8 +212,11 @@ int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint1
   uint32_t irq_set_timer = BIT(bit_no_timer);
   uint32_t irq_set_kb = BIT(bit_no_kb);
 
-  uint32_t FREQ = 60/fr_rate;
+  uint32_t FREQ = (speed <= 0) ? -speed*(60/fr_rate) : 60/fr_rate;
   bool running = true;
+
+  int16_t vel = (speed <= 0) ? 1 : speed;
+  uint16_t x_bef = xi, y_bef = yi;
  
   while (running) { 
     int r;
@@ -225,7 +230,12 @@ int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint1
           if (msg.m_notify.interrupts & irq_set_timer){
              timer_int_handler();
             if(interrupts % FREQ == 0){
-              if(move(xpm,&xi,&yi,xf,yf,speed)) return 1;
+              vg_draw_rectangle(x_bef,y_bef,img.width, img.height, 
+                                        xpm_transparency_color(img.type));
+              display_xpm(xi,yi);
+              x_bef = xi; y_bef = yi;
+              xi = min(xf,xi+vel);
+              yi = min(yf,yi+vel);
             }
           }
           if (msg.m_notify.interrupts & irq_set_kb){

@@ -122,9 +122,11 @@ void free_mem_map(){
   lm_free(&map);
 }
 
-int display_xpm(xpm_map_t xpm, uint16_t x, uint16_t y){
+void load_xpm(xpm_map_t xpm){
   img_map =  xpm_load(xpm, XPM_INDEXED, &img);
+}
 
+int display_xpm(uint16_t x, uint16_t y){
   for(int i = 0; i < img.height; i++){
     for(int j = 0; j < img.width; j++){
         if(set_pixel(x+j,y+i,img_map[i*img.width + j])) return 1;     
@@ -134,7 +136,7 @@ int display_xpm(xpm_map_t xpm, uint16_t x, uint16_t y){
 }
 
 int move(xpm_map_t xpm, uint16_t *xi, uint16_t *yi, uint16_t xf, uint16_t yf, int16_t speed){
-  if(display_xpm(xpm,*xi,*yi)) return 1;
+  if(display_xpm(*xi,*yi)) return 1;
   if(speed > 0){
      *xi = min(xf,*xi+speed);
      *yi = min(yf,*yi + speed);
