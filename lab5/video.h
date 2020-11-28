@@ -42,8 +42,6 @@ void load_xpm(xpm_map_t xpm);
 
 int display_xpm(uint16_t x, uint16_t y);
 
-int move(xpm_map_t xpm, uint16_t *xi, uint16_t *yi, uint16_t xf, uint16_t yf, int16_t speed);
-
 uint16_t min(uint16_t a, uint16_t b);
 
 int16_t max(int16_t a, int16_t b);

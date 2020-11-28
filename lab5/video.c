@@ -135,17 +135,6 @@ int display_xpm(uint16_t x, uint16_t y){
   return 0;
 }
 
-int move(xpm_map_t xpm, uint16_t *xi, uint16_t *yi, uint16_t xf, uint16_t yf, int16_t speed){
-  if(display_xpm(*xi,*yi)) return 1;
-  if(speed > 0){
-     *xi = min(xf,*xi+speed);
-     *yi = min(yf,*yi + speed);
-  }
-  else{
-    return 1;
-  }
-  return 0;
-}
 
 uint16_t min(uint16_t a, uint16_t b){
   if(a < b) return a;
