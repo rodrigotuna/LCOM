@@ -152,7 +152,7 @@ uint16_t min(uint16_t a, uint16_t b){
   return b;
 }
 
-uint16_t max(uint16_t a, uint16_t b){
+int16_t max(int16_t a, int16_t b){
   if(a > b) return a;
   return b;
 }
