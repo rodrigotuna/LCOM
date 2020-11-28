@@ -212,12 +212,13 @@ int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint1
   uint32_t irq_set_timer = BIT(bit_no_timer);
   uint32_t irq_set_kb = BIT(bit_no_kb);
 
-  uint32_t FREQ = (speed <= 0) ? -speed*(60/fr_rate) : 60/fr_rate;
-  bool running = true;
-
+  bool rev = (xf > xi || yf > yi);
   int16_t vel = (speed <= 0) ? 1 : speed;
   uint16_t x_bef = xi, y_bef = yi;
- 
+  uint32_t FREQ = (speed <= 0) ? -speed*(60/fr_rate) : 60/fr_rate;
+
+  bool running = true;
+
   while (running) { 
     int r;
     if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) { 
@@ -234,8 +235,13 @@ int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint1
                                         xpm_transparency_color(img.type));
               display_xpm(xi,yi);
               x_bef = xi; y_bef = yi;
-              xi = min(xf,xi+vel);
-              yi = min(yf,yi+vel);
+              if(rev){
+                xi = min(xf,xi+vel);
+                yi = min(yf,yi+vel);
+              } else{
+                xi = max(xf, xi-vel);
+                yi = max(yf, yi-vel);
+              }
             }
           }
           if (msg.m_notify.interrupts & irq_set_kb){

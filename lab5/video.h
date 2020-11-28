@@ -46,3 +46,4 @@ int move(xpm_map_t xpm, uint16_t *xi, uint16_t *yi, uint16_t xf, uint16_t yf, in
 
 uint16_t min(uint16_t a, uint16_t b);
 
+uint16_t max(uint16_t a, uint16_t b);
