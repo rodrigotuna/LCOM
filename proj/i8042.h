@@ -31,6 +31,15 @@
 #define BREAK_CODE BIT(7)
 
 #define ESC_BREAK_CODE 0x81
+#define W_MAKE_CODE 0x11
+#define W_BREAK_CODE 0x91
+#define A_MAKE_CODE 0x1E
+#define A_BREAK_CODE 0x9E
+#define S_MAKE_CODE 0x1F
+#define S_BREAK_CODE 0x9F
+#define D_MAKE_CODE 0x20
+#define D_BREAK_CODE 0xA0
+
 
 #define TWO_BYTE_CODE 0xE0
 
