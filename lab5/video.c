@@ -19,7 +19,7 @@ int video_get_inf(uint16_t mode){
     return 1;
   }
 
-  memcpy((void*)&inf, (void*)virtual_addr, map.size);
+  memcpy((void*)&inf, (void*)virtual_addr, sizeof(vbe_mode_info_t));
   return 0;
 }
 
