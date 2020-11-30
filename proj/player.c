@@ -28,4 +28,8 @@ int change_player_position(player_t * player){
 
 int keep_player_in_bounds(player_t * player){
   return 0;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> f62ff39521a00b5fde9b1f95f84886f22008d0ed
