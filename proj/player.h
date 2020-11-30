@@ -2,15 +2,18 @@
 
 #include <stdint.h>
 
+#include "sprite.h"
 #include "i8042.h"
 
 struct player{
   uint32_t x_pos,y_pos;
 
-  int32_t x_velocity, y_velocity;
+  uint32_t x_velocity, y_velocity;
 
   uint32_t x_upper_lim, x_lower_lim;
   uint32_t y_upper_lim, y_lower_lim;
+
+  sprite_t sp;
 };
 
 typedef struct player player_t;
