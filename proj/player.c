@@ -21,7 +21,7 @@ int change_player_position(player_t * player){
   if(player == NULL) return 1;
 
   player->x_pos += player->x_velocity;
-  player->y_velocity += player->y_velocity;
+  player->y_pos += player->y_velocity;
 
   return (keep_player_in_bounds(player));
 }
