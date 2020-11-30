@@ -20,6 +20,7 @@ int video_get_inf(uint16_t mode){
   }
 
   memcpy((void*)&inf, (void*)virtual_addr, sizeof(vbe_mode_info_t));
+  lm_free(&map);
   return 0;
 }
 
@@ -117,11 +118,6 @@ int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height,
   }
   return 0;
 }
-
-void free_mem_map(){
-  lm_free(&map);
-}
-
 
 uint16_t min(uint16_t a, uint16_t b){
   if(a < b) return a;

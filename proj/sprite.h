@@ -20,6 +20,6 @@ sprite_t * create_sprite(xpm_map_t map, int x, int y, int xv, int yv);
 
 void destroy_sprite(sprite_t * sp);
 
-int display_sprite(sprite_t * sp, uint16_t x, uint16_t y);
+int display_sprite(sprite_t * sp);
 
 int check_collisions(sprite_t * sp);

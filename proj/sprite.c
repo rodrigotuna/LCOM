@@ -34,10 +34,10 @@ void destroy_sprite(sprite_t * sp){
   }
 }
 
-int display_sprite(sprite_t * sp, uint16_t x, uint16_t y){
+int display_sprite(sprite_t * sp){
   for(int i = 0; i < sp->height; i++){
     for(int j = 0; j < sp->width; j++){
-        if(set_pixel(x+j,y+i,sp->map[i*sp->width + j])) return 1;     
+        if(set_pixel(sp->x_pos+j,sp->y_pos+i,sp->map[i*sp->width + j])) return 1;     
     }
   }
   return 0;
