@@ -10,7 +10,8 @@ struct sprite{
 
   int x_velocity, y_velocity; //x and y velocities
 
-  int width, height;  // dimensions
+  uint16_t width, height;// dimensions
+  uint32_t transparency_color; 
   uint32_t * map;     // the pixmap
 };
 

@@ -13,6 +13,8 @@ sprite_t * create_sprite(xpm_map_t xpm_map, int x, int y, int xv, int yv){
     return NULL;
   }
 
+  sp->transparency_color = xpm_transparency_color(img.type);
+
   sp->width = img.width; 
   sp->height = img.height;
 
@@ -37,7 +39,10 @@ void destroy_sprite(sprite_t * sp){
 int display_sprite(sprite_t * sp){
   for(int i = 0; i < sp->height; i++){
     for(int j = 0; j < sp->width; j++){
-        if(set_pixel(sp->x_pos+j,sp->y_pos+i,sp->map[i*sp->width + j])) return 1;     
+      uint32_t color = sp->map[i*sp->width + j];
+      if(color != sp->transparency_color){
+        if(set_pixel(sp->x_pos+j,sp->y_pos+i,color)) return 1;
+      }     
     }
   }
   return 0;
