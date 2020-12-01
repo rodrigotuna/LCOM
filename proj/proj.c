@@ -9,6 +9,7 @@
 #include "sprite.h"
 #include "tenniscourt.xpm"
 #include "playerdown1.xpm"
+#include "aim.xpm"
 #include "keyboard.h"
 #include "player.h"
 
@@ -69,6 +70,8 @@ int(proj_main_loop)(int argc, char *argv[]) {
   sprite_t court = *create_sprite(tenniscourt_xpm,0,0,0,0);
   display_sprite(&court);
 
+  sprite_t aim = *create_sprite(aim_xpm,100,100,0,0);
+  display_sprite(&aim);
   player_t player;
   player.sp = *create_sprite(playerdown1_xpm,300,500,0,0);
   set_bounds(&player,0,700,250,500);
