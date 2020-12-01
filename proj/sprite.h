@@ -6,7 +6,7 @@
 #include "i8042.h"
 
 struct sprite{
-  int x_pos, y_pos; //x and y positions
+  int16_t x_pos, y_pos; //x and y positions
 
   int x_velocity, y_velocity; //x and y velocities
 
@@ -24,3 +24,5 @@ void destroy_sprite(sprite_t * sp);
 int display_sprite(sprite_t * sp);
 
 int check_collisions(sprite_t * sp);
+
+int erase_sprite(sprite_t  * background, sprite_t * sp);

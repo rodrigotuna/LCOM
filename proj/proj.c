@@ -71,6 +71,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
 
   player_t player;
   player.sp = *create_sprite(playerdown1_xpm,300,500,0,0);
+  set_bounds(&player,0,700,250,500);
   display_sprite(&player.sp);
 
   bool running = true;
@@ -85,7 +86,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
       switch (_ENDPOINT_P(msg.m_source)) {
         case HARDWARE:
           if (msg.m_notify.interrupts & irq_set_timer){
-            display_sprite(&court);
+            erase_sprite(&court, &player.sp);
             change_player_position(&player);
             display_sprite(&player.sp);
              
@@ -101,6 +102,8 @@ int(proj_main_loop)(int argc, char *argv[]) {
       }
     }
   }
+  destroy_sprite(&player.sp);
+  destroy_sprite(&court);
   if(timer_unsubscribe_int()) return 1;
   if(kb_unsubscribe_int()) return 1;
   if(vg_exit()) return 1;

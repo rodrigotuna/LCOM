@@ -30,7 +30,7 @@ sprite_t * create_sprite(xpm_map_t xpm_map, int x, int y, int xv, int yv){
 void destroy_sprite(sprite_t * sp){
   if( sp == NULL )return;
   if( sp->map ){
-    free(sp->map);
+    //free(sp->map);
     free(sp);
     sp = NULL;
   }
@@ -49,5 +49,15 @@ int display_sprite(sprite_t * sp){
 }
 
 int check_collisions(sprite_t * sp){
+  return 0;
+}
+
+int erase_sprite(sprite_t  * background, sprite_t * sp){
+  for(int i = 0; i < sp->height; i++){
+    for(int j = 0; j < sp->width; j++){
+      uint32_t color = background->map[(sp->y_pos + i)*background->width + j + sp->x_pos];
+      if(set_pixel(sp->x_pos+j,sp->y_pos+i,color)) return 1;
+      }     
+    }
   return 0;
 }
