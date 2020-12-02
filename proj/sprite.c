@@ -1,16 +1,26 @@
 #include "sprite.h"
 
-sprite_t * create_sprite(xpm_map_t xpm_map, int x, int y, int xv, int yv){
+sprite_t * create_sprite(xpm_map_t xpm_map[], int nframes, int aspeed, int x, int y, int xv, int yv){
   sprite_t *sp = (sprite_t*) malloc ( sizeof(sprite_t));
 
-  xpm_image_t img;
   if(sp == NULL) return NULL;
 
-  sp->map = (uint32_t *) xpm_load(xpm_map, XPM_8_8_8_8, &img);
+  sp->no_frames = nframes;
+  sp->frame_count = 0;
+  sp->frame_delay = aspeed;
 
-  if( sp->map == NULL ){
-    free(sp);
-    return NULL;
+  sp->map = malloc((nframes)*sizeof(map));
+
+  xpm_image_t img;
+
+  for(int i = 0; i < sp->no_frames; i++){
+    xpm_image_t img_aux;
+    sp->map[i] = (uint32_t *) xpm_load(xpm_map[i], XPM_8_8_8_8, &img_aux);
+    if( sp->map[i] == NULL ){
+      destroy_sprite(sp);
+      return NULL;
+    }
+    img = img_aux;
   }
 
   sp->transparency_color = xpm_transparency_color(img.type);
@@ -30,7 +40,10 @@ sprite_t * create_sprite(xpm_map_t xpm_map, int x, int y, int xv, int yv){
 void destroy_sprite(sprite_t * sp){
   if( sp == NULL )return;
   if( sp->map ){
-    //free(sp->map);
+    for(int i = 1; i< sp->no_frames;i++){
+      free(sp->map[i]);
+    }
+    free(sp->map); 
     free(sp);
     sp = NULL;
   }
@@ -39,7 +52,7 @@ void destroy_sprite(sprite_t * sp){
 int display_sprite(sprite_t * sp){
   for(int i = 0; i < sp->height; i++){
     for(int j = 0; j < sp->width; j++){
-      uint32_t color = sp->map[i*sp->width + j];
+      uint32_t color = sp->map[(sp->frame_index)][i*sp->width + j];
       if(color != sp->transparency_color){
         if(set_pixel(sp->x_pos+j,sp->y_pos+i,color)) return 1;
       }     
@@ -55,9 +68,19 @@ int check_collisions(sprite_t * sp){
 int erase_sprite(sprite_t  * background, sprite_t * sp){
   for(int i = 0; i < sp->height; i++){
     for(int j = 0; j < sp->width; j++){
-      uint32_t color = background->map[(sp->y_pos + i)*background->width + j + sp->x_pos];
+      uint32_t color = background->map[(sp->frame_index)][(sp->y_pos + i) * background->width + j + sp->x_pos];
       if(set_pixel(sp->x_pos+j,sp->y_pos+i,color)) return 1;
       }     
     }
+  return 0;
+}
+
+int update_sprite_animation(sprite_t * sp){
+  sp->frame_count ++;
+  if(sp->frame_count >= sp->frame_delay){
+    sp->frame_count = 0;
+    sp->frame_index ++;
+    sp->frame_index %= sp->no_frames; 
+  }
   return 0;
 }

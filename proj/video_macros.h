@@ -4,6 +4,7 @@
 
 #define VBE_MODE_INFO 0x4F01
 #define VBE_MODE 0x4F02
+#define VBE_MODE_DISPLAY_START 0x4F07
 
 #define LIN_FRAME_BUFF BIT(14)
 

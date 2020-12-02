@@ -12,12 +12,17 @@ struct sprite{
 
   uint16_t width, height;// dimensions
   uint32_t transparency_color; 
-  uint32_t * map;     // the pixmap
-};
 
+  int frame_count;
+  int frame_delay;
+  int frame_index;
+  int no_frames;
+
+  uint32_t * *map;     // the pixmap array
+};
 typedef struct sprite sprite_t;
 
-sprite_t * create_sprite(xpm_map_t map, int x, int y, int xv, int yv);
+sprite_t * create_sprite(xpm_map_t xpm_map[], int no_pic, int aspeed, int x, int y, int xv, int yv);
 
 void destroy_sprite(sprite_t * sp);
 
@@ -26,3 +31,6 @@ int display_sprite(sprite_t * sp);
 int check_collisions(sprite_t * sp);
 
 int erase_sprite(sprite_t  * background, sprite_t * sp);
+
+int update_sprite_animation(sprite_t * anim);
+

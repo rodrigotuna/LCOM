@@ -8,7 +8,10 @@
 
 #include "sprite.h"
 #include "tenniscourt.xpm"
-#include "playerdown1.xpm"
+#include "playerdownright_0.xpm"
+#include "playerdownright_1.xpm"
+#include "playerdownleft_0.xpm"
+#include "playerdownleft_1.xpm"
 #include "aim.xpm"
 #include "keyboard.h"
 #include "player.h"
@@ -57,7 +60,10 @@ int(proj_main_loop)(int argc, char *argv[]) {
 
   if(video_init_mode(MODE)) return 1;
   
+  xpm_map_t player_xpm[] = {playerdownright_0_xpm, playerdownright_1_xpm, playerdownleft_0_xpm,playerdownleft_1_xpm};
   
+  xpm_map_t court_xpm[] = {tenniscourt_xpm};
+
   uint8_t bit_no_timer;  
   uint8_t bit_no_kb;
   if(timer_subscribe_int(&bit_no_timer)) return 1;
@@ -67,14 +73,14 @@ int(proj_main_loop)(int argc, char *argv[]) {
   uint32_t irq_set_timer = BIT(bit_no_timer);
   uint32_t irq_set_kb = BIT(bit_no_kb);
 
-  sprite_t court = *create_sprite(tenniscourt_xpm,0,0,0,0);
+  sprite_t court = *create_sprite(court_xpm,1,0,0,0,0,0);
+  court.frame_index = 0;
   display_sprite(&court);
 
-  sprite_t aim = *create_sprite(aim_xpm,100,100,0,0);
-  display_sprite(&aim);
   player_t player;
-  player.sp = *create_sprite(playerdown1_xpm,300,500,0,0);
+  player.sp = *create_sprite(player_xpm,4,30,300,500,0,0);
   set_bounds(&player,0,700,250,500);
+  player.sp.frame_index = 0;
   display_sprite(&player.sp);
 
   bool running = true;
@@ -89,11 +95,12 @@ int(proj_main_loop)(int argc, char *argv[]) {
       switch (_ENDPOINT_P(msg.m_source)) {
         case HARDWARE:
           if (msg.m_notify.interrupts & irq_set_timer){
+            //update_sprite_animation(&player.sp);
             erase_sprite(&court, &player.sp);
             change_player_position(&player);
             display_sprite(&player.sp);
-             
-        }if (msg.m_notify.interrupts & irq_set_kb){
+          }
+          if (msg.m_notify.interrupts & irq_set_kb){
              kbc_ih(); //handler reads bytes from the KBC's Output_buf
              if(code_completed){
                change_player_velocity(&player,scancode[size-1]);

@@ -19,6 +19,7 @@ int change_player_velocity(player_t * player, uint8_t scancode){
     case A_MAKE_CODE:  if(a_pressed) break;
                        player->sp.x_velocity-=5; 
                        a_pressed = true;
+                       //player->sp.frame_index = 2;
                        break;
     case A_BREAK_CODE: player->sp.x_velocity+=5; 
                        a_pressed = false;
@@ -33,6 +34,7 @@ int change_player_velocity(player_t * player, uint8_t scancode){
     case D_MAKE_CODE:  if(d_pressed) break;
                        player->sp.x_velocity+=5; 
                        d_pressed = true;
+                       //player->sp.frame_index = 0;
                        break;
     case D_BREAK_CODE: player->sp.x_velocity-=5; 
                        d_pressed = false;

@@ -50,6 +50,8 @@ void map_memory(){
   memset(&mr,0,sizeof(struct minix_mem_range));
 
   unsigned int vram_base = inf.PhysBasePtr;  /* VRAM's physical addresss */
+  //unsigned int vram_base_2 = inf.PhysBasePtr + inf.XResolution * inf.YResolution * bytesPerPixel();
+
   unsigned int vram_size = inf.XResolution * inf.YResolution * bytesPerPixel();
 
   int r;
