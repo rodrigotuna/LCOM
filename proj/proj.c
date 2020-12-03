@@ -95,7 +95,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
   crosshair_t crosshair;
   crosshair.sp = *create_sprite(crosshair_xpm,1,0,400,300,0,0);
   crosshair.sp.frame_index = 0;
-  display_sprite(&crosshair.sp);
+  //display_sprite(&crosshair.sp);
 
   bool running = true;
 
@@ -110,11 +110,15 @@ int(proj_main_loop)(int argc, char *argv[]) {
         case HARDWARE:
           if (msg.m_notify.interrupts & irq_set_timer){
             //update_sprite_animation(&player.sp);
-            erase_sprite(&court, &player.sp);
-            erase_sprite(&court, &crosshair.sp);
-            change_player_position(&player);
-            display_sprite(&player.sp);
-            display_sprite(&crosshair.sp);
+            timer_int_handler();
+            if(interrupts % 1 == 0){
+              erase_sprite(&court, &player.sp);
+              erase_sprite(&court, &crosshair.sp);
+              change_player_position(&player);
+              //change_crosshair_position(&crosshair);
+              display_sprite(&player.sp);
+              display_sprite(&crosshair.sp);
+            }
           }
           if (msg.m_notify.interrupts & irq_set_kb){
              kbc_ih(); //handler reads bytes from the KBC's Output_buf
@@ -128,7 +132,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
             mouse_ih();
             if(mouse_count == 3){
               struct packet pp = make_packet();
-              change_crosshair_position(&crosshair, &pp);
+              read_deviation(&crosshair, &pp);
             }
           }
           break;
