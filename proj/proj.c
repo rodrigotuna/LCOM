@@ -12,6 +12,8 @@
 #include "playerdownright_1.xpm"
 #include "playerdownleft_0.xpm"
 #include "playerdownleft_1.xpm"
+#include "playerdownright.xpm"
+#include "playerdownleft.xpm"
 #include "aim.xpm"
 #include "keyboard.h"
 #include "mouse.h"
@@ -62,40 +64,36 @@ int(proj_main_loop)(int argc, char *argv[]) {
 
   if(video_init_mode(MODE)) return 1;
 
-  if(mouse_enable_data_reporting()) return 1;
+  //if(mouse_enable_data_reporting()) return 1;
   
-  xpm_map_t player_xpm[] = {playerdownright_0_xpm, playerdownright_1_xpm, playerdownleft_0_xpm,playerdownleft_1_xpm};
-  
-  xpm_map_t court_xpm[] = {tenniscourt_xpm};
+ xpm_map_t player_xpm[] = {playerdownright_0_xpm, playerdownright_1_xpm, playerdownleft_0_xpm,playerdownleft_1_xpm};
 
-  xpm_map_t crosshair_xpm[] = {aim_xpm};
+  //xpm_map_t crosshair_xpm[] = {aim_xpm};
 
   uint8_t bit_no_timer;  
   uint8_t bit_no_kb;
-  uint8_t bit_no_mouse;
+  //uint8_t bit_no_mouse;
   if(timer_subscribe_int(&bit_no_timer)) return 1;
   if(kb_subscribe_int(&bit_no_kb)) return 1; //subscribe KBC 
-  if(mouse_subscribe_int(&bit_no_mouse)) return 1;
+  //if(mouse_subscribe_int(&bit_no_mouse)) return 1;
   int ipc_status;
   message msg;
   uint32_t irq_set_timer = BIT(bit_no_timer);
   uint32_t irq_set_kb = BIT(bit_no_kb);
-  uint32_t irq_set_mouse = BIT(bit_no_mouse);
+  //uint32_t irq_set_mouse = BIT(bit_no_mouse);*/
 
-  sprite_t court = *create_sprite(court_xpm,1,0,0,0,0,0);
-  court.frame_index = 0;
+  sprite_t court = *create_sprite(tenniscourt_xpm,0,0,0,0);
   display_sprite(&court);
 
   player_t player;
-  player.sp = *create_sprite(player_xpm,4,30,300,500,0,0);
+  player.asprite = create_animated_sprite(player_xpm,4,2,15,300,500,0,0);
   set_bounds(&player,0,700,250,500);
-  player.sp.frame_index = 0;
-  display_sprite(&player.sp);
+  display_sprite(&player.asprite->sp);
 
-  crosshair_t crosshair;
+  /*crosshair_t crosshair;
   crosshair.sp = *create_sprite(crosshair_xpm,1,0,400,300,0,0);
   crosshair.sp.frame_index = 0;
-  display_sprite(&crosshair.sp);
+  display_sprite(&crosshair.sp);*/
 
   bool running = true;
 
@@ -109,12 +107,12 @@ int(proj_main_loop)(int argc, char *argv[]) {
       switch (_ENDPOINT_P(msg.m_source)) {
         case HARDWARE:
           if (msg.m_notify.interrupts & irq_set_timer){
-            //update_sprite_animation(&player.sp);
-            erase_sprite(&court, &player.sp);
-            erase_sprite(&court, &crosshair.sp);
+            update_sprite_animation(player.asprite);
+            erase_sprite(&court, &player.asprite->sp);
+            //erase_sprite(&court, &crosshair.sp);
             change_player_position(&player);
-            display_sprite(&player.sp);
-            display_sprite(&crosshair.sp);
+            display_sprite(&player.asprite->sp);
+            //display_sprite(&crosshair.sp);
           }
           if (msg.m_notify.interrupts & irq_set_kb){
              kbc_ih(); //handler reads bytes from the KBC's Output_buf
@@ -124,24 +122,24 @@ int(proj_main_loop)(int argc, char *argv[]) {
             if(scancode[size-1] == ESC_BREAK_CODE) running = false;
           }
 
-          if(msg.m_notify.interrupts & irq_set_mouse){
+          /*if(msg.m_notify.interrupts & irq_set_mouse){
             mouse_ih();
             if(mouse_count == 3){
               struct packet pp = make_packet();
               change_crosshair_position(&crosshair, &pp);
             }
-          }
+          }*/
           break;
         default: break;
       }
     }
   }
-  destroy_sprite(&player.sp);
+  destroy_animated_sprite(player.asprite);
   destroy_sprite(&court);
-  destroy_sprite(&crosshair.sp);
+  //destroy_sprite(&crosshair.sp);
   if(timer_unsubscribe_int()) return 1;
   if(kb_unsubscribe_int()) return 1;
-  if(mouse_unsubscribe_int()) return 1;
+  //if(mouse_unsubscribe_int()) return 1;
   if(vg_exit()) return 1;
 
   return 0;

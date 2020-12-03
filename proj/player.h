@@ -9,7 +9,7 @@ struct player{
   int16_t x_upper_lim, x_lower_lim;
   int16_t y_upper_lim, y_lower_lim;
 
-  sprite_t sp;
+  animated_sprite_t * asprite;
 };
 
 typedef struct player player_t;
