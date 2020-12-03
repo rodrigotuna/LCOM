@@ -62,7 +62,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
 
   if(video_init_mode(MODE)) return 1;
 
-  //if(mouse_enable_data_reporting()) return 1;
+  if(mouse_enable_data_reporting()) return 1;
   
  xpm_map_t player_xpm[] = {playerdownright_0_xpm, playerdownright_1_xpm, playerdownleft_0_xpm,playerdownleft_1_xpm};
 
@@ -70,15 +70,15 @@ int(proj_main_loop)(int argc, char *argv[]) {
 
   uint8_t bit_no_timer;  
   uint8_t bit_no_kb;
-  //uint8_t bit_no_mouse;
+  uint8_t bit_no_mouse;
   if(timer_subscribe_int(&bit_no_timer)) return 1;
   if(kb_subscribe_int(&bit_no_kb)) return 1; //subscribe KBC 
-  //if(mouse_subscribe_int(&bit_no_mouse)) return 1;
+  if(mouse_subscribe_int(&bit_no_mouse)) return 1;
   int ipc_status;
   message msg;
   uint32_t irq_set_timer = BIT(bit_no_timer);
   uint32_t irq_set_kb = BIT(bit_no_kb);
-  //uint32_t irq_set_mouse = BIT(bit_no_mouse);*/
+  uint32_t irq_set_mouse = BIT(bit_no_mouse);
 
   sprite_t court = *create_sprite(tenniscourt_xpm,0,0,0,0);
   display_sprite(&court);
@@ -88,10 +88,12 @@ int(proj_main_loop)(int argc, char *argv[]) {
   set_bounds(&player,0,700,250,500);
   display_sprite(&player.asprite->sp);
 
-  /*crosshair_t crosshair;
-  crosshair.sp = *create_sprite(crosshair_xpm,1,0,400,300,0,0);
-  crosshair.sp.frame_index = 0;
-  display_sprite(&crosshair.sp);*/
+  crosshair_t crosshair;
+  crosshair.sp = *create_sprite(aim_xpm,400,300,0,0);
+  crosshair.acum_delta_x = 0;
+  crosshair.acum_delta_y = 0;
+  //crosshair.sp.frame_index = 0;
+  display_sprite(&crosshair.sp);
 
   bool running = true;
 
@@ -109,11 +111,11 @@ int(proj_main_loop)(int argc, char *argv[]) {
             if(interrupts % 1 == 0){
               update_sprite_animation(player.asprite);
               erase_sprite(&court, &player.asprite->sp);
-              //erase_sprite(&court, &crosshair.sp);
+              erase_sprite(&court, &crosshair.sp);
               change_player_position(&player);
-              //change_crosshair_position(&crosshair);
+              change_crosshair_position(&crosshair);
               display_sprite(&player.asprite->sp);
-              //display_sprite(&crosshair.sp);
+              display_sprite(&crosshair.sp);
             }
           }
           if (msg.m_notify.interrupts & irq_set_kb){
@@ -124,13 +126,13 @@ int(proj_main_loop)(int argc, char *argv[]) {
             if(scancode[size-1] == ESC_BREAK_CODE) running = false;
           }
 
-          /*if(msg.m_notify.interrupts & irq_set_mouse){
+          if(msg.m_notify.interrupts & irq_set_mouse){
             mouse_ih();
             if(mouse_count == 3){
               struct packet pp = make_packet();
               read_deviation(&crosshair, &pp);
             }
-          }*/
+          }
           break;
         default: break;
       }
