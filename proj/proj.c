@@ -12,8 +12,6 @@
 #include "playerdownright_1.xpm"
 #include "playerdownleft_0.xpm"
 #include "playerdownleft_1.xpm"
-#include "playerdownright.xpm"
-#include "playerdownleft.xpm"
 #include "aim.xpm"
 #include "keyboard.h"
 #include "mouse.h"
@@ -86,7 +84,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
   display_sprite(&court);
 
   player_t player;
-  player.asprite = create_animated_sprite(player_xpm,4,2,15,300,500,0,0);
+  player.asprite = create_animated_sprite(player_xpm,4,2,30,300,500,0,0);
   set_bounds(&player,0,700,250,500);
   display_sprite(&player.asprite->sp);
 
@@ -107,12 +105,16 @@ int(proj_main_loop)(int argc, char *argv[]) {
       switch (_ENDPOINT_P(msg.m_source)) {
         case HARDWARE:
           if (msg.m_notify.interrupts & irq_set_timer){
-            update_sprite_animation(player.asprite);
-            erase_sprite(&court, &player.asprite->sp);
-            //erase_sprite(&court, &crosshair.sp);
-            change_player_position(&player);
-            display_sprite(&player.asprite->sp);
-            //display_sprite(&crosshair.sp);
+            timer_int_handler();
+            if(interrupts % 1 == 0){
+              update_sprite_animation(player.asprite);
+              erase_sprite(&court, &player.asprite->sp);
+              //erase_sprite(&court, &crosshair.sp);
+              change_player_position(&player);
+              //change_crosshair_position(&crosshair);
+              display_sprite(&player.asprite->sp);
+              //display_sprite(&crosshair.sp);
+            }
           }
           if (msg.m_notify.interrupts & irq_set_kb){
              kbc_ih(); //handler reads bytes from the KBC's Output_buf
@@ -126,7 +128,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
             mouse_ih();
             if(mouse_count == 3){
               struct packet pp = make_packet();
-              change_crosshair_position(&crosshair, &pp);
+              read_deviation(&crosshair, &pp);
             }
           }*/
           break;
