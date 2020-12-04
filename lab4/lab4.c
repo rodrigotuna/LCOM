@@ -39,7 +39,9 @@ int main(int argc, char *argv[]) {
 
 int (mouse_test_packet)(uint32_t cnt) {
   uint8_t bit_no;
-  if(mouse_data_report(true)) return 1; 
+  if(mouse_set_arg(0xEA)) return 1;
+  if(mouse_data_report(true)) return 1;
+  //if(mouse_enable_data_reporting()) return 1;
   if(mouse_subscribe_int(&bit_no)) return 1; //subscribe KBC 
   int ipc_status;
   message msg;

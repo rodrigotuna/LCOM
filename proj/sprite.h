@@ -14,6 +14,9 @@ struct sprite{
   uint16_t width, height;// dimensions
   uint32_t transparency_color; 
 
+  int16_t x_upper_lim, x_lower_lim;
+  int16_t y_upper_lim, y_lower_lim;
+
   uint32_t * current_pic;     // the pixmap
 };
 
@@ -30,6 +33,7 @@ struct animated_sprite{
   int no_frames;
 
   uint32_t * *map;     // the pixmap
+  
 };
 
 typedef struct animated_sprite animated_sprite_t;
@@ -50,3 +54,6 @@ int erase_sprite(sprite_t  * background, sprite_t * sp);
 
 int update_sprite_animation(animated_sprite_t * asprite);
 
+void set_bounds(sprite_t *sp, int16_t x_low, int16_t x_up, int16_t y_low, int16_t y_up);
+
+int keep_sprite_in_bounds(sprite_t * sp);

@@ -112,3 +112,18 @@ int update_sprite_animation(animated_sprite_t * asprite){
   }
   return 0;
 }
+
+void set_bounds(sprite_t *sp, int16_t x_low, int16_t x_up, int16_t y_low, int16_t y_up){
+  sp->x_lower_lim = x_low;
+  sp->x_upper_lim = x_up;
+  sp->y_lower_lim = y_low;
+  sp->y_upper_lim = y_up;
+}
+
+int keep_sprite_in_bounds(sprite_t * sp){
+  sp->x_pos = max(sp->x_pos, sp->x_lower_lim);
+  sp->x_pos = min(sp->x_pos, sp->x_upper_lim);
+  sp->y_pos = max(sp->y_pos, sp->y_lower_lim);
+  sp->y_pos = min(sp->y_pos, sp->y_upper_lim);
+  return 0;
+}

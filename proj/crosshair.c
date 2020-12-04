@@ -11,5 +11,5 @@ int change_crosshair_position(crosshair_t * cross){
   cross->sp.y_pos += cross->acum_delta_y;
   cross->acum_delta_x = 0;
   cross->acum_delta_y = 0;
-  return 0;
+  return keep_sprite_in_bounds(&cross->sp);
 }

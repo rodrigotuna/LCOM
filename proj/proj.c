@@ -62,7 +62,9 @@ int(proj_main_loop)(int argc, char *argv[]) {
 
   if(video_init_mode(MODE)) return 1;
 
-  if(mouse_enable_data_reporting()) return 1;
+  //if(mouse_enable_data_reporting()) return 1;
+  //if(mouse_set_arg(0xE0)) return 1;
+  if(mouse_data_report(true)) return 1;
   
  xpm_map_t player_xpm[] = {playerdownright_0_xpm, playerdownright_1_xpm, playerdownleft_0_xpm,playerdownleft_1_xpm};
 
@@ -85,13 +87,14 @@ int(proj_main_loop)(int argc, char *argv[]) {
 
   player_t player;
   player.asprite = create_animated_sprite(player_xpm,4,2,30,300,500,0,0);
-  set_bounds(&player,0,700,250,500);
+  set_bounds(&player.asprite->sp,0,700,250,500);
   display_sprite(&player.asprite->sp);
 
   crosshair_t crosshair;
   crosshair.sp = *create_sprite(aim_xpm,400,300,0,0);
   crosshair.acum_delta_x = 0;
   crosshair.acum_delta_y = 0;
+  set_bounds(&crosshair.sp, 0, 768, 0, 568);
   //crosshair.sp.frame_index = 0;
   display_sprite(&crosshair.sp);
 
@@ -140,10 +143,11 @@ int(proj_main_loop)(int argc, char *argv[]) {
   }
   destroy_animated_sprite(player.asprite);
   destroy_sprite(&court);
-  //destroy_sprite(&crosshair.sp);
+  destroy_sprite(&crosshair.sp);
   if(timer_unsubscribe_int()) return 1;
   if(kb_unsubscribe_int()) return 1;
-  //if(mouse_unsubscribe_int()) return 1;
+  if(mouse_unsubscribe_int()) return 1;
+  if(mouse_data_report(false)) return 1;
   if(vg_exit()) return 1;
 
   return 0;

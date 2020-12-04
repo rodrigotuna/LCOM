@@ -50,20 +50,5 @@ int change_player_position(player_t * player){
   player->asprite->sp.x_pos += player->asprite->sp.x_velocity;
   player->asprite->sp.y_pos += player->asprite->sp.y_velocity;
 
-  return (keep_player_in_bounds(player));
-}
-
-void set_bounds(player_t* player, int16_t x_low, int16_t x_up, int16_t y_low, int16_t y_up){
-  player->x_lower_lim = x_low;
-  player->x_upper_lim = x_up;
-  player->y_lower_lim = y_low;
-  player->y_upper_lim = y_up;
-}
-
-int keep_player_in_bounds(player_t * player){
-  player->asprite->sp.x_pos = max(player->asprite->sp.x_pos, player->x_lower_lim);
-  player->asprite->sp.x_pos = min(player->asprite->sp.x_pos, player->x_upper_lim);
-  player->asprite->sp.y_pos = max(player->asprite->sp.y_pos, player->y_lower_lim);
-  player->asprite->sp.y_pos = min(player->asprite->sp.y_pos, player->y_upper_lim);
-  return 0;
+  return (keep_sprite_in_bounds(&player->asprite->sp));
 }
