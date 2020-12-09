@@ -10,11 +10,14 @@
 
 vbe_mode_info_t inf;
 static mmap_t map;
-static void *video_mem;
+static void *front_video_mem, *back_video_mem;
+bool flip; 
 
 int video_get_inf(uint16_t mode);
 
 int video_init_mode(uint16_t mode);
+
+void page_flipping();
 
 void map_memory();
 

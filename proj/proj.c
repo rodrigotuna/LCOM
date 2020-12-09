@@ -66,7 +66,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
   //if(mouse_set_arg(0xE0)) return 1;
   if(mouse_data_report(true)) return 1;
   
- xpm_map_t player_xpm[] = {playerdownright_0_xpm, playerdownright_1_xpm, playerdownleft_0_xpm,playerdownleft_1_xpm};
+  xpm_map_t player_xpm[] = {playerdownright_0_xpm, playerdownright_1_xpm, playerdownleft_0_xpm,playerdownleft_1_xpm};
 
   //xpm_map_t crosshair_xpm[] = {aim_xpm};
 
@@ -88,15 +88,15 @@ int(proj_main_loop)(int argc, char *argv[]) {
   player_t player;
   player.asprite = create_animated_sprite(player_xpm,4,2,30,300,500,0,0);
   set_bounds(&player.asprite->sp,0,700,250,500);
-  display_sprite(&player.asprite->sp);
+  //display_sprite(&player.asprite->sp);
 
   crosshair_t crosshair;
   crosshair.sp = *create_sprite(aim_xpm,400,300,0,0);
   crosshair.acum_delta_x = 0;
   crosshair.acum_delta_y = 0;
   set_bounds(&crosshair.sp, 0, 768, 0, 568);
-  //crosshair.sp.frame_index = 0;
-  display_sprite(&crosshair.sp);
+  //display_sprite(&crosshair.sp);
+
 
   bool running = true;
 
@@ -119,6 +119,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
               change_crosshair_position(&crosshair);
               display_sprite(&player.asprite->sp);
               display_sprite(&crosshair.sp);
+              page_flipping();
             }
           }
           if (msg.m_notify.interrupts & irq_set_kb){
@@ -144,6 +145,8 @@ int(proj_main_loop)(int argc, char *argv[]) {
   destroy_animated_sprite(player.asprite);
   destroy_sprite(&court);
   destroy_sprite(&crosshair.sp);
+  free(front_video_mem);
+  free(back_video_mem);
   if(timer_unsubscribe_int()) return 1;
   if(kb_unsubscribe_int()) return 1;
   if(mouse_unsubscribe_int()) return 1;

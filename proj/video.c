@@ -45,29 +45,58 @@ int bytesPerPixel(){
 }
 
 void map_memory(){
-  struct minix_mem_range mr;
+  struct minix_mem_range front_mr, back_mr;
 
-  memset(&mr,0,sizeof(struct minix_mem_range));
+  memset(&front_mr,0,sizeof(struct minix_mem_range));
+  memset(&back_mr,0,sizeof(struct minix_mem_range));
 
-  unsigned int vram_base = inf.PhysBasePtr;  /* VRAM's physical addresss */
-  //unsigned int vram_base_2 = inf.PhysBasePtr + inf.XResolution * inf.YResolution * bytesPerPixel();
-
+  unsigned int front_vram_base = inf.PhysBasePtr;
   unsigned int vram_size = inf.XResolution * inf.YResolution * bytesPerPixel();
 
-  int r;
-  mr.mr_base = (phys_bytes) vram_base;	
-  mr.mr_limit = mr.mr_base + vram_size;  
+  unsigned int back_vram_base = inf.PhysBasePtr + vram_size;
 
-  if( OK != (r = sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mr)))
-    panic("sys_privctl (ADD_MEM) failed: %d\n", r);
+  int r1, r2;
+  front_mr.mr_base = (phys_bytes) front_vram_base;
+  front_mr.mr_limit = front_mr.mr_base + vram_size;  
+
+  back_mr.mr_base = (phys_bytes) back_vram_base;
+  back_mr.mr_limit = back_mr.mr_base + vram_size;
+
+  if( OK != (r1 = sys_privctl(SELF, SYS_PRIV_ADD_MEM, &front_mr)))
+    panic("sys_privctl (ADD_MEM) failed: %d\n", r1);
+
+  if( OK != (r2 = sys_privctl(SELF, SYS_PRIV_ADD_MEM, &back_mr)))
+    panic("sys_privctl (ADD_MEM) failed: %d\n", r2);
 
 /* Map memory */
 
-  video_mem = vm_map_phys(SELF, (void *)mr.mr_base, vram_size);
+  front_video_mem = vm_map_phys(SELF, (void *)front_mr.mr_base, vram_size);
 
-  if(video_mem == MAP_FAILED)
+  back_video_mem = vm_map_phys(SELF, (void *)back_mr.mr_base, vram_size);
+
+  if(front_video_mem == MAP_FAILED || back_video_mem == MAP_FAILED)
     panic("couldn't map video memory");
 
+}
+
+void page_flipping(){
+  reg86_t r;
+  memset(&r, 0, sizeof(reg86_t));
+
+  r.intno = BIOS_VIDEO_SERV;
+  r.ax = VBE_SET_GET_DISPLAY_START;
+  r.bl = 0x80;
+  r.cx = PIXEL_POS;
+
+  r.dx = (flip)? (inf.YResolution) : PIXEL_POS;
+
+  if( sys_int86(&r) != OK ) return;
+
+  /*void * temp = front_video_mem;
+  front_video_mem = back_video_mem;
+  back_video_mem = temp;*/
+
+  flip = !(flip);
 }
 
 uint32_t getRed(uint32_t color){
@@ -103,7 +132,12 @@ int set_pixel(uint16_t x, uint16_t y, uint32_t color){
 
   unsigned int pos = (x + inf.XResolution * y)*bytesPerPixel();
 
-  memcpy((void*)((unsigned int)video_mem + pos), &color, bytesPerPixel());
+  //unsigned int video_mem_pos = (flip) ? ((unsigned int)front_video_mem + pos) : ((unsigned int)back_video_mem + pos);
+
+  memcpy((void*) ((unsigned int)front_video_mem + pos), &color, bytesPerPixel());
+  
+  memcpy((void*) ((unsigned int)back_video_mem + pos)/*(video_mem_pos)*/, &color, bytesPerPixel());
+  
   return 0;
 }
 
