@@ -135,6 +135,9 @@ int(proj_main_loop)(int argc, char *argv[]) {
             if(mouse_count == 3){
               struct packet pp = make_packet();
               read_deviation(&crosshair, &pp);
+              if(process_event(&pp) == PRESSED_LB){
+                //shoot the ball
+              }
             }
           }
           break;
