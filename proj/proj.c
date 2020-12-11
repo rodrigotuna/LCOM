@@ -8,6 +8,7 @@
 
 #include "sprite.h"
 #include "tenniscourt.xpm"
+#include "net.xpm"
 #include "playerdownright_0.xpm"
 #include "playerdownright_1.xpm"
 #include "playerdownleft_0.xpm"
@@ -85,6 +86,8 @@ int(proj_main_loop)(int argc, char *argv[]) {
   sprite_t court = *create_sprite(tenniscourt_xpm,0,0,0,0);
   display_sprite(&court);
 
+  sprite_t net = *create_sprite(net_xpm,0,0,0,0);
+
   player_t player;
   player.asprite = create_animated_sprite(player_xpm,4,2,30,300,500,0,0);
   set_bounds(&player.asprite->sp,0,700,250,500);
@@ -113,10 +116,12 @@ int(proj_main_loop)(int argc, char *argv[]) {
             timer_int_handler();
             if(interrupts % 1 == 0){
               update_sprite_animation(player.asprite);
-              erase_sprite(&court, &player.asprite->sp);
-              erase_sprite(&court, &crosshair.sp);
+              /*erase_sprite(&court, &player.asprite->sp);
+              erase_sprite(&court, &crosshair.sp);*/
               change_player_position(&player);
               change_crosshair_position(&crosshair);
+              display_sprite(&court);
+              display_sprite(&net);
               display_sprite(&player.asprite->sp);
               display_sprite(&crosshair.sp);
               page_flipping();

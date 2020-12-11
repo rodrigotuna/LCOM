@@ -77,6 +77,7 @@ void map_memory(){
   if(front_video_mem == MAP_FAILED || back_video_mem == MAP_FAILED)
     panic("couldn't map video memory");
 
+  video_mem = front_video_mem;
 }
 
 void page_flipping(){
@@ -85,10 +86,10 @@ void page_flipping(){
 
   r.intno = BIOS_VIDEO_SERV;
   r.ax = VBE_SET_GET_DISPLAY_START;
-  r.bl = 0x80;
+  r.bl = 0x00;
   r.cx = PIXEL_POS;
 
-  r.dx = (flip)? (inf.YResolution) : PIXEL_POS;
+  r.dx = (video_mem == front_video_mem) ? PIXEL_POS : (inf.YResolution);
 
   if( sys_int86(&r) != OK ) return;
 
@@ -96,7 +97,8 @@ void page_flipping(){
   front_video_mem = back_video_mem;
   back_video_mem = temp;*/
 
-  flip = !(flip);
+  video_mem = (video_mem == front_video_mem) ? back_video_mem : front_video_mem;
+
 }
 
 uint32_t getRed(uint32_t color){
@@ -134,9 +136,9 @@ int set_pixel(uint16_t x, uint16_t y, uint32_t color){
 
   //unsigned int video_mem_pos = (flip) ? ((unsigned int)front_video_mem + pos) : ((unsigned int)back_video_mem + pos);
 
-  memcpy((void*) ((unsigned int)front_video_mem + pos), &color, bytesPerPixel());
+  //memcpy((void*) ((unsigned int)front_video_mem + pos), &color, bytesPerPixel());
   
-  memcpy((void*) ((unsigned int)back_video_mem + pos)/*(video_mem_pos)*/, &color, bytesPerPixel());
+  memcpy((void*) ((unsigned int)video_mem + pos)/*(video_mem_pos)*/, &color, bytesPerPixel());
   
   return 0;
 }
