@@ -102,3 +102,15 @@ void mouse_poll(){
     mouse_packet[i] = byte;
   }
 }
+
+shooting_ev process_event(struct packet * packet){
+  static bool lb_pressed = 0;
+  shooting_ev event;
+  if(packet->lb ^ lb_pressed && packet->lb){
+    event = PRESSED_LB;
+  }else {
+    event = MOVEMENT;
+  }
+  lb_pressed = packet->lb;
+  return event;
+}
