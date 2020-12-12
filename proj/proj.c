@@ -110,6 +110,23 @@ int(proj_main_loop)(int argc, char *argv[]) {
     if (is_ipc_notify(ipc_status)) { 
       switch (_ENDPOINT_P(msg.m_source)) {
         case HARDWARE:
+          if(msg.m_notify.interrupts & irq_set_mouse){
+            mouse_ih();
+            if(mouse_count == 3){
+              struct packet pp = make_packet();
+              change_crosshair_position(&crosshair, &pp);
+              if(process_event(&pp) == PRESSED_LB){
+                //shoot ball
+              }
+            }
+          }
+          if (msg.m_notify.interrupts & irq_set_kb){
+             kbc_ih(); //handler reads bytes from the KBC's Output_buf
+             if(code_completed){
+               change_player_velocity(&player,scancode[size-1]);
+             }
+            if(scancode[size-1] == ESC_BREAK_CODE) running = false;
+          }
           if (msg.m_notify.interrupts & irq_set_timer){
             timer_int_handler();
             if(interrupts % 1 == 0){
@@ -122,24 +139,6 @@ int(proj_main_loop)(int argc, char *argv[]) {
               display_sprite(&player.asprite->sp);
               display_sprite(&crosshair.sp);
               page_flipping();
-            }
-          }
-          if (msg.m_notify.interrupts & irq_set_kb){
-             kbc_ih(); //handler reads bytes from the KBC's Output_buf
-             if(code_completed){
-               change_player_velocity(&player,scancode[size-1]);
-             }
-            if(scancode[size-1] == ESC_BREAK_CODE) running = false;
-          }
-
-          if(msg.m_notify.interrupts & irq_set_mouse){
-            mouse_ih();
-            if(mouse_count == 3){
-              struct packet pp = make_packet();
-              change_crosshair_position(&crosshair, &pp);
-              if(process_event(&pp) == PRESSED_LB){
-                //shoot ball
-              }
             }
           }
           break;

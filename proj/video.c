@@ -45,39 +45,30 @@ int bytesPerPixel(){
 }
 
 void map_memory(){
-  struct minix_mem_range front_mr, back_mr;
+ 
+ struct minix_mem_range front_mr;
+ memset(&front_mr,0,sizeof(struct minix_mem_range));
 
-  memset(&front_mr,0,sizeof(struct minix_mem_range));
-  memset(&back_mr,0,sizeof(struct minix_mem_range));
+ unsigned int front_vram_base = inf.PhysBasePtr;
+ unsigned int page_size = (1 * inf.XResolution) * inf.YResolution * bytesPerPixel();
+ unsigned int vram_size = (2 * inf.XResolution) * inf.YResolution * bytesPerPixel();
+ 
+ int r1;
+ front_mr.mr_base = (phys_bytes) front_vram_base;
+ front_mr.mr_limit = front_mr.mr_base + vram_size;
+ 
+ if( OK != (r1 = sys_privctl(SELF, SYS_PRIV_ADD_MEM, &front_mr)))
+     panic("sys_privctl (ADD_MEM) failed: %d\n", r1);
+ 
+ front_video_mem = vm_map_phys(SELF, (void *)front_mr.mr_base, vram_size);
+ back_video_mem = (uint8_t *)front_video_mem + (page_size);
 
-  unsigned int front_vram_base = inf.PhysBasePtr;
-  unsigned int vram_size = inf.XResolution * inf.YResolution * bytesPerPixel();
-
-  unsigned int back_vram_base = inf.PhysBasePtr + vram_size;
-
-  int r1, r2;
-  front_mr.mr_base = (phys_bytes) front_vram_base;
-  front_mr.mr_limit = front_mr.mr_base + vram_size;  
-
-  back_mr.mr_base = (phys_bytes) back_vram_base;
-  back_mr.mr_limit = back_mr.mr_base + vram_size;
-
-  if( OK != (r1 = sys_privctl(SELF, SYS_PRIV_ADD_MEM, &front_mr)))
-    panic("sys_privctl (ADD_MEM) failed: %d\n", r1);
-
-  if( OK != (r2 = sys_privctl(SELF, SYS_PRIV_ADD_MEM, &back_mr)))
-    panic("sys_privctl (ADD_MEM) failed: %d\n", r2);
-
-/* Map memory */
-
-  front_video_mem = vm_map_phys(SELF, (void *)front_mr.mr_base, vram_size);
-
-  back_video_mem = vm_map_phys(SELF, (void *)back_mr.mr_base, vram_size);
-
-  if(front_video_mem == MAP_FAILED || back_video_mem == MAP_FAILED)
-    panic("couldn't map video memory");
-
-  video_mem = front_video_mem;
+ memset(front_video_mem,0,sizeof(uint8_t)*vram_size);
+ 
+ if(front_video_mem == MAP_FAILED)
+     panic("couldn't map video memory");
+ 
+ video_mem = front_video_mem;
 }
 
 void page_flipping(){
@@ -92,10 +83,6 @@ void page_flipping(){
   r.dx = (video_mem == front_video_mem) ? PIXEL_POS : (inf.YResolution);
 
   if( sys_int86(&r) != OK ) return;
-
-  /*void * temp = front_video_mem;
-  front_video_mem = back_video_mem;
-  back_video_mem = temp;*/
 
   video_mem = (video_mem == front_video_mem) ? back_video_mem : front_video_mem;
 
