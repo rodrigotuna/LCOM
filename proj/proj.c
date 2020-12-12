@@ -29,11 +29,11 @@ int main(int argc, char *argv[]) {
 
   // enables to log function invocations that are being "wrapped" by LCF
   // [comment this out if you don't want/need it]
-  lcf_trace_calls("/home/lcom/labs/proj/trace.txt");
+  //lcf_trace_calls("/home/lcom/labs/proj/trace.txt");
 
   // enables to save the output of printf function calls on a file
   // [comment this out if you don't want/need it]
-  lcf_log_output("/home/lcom/labs/proj/output.txt");
+  //lcf_log_output("/home/lcom/labs/proj/output.txt");
 
   // handles control over to LCF
   // [LCF handles command line arguments and invokes the right function]
@@ -95,8 +95,6 @@ int(proj_main_loop)(int argc, char *argv[]) {
 
   crosshair_t crosshair;
   crosshair.sp = *create_sprite(aim_xpm,400,300,0,0);
-  crosshair.acum_X = 0;
-  crosshair.acum_Y = 0;
   set_bounds(&crosshair.sp, 0, 768, 0, 568);
   //display_sprite(&crosshair.sp);
 
@@ -116,7 +114,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
             mouse_ih();
             if(mouse_count == 3){
               struct packet pp = make_packet();
-              read_deviation(&crosshair, &pp);
+              change_crosshair_position(&crosshair, &pp);
               if(process_event(&pp) == PRESSED_LB){
                 //shoot ball
               }
@@ -129,10 +127,10 @@ int(proj_main_loop)(int argc, char *argv[]) {
              }
             if(scancode[size-1] == ESC_BREAK_CODE) running = false;
           }
-           if (msg.m_notify.interrupts & irq_set_timer){
+          if (msg.m_notify.interrupts & irq_set_timer){
             timer_int_handler();
-            update_sprite_animation(player.asprite);
-              change_crosshair_position(&crosshair);
+            if(interrupts % 1 == 0){
+              update_sprite_animation(player.asprite);
               /*erase_sprite(&court, &player.asprite->sp);
               erase_sprite(&court, &crosshair.sp);*/
               change_player_position(&player);
@@ -140,7 +138,6 @@ int(proj_main_loop)(int argc, char *argv[]) {
               display_sprite(&net);
               display_sprite(&player.asprite->sp);
               display_sprite(&crosshair.sp);
-            if(interrupts % 2 == 0){
               page_flipping();
             }
           }
