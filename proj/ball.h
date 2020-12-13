@@ -3,9 +3,11 @@
 #include<lcom/lcf.h>
 
 #include <stdint.h>
+#include "math.h"
 
 #include "sprite.h"
 #include "mouse.h"
+#include "crosshair.h"
 
 struct ball{
   double real_x_pos;
@@ -17,4 +19,6 @@ struct ball{
 
 typedef struct ball ball_t;
 
-int go_to_slected_point(ball_t * ball, )
+int go_to_slected_point(ball_t * ball, uint16_t x, uint16_t y);
+
+int change_ball_position(ball_t * ball);

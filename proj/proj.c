@@ -14,10 +14,12 @@
 #include "playerdownleft_0.xpm"
 #include "playerdownleft_1.xpm"
 #include "aim.xpm"
+#include "ball.xpm"
 #include "keyboard.h"
 #include "mouse.h"
 #include "player.h"
 #include "crosshair.h"
+#include "ball.h"
 
 extern uint32_t interrupts;
 
@@ -29,11 +31,11 @@ int main(int argc, char *argv[]) {
 
   // enables to log function invocations that are being "wrapped" by LCF
   // [comment this out if you don't want/need it]
-  //lcf_trace_calls("/home/lcom/labs/proj/trace.txt");
+  lcf_trace_calls("/home/lcom/labs/proj/trace.txt");
 
   // enables to save the output of printf function calls on a file
   // [comment this out if you don't want/need it]
-  //lcf_log_output("/home/lcom/labs/proj/output.txt");
+  lcf_log_output("/home/lcom/labs/proj/output.txt");
 
   // handles control over to LCF
   // [LCF handles command line arguments and invokes the right function]
@@ -62,10 +64,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
   map_memory();
 
   if(video_init_mode(MODE)) return 1;
-
-  if(mouse_enable_data_reporting()) return 1;
-  //if(mouse_set_arg(0xE0)) return 1;
-  //if(mouse_data_report(true)) return 1;
+  if(mouse_data_report(true)) return 1;
   
   xpm_map_t player_xpm[] = {playerdownright_0_xpm, playerdownright_1_xpm, playerdownleft_0_xpm,playerdownleft_1_xpm};
 
@@ -98,6 +97,12 @@ int(proj_main_loop)(int argc, char *argv[]) {
   set_bounds(&crosshair.sp, 0, 768, 0, 568);
   //display_sprite(&crosshair.sp);
 
+  ball_t ball;
+  ball.sp = *create_sprite(ball_xpm,400,100,0,0);
+  set_bounds(&ball.sp, 0, 768, 0, 568);
+  ball.real_x_pos = 400; ball.real_y_pos = 100;
+  ball.x_velocity = 0; ball.y_velocity = 0;
+
 
   bool running = true;
 
@@ -116,7 +121,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
               struct packet pp = make_packet();
               change_crosshair_position(&crosshair, &pp);
               if(process_event(&pp) == PRESSED_LB){
-                //shoot ball
+                go_to_slected_point(&ball, crosshair.sp.x_pos, crosshair.sp.y_pos);
               }
             }
           }
@@ -129,15 +134,15 @@ int(proj_main_loop)(int argc, char *argv[]) {
           }
           if (msg.m_notify.interrupts & irq_set_timer){
             timer_int_handler();
-            if(interrupts % 1 == 0){
+            if(interrupts % 2 == 0){
               update_sprite_animation(player.asprite);
-              /*erase_sprite(&court, &player.asprite->sp);
-              erase_sprite(&court, &crosshair.sp);*/
               change_player_position(&player);
+              change_ball_position(&ball);
               display_sprite(&court);
               display_sprite(&net);
               display_sprite(&player.asprite->sp);
               display_sprite(&crosshair.sp);
+              display_sprite(&ball.sp);
               page_flipping();
             }
           }
@@ -150,6 +155,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
   destroy_sprite(&court);
   destroy_sprite(&net);
   destroy_sprite(&crosshair.sp);
+  destroy_sprite(&ball.sp);
   free(front_video_mem);
   free(back_video_mem);
   if(timer_unsubscribe_int()) return 1;
