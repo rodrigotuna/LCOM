@@ -1,6 +1,6 @@
 #include "ball.h"
 
-int go_to_slected_point(ball_t * ball, uint16_t x, uint16_t y){
+int go_to_selected_point(ball_t * ball, uint16_t x, uint16_t y){
   double y_dev = y - ball->real_y_pos;
   double x_dev = x - ball->real_x_pos;
   double norm = sqrt(y_dev*y_dev + x_dev*x_dev);

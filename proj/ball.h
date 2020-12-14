@@ -19,6 +19,6 @@ struct ball{
 
 typedef struct ball ball_t;
 
-int go_to_slected_point(ball_t * ball, uint16_t x, uint16_t y);
+int go_to_selected_point(ball_t * ball, uint16_t x, uint16_t y);
 
 int change_ball_position(ball_t * ball);

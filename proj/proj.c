@@ -83,26 +83,23 @@ int(proj_main_loop)(int argc, char *argv[]) {
   uint32_t irq_set_mouse = BIT(bit_no_mouse);
 
   sprite_t court = *create_sprite(tenniscourt_xpm,0,0,0,0);
-  display_sprite(&court);
+  //display_sprite(&court);
 
   sprite_t net = *create_sprite(net_xpm,0,0,0,0);
 
   player_t player;
   player.asprite = create_animated_sprite(player_xpm,4,2,30,300,500,0,0);
   set_bounds(&player.asprite->sp,0,700,250,500);
-  //display_sprite(&player.asprite->sp);
 
   crosshair_t crosshair;
   crosshair.sp = *create_sprite(aim_xpm,400,300,0,0);
   set_bounds(&crosshair.sp, 0, 768, 0, 568);
-  //display_sprite(&crosshair.sp);
 
   ball_t ball;
   ball.sp = *create_sprite(ball_xpm,400,100,0,0);
   set_bounds(&ball.sp, 0, 768, 0, 568);
   ball.real_x_pos = 400; ball.real_y_pos = 100;
   ball.x_velocity = 0; ball.y_velocity = 0;
-
 
   bool running = true;
 
@@ -121,7 +118,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
               struct packet pp = make_packet();
               change_crosshair_position(&crosshair, &pp);
               if(process_event(&pp) == PRESSED_LB){
-                go_to_slected_point(&ball, crosshair.sp.x_pos, crosshair.sp.y_pos);
+                go_to_selected_point(&ball, crosshair.sp.x_pos, crosshair.sp.y_pos);
               }
             }
           }
@@ -163,7 +160,6 @@ int(proj_main_loop)(int argc, char *argv[]) {
   if(mouse_unsubscribe_int()) return 1;
   if(mouse_data_report(false)) return 1;
   if(vg_exit()) return 1;
-
   return 0;
 
   /*//
