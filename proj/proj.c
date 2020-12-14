@@ -20,6 +20,7 @@
 #include "player.h"
 #include "crosshair.h"
 #include "ball.h"
+#include "gameLogic.h"
 
 extern uint32_t interrupts;
 
@@ -99,7 +100,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
   ball.sp = *create_sprite(ball_xpm,400,100,0,0);
   set_bounds(&ball.sp, 0, 768, 0, 568);
   ball.real_x_pos = 400; ball.real_y_pos = 100;
-  ball.x_velocity = 0; ball.y_velocity = 0;
+  shoot_ball(&ball);
 
   bool running = true;
 
@@ -135,6 +136,8 @@ int(proj_main_loop)(int argc, char *argv[]) {
               update_sprite_animation(player.asprite);
               change_player_position(&player);
               change_ball_position(&ball);
+              if(is_ball_out_of_bounds(&ball) == 1) shoot_ball(&ball);
+              if(is_ball_out_of_bounds(&ball) == 2) running = false;
               display_sprite(&court);
               display_sprite(&net);
               display_sprite(&player.asprite->sp);
