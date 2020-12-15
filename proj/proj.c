@@ -118,7 +118,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
             if(mouse_count == 3){
               struct packet pp = make_packet();
               change_crosshair_position(&crosshair, &pp);
-              if(process_event(&pp) == PRESSED_LB){
+              if(process_event(&pp) == PRESSED_LB && can_shoot(&ball, &player)){
                 go_to_selected_point(&ball, crosshair.sp.x_pos, crosshair.sp.y_pos);
               }
             }
@@ -140,9 +140,9 @@ int(proj_main_loop)(int argc, char *argv[]) {
               if(is_ball_out_of_bounds(&ball) == 2) running = false;
               display_sprite(&court);
               display_sprite(&net);
+              display_sprite(&ball.sp);
               display_sprite(&player.asprite->sp);
               display_sprite(&crosshair.sp);
-              display_sprite(&ball.sp);
               page_flipping();
             }
           }
