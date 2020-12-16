@@ -28,9 +28,10 @@ struct animated_sprite{
 
   int frame_count; 
   int frame_delay;
-  int frame_index; //index of the frame to be shown in the image
-  int no_pics;
+  int frame_index;
+  int set_index;
   int no_frames;
+  int no_sets;
 
   uint32_t * *map;     // the pixmap
   
@@ -40,7 +41,7 @@ typedef struct animated_sprite animated_sprite_t;
 
 sprite_t * create_sprite(xpm_map_t xpm_map, int x, int y, int xv, int yv);
 
-animated_sprite_t * create_animated_sprite(xpm_map_t xpm_map[], int npics, int nframes, int delay, int x, int y, int xv, int yv );
+animated_sprite_t * create_animated_sprite(xpm_map_t xpm_map[], int nsets, int nframes, int delay, int x, int y, int xv, int yv );
 
 void destroy_sprite(sprite_t * sp);
 

@@ -15,6 +15,7 @@
 #include "playerdownleft_1.xpm"
 #include "aim.xpm"
 #include "ball.xpm"
+#include "tennismachine.xpm"
 #include "keyboard.h"
 #include "mouse.h"
 #include "player.h"
@@ -84,20 +85,21 @@ int(proj_main_loop)(int argc, char *argv[]) {
   uint32_t irq_set_mouse = BIT(bit_no_mouse);
 
   sprite_t court = *create_sprite(tenniscourt_xpm,0,0,0,0);
-  //display_sprite(&court);
 
   sprite_t net = *create_sprite(net_xpm,0,0,0,0);
 
+  sprite_t machine = *create_sprite(tennismachine_xpm,360,54,0,0);
+
   player_t player;
-  player.asprite = create_animated_sprite(player_xpm,4,2,30,300,500,0,0);
-  set_bounds(&player.asprite->sp,0,700,250,500);
+  player.asprite = *create_animated_sprite(player_xpm,2,2,30,300,500,0,0);
+  set_bounds(&player.asprite.sp,0,700,250,500);
 
   crosshair_t crosshair;
   crosshair.sp = *create_sprite(aim_xpm,400,300,0,0);
   set_bounds(&crosshair.sp, 0, 768, 0, 568);
 
   ball_t ball;
-  ball.sp = *create_sprite(ball_xpm,400,100,0,0);
+  ball.sp = *create_sprite(ball_xpm,390,100,0,0);
   set_bounds(&ball.sp, 0, 768, 0, 568);
   ball.real_x_pos = 400; ball.real_y_pos = 100;
   shoot_ball(&ball);
@@ -133,15 +135,17 @@ int(proj_main_loop)(int argc, char *argv[]) {
           if (msg.m_notify.interrupts & irq_set_timer){
             timer_int_handler();
             if(interrupts % 2 == 0){
-              update_sprite_animation(player.asprite);
+              update_sprite_animation(&player.asprite);
+              change_racket_side(&crosshair, &player);
               change_player_position(&player);
               change_ball_position(&ball);
               if(is_ball_out_of_bounds(&ball) == 1) shoot_ball(&ball);
               if(is_ball_out_of_bounds(&ball) == 2) running = false;
               display_sprite(&court);
               display_sprite(&net);
+              display_sprite(&machine);
               display_sprite(&ball.sp);
-              display_sprite(&player.asprite->sp);
+              display_sprite(&player.asprite.sp);
               display_sprite(&crosshair.sp);
               page_flipping();
             }
@@ -151,7 +155,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
       }
     }
   }
-  destroy_animated_sprite(player.asprite);
+  destroy_animated_sprite(&player.asprite);
   destroy_sprite(&court);
   destroy_sprite(&net);
   destroy_sprite(&crosshair.sp);

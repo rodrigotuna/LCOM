@@ -28,18 +28,18 @@ sprite_t * create_sprite(xpm_map_t xpm_map, int x, int y, int xv, int yv){
   return sp;
 }
 
-animated_sprite_t * create_animated_sprite(xpm_map_t xpm_map[], int npics, int nframes, int delay, int x, int y, int xv, int yv ){
+animated_sprite_t * create_animated_sprite(xpm_map_t xpm_map[], int nsets, int nframes, int delay, int x, int y, int xv, int yv ){
   animated_sprite_t *asprite = (animated_sprite_t*) malloc (sizeof(animated_sprite_t));
   
   if(asprite == NULL) return NULL;
 
   asprite->sp = *create_sprite(xpm_map[0],x,y,xv,yv);
   
-  asprite->map = malloc((npics)*sizeof(map));
+  asprite->map = malloc((nsets * nframes)*sizeof(map));
 
   asprite->map[0] = asprite->sp.current_pic;
 
-  for(int i = 1; i < npics; i++){
+  for(int i = 1; i < (nsets * nframes); i++){
     xpm_image_t img;
     asprite->map[i] = (uint32_t *) xpm_load(xpm_map[i],XPM_8_8_8_8, &img);
     if( asprite->map[i] == NULL ){
@@ -51,8 +51,9 @@ animated_sprite_t * create_animated_sprite(xpm_map_t xpm_map[], int npics, int n
   asprite->frame_count = 0;
   asprite->frame_delay = delay;
   asprite->frame_index = 0; 
+  asprite->set_index = 0;
   asprite->no_frames = nframes;
-  asprite->no_pics = npics;
+  asprite->no_sets = nsets;
 
   return asprite;
 }
@@ -67,7 +68,7 @@ void destroy_sprite(sprite_t * sp){
 void destroy_animated_sprite(animated_sprite_t * asprite){
   if(asprite == NULL) return;
   if(asprite->map){
-    for(int i = 0; i< asprite->no_pics;i++){
+    for(int i = 0; i< (asprite->no_sets * asprite->no_frames);i++){
       free(asprite->map[i]);
     }
     free(asprite->map); 
@@ -107,7 +108,8 @@ int update_sprite_animation(animated_sprite_t * asprite){
   asprite->frame_count ++;
   if(asprite->frame_count >= asprite->frame_delay){
     asprite->frame_count = 0;
-    asprite->frame_index = (asprite->frame_index + 1) % asprite->no_frames;
+    asprite->frame_index = ((asprite->frame_index + 1) % asprite->no_frames) + (asprite->no_frames * asprite->set_index);
+    //printf("%d\t%d\n", asprite->frame_index, asprite->set_index);
     asprite->sp.current_pic = asprite->map[asprite->frame_index];
   }
   return 0;
