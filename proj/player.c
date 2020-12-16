@@ -51,10 +51,10 @@ int change_player_position(player_t * player){
   return (keep_sprite_in_bounds(&player->asprite.sp));
 }
 
-void change_racket_side(crosshair_t * cross, player_t * player){
+void change_racket_side(ball_t * ball, player_t * player){
   int last_set = player->asprite.set_index;
 
-  if(cross->sp.x_pos >= (player->asprite.sp.x_pos + 45)) player->asprite.set_index = 0;
+  if(ball->sp.x_pos >= (player->asprite.sp.x_pos + 45)) player->asprite.set_index = 0;
   else player->asprite.set_index = 1;
 
   player->asprite.frame_count = (player->asprite.set_index != last_set) ? player->asprite.frame_delay : player->asprite.frame_count;

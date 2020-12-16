@@ -136,7 +136,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
             timer_int_handler();
             if(interrupts % 2 == 0){
               update_sprite_animation(&player.asprite);
-              change_racket_side(&crosshair, &player);
+              change_racket_side(&ball, &player);
               change_player_position(&player);
               change_ball_position(&ball);
               if(is_ball_out_of_bounds(&ball) == 1) shoot_ball(&ball);
