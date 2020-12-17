@@ -4,8 +4,7 @@
 
 #include <stdint.h>
 
-#include "ball.h"
-#include "player.h"
+#include "entities.h"
 
 int is_ball_out_of_bounds(ball_t * ball);
 

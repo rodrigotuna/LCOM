@@ -1,6 +1,6 @@
 #include "sprite.h"
 
-sprite_t * create_sprite(xpm_map_t xpm_map, int x, int y, int xv, int yv){
+sprite_t * create_sprite(xpm_map_t xpm_map, int x, int y){
   sprite_t *sp = (sprite_t*) malloc ( sizeof(sprite_t));
 
   if(sp == NULL) return NULL;
@@ -22,18 +22,15 @@ sprite_t * create_sprite(xpm_map_t xpm_map, int x, int y, int xv, int yv){
   sp->x_pos = x;
   sp->y_pos = y;
 
-  sp->x_velocity = xv;
-  sp->y_velocity = yv;
-
   return sp;
 }
 
-animated_sprite_t * create_animated_sprite(xpm_map_t xpm_map[], int nsets, int nframes, int delay, int x, int y, int xv, int yv ){
+animated_sprite_t * create_animated_sprite(xpm_map_t xpm_map[], int nsets, int nframes, int delay, int x, int y){
   animated_sprite_t *asprite = (animated_sprite_t*) malloc (sizeof(animated_sprite_t));
   
   if(asprite == NULL) return NULL;
 
-  asprite->sp = *create_sprite(xpm_map[0],x,y,xv,yv);
+  asprite->sp = *create_sprite(xpm_map[0],x,y);
   
   asprite->map = malloc((nsets * nframes)*sizeof(map));
 
@@ -90,17 +87,13 @@ int display_sprite(sprite_t * sp){
   return 0;
 }
 
-int check_collisions(sprite_t * sp){
+int change_sprite_pos(sprite_t * sp, int16_t x_dev, int16_t y_dev){
+  sp->x_pos += x_dev;
+  sp->y_pos += y_dev;
   return 0;
 }
 
-int erase_sprite(sprite_t  * background, sprite_t * sp){
-  for(int i = 0; i < sp->height; i++){
-    for(int j = 0; j < sp->width; j++){
-      uint32_t color = background->current_pic[(sp->y_pos + i) * background->width + j + sp->x_pos];
-      if(set_pixel(sp->x_pos+j,sp->y_pos+i,color)) return 1;
-      }     
-    }
+int check_collisions(sprite_t * sp){
   return 0;
 }
 

@@ -6,7 +6,6 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#include "sprite.h"
 #include "tenniscourt.xpm"
 #include "net.xpm"
 #include "playerdownright_0.xpm"
@@ -16,11 +15,12 @@
 #include "aim.xpm"
 #include "ball.xpm"
 #include "tennismachine.xpm"
+
+#include "sprite.h"
 #include "keyboard.h"
 #include "mouse.h"
-#include "player.h"
-#include "crosshair.h"
-#include "ball.h"
+
+#include "entities.h"
 #include "gameLogic.h"
 
 extern uint32_t interrupts;
@@ -84,22 +84,23 @@ int(proj_main_loop)(int argc, char *argv[]) {
   uint32_t irq_set_kb = BIT(bit_no_kb);
   uint32_t irq_set_mouse = BIT(bit_no_mouse);
 
-  sprite_t court = *create_sprite(tenniscourt_xpm,0,0,0,0);
+  sprite_t court = *create_sprite(tenniscourt_xpm,0,0);
 
-  sprite_t net = *create_sprite(net_xpm,0,0,0,0);
+  sprite_t net = *create_sprite(net_xpm,0,0);
 
-  sprite_t machine = *create_sprite(tennismachine_xpm,360,54,0,0);
+  sprite_t machine = *create_sprite(tennismachine_xpm,360,54);
+
+  sprite_t crosshair;
+  crosshair = *create_sprite(aim_xpm,400,300);
+  set_bounds(&crosshair, 0, 768, 0, 568);
 
   player_t player;
-  player.asprite = *create_animated_sprite(player_xpm,2,2,30,300,500,0,0);
+  player.asprite = *create_animated_sprite(player_xpm,2,2,30,300,500);
+  player.x_velocity = 0; player.y_velocity = 0;
   set_bounds(&player.asprite.sp,0,700,250,500);
 
-  crosshair_t crosshair;
-  crosshair.sp = *create_sprite(aim_xpm,400,300,0,0);
-  set_bounds(&crosshair.sp, 0, 768, 0, 568);
-
   ball_t ball;
-  ball.sp = *create_sprite(ball_xpm,390,100,0,0);
+  ball.sp = *create_sprite(ball_xpm,390,100);
   set_bounds(&ball.sp, 0, 768, 0, 568);
   ball.real_x_pos = 400; ball.real_y_pos = 100;
   shoot_ball(&ball);
@@ -119,9 +120,9 @@ int(proj_main_loop)(int argc, char *argv[]) {
             mouse_ih();
             if(mouse_count == 3){
               struct packet pp = make_packet();
-              change_crosshair_position(&crosshair, &pp);
+              change_sprite_pos(&crosshair, pp.delta_x, -pp.delta_y);
               if(process_event(&pp) == PRESSED_LB && can_shoot(&ball, &player)){
-                go_to_selected_point(&ball, crosshair.sp.x_pos, crosshair.sp.y_pos);
+                go_to_selected_point(&ball, crosshair.x_pos, crosshair.y_pos);
               }
             }
           }
@@ -146,7 +147,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
               display_sprite(&machine);
               display_sprite(&ball.sp);
               display_sprite(&player.asprite.sp);
-              display_sprite(&crosshair.sp);
+              display_sprite(&crosshair);
               page_flipping();
             }
           }
@@ -158,7 +159,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
   destroy_animated_sprite(&player.asprite);
   destroy_sprite(&court);
   destroy_sprite(&net);
-  destroy_sprite(&crosshair.sp);
+  destroy_sprite(&crosshair);
   destroy_sprite(&ball.sp);
   free(front_video_mem);
   free(back_video_mem);
