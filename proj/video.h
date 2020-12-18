@@ -39,7 +39,3 @@ int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color);
 int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color);
 
 void free_mem_map();
-
-uint16_t min(uint16_t a, uint16_t b);
-
-int16_t max(int16_t a, int16_t b);

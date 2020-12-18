@@ -1,4 +1,5 @@
 #include "sprite.h"
+#include "utilities.h"
 
 sprite_t * create_sprite(xpm_map_t xpm_map, int x, int y){
   sprite_t *sp = (sprite_t*) malloc ( sizeof(sprite_t));

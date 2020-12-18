@@ -68,7 +68,6 @@ int(proj_main_loop)(int argc, char *argv[]) {
   if(video_init_mode(MODE)) return 1;
   if(mouse_data_report(true)) return 1;
   
-  xpm_map_t player_xpm[] = {playerdownright_0_xpm, playerdownright_1_xpm, playerdownleft_0_xpm,playerdownleft_1_xpm};
 
   //xpm_map_t crosshair_xpm[] = {aim_xpm};
 
@@ -95,6 +94,8 @@ int(proj_main_loop)(int argc, char *argv[]) {
   set_bounds(&crosshair, 0, 768, 0, 568);
 
   player_t player;
+  xpm_map_t player_xpm[] = {playerdownright_0_xpm, playerdownright_1_xpm, playerdownleft_0_xpm,     
+                                                                             playerdownleft_1_xpm};
   player.asprite = *create_animated_sprite(player_xpm,2,2,30,300,500);
   player.x_velocity = 0; player.y_velocity = 0;
   set_bounds(&player.asprite.sp,0,700,250,500);
