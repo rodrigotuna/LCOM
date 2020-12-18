@@ -8,8 +8,8 @@ int go_to_selected_point(ball_t * ball, uint16_t x, uint16_t y){
   double y_dev = y - ball->real_y_pos;
   double x_dev = x - ball->real_x_pos;
   double norm = sqrt(y_dev*y_dev + x_dev*x_dev);
-  ball->x_velocity = 10*x_dev/norm;
-  ball->y_velocity = 10*y_dev/norm;
+  ball->x_velocity = ball->velocity_norm*x_dev/norm;
+  ball->y_velocity = ball->velocity_norm*y_dev/norm;
   return 0;
 }
 
@@ -35,31 +35,31 @@ int change_player_velocity(player_t * player, uint8_t scancode){
 
   switch(scancode){
     case W_MAKE_CODE:  if(w_pressed) break;
-                       player->y_velocity-=10; 
+                       player->y_velocity-=5; 
                        w_pressed = true;
                        break;
-    case W_BREAK_CODE: player->y_velocity+=10; 
+    case W_BREAK_CODE: player->y_velocity+=5; 
                        w_pressed = false;
                        break;
     case A_MAKE_CODE:  if(a_pressed) break;
-                       player->x_velocity-=10; 
+                       player->x_velocity-=5; 
                        a_pressed = true;
                        break;
-    case A_BREAK_CODE: player->x_velocity+=10; 
+    case A_BREAK_CODE: player->x_velocity+=5; 
                        a_pressed = false;
                        break;
     case S_MAKE_CODE:  if(s_pressed) break;
-                       player->y_velocity+=10; 
+                       player->y_velocity+=5; 
                        s_pressed = true;
                        break;
-    case S_BREAK_CODE: player->y_velocity-=10; 
+    case S_BREAK_CODE: player->y_velocity-=5; 
                        s_pressed = false;
                        break;
     case D_MAKE_CODE:  if(d_pressed) break;
-                       player->x_velocity+=10; 
+                       player->x_velocity+=5; 
                        d_pressed = true;
                        break;
-    case D_BREAK_CODE: player->x_velocity-=10; 
+    case D_BREAK_CODE: player->x_velocity-=5; 
                        d_pressed = false;
                        break;
     default: return 1;

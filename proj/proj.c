@@ -103,6 +103,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
   ball.sp = *create_sprite(ball_xpm,390,100);
   set_bounds(&ball.sp, 0, 768, 0, 568);
   ball.real_x_pos = 400; ball.real_y_pos = 100;
+  ball.velocity_norm = 4;
   shoot_ball(&ball);
 
   bool running = true;
@@ -135,7 +136,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
           }
           if (msg.m_notify.interrupts & irq_set_timer){
             timer_int_handler();
-            if(interrupts % 2 == 0){
+            if(interrupts % 1 == 0){
               update_sprite_animation(&player.asprite);
               change_racket_side(&ball, &player);
               change_player_position(&player);
