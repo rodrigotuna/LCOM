@@ -14,7 +14,7 @@ struct ball{
   double real_y_pos;
   double x_velocity;
   double y_velocity;
-  int velocity_norm;
+  double velocity_norm;
   sprite_t sp;
 };
 

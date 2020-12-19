@@ -13,7 +13,7 @@ int is_ball_out_of_bounds(ball_t * ball){
 
 int shoot_ball(ball_t *ball){
   ball->real_x_pos = 390; ball->real_y_pos = 100;
-  ball->velocity_norm++;
+  ball->velocity_norm += 0.25;
   go_to_selected_point(ball, rand()%500 + 150, rand()%200 + 400);
   return 0;
 }

@@ -20,10 +20,11 @@
 #include "keyboard.h"
 #include "mouse.h"
 
+#include "drivers.h"
 #include "entities.h"
 #include "gameLogic.h"
 
-extern uint32_t interrupts;
+extern uint32_t timer_interrupts;
 
 // Any header files included below this line should have been created by you
 
@@ -61,27 +62,9 @@ int(proj_main_loop)(int argc, char *argv[]) {
   /* 
    * Substitute the code below by your own
    */
-  if(video_get_inf(MODE)) return 1;
+  if(init_all()) return 1;
 
-  map_memory();
-
-  if(video_init_mode(MODE)) return 1;
-  if(mouse_data_report(true)) return 1;
-  
-
-  //xpm_map_t crosshair_xpm[] = {aim_xpm};
-
-  uint8_t bit_no_timer;  
-  uint8_t bit_no_kb;
-  uint8_t bit_no_mouse;
-  if(timer_subscribe_int(&bit_no_timer)) return 1;
-  if(kb_subscribe_int(&bit_no_kb)) return 1; //subscribe KBC 
-  if(mouse_subscribe_int(&bit_no_mouse)) return 1;
-  int ipc_status;
-  message msg;
-  uint32_t irq_set_timer = BIT(bit_no_timer);
-  uint32_t irq_set_kb = BIT(bit_no_kb);
-  uint32_t irq_set_mouse = BIT(bit_no_mouse);
+  if(subscribe_all()) return 1;
 
   sprite_t court = *create_sprite(tenniscourt_xpm,0,0);
 
@@ -109,52 +92,41 @@ int(proj_main_loop)(int argc, char *argv[]) {
 
   bool running = true;
 
-  while (running) { 
-    int r;
-    if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) { 
-      printf("driver_receive failed with: %d", r);
-      continue;
+  while (running) {
+    uint64_t interrupts = get_interrupts();
+    if(interrupts & MOUSE_IRQ_SET){
+      mouse_ih();
+      if(mouse_count == 3){
+        struct packet pp = make_packet();
+        change_sprite_pos(&crosshair, pp.delta_x, -pp.delta_y);
+        if(process_event(&pp) == PRESSED_LB && can_shoot(&ball, &player)){
+          go_to_selected_point(&ball, crosshair.x_pos, crosshair.y_pos);
+        }
+      }
     }
-    if (is_ipc_notify(ipc_status)) { 
-      switch (_ENDPOINT_P(msg.m_source)) {
-        case HARDWARE:
-          if(msg.m_notify.interrupts & irq_set_mouse){
-            mouse_ih();
-            if(mouse_count == 3){
-              struct packet pp = make_packet();
-              change_sprite_pos(&crosshair, pp.delta_x, -pp.delta_y);
-              if(process_event(&pp) == PRESSED_LB && can_shoot(&ball, &player)){
-                go_to_selected_point(&ball, crosshair.x_pos, crosshair.y_pos);
-              }
-            }
-          }
-          if (msg.m_notify.interrupts & irq_set_kb){
-             kbc_ih(); //handler reads bytes from the KBC's Output_buf
-             if(code_completed){
-               change_player_velocity(&player,scancode[size-1]);
-             }
-            if(scancode[size-1] == ESC_BREAK_CODE) running = false;
-          }
-          if (msg.m_notify.interrupts & irq_set_timer){
-            timer_int_handler();
-            if(interrupts % 1 == 0){
-              update_sprite_animation(&player.asprite);
-              change_racket_side(&ball, &player);
-              change_player_position(&player);
-              change_ball_position(&ball);
-              if(is_ball_out_of_bounds(&ball) == 1) shoot_ball(&ball);
-              if(is_ball_out_of_bounds(&ball) == 2) running = false;
-              display_sprite(&court);
-              display_sprite(&net);
-              display_sprite(&machine);
-              display_sprite(&ball.sp);
-              display_sprite(&player.asprite.sp);
-              display_sprite(&crosshair);
-              page_flipping();
-            }
-          }
-          break;
-        default: break;
+    if (interrupts & KB_IRQ_SET){
+        kbc_ih(); //handler reads bytes from the KBC's Output_buf
+        if(code_completed){
+          change_player_velocity(&player,scancode[size-1]);
+        }
+      if(scancode[size-1] == ESC_BREAK_CODE) running = false;
+    }
+    if (interrupts & TIMER_IRQ_SET){
+      timer_int_handler();
+      update_sprite_animation(&player.asprite);
+      change_racket_side(&ball, &player);
+      change_player_position(&player);
+      change_ball_position(&ball);
+      if(is_ball_out_of_bounds(&ball) == 1) shoot_ball(&ball);
+      if(is_ball_out_of_bounds(&ball) == 2) running = false;
+      if(timer_interrupts % 2 == 0){
+        display_sprite(&court);
+        display_sprite(&net);
+        display_sprite(&machine);
+        display_sprite(&ball.sp);
+        display_sprite(&player.asprite.sp);
+        display_sprite(&crosshair);
+        page_flipping();
       }
     }
   }
@@ -163,13 +135,8 @@ int(proj_main_loop)(int argc, char *argv[]) {
   destroy_sprite(&net);
   destroy_sprite(&crosshair);
   destroy_sprite(&ball.sp);
-  free(front_video_mem);
-  free(back_video_mem);
-  if(timer_unsubscribe_int()) return 1;
-  if(kb_unsubscribe_int()) return 1;
-  if(mouse_unsubscribe_int()) return 1;
-  if(mouse_data_report(false)) return 1;
-  if(vg_exit()) return 1;
+  if(unsubscribe_all()) return 1;
+  if(reset_all()) return 1;
   return 0;
 
   /*//
@@ -191,3 +158,4 @@ int(proj_main_loop)(int argc, char *argv[]) {
     return print_usage();
   }*/
 }
+
