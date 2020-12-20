@@ -15,7 +15,7 @@ int unsubscribe_all(){
   return 0;
 }
 
-uint64_t get_interrupts(){
+uint32_t get_interrupts(){
     int ipc_status;
     message msg;
     int r;
