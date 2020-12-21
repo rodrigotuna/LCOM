@@ -41,3 +41,42 @@ int16_t max(int16_t a, int16_t b){
   if(a > b) return a;
   return b;
 }
+
+queue_t * create_queue(){
+  uint8_t *arr = malloc(100*sizeof(uint8_t));
+  queue_t *queue = malloc(sizeof(queue_t));
+  queue->sz = 0;
+  queue->arr = arr;
+  return queue;
+}
+
+void destroy_queue(queue_t * q){
+  free(q->arr);
+  free(q);
+}
+
+void push(queue_t *q, uint8_t c){
+  q->arr[q->sz] = c;
+  q->sz++;
+}
+
+uint8_t top(queue_t *q){
+  return q->arr[0];
+}
+
+void pop(queue_t *q){
+  if(q->sz== 0){
+		return;
+	}
+	else{
+		int i;
+		for(i=0;i<q->sz-1;i++){
+			q->arr[i]=q->arr[i+1];
+		}
+		q->sz--;
+	}
+}
+
+bool empty(queue_t *q){
+  return q->sz == 0;
+}
