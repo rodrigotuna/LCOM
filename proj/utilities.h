@@ -11,3 +11,22 @@ int (util_sys_inb)(int port, uint8_t *value);
 uint16_t min(uint16_t a, uint16_t b);
 
 int16_t max(int16_t a, int16_t b);
+
+struct queue{
+  uint8_t * arr;
+  uint8_t sz;
+};
+
+typedef struct queue queue_t;
+
+queue_t * create_queue();
+
+void destroy_queue(queue_t * queue);
+
+void push(queue_t *q, uint8_t c);
+
+uint8_t top(queue_t *q);
+
+void pop(queue_t *q);
+
+bool empty(queue_t *q);
