@@ -77,6 +77,7 @@ int single_player(){
       }
     }
   }
+  change_player_velocity(&player, 0);
   destroy_animated_sprite(&player.asprite);
   destroy_sprite(&court);
   destroy_sprite(&net);

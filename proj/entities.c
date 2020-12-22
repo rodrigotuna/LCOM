@@ -33,6 +33,14 @@ int change_player_velocity(player_t * player, uint8_t scancode){
 
   if(player == NULL) return 1;
 
+  //Reset values
+  if(scancode == 0){
+    w_pressed = false;
+    s_pressed = false;
+    a_pressed = false;
+    d_pressed = false;
+  } 
+
   switch(scancode){
     case W_MAKE_CODE:  if(w_pressed) break;
                        player->y_velocity-=5; 

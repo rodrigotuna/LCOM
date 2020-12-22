@@ -53,7 +53,7 @@ int main_menu(){
     if (interrupts & TIMER_IRQ_SET){
       timer_int_handler();
       update_sprite_animation(&menu);
-      if(timer_interrupts % 1 == 0){
+      if(timer_interrupts % 2 == 0){
         display_sprite(&menu.sp);
         display_sprite(&cursor);
         page_flipping();
