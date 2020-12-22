@@ -16,8 +16,8 @@ int uart_init(){
   uint8_t ier = REC_DATA_AVAIL_INT | TRANS_EMPTY_INT;
   if(uart_write_to_port(IER, ier)) return 1;
 
-  uint8_t fcr = EN_FIFO | TRIG_LEVEL_4;
-  if(uart_write_to_port(FCR, fcr)) return 1;
+  /*uint8_t fcr = EN_FIFO | TRIG_LEVEL_4;
+  if(uart_write_to_port(FCR, fcr)) return 1;*/
 
   transmiter = create_queue();
   reciever = create_queue();
@@ -30,7 +30,7 @@ void uart_reset(){
 }
 
 int uart_subscribe_int(uint8_t * bit_no){
-  uart_hook_id = 5;
+  uart_hook_id = COM1_IRQ;
   *bit_no = uart_hook_id;
   if(sys_irqsetpolicy(COM1_IRQ, IRQ_REENABLE | IRQ_EXCLUSIVE, &uart_hook_id) != OK) return 1;
   return 0;
@@ -52,16 +52,30 @@ int uart_write_to_port(uint8_t port, uint8_t arg){
 }
 
 int uart_send_char(uint8_t c){
-  if(uart_write_to_port(THR, c)) return 1;
-  return 0;
+  int tries = 3;
+  while(tries--){
+    uint8_t lsr;
+    if(uart_read_from_port(LSR, &lsr)) return 1;
+    if(lsr & TRANS_HOLD_EMPTY){
+      if(uart_write_to_port(THR, c)) return 1;
+      return 0;
+    }
+  }
+    return 1;
 }
 
 int uart_read_char(uint8_t *c){
-    uint8_t lsr;
-    if(uart_read_from_port(LSR, &lsr)) return 1;
-    if(lsr & PAR_ERR || lsr & OR_ERR) return 1;
-    if(uart_read_from_port(RBR, c)) return 1;
-    return 0;
+    int tries = 3;
+    while(tries--){
+      uint8_t lsr;
+      if(uart_read_from_port(LSR, &lsr)) return 1;
+      if(lsr & PAR_ERR || lsr & OR_ERR) return 1;
+      if(lsr & R_READY){
+        if(uart_read_from_port(RBR, c)) return 1;
+        return 0;
+      }
+    }
+    return 1;
 }
 
 int uart_read_fifo(){

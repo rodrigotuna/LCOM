@@ -1,10 +1,13 @@
 #pragma once
 
 #include "uart_macros.h"
+#include "utilities.h"
 
 #include <stdint.h>
 
 int uart_hook_id;
+queue_t *transmiter;
+queue_t *reciever;
 
 int uart_init();
 

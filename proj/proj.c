@@ -7,8 +7,11 @@
 #include <stdint.h>
 
 #include "menu.h"
+#include "uart.h"
+#include "utilities.h"
 
 // Any header files included below this line should have been created by you
+extern int timer_interrupts;
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -44,7 +47,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
   /* 
    * Substitute the code below by your own
    */
-  if(init_all()) return 1;
+  /*if(init_all()) return 1;
 
   if(subscribe_all()) return 1;
 
@@ -52,8 +55,44 @@ int(proj_main_loop)(int argc, char *argv[]) {
 
   if(unsubscribe_all()) return 1;
   if(reset_all()) return 1;
-  return 0;
+  return 0;*/
 
+  if(uart_init()) return 1;
+  uint8_t bit_no;
+  if(uart_subscribe_int(&bit_no)) return 1;
+  //if(timer_subscribe_int(&bit_no)) return 1;
+
+    push(transmiter, 'O');
+    push(transmiter, 'L');
+    push(transmiter, 'A');
+    uart_send_char('O');
+    uart_send_char('L');
+    uart_send_char('A');
+    int n = 10;
+    uint8_t c;
+    while(n--){
+      if(uart_read_char(&c) == 0){
+        printf("%c", c);
+      }
+    }
+    /*while(timer_interrupts < 1200){
+      uint32_t interrupts = get_interrupts();
+      printf("%d\n", interrupts);
+      if(interrupts & TIMER_IRQ_SET){
+        timer_int_handler();
+      }
+      if(interrupts & UART_IRQ_SET){
+        uart_ih();
+        if(!empty(reciever)){
+          printf("%c", top(reciever));
+          pop(reciever);
+        }
+      }
+    }*/
+
+  uart_reset();
+  if(uart_unsubscribe_int()) return 1;
+  return 0;
   /*//
   // if you're interested, try to extend the command line options so that the usage becomes:
   // <mode - hex> <minix3 logo  - true|false> <grayscale - true|false> <delay (secs)>
