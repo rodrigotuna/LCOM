@@ -6,8 +6,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#include "game.h"
-#include "drivers.h"
+#include "menu.h"
 
 // Any header files included below this line should have been created by you
 
@@ -49,7 +48,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
 
   if(subscribe_all()) return 1;
 
-  single_player();
+  main_menu();
 
   if(unsubscribe_all()) return 1;
   if(reset_all()) return 1;

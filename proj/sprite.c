@@ -103,7 +103,6 @@ int update_sprite_animation(animated_sprite_t * asprite){
   if(asprite->frame_count >= asprite->frame_delay){
     asprite->frame_count = 0;
     asprite->frame_index = ((asprite->frame_index + 1) % asprite->no_frames) + (asprite->no_frames * asprite->set_index);
-    //printf("%d\t%d\n", asprite->frame_index, asprite->set_index);
     asprite->sp.current_pic = asprite->map[asprite->frame_index];
   }
   return 0;
