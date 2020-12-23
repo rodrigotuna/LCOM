@@ -47,7 +47,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
   /* 
    * Substitute the code below by your own
    */
-  /*if(init_all()) return 1;
+  if(init_all()) return 1;
 
   if(subscribe_all()) return 1;
 
@@ -55,7 +55,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
 
   if(unsubscribe_all()) return 1;
   if(reset_all()) return 1;
-  return 0;*/
+  return 0;
 
   /*if(uart_init()) return 1;  
   uint8_t bit_no;
@@ -90,10 +90,10 @@ int(proj_main_loop)(int argc, char *argv[]) {
   }*/
 
 
-  uart_reset();
+  /*uart_reset();
   if(timer_unsubscribe_int()) return 1;
   if(uart_unsubscribe_int()) return 1;
-  return 0;
+  return 0;*/
   /*//
   // if you're interested, try to extend the command line options so that the usage becomes:
   // <mode - hex> <minix3 logo  - true|false> <grayscale - true|false> <delay (secs)>
