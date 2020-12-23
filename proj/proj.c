@@ -57,40 +57,41 @@ int(proj_main_loop)(int argc, char *argv[]) {
   if(reset_all()) return 1;
   return 0;*/
 
-  if(uart_init()) return 1;
+  /*if(uart_init()) return 1;  
   uint8_t bit_no;
   if(uart_subscribe_int(&bit_no)) return 1;
-  //if(timer_subscribe_int(&bit_no)) return 1;
+  if(timer_subscribe_int(&bit_no)) return 1;
 
-    push(transmiter, 'O');
-    push(transmiter, 'L');
-    push(transmiter, 'A');
-    uart_send_char('O');
-    uart_send_char('L');
-    uart_send_char('A');
-    int n = 10;
-    uint8_t c;
-    while(n--){
-      if(uart_read_char(&c) == 0){
-        printf("%c", c);
-      }
+  //uart_send_char('d');
+
+  uint8_t dum = '0';
+  int n = 10;
+
+  while(n--){
+    uart_read_char(&dum);
+    printf("%c", dum);
+    dum = '0';
+  }
+
+  while(v != 'd'){
+    uint32_t interrupts = get_interrupts();
+    if(interrupts & TIMER_IRQ_SET){
+      timer_int_handler();
+      uart_send_char('d');
+    } if(interrupts & UART_IRQ_SET){
+      uart_ih();
+      printf("%c", v);
     }
-    /*while(timer_interrupts < 1200){
-      uint32_t interrupts = get_interrupts();
-      printf("%d\n", interrupts);
-      if(interrupts & TIMER_IRQ_SET){
-        timer_int_handler();
-      }
-      if(interrupts & UART_IRQ_SET){
-        uart_ih();
-        if(!empty(reciever)){
-          printf("%c", top(reciever));
-          pop(reciever);
-        }
-      }
-    }*/
+  }*/
+
+
+  /*while(uart_read_char(&dum)){
+    printf("%c", dum);
+  }*/
+
 
   uart_reset();
+  if(timer_unsubscribe_int()) return 1;
   if(uart_unsubscribe_int()) return 1;
   return 0;
   /*//

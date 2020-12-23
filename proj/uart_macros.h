@@ -32,8 +32,8 @@
 #define TRANS_EMPTY BIT(6)
 
 /*IIR*/
-#define SER_INT_PEND BIT(0)
-#define INT_ID BIT(1) | BIT(2) | BIT(3)
+#define SER_NO_INT_PEND BIT(0)
+#define INT_ID (BIT(1) | BIT(2) | BIT(3))
 #define SER_RX_INT BIT(2)
 #define SER_TX_INT BIT(1)
 

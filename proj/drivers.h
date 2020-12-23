@@ -9,7 +9,7 @@
 #define TIMER_IRQ_SET BIT(0)
 #define KB_IRQ_SET BIT(1)
 #define MOUSE_IRQ_SET BIT(12)
-#define UART_IRQ_SET BIT(5)
+#define UART_IRQ_SET BIT(4)
 
 int subscribe_all();
 

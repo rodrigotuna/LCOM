@@ -7,26 +7,21 @@
 
 queue_t *transmiter;
 queue_t *reciever;
+uint8_t v = 'a';
 
 int uart_init(){
 
   uint8_t lcr = BIT_NO_8 | BIT_STOP_2 | EVEN_PAR;
   if(uart_write_to_port(LCR, lcr)) return 1;
 
-  uint8_t ier = REC_DATA_AVAIL_INT | TRANS_EMPTY_INT;
+  uint8_t ier = BIT(0) | BIT(2);
   if(uart_write_to_port(IER, ier)) return 1;
 
-  /*uint8_t fcr = EN_FIFO | TRIG_LEVEL_4;
-  if(uart_write_to_port(FCR, fcr)) return 1;*/
-
-  transmiter = create_queue();
-  reciever = create_queue();
   return 0;
 }
 
 void uart_reset(){
-  destroy_queue(transmiter);
-  destroy_queue(reciever);
+
 }
 
 int uart_subscribe_int(uint8_t * bit_no){
@@ -52,7 +47,7 @@ int uart_write_to_port(uint8_t port, uint8_t arg){
 }
 
 int uart_send_char(uint8_t c){
-  int tries = 3;
+  int tries = 5;
   while(tries--){
     uint8_t lsr;
     if(uart_read_from_port(LSR, &lsr)) return 1;
@@ -60,12 +55,13 @@ int uart_send_char(uint8_t c){
       if(uart_write_to_port(THR, c)) return 1;
       return 0;
     }
+    tickdelay(micros_to_ticks(1000));
   }
     return 1;
 }
 
 int uart_read_char(uint8_t *c){
-    int tries = 3;
+    int tries = 5;
     while(tries--){
       uint8_t lsr;
       if(uart_read_from_port(LSR, &lsr)) return 1;
@@ -74,6 +70,7 @@ int uart_read_char(uint8_t *c){
         if(uart_read_from_port(RBR, c)) return 1;
         return 0;
       }
+      tickdelay(micros_to_ticks(1000));
     }
     return 1;
 }
@@ -104,13 +101,9 @@ int uart_write_fifo(){
 void uart_ih(){
   uint8_t iir;
   if(uart_read_from_port(IIR, &iir)) return;
-  if( iir & SER_INT_PEND ) {
-    switch( iir & INT_ID ) {
-      case SER_RX_INT: uart_read_fifo(); break;
-      
-      case SER_TX_INT: uart_write_fifo(); break;
-
-      default: break;
-    }
+  if(iir & SER_NO_INT_PEND) return;
+  switch(iir & INT_ID){
+    case SER_RX_INT: if(uart_read_from_port(RBR,&v)) return; break;
+    default: break;
   }
 }

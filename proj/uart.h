@@ -8,6 +8,7 @@
 int uart_hook_id;
 queue_t *transmiter;
 queue_t *reciever;
+uint8_t v;
 
 int uart_init();
 
