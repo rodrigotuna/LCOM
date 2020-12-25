@@ -5,6 +5,7 @@
 #include "keyboard.h"
 #include "mouse.h"
 #include "video.h"
+#include "uart.h"
 
 #define TIMER_IRQ_SET BIT(0)
 #define KB_IRQ_SET BIT(1)

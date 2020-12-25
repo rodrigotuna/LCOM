@@ -14,7 +14,7 @@ int uart_init(){
   uint8_t lcr = BIT_NO_8 | BIT_STOP_2 | EVEN_PAR;
   if(uart_write_to_port(LCR, lcr)) return 1;
 
-  uint8_t ier = BIT(0) | BIT(2);
+  uint8_t ier = REC_DATA_AVAIL_INT | BIT(2);
   if(uart_write_to_port(IER, ier)) return 1;
 
   return 0;
@@ -73,6 +73,11 @@ int uart_read_char(uint8_t *c){
       tickdelay(micros_to_ticks(1000));
     }
     return 1;
+}
+
+void clear_buffer(){
+  uint8_t dum;
+  while(uart_read_char(&dum) == 0){};
 }
 
 int uart_read_fifo(){

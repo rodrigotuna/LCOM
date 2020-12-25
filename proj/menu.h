@@ -11,3 +11,5 @@ int main_menu();
 
 menu_state_t check_button_bounds(sprite_t * cursor, animated_sprite_t * menu, menu_state_t button);
 
+int connect_players(uint8_t send, uint8_t recieve);
+
