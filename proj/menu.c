@@ -98,3 +98,36 @@ menu_state_t main_menu_mode(sprite_t * cursor, animated_sprite_t * menu, menu_st
   }
   return mode;
 }
+
+int connect_players(uint8_t send, uint8_t recieve){
+  bool running = true;
+  int found = 0;
+  while (running) {
+    uint32_t interrupts = get_interrupts();
+    if(interrupts & MOUSE_IRQ_SET){
+      mouse_ih();
+    }
+    if (interrupts & KB_IRQ_SET){
+        kbc_ih(); 
+      if(scancode[size-1] == ESC_BREAK_CODE) running = false;
+    }
+    if (interrupts & TIMER_IRQ_SET){
+      timer_int_handler();
+      uint8_t dum;
+      uart_read_char(&dum);
+      uart_send_char(send);
+      if(timer_interrupts % 2 == 0){
+        page_flipping();
+      }
+    }
+
+    if(interrupts & UART_IRQ_SET){
+      uart_ih();
+      if(v == recieve){
+        running = false;
+        found = 1;
+      }
+    }
+  }
+  return found;
+}

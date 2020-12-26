@@ -13,3 +13,6 @@ int main_menu();
 menu_state_t main_menu_mode(sprite_t * cursor, animated_sprite_t * menu, menu_state_t button);
 
 bool check_button_bounds(int16_t cursor_x, int16_t cursor_y, int xi,int yi, button_sizes_t size);
+
+int connect_players(uint8_t send, uint8_t recieve);
+

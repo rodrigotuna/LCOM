@@ -26,4 +26,6 @@ int uart_send_char(uint8_t c);
 
 int uart_read_char(uint8_t *c);
 
+void clear_buffer();
+
 void uart_ih();
