@@ -5,11 +5,13 @@
 #include "keyboard.h"
 #include "mouse.h"
 #include "video.h"
+#include "rtc.h"
 #include "uart.h"
 
 #define TIMER_IRQ_SET BIT(0)
 #define KB_IRQ_SET BIT(1)
 #define MOUSE_IRQ_SET BIT(12)
+#define RTC_IRQ_SET BIT(8)
 #define UART_IRQ_SET BIT(4)
 
 int subscribe_all();
