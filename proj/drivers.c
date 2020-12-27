@@ -43,6 +43,7 @@ int init_all(){
 
   if(video_init_mode(MODE)) return 1;
   if(mouse_data_report(true)) return 1;
+  if(rtc_enable_int(AIE)) return 1;
   if(uart_init()) return 1;
   return 0;
 }
@@ -50,6 +51,7 @@ int init_all(){
 int reset_all(){
   free(front_video_mem);
   free(back_video_mem);
+  if(rtc_disable_int(AIE)) return 1;
   if(mouse_data_report(false)) return 1;
   if(vg_exit()) return 1;
   return 0;
