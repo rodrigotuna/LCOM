@@ -59,6 +59,9 @@ int main_menu(){
         page_flipping();
       }
     }
+    if(interrupts & UART_IRQ_SET){
+      uart_ih();
+    }
   }
   destroy_animated_sprite(&mainmenu);
   destroy_sprite(&cursor);
@@ -100,8 +103,18 @@ menu_state_t main_menu_mode(sprite_t * cursor, animated_sprite_t * menu, menu_st
 }
 
 int connect_players(uint8_t send, uint8_t recieve){
+  vg_exit();
   bool running = true;
   int found = 0;
+  reset_var();
+  int t = 100;
+  uint8_t dum = '0';
+  while(t--){
+    uart_read_char(&dum);
+    printf("%c", dum);
+    dum = '0';
+  }
+  uart_clean_buffer();
   while (running) {
     uint32_t interrupts = get_interrupts();
     if(interrupts & MOUSE_IRQ_SET){
@@ -113,8 +126,7 @@ int connect_players(uint8_t send, uint8_t recieve){
     }
     if (interrupts & TIMER_IRQ_SET){
       timer_int_handler();
-      uint8_t dum;
-      uart_read_char(&dum);
+      uart_clean_buffer();
       uart_send_char(send);
       if(timer_interrupts % 2 == 0){
         page_flipping();
@@ -123,11 +135,19 @@ int connect_players(uint8_t send, uint8_t recieve){
 
     if(interrupts & UART_IRQ_SET){
       uart_ih();
+      printf("%c", v);
       if(v == recieve){
         running = false;
         found = 1;
       }
     }
   }
+  uart_send_char(send);
+
+  int n = 1000;
+  while(n--){
+    uart_clean_buffer();
+  }
+
   return found;
 }
