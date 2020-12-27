@@ -28,4 +28,8 @@ int uart_read_char(uint8_t *c);
 
 void clear_buffer();
 
+void reset_var();
+
+int uart_clean_buffer();
+
 void uart_ih();
