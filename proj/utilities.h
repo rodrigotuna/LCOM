@@ -31,3 +31,5 @@ uint8_t top(queue_t *q);
 void pop(queue_t *q);
 
 bool empty(queue_t *q);
+
+void int_to_char(int value, char * str);

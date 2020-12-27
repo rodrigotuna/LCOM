@@ -26,6 +26,7 @@ int change_ball_position(ball_t * ball);
 
 struct player{
   int x_velocity, y_velocity; //x and y velocities
+  int points;
   animated_sprite_t  asprite;
 };
 

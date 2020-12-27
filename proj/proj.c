@@ -6,6 +6,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+
 #include "menu.h"
 #include "uart.h"
 #include "utilities.h"
@@ -50,6 +51,33 @@ int(proj_main_loop)(int argc, char *argv[]) {
   if(init_all()) return 1;
 
   if(subscribe_all()) return 1;
+
+  /*sprite_t t = *create_sprite(tenniscourt_xpm,0,0);
+  sprite_t font = *create_sprite(font_xpm,156,12);
+
+  char string[] = "24-10-20";
+
+
+  //print_string(string,&font);
+
+  bool running = true;
+  while (running) {
+    uint32_t interrupts = get_interrupts();
+    if (interrupts & KB_IRQ_SET){
+        kbc_ih(); //handler reads bytes from the KBC's Output_buf
+      if(scancode[size-1] == ESC_BREAK_CODE) running = false;
+    }
+    if (interrupts & TIMER_IRQ_SET){
+      timer_int_handler();
+      if(timer_interrupts % 2 == 0){
+        display_sprite(&t);
+        print_string(string,&font);
+        page_flipping();
+      }
+    }
+  }
+  destroy_sprite(&font);*/
+
 
   main_menu();
 

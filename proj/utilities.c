@@ -80,3 +80,7 @@ void pop(queue_t *q){
 bool empty(queue_t *q){
   return q->sz == 0;
 }
+
+void int_to_char(int value, char * str){
+  sprintf(str, "%d", value);
+}
