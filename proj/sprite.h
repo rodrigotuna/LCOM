@@ -57,4 +57,4 @@ void set_bounds(sprite_t *sp, int16_t x_low, int16_t x_up, int16_t y_low, int16_
 
 int keep_sprite_in_bounds(sprite_t * sp);
 
-int print_string(const char *string, sprite_t * font);
+int print_string(const char *string, sprite_t * font, int xi, int yi);

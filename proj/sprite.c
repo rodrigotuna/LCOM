@@ -123,9 +123,9 @@ int keep_sprite_in_bounds(sprite_t * sp){
   return 0;
 }
 
-int print_string(const char *string, sprite_t * font){
+int print_string(const char *string, sprite_t * font, int xi, int yi){
   int width = 16, height = 20;
-  int x, y, pos_x, pos_y, font_aux = font->x_pos;
+  int x, y, pos_x, pos_y;
 
   for (int i = 0; string[i] != '\0'; i++){
     int code = string[i];
@@ -148,8 +148,8 @@ int print_string(const char *string, sprite_t * font){
     else{
       y = 4;
       if(code == 45) x = 0;
-      if(code == 58) x = 1;
-      if(code == 32) x = 2;
+      else if(code == 58) x = 1;
+      else x = 2;
     }
     
     pos_y = 0;
@@ -158,14 +158,13 @@ int print_string(const char *string, sprite_t * font){
       for(int j = x * width; j < (x + 1) * width; j++){
         uint32_t color = font->current_pic[i * font->width + j];
         if(color != font->transparency_color){
-          if(set_pixel(font->x_pos+pos_x,font->y_pos+pos_y,color)) return 1;
+          if(set_pixel(xi+pos_x,yi+pos_y,color)) return 1;
         }
         pos_x++;     
       }
       pos_y++;
     }
-    font->x_pos += width;
+    xi += width;
   }
-  font->x_pos = font_aux;
   return 0;
 }

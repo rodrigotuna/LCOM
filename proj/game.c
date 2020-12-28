@@ -76,7 +76,7 @@ int single_player(){
       if(timer_interrupts % 2 == 0){
         display_sprite(&court);
         int_to_char(player.points,points);
-        print_string(points,&font);
+        print_string(points,&font,165,12);
         display_sprite(&net);
         display_sprite(&machine);
         display_sprite(&ball.sp);
