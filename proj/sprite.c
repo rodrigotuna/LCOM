@@ -91,7 +91,7 @@ int display_sprite(sprite_t * sp){
 int change_sprite_pos(sprite_t * sp, int16_t x_dev, int16_t y_dev){
   sp->x_pos += x_dev;
   sp->y_pos += y_dev;
-  return 0;
+  return keep_sprite_in_bounds(sp);
 }
 
 int check_collisions(sprite_t * sp){

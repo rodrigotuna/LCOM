@@ -8,6 +8,8 @@
 #define COM1_BASE_ADDR 0x3F8
 #define COM2_BASE_ADDR 0x2F8
 
+#define UART_DELAY 1000
+
 #define RBR 0
 #define THR 0
 #define IER 1

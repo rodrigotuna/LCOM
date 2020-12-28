@@ -58,7 +58,7 @@ int uart_send_char(uint8_t c){
       if(uart_write_to_port(THR, c)) return 1;
       return 0;
     }
-    tickdelay(micros_to_ticks(10000));
+    tickdelay(micros_to_ticks(UART_DELAY));
   }
     return 1;
 }
@@ -122,10 +122,12 @@ int uart_clean_buffer(){
 
 void uart_ih(){
   uint8_t iir;
+  uint8_t lsr;
   if(uart_read_from_port(IIR, &iir)) return;
   if(iir & SER_NO_INT_PEND) return;
   switch(iir & INT_ID){
     case SER_RX_INT: if(uart_read_from_port(RBR,&v)) return; break;
+    case (BIT(1) | BIT(2)): if(uart_read_from_port(LSR, &lsr)) return; break;
     default: break;
   }
 }
