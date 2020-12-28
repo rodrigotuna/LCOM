@@ -17,7 +17,7 @@ int uart_init(){
   uint8_t ier = REC_DATA_AVAIL_INT | BIT(2);
   if(uart_write_to_port(IER, ier)) return 1;
 
-  uint8_t fcr = BIT(1) | BIT(2);
+  uint8_t fcr = BIT(0) | BIT(1) | BIT(2) | TRIG_LEVEL_4;
   if(uart_write_to_port(FCR,fcr)) return 1;
 
   return 0;
@@ -50,7 +50,7 @@ int uart_write_to_port(uint8_t port, uint8_t arg){
 }
 
 int uart_send_char(uint8_t c){
-  int tries = 3;
+  int tries = 100;
   while(tries--){
     uint8_t lsr;
     if(uart_read_from_port(LSR, &lsr)) return 1;
@@ -58,9 +58,16 @@ int uart_send_char(uint8_t c){
       if(uart_write_to_port(THR, c)) return 1;
       return 0;
     }
-    tickdelay(micros_to_ticks(UART_DELAY));
+    tickdelay(micros_to_ticks(20000));
   }
     return 1;
+}
+
+int uart_send_string(uint8_t *s, int sz){
+  for(int i = 0; i < sz; i++){
+    if(uart_send_char(s[i])) return 1;
+  }
+  return 0;
 }
 
 int uart_read_char(uint8_t *c){
@@ -125,9 +132,11 @@ void uart_ih(){
   uint8_t lsr;
   if(uart_read_from_port(IIR, &iir)) return;
   if(iir & SER_NO_INT_PEND) return;
+  printf("%d", iir & INT_ID);
   switch(iir & INT_ID){
     case SER_RX_INT: if(uart_read_from_port(RBR,&v)) return; break;
     case (BIT(1) | BIT(2)): if(uart_read_from_port(LSR, &lsr)) return; break;
+    case (BIT(2) | BIT(3)): if(uart_read_from_port(RBR, &v)) return; break;
     default: break;
   }
 }

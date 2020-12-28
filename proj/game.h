@@ -3,6 +3,7 @@
 #include "drivers.h"
 #include "entities.h"
 #include "gameLogic.h"
+#include "communication.h"
 
 int single_player();
 

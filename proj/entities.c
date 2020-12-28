@@ -75,6 +75,56 @@ int change_player_velocity(player_t * player, uint8_t scancode){
   return 0;
 }
 
+int change_remote_player_velocity(player_t * player, uint8_t scancode){
+  static bool w_pressed = false;
+  static bool s_pressed = false;
+  static bool a_pressed = false;
+  static bool d_pressed = false;
+
+  if(player == NULL) return 1;
+
+  //Reset values
+  if(scancode == 0){
+    w_pressed = false;
+    s_pressed = false;
+    a_pressed = false;
+    d_pressed = false;
+  } 
+
+  switch(scancode){
+    case W_MAKE_CODE:  if(w_pressed) break;
+                       player->y_velocity-=5; 
+                       w_pressed = true;
+                       break;
+    case W_BREAK_CODE: player->y_velocity+=5; 
+                       w_pressed = false;
+                       break;
+    case A_MAKE_CODE:  if(a_pressed) break;
+                       player->x_velocity-=5; 
+                       a_pressed = true;
+                       break;
+    case A_BREAK_CODE: player->x_velocity+=5; 
+                       a_pressed = false;
+                       break;
+    case S_MAKE_CODE:  if(s_pressed) break;
+                       player->y_velocity+=5; 
+                       s_pressed = true;
+                       break;
+    case S_BREAK_CODE: player->y_velocity-=5; 
+                       s_pressed = false;
+                       break;
+    case D_MAKE_CODE:  if(d_pressed) break;
+                       player->x_velocity+=5; 
+                       d_pressed = true;
+                       break;
+    case D_BREAK_CODE: player->x_velocity-=5; 
+                       d_pressed = false;
+                       break;
+    default: return 1;
+  }
+  return 0;
+}
+
 int change_player_position(player_t * player){
   if(player == NULL) return 1;
 
