@@ -33,9 +33,17 @@ int main_menu(){
             case SINGLEPLAYER:
               if(single_player() == 0) mode = QUIT;
               break;
-            case MULTIPLAYER:
+            case MULTIPLAYER: 
+            //ISTO DEPOIS NAO FICA AQUI
+            if(connect_player1_menu()){ 
+                multi_player_1();
+            }
               break;
-            case SCORES:
+            case SCORES: 
+            //ISTO DEPOIS NAO FICA AQUI
+            if(connect_player2_menu()){ 
+               multi_player_2();
+            }
               break;
             case QUIT:
               running = false;
@@ -102,19 +110,9 @@ menu_state_t main_menu_mode(sprite_t * cursor, animated_sprite_t * menu, menu_st
   return mode;
 }
 
-int connect_players(uint8_t send, uint8_t recieve){
-  vg_exit();
+int connect_player1_menu(){
   bool running = true;
   int found = 0;
-  reset_var();
-  int t = 100;
-  uint8_t dum = '0';
-  while(t--){
-    uart_read_char(&dum);
-    printf("%c", dum);
-    dum = '0';
-  }
-  uart_clean_buffer();
   while (running) {
     uint32_t interrupts = get_interrupts();
     if(interrupts & MOUSE_IRQ_SET){
@@ -126,8 +124,6 @@ int connect_players(uint8_t send, uint8_t recieve){
     }
     if (interrupts & TIMER_IRQ_SET){
       timer_int_handler();
-      uart_clean_buffer();
-      uart_send_char(send);
       if(timer_interrupts % 2 == 0){
         page_flipping();
       }
@@ -135,19 +131,43 @@ int connect_players(uint8_t send, uint8_t recieve){
 
     if(interrupts & UART_IRQ_SET){
       uart_ih();
-      printf("%c", v);
-      if(v == recieve){
+      if(v == '2'){
         running = false;
         found = 1;
       }
     }
   }
-  uart_send_char(send);
+  if(found) uart_send_char('1');
+  return found;
+}
 
-  int n = 1000;
-  while(n--){
-    uart_clean_buffer();
+int connect_player2_menu(){
+  bool running = true;
+  int found = 0;
+  uart_send_char('2');
+  while (running) {
+    uint32_t interrupts = get_interrupts();
+    if(interrupts & MOUSE_IRQ_SET){
+      mouse_ih();
+    }
+    if (interrupts & KB_IRQ_SET){
+        kbc_ih(); 
+      if(scancode[size-1] == ESC_BREAK_CODE) running = false;
+    }
+    if (interrupts & TIMER_IRQ_SET){
+      timer_int_handler();
+      if(timer_interrupts % 2 == 0){
+        page_flipping();
+      }
+    }
+
+    if(interrupts & UART_IRQ_SET){
+      uart_ih();
+      if(v == '1'){
+        running = false;
+        found = 1;
+      }
+    }
   }
-
   return found;
 }

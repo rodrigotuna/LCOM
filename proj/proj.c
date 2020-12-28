@@ -90,37 +90,19 @@ int(proj_main_loop)(int argc, char *argv[]) {
   if(uart_subscribe_int(&bit_no)) return 1;
   if(timer_subscribe_int(&bit_no)) return 1;
 
-  //uart_send_char('d');
+  if(uart_send_char('d')) return 1;
 
-  int t = 1000;
-  uint8_t dum = '0';
-  while(t--){
-    uart_read_char(&dum);
-    printf("%c", dum);
-    dum = '0';
-  }
-
-  uart_clean_buffer();
   while(v != 'd'){
     uint32_t interrupts = get_interrupts();
     if(interrupts & TIMER_IRQ_SET){
       timer_int_handler();
-      uart_clean_buffer();
-      uart_send_char('d');
     } 
     if(interrupts & UART_IRQ_SET){
       uart_ih();
       printf("%c", v);
     }
   }
-
-  uart_send_char('d');
-  
-  int n = 100;
-  while(n--){
-    uart_clean_buffer();
-  }
-
+  //uart_send_char('d');
 
   uart_reset();
   if(timer_unsubscribe_int()) return 1;
