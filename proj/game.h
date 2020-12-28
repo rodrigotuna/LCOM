@@ -4,6 +4,7 @@
 #include "entities.h"
 #include "gameLogic.h"
 #include "scoreboard.h"
+#include "communication.h"
 
 int single_player();
 

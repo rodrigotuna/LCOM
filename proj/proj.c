@@ -90,9 +90,9 @@ int(proj_main_loop)(int argc, char *argv[]) {
   if(uart_subscribe_int(&bit_no)) return 1;
   if(timer_subscribe_int(&bit_no)) return 1;
 
-  if(uart_send_char('d')) return 1;
+  //if(uart_send_char('d')) return 1;
 
-  while(v != 'd'){
+  while(v != 'e'){
     uint32_t interrupts = get_interrupts();
     if(interrupts & TIMER_IRQ_SET){
       timer_int_handler();

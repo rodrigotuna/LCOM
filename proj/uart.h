@@ -24,6 +24,8 @@ int uart_write_to_port(uint8_t port, uint8_t arg);
 
 int uart_send_char(uint8_t c);
 
+int uart_send_string(uint8_t *s, int sz);
+
 int uart_read_char(uint8_t *c);
 
 void clear_buffer();
