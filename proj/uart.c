@@ -17,7 +17,7 @@ int uart_init(){
   uint8_t ier = REC_DATA_AVAIL_INT | BIT(2);
   if(uart_write_to_port(IER, ier)) return 1;
 
-  uint8_t fcr = BIT(0) | BIT(1) | BIT(2) | TRIG_LEVEL_4;
+  uint8_t fcr = BIT(0) | BIT(1) | BIT(2) | BIT(7);
   if(uart_write_to_port(FCR,fcr)) return 1;
 
   return 0;

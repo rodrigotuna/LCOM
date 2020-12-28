@@ -134,18 +134,18 @@ int multi_player_1(){
     if (interrupts & KB_IRQ_SET){
         kbc_ih(); //handler reads bytes from the KBC's Output_buf
         if(code_completed){
-          if(uart_send_char(scancode[size-1])) vg_exit();
+          //if(uart_send_char(scancode[size-1])) vg_exit();
           change_player_velocity(&player1, scancode[size-1]);
-          //send_player_message(scancode[size-1]);
+          send_player_message(scancode[size-1]);
         }
       if(scancode[size-1] == ESC_BREAK_CODE) running = false;
     }
     if(interrupts & UART_IRQ_SET){
       uart_ih();
-      /*if(handle_message(v)){
+      if(handle_message(v)){
         change_remote_player_velocity(&player2, mess[1]);
-      }*/
-      change_remote_player_velocity(&player2,v);
+      }
+      //change_remote_player_velocity(&player2,v);
     }
     if (interrupts & TIMER_IRQ_SET){
       timer_int_handler();
@@ -223,18 +223,18 @@ int multi_player_2(){
     if (interrupts & KB_IRQ_SET){
         kbc_ih(); //handler reads bytes from the KBC's Output_buf
         if(code_completed){
-          //send_player_message(scancode[size-1]);
-          if(uart_send_char(scancode[size-1])) vg_exit();
+          send_player_message(scancode[size-1]);
+          //if(uart_send_char(scancode[size-1])) vg_exit();
           change_player_velocity(&player2,scancode[size-1]);
         }
       if(scancode[size-1] == ESC_BREAK_CODE) running = false;
     }
     if(interrupts & UART_IRQ_SET){
       uart_ih();
-      /*if(handle_message(v)){
+      if(handle_message(v)){
         change_remote_player_velocity(&player1, mess[1]);
-      }*/
-      change_remote_player_velocity(&player1, v);
+      }
+      //change_remote_player_velocity(&player1, v);
     }
     if (interrupts & TIMER_IRQ_SET){
       timer_int_handler();
