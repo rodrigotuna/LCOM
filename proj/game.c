@@ -14,6 +14,7 @@
 extern uint32_t timer_interrupts;
 
 int single_player(){
+
   sprite_t font = *create_sprite(font_xpm,165,12);
 
   sprite_t court = *create_sprite(tenniscourt_xpm,0,0);
@@ -41,6 +42,7 @@ int single_player(){
   shoot_ball(&ball);
 
   bool running = true;
+  char points[10];
 
   while (running) {
     uint32_t interrupts = get_interrupts();
@@ -72,7 +74,6 @@ int single_player(){
       if(is_ball_out_of_bounds(&ball) == 2) running = false;
       if(timer_interrupts % 2 == 0){
         display_sprite(&court);
-        char points[10];
         int_to_char(player.points,points);
         print_string(points,&font);
         display_sprite(&net);

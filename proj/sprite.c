@@ -149,6 +149,7 @@ int print_string(const char *string, sprite_t * font){
       y = 4;
       if(code == 45) x = 0;
       if(code == 58) x = 1;
+      if(code == 32) x = 2;
     }
     
     pos_y = 0;
