@@ -21,7 +21,6 @@ int check_highscore(int points){
     counter++;
   }
 
-
   if(counter < 4) return place;
 
   fclose(scoreboard);
@@ -87,3 +86,12 @@ int display_scores(){
   destroy_sprite(&font);
   return 0;
 }
+
+char * write_name(char * name, uint8_t scancode){
+  if(scancode >= 0 && scancode <= 50){
+    if(scancode == BACKSPACE_MAKECODE) name[strlen(name)-1] = '\0';
+    else strcat(name,keycodes[scancode]);
+  }
+  return name;
+}
+

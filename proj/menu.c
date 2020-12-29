@@ -1,11 +1,17 @@
 #include "menu.h"
 
 #include "cursor.xpm"
+#include "font.xpm"
 #include "mainmenu.xpm"
 #include "mainmenu_sp.xpm"
 #include "mainmenu_mp.xpm"
 #include "mainmenu_scores.xpm"
 #include "mainmenu_quit.xpm"
+#include "entername_0.xpm"
+#include "entername_1.xpm"
+#include "gameover.xpm"
+#include "gameover_playagain.xpm"
+#include "gameover_home.xpm"
 
 extern uint32_t timer_interrupts;
 
@@ -17,7 +23,7 @@ int main_menu(){
   xpm_map_t main_menu_xpm[] = {mainmenu_xpm, mainmenu_sp_xpm, mainmenu_mp_xpm, mainmenu_scores_xpm, mainmenu_quit_xpm};
   animated_sprite_t *mainmenu = create_animated_sprite(main_menu_xpm,5,1,0,0,0);
 
-  menu_state_t mode = NO_MODE;
+  button_state_t mode = NO_MODE;
   bool running = true;
 
   while (running) {
@@ -31,7 +37,14 @@ int main_menu(){
         if(process_event(&pp) == PRESSED_LB && mode != NO_MODE){
           switch(mode){
             case SINGLEPLAYER:
-              if(single_player() == 0) mode = QUIT;
+              {
+                while(mode != QUIT){
+                  int points = single_player();
+                  int place = check_highscore(points);
+                  if(place != 0) entername_menu(place, points);
+                  if(gameover_menu(points)) mode = QUIT;
+                }
+              }
               break;
             case MULTIPLAYER: 
             //ISTO DEPOIS NAO FICA AQUI
@@ -76,17 +89,102 @@ int main_menu(){
   return 0;
 }
 
-bool check_button_bounds(int16_t cursor_x, int16_t cursor_y, int xi,int yi, button_sizes_t size){
-  if(cursor_y >= yi && cursor_y <= (yi + 55)){
-    if(cursor_x >= xi && cursor_x <= (xi + 135) && size == SMALL) return 1;
-    else if(cursor_x >= xi && cursor_x <= (xi + 486) && size == BIG)return 1;
+int entername_menu(int place, int points){
+  sprite_t * font = create_sprite(font_xpm,290,345);
+
+  sprite_t *cursor = create_sprite(cursor_xpm,400,300);
+  set_bounds(cursor, 0, 776, 0, 576);
+
+  xpm_map_t enter_name_xpm[] = {entername_0_xpm, entername_1_xpm};
+  animated_sprite_t *namemenu = create_animated_sprite(enter_name_xpm,2,1,0,0,0);
+
+  char name[11] = {""};
+  button_state_t mode = NO_MODE;
+  bool running = true;
+
+  while (running) {
+    uint32_t interrupts = get_interrupts();
+    if(interrupts & MOUSE_IRQ_SET){
+      mouse_ih();
+      if(mouse_count == 3){
+        struct packet pp = make_packet();
+        change_sprite_pos(cursor, pp.delta_x, -pp.delta_y);
+        mode = name_menu_mode(cursor,namemenu, mode);
+        if(process_event(&pp) == PRESSED_LB && mode != NO_MODE) running = false;
+      }
+    }
+    if (interrupts & KB_IRQ_SET){
+        kbc_ih();
+        if(code_completed){
+          if(strlen(name) < 10 || scancode[size-1] == BACKSPACE_MAKECODE){
+            strcpy(name,write_name(name,scancode[size-1]));}
+        }
+    }
+    if (interrupts & TIMER_IRQ_SET){
+      timer_int_handler();
+      update_sprite_animation(namemenu);
+      if(timer_interrupts % 2 == 0){
+        display_sprite(namemenu->sp);
+        print_string(name,font,font->x_pos,font->y_pos);
+        display_sprite(cursor);
+        page_flipping();
+      }
+    }
   }
-  if(cursor_y >= yi && cursor_y <= (yi + 254) && 
-    cursor_x >= xi && cursor_x <= (xi + 185) && size == MEDIUM) return 1;
+  add_new_score(name,points,place);
+  destroy_animated_sprite(namemenu);
+  destroy_sprite(font);
+  destroy_sprite(cursor);
   return 0;
 }
 
-menu_state_t main_menu_mode(sprite_t * cursor, animated_sprite_t * menu, menu_state_t mode){
+int gameover_menu(int points){
+  sprite_t * font = create_sprite(font_xpm,409,312);
+ 
+  sprite_t *cursor = create_sprite(cursor_xpm,400,300);
+  set_bounds(cursor, 0, 776, 0, 576);
+
+  xpm_map_t gameover_menu_xpm[] = {gameover_xpm, gameover_playagain_xpm, gameover_home_xpm};
+  animated_sprite_t *gameover = create_animated_sprite(gameover_menu_xpm,3,1,0,0,0);
+
+  button_state_t mode = NO_MODE;
+  bool running = true;
+  char points_str[10];
+
+  while (running) {
+    uint32_t interrupts = get_interrupts();
+    if(interrupts & MOUSE_IRQ_SET){
+      mouse_ih();
+      if(mouse_count == 3){
+        struct packet pp = make_packet();
+        change_sprite_pos(cursor, pp.delta_x, -pp.delta_y);
+        mode = gameover_menu_mode(cursor,gameover, mode);
+        if(process_event(&pp) == PRESSED_LB && mode != NO_MODE) running = false;
+      }
+    }
+    if (interrupts & KB_IRQ_SET){
+        kbc_ih(); 
+    }
+    if (interrupts & TIMER_IRQ_SET){
+      timer_int_handler();
+      update_sprite_animation(gameover);
+      if(timer_interrupts % 2 == 0){
+        display_sprite(gameover->sp);
+        int_to_char(points,points_str);
+        print_string(points_str,font,406,313);
+        display_sprite(cursor);
+        page_flipping();
+      }
+    }
+  }
+  destroy_animated_sprite(gameover);
+  destroy_sprite(font);
+  destroy_sprite(cursor);
+  if(mode == PLAYAGAIN) return 0;
+  return 1;
+}
+
+button_state_t main_menu_mode(sprite_t * cursor, animated_sprite_t * menu, button_state_t mode){
   if(check_button_bounds(cursor->x_pos,cursor->y_pos,163,420, SMALL)){
     menu->set_index = 1;
     mode = SINGLEPLAYER;
@@ -108,6 +206,42 @@ menu_state_t main_menu_mode(sprite_t * cursor, animated_sprite_t * menu, menu_st
     mode = NO_MODE;
   }
   return mode;
+}
+
+button_state_t name_menu_mode(sprite_t * cursor, animated_sprite_t * menu, button_state_t mode){
+  if(check_button_bounds(cursor->x_pos,cursor->y_pos,331,455, SMALL)){
+    menu->set_index = 1;
+    mode = DONE;
+  }
+  else{
+    menu->set_index = 0;
+    mode = NO_MODE;
+  }
+  return mode;
+}
+
+button_state_t gameover_menu_mode(sprite_t * cursor, animated_sprite_t * menu, button_state_t mode){
+  if(check_button_bounds(cursor->x_pos,cursor->y_pos,227,404, SMALL)){
+    menu->set_index = 1;
+    mode = PLAYAGAIN;
+  }
+  else if(check_button_bounds(cursor->x_pos,cursor->y_pos,428,404, SMALL)){
+    menu->set_index = 2;
+    mode = HOME;
+  }
+  else{
+    menu->set_index = 0;
+    mode = NO_MODE;
+  }
+  return mode;
+}
+
+bool check_button_bounds(int16_t cursor_x, int16_t cursor_y, int xi,int yi, button_sizes_t size){
+  if(cursor_y >= yi && cursor_y <= (yi + 55)){
+    if(cursor_x >= xi && cursor_x <= (xi + 135) && size == SMALL) return 1;
+    else if(cursor_x >= xi && cursor_x <= (xi + 486) && size == BIG)return 1;
+  }
+  return 0;
 }
 
 int connect_player1_menu(){

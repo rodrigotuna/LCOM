@@ -95,7 +95,7 @@ int single_player(){
   destroy_sprite(net);
   destroy_sprite(crosshair);
   destroy_sprite(ball.sp);
-  return 0;
+  return player.points;
 }
 
 int multi_player_1(){
