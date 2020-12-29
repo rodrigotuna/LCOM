@@ -10,6 +10,7 @@
 #include "menu.h"
 #include "uart.h"
 #include "utilities.h"
+#include "waiting1.xpm"
 
 // Any header files included below this line should have been created by you
 extern int timer_interrupts;
@@ -77,8 +78,6 @@ int(proj_main_loop)(int argc, char *argv[]) {
     }
   }
   destroy_sprite(&font);*/
-
-
   main_menu();
 
   if(unsubscribe_all()) return 1;

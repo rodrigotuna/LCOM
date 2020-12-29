@@ -11,11 +11,11 @@ extern uint32_t timer_interrupts;
 
 int main_menu(){
 
-  sprite_t cursor = *create_sprite(cursor_xpm,400,300);
-  set_bounds(&cursor, 0, 776, 0, 576);
+  sprite_t *cursor = create_sprite(cursor_xpm,400,300);
+  set_bounds(cursor, 0, 776, 0, 576);
 
   xpm_map_t main_menu_xpm[] = {mainmenu_xpm, mainmenu_sp_xpm, mainmenu_mp_xpm, mainmenu_scores_xpm, mainmenu_quit_xpm};
-  animated_sprite_t mainmenu = *create_animated_sprite(main_menu_xpm,5,1,0,0,0);
+  animated_sprite_t *mainmenu = create_animated_sprite(main_menu_xpm,5,1,0,0,0);
 
   menu_state_t mode = NO_MODE;
   bool running = true;
@@ -26,8 +26,8 @@ int main_menu(){
       mouse_ih();
       if(mouse_count == 3){
         struct packet pp = make_packet();
-        change_sprite_pos(&cursor, pp.delta_x, -pp.delta_y);
-        mode = main_menu_mode(&cursor,&mainmenu, mode);
+        change_sprite_pos(cursor, pp.delta_x, -pp.delta_y);
+        mode = main_menu_mode(cursor,mainmenu, mode);
         if(process_event(&pp) == PRESSED_LB && mode != NO_MODE){
           switch(mode){
             case SINGLEPLAYER:
@@ -60,10 +60,10 @@ int main_menu(){
     }
     if (interrupts & TIMER_IRQ_SET){
       timer_int_handler();
-      update_sprite_animation(&mainmenu);
+      update_sprite_animation(mainmenu);
       if(timer_interrupts % 2 == 0){
-        display_sprite(&mainmenu.sp);
-        display_sprite(&cursor);
+        display_sprite(mainmenu->sp);
+        display_sprite(cursor);
         page_flipping();
       }
     }
@@ -71,8 +71,8 @@ int main_menu(){
       uart_ih();
     }
   }
-  destroy_animated_sprite(&mainmenu);
-  destroy_sprite(&cursor);
+  destroy_animated_sprite(mainmenu);
+  destroy_sprite(cursor);
   return 0;
 }
 
@@ -131,9 +131,10 @@ int connect_player1_menu(){
 
     if(interrupts & UART_IRQ_SET){
       uart_ih();
-      if(v == '2'){
+      if(top(reciever) == '2'){
         running = false;
         found = 1;
+        pop(reciever);
       }
     }
   }
@@ -163,9 +164,10 @@ int connect_player2_menu(){
 
     if(interrupts & UART_IRQ_SET){
       uart_ih();
-      if(v == '1'){
+      if(top(reciever)  == '1'){
         running = false;
         found = 1;
+        pop(reciever);
       }
     }
   }

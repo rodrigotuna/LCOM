@@ -15,7 +15,7 @@ struct ball{
   double x_velocity;
   double y_velocity;
   double velocity_norm;
-  sprite_t sp;
+  sprite_t *sp;
 };
 
 typedef struct ball ball_t;
@@ -27,7 +27,7 @@ int change_ball_position(ball_t * ball);
 struct player{
   int x_velocity, y_velocity; //x and y velocities
   int points;
-  animated_sprite_t  asprite;
+  animated_sprite_t  *asprite;
 };
 
 typedef struct player player_t;

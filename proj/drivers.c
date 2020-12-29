@@ -53,6 +53,7 @@ int reset_all(){
   free(back_video_mem);
   if(rtc_disable_int(AIE)) return 1;
   if(mouse_data_report(false)) return 1;
+  uart_reset();
   if(vg_exit()) return 1;
   return 0;
 }

@@ -20,11 +20,13 @@ int uart_init(){
   uint8_t fcr = BIT(0) | BIT(1) | BIT(2) | BIT(7);
   if(uart_write_to_port(FCR,fcr)) return 1;
 
+  reciever = create_queue();
+
   return 0;
 }
 
 void uart_reset(){
-
+  destroy_queue(reciever);
 }
 
 int uart_subscribe_int(uint8_t * bit_no){
@@ -101,6 +103,7 @@ int uart_read_fifo(){
     uint8_t c;
     if(uart_read_char(&c)) return 1;
     push(reciever,c);
+    if(uart_read_from_port(LSR, &lsr)) return 1;
   }
   return 0;
 }
@@ -132,11 +135,10 @@ void uart_ih(){
   uint8_t lsr;
   if(uart_read_from_port(IIR, &iir)) return;
   if(iir & SER_NO_INT_PEND) return;
-  printf("%d", iir & INT_ID);
   switch(iir & INT_ID){
-    case SER_RX_INT: if(uart_read_from_port(RBR,&v)) return; break;
+    case SER_RX_INT: if(uart_read_fifo()) return; break;
     case (BIT(1) | BIT(2)): if(uart_read_from_port(LSR, &lsr)) return; break;
-    case (BIT(2) | BIT(3)): if(uart_read_from_port(RBR, &v)) return; break;
+    case (BIT(2) | BIT(3)): if(uart_read_fifo()) return; break;
     default: break;
   }
 }

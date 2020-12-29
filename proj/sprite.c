@@ -31,11 +31,11 @@ animated_sprite_t * create_animated_sprite(xpm_map_t xpm_map[], int nsets, int n
   
   if(asprite == NULL) return NULL;
 
-  asprite->sp = *create_sprite(xpm_map[0],x,y);
+  asprite->sp = create_sprite(xpm_map[0],x,y);
   
   asprite->map = malloc((nsets * nframes)*sizeof(map));
 
-  asprite->map[0] = asprite->sp.current_pic;
+  asprite->map[0] = asprite->sp->current_pic;
 
   for(int i = 1; i < (nsets * nframes); i++){
     xpm_image_t img;
@@ -71,7 +71,7 @@ void destroy_animated_sprite(animated_sprite_t * asprite){
     }
     free(asprite->map); 
   }
-  destroy_sprite(&asprite->sp);
+  destroy_sprite(asprite->sp);
   free(asprite);
   asprite = NULL;
 }
@@ -103,7 +103,7 @@ int update_sprite_animation(animated_sprite_t * asprite){
   if(asprite->frame_count >= asprite->frame_delay){
     asprite->frame_count = 0;
     asprite->frame_index = ((asprite->frame_index + 1) % asprite->no_frames) + (asprite->no_frames * asprite->set_index);
-    asprite->sp.current_pic = asprite->map[asprite->frame_index];
+    asprite->sp->current_pic = asprite->map[asprite->frame_index];
   }
   return 0;
 }

@@ -22,7 +22,7 @@ typedef struct sprite sprite_t;
 
 struct animated_sprite{
 
-  sprite_t sp;
+  sprite_t *sp;
 
   int frame_count; 
   int frame_delay;
