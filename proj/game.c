@@ -162,8 +162,9 @@ int multi_player_1(){
     if (interrupts & TIMER_IRQ_SET){
       timer_int_handler();
       update_sprite_animation(player1.asprite);
-      
+      update_sprite_animation(player2.asprite);
       change_racket_side(&ball, &player1);
+      change_racket_side(&ball, &player2);
       change_player_position(&player1);
       change_player_position(&player2);
       change_ball_position(&ball);
@@ -254,7 +255,9 @@ int multi_player_2(){
     if (interrupts & TIMER_IRQ_SET){
       timer_int_handler();
       update_sprite_animation(player1.asprite);
+      update_sprite_animation(player2.asprite);
       change_racket_side(&ball, &player1);
+      change_racket_side(&ball, &player2);
       change_player_position(&player1);
       change_player_position(&player2);
       change_ball_position(&ball);

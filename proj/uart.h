@@ -8,7 +8,6 @@
 int uart_hook_id;
 queue_t *transmiter;
 queue_t *reciever;
-uint8_t v;
 
 int uart_init();
 
@@ -29,8 +28,6 @@ int uart_send_string(uint8_t *s, int sz);
 int uart_read_char(uint8_t *c);
 
 void clear_buffer();
-
-void reset_var();
 
 int uart_clean_buffer();
 

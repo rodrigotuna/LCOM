@@ -38,6 +38,8 @@
 #define INT_ID (BIT(1) | BIT(2) | BIT(3))
 #define SER_RX_INT BIT(2)
 #define SER_TX_INT BIT(1)
+#define SER_RLS_INT (BIT(1) | BIT(2))
+#define SER_CHAR_TO_INT (BIT(2) | BIT(3))
 
 /*LCR*/
 #define BIT_NO_8 BIT(1) | BIT(0)
@@ -47,8 +49,11 @@
 /*IER*/
 #define REC_DATA_AVAIL_INT BIT(0)
 #define TRANS_EMPTY_INT BIT(1)
+#define RLS_INT BIT(2)
 
 /*FCR*/
 #define EN_FIFO BIT(0)
-#define TRIG_LEVEL_4 BIT(6)
+#define EMPTY_RX BIT(1)
+#define EMPTY_TX BIT(2)
+#define TRIG_LEVEL_8 BIT(7)
 
