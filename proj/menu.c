@@ -7,16 +7,13 @@
 #include "mainmenu_mp.xpm"
 #include "mainmenu_scores.xpm"
 #include "mainmenu_quit.xpm"
-<<<<<<< HEAD
 #include "entername_0.xpm"
 #include "entername_1.xpm"
 #include "gameover.xpm"
 #include "gameover_playagain.xpm"
 #include "gameover_home.xpm"
-=======
 #include "waiting1.xpm"
 #include "waiting2.xpm"
->>>>>>> f5b08e1c691dc959daf97e26fab775d5d36f7475
 
 extern uint32_t timer_interrupts;
 
