@@ -138,6 +138,7 @@ int multi_player_1(){
         struct packet pp = make_packet();
         change_sprite_pos(crosshair, pp.delta_x, -pp.delta_y);
         if(process_event(&pp) == PRESSED_LB && can_shoot(&ball, &player1)){
+          send_ball_message(crosshair->x_pos, crosshair->y_pos);
           go_to_selected_point(&ball, crosshair->x_pos, crosshair->y_pos);
         }
       }
@@ -155,6 +156,11 @@ int multi_player_1(){
       while(!empty(reciever)){
         if(handle_message(top(reciever))){
           if(from_player) change_remote_player_velocity(&player2, mess[1]);
+          else {
+            uint16_t x_pos = (mess[0] << 8) | mess[1];
+            uint16_t y_pos = (mess[2] << 8) | mess[3];
+            go_to_selected_point(&ball, x_pos, y_pos);
+          }         
         }
         pop(reciever);
       }
@@ -231,6 +237,7 @@ int multi_player_2(){
         struct packet pp = make_packet();
         change_sprite_pos(crosshair, pp.delta_x, -pp.delta_y);
         if(process_event(&pp) == PRESSED_LB && can_shoot(&ball, &player2)){
+          send_ball_message(crosshair->x_pos, crosshair->y_pos);
           go_to_selected_point(&ball, crosshair->x_pos, crosshair->y_pos);
         }
       }
@@ -248,6 +255,11 @@ int multi_player_2(){
       while(!empty(reciever)){
         if(handle_message(top(reciever))){
           if(from_player)change_remote_player_velocity(&player1, mess[1]);
+          else {
+            uint16_t x_pos = (mess[0] << 8) | mess[1];
+            uint16_t y_pos = (mess[2] << 8) | mess[3];
+            go_to_selected_point(&ball, x_pos, y_pos);
+          }
         }
         pop(reciever);
       }
