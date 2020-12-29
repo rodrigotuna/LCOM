@@ -6,6 +6,8 @@
 #include "mainmenu_mp.xpm"
 #include "mainmenu_scores.xpm"
 #include "mainmenu_quit.xpm"
+#include "waiting1.xpm"
+#include "waiting2.xpm"
 
 extern uint32_t timer_interrupts;
 
@@ -113,6 +115,7 @@ menu_state_t main_menu_mode(sprite_t * cursor, animated_sprite_t * menu, menu_st
 int connect_player1_menu(){
   bool running = true;
   int found = 0;
+  sprite_t * wait_menu = create_sprite(waiting2_xpm, 0, 0);
   while (running) {
     uint32_t interrupts = get_interrupts();
     if(interrupts & MOUSE_IRQ_SET){
@@ -125,6 +128,7 @@ int connect_player1_menu(){
     if (interrupts & TIMER_IRQ_SET){
       timer_int_handler();
       if(timer_interrupts % 2 == 0){
+        display_sprite(wait_menu);
         page_flipping();
       }
     }
@@ -139,12 +143,14 @@ int connect_player1_menu(){
     }
   }
   if(found) uart_send_char('1');
+  destroy_sprite(wait_menu);
   return found;
 }
 
 int connect_player2_menu(){
   bool running = true;
   int found = 0;
+  sprite_t * wait_menu = create_sprite(waiting1_xpm, 0, 0);
   uart_send_char('2');
   while (running) {
     uint32_t interrupts = get_interrupts();
@@ -158,6 +164,7 @@ int connect_player2_menu(){
     if (interrupts & TIMER_IRQ_SET){
       timer_int_handler();
       if(timer_interrupts % 2 == 0){
+        display_sprite(wait_menu);
         page_flipping();
       }
     }
@@ -171,5 +178,6 @@ int connect_player2_menu(){
       }
     }
   }
+  destroy_sprite(wait_menu);
   return found;
 }
