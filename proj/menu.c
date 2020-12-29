@@ -7,11 +7,16 @@
 #include "mainmenu_mp.xpm"
 #include "mainmenu_scores.xpm"
 #include "mainmenu_quit.xpm"
+<<<<<<< HEAD
 #include "entername_0.xpm"
 #include "entername_1.xpm"
 #include "gameover.xpm"
 #include "gameover_playagain.xpm"
 #include "gameover_home.xpm"
+=======
+#include "waiting1.xpm"
+#include "waiting2.xpm"
+>>>>>>> f5b08e1c691dc959daf97e26fab775d5d36f7475
 
 extern uint32_t timer_interrupts;
 
@@ -247,6 +252,7 @@ bool check_button_bounds(int16_t cursor_x, int16_t cursor_y, int xi,int yi, butt
 int connect_player1_menu(){
   bool running = true;
   int found = 0;
+  sprite_t * wait_menu = create_sprite(waiting2_xpm, 0, 0);
   while (running) {
     uint32_t interrupts = get_interrupts();
     if(interrupts & MOUSE_IRQ_SET){
@@ -259,6 +265,7 @@ int connect_player1_menu(){
     if (interrupts & TIMER_IRQ_SET){
       timer_int_handler();
       if(timer_interrupts % 2 == 0){
+        display_sprite(wait_menu);
         page_flipping();
       }
     }
@@ -273,12 +280,14 @@ int connect_player1_menu(){
     }
   }
   if(found) uart_send_char('1');
+  destroy_sprite(wait_menu);
   return found;
 }
 
 int connect_player2_menu(){
   bool running = true;
   int found = 0;
+  sprite_t * wait_menu = create_sprite(waiting1_xpm, 0, 0);
   uart_send_char('2');
   while (running) {
     uint32_t interrupts = get_interrupts();
@@ -292,6 +301,7 @@ int connect_player2_menu(){
     if (interrupts & TIMER_IRQ_SET){
       timer_int_handler();
       if(timer_interrupts % 2 == 0){
+        display_sprite(wait_menu);
         page_flipping();
       }
     }
@@ -305,5 +315,6 @@ int connect_player2_menu(){
       }
     }
   }
+  destroy_sprite(wait_menu);
   return found;
 }
