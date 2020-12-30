@@ -56,7 +56,6 @@ int single_player(){
         change_sprite_pos(crosshair, pp.delta_x, -pp.delta_y);
         if(process_event(&pp) == PRESSED_LB && can_shoot(&ball, &player)){
           go_to_selected_point(&ball, crosshair->x_pos, crosshair->y_pos);
-          player.points++;
         }
       }
     }
@@ -73,8 +72,14 @@ int single_player(){
       change_racket_side(&ball, &player);
       change_player_position(&player);
       change_ball_position(&ball);
-      if(is_ball_out_of_bounds(&ball) == 1) shoot_ball(&ball);
-      if(is_ball_out_of_bounds(&ball) == 2) running = false;
+      switch(get_ball_state(&ball)){
+        case OUT_OF_BOUNDS_TOP: shoot_ball(&ball); 
+                                player.points++; 
+                                break;
+        case OUT_OF_BOUNDS_BOT: running = false;
+                                break;
+        case INSIDE:            break;
+      }
       if(timer_interrupts % 2 == 0){
         display_sprite(court);
         int_to_char(player.points,points);
@@ -103,34 +108,33 @@ int multi_player_1(){
 
   sprite_t *net = create_sprite(net_xpm,0,0);
 
-  sprite_t *crosshair;
-  crosshair = create_sprite(aim_xpm,400,300);
+  sprite_t *crosshair = create_sprite(aim_xpm,400,300);
   set_bounds(crosshair, 0, 768, 0, 568);
 
   player_t player1;
   xpm_map_t player1_xpm[] = {playerdownright_0_xpm, playerdownright_1_xpm,
                                                         playerdownleft_0_xpm, playerdownleft_1_xpm};
   player1.asprite = create_animated_sprite(player1_xpm,2,2,30,200,500);
-  player1.x_velocity = 0; player1.y_velocity = 0;
   set_bounds(player1.asprite->sp,0,700,250,500);
+  player1.points = 0;
 
   player_t player2;
   xpm_map_t player2_xpm[] = {playerupright_0_xpm, playerupright_1_xpm, playerupleft_0_xpm,     
                                                                                 playerupleft_1_xpm};
   player2.asprite = create_animated_sprite(player2_xpm,2,2,30,500,0); 
-  player2.x_velocity = 0; player2.y_velocity = 0;
-  set_bounds(player2.asprite->sp,0,700,0,250);
+  set_bounds(player2.asprite->sp,0,700,0,240);
+  player2.points = 0;
 
   ball_t ball;
-  ball.sp = create_sprite(ball_xpm,390,100);
+  ball.sp = create_sprite(ball_xpm,270,530);
   set_bounds(ball.sp, 0, 768, 0, 568);
-  ball.real_x_pos = 400; ball.real_y_pos = 100;
-  ball.velocity_norm = 6;
-  ball.x_velocity = 0; ball.y_velocity = 0;
+  ball.velocity_norm = 7;
 
-  bool running = true;
+  service_positions(&ball, &player1, &player2, true);
 
-  while (running) {
+  game_state_t state = SERVICE;
+
+  while (player1.points < 4 && player2.points < 4) {
     uint32_t interrupts = get_interrupts();
     if(interrupts & MOUSE_IRQ_SET){
       mouse_ih();
@@ -138,6 +142,7 @@ int multi_player_1(){
         struct packet pp = make_packet();
         change_sprite_pos(crosshair, pp.delta_x, -pp.delta_y);
         if(process_event(&pp) == PRESSED_LB && can_shoot(&ball, &player1)){
+          if(state == SERVICE) state = PLAYING;
           send_ball_message(crosshair->x_pos, crosshair->y_pos);
           go_to_selected_point(&ball, crosshair->x_pos, crosshair->y_pos);
         }
@@ -145,11 +150,10 @@ int multi_player_1(){
     }
     if (interrupts & KB_IRQ_SET){
         kbc_ih(); //handler reads bytes from the KBC's Output_buf
-        if(code_completed){
+        if(code_completed && state != SERVICE){
           change_player_velocity(&player1, scancode[size-1]);
           send_player_message(scancode[size-1]);
         }
-      if(scancode[size-1] == ESC_BREAK_CODE) running = false;
     }
     if(interrupts & UART_IRQ_SET){
       uart_ih();
@@ -157,8 +161,8 @@ int multi_player_1(){
         if(handle_message(top(reciever))){
           if(from_player) change_remote_player_velocity(&player2, mess[1]);
           else {
-            uint16_t x_pos = (mess[0] << 8) | mess[1];
-            uint16_t y_pos = (mess[2] << 8) | mess[3];
+            uint16_t x_pos = ((mess[0] >> 3) << 8) | mess[1];
+            uint16_t y_pos = ((mess[0] & 0x07) << 8) | mess[2];
             go_to_selected_point(&ball, x_pos, y_pos);
           }         
         }
@@ -174,7 +178,17 @@ int multi_player_1(){
       change_player_position(&player1);
       change_player_position(&player2);
       change_ball_position(&ball);
-      if(is_ball_out_of_bounds(&ball) == 2) running = false;
+       switch(get_ball_state(&ball)){
+        case OUT_OF_BOUNDS_TOP: service_positions(&ball, &player1, &player2, true);
+                                state = SERVICE; 
+                                player1.points++;
+                                break;
+        case OUT_OF_BOUNDS_BOT: service_positions(&ball, &player1, &player2, false); 
+                                state = PLAYING;
+                                player2.points++;
+                                break;
+        case INSIDE: break;
+      }
       if(timer_interrupts % 2 == 0){
         display_sprite(court);
         display_sprite(player2.asprite->sp);
@@ -202,34 +216,33 @@ int multi_player_2(){
 
   sprite_t *net = create_sprite(net_xpm,0,0);
 
-  sprite_t *crosshair;
-  crosshair = create_sprite(aim_xpm,400,300);
+  sprite_t *crosshair = create_sprite(aim_xpm,400,300);
   set_bounds(crosshair, 0, 768, 0, 568);
 
   player_t player1;
   xpm_map_t player1_xpm[] = {playerdownright_0_xpm, playerdownright_1_xpm,
                                                         playerdownleft_0_xpm, playerdownleft_1_xpm};
   player1.asprite = create_animated_sprite(player1_xpm,2,2,30,200,500);
-  player1.x_velocity = 0; player1.y_velocity = 0;
   set_bounds(player1.asprite->sp,0,700,250,500);
+  player1.points = 0;
 
   player_t player2;
   xpm_map_t player2_xpm[] = {playerupright_0_xpm, playerupright_1_xpm, playerupleft_0_xpm,     
                                                                                 playerupleft_1_xpm};
   player2.asprite = create_animated_sprite(player2_xpm,2,2,30,500,0); 
-  player2.x_velocity = 0; player2.y_velocity = 0;
-  set_bounds(player2.asprite->sp,0,700,0,250);
+  set_bounds(player2.asprite->sp,0,700,0,240);
+  player2.points = 0;
 
   ball_t ball;
-  ball.sp = create_sprite(ball_xpm,390,100);
+  ball.sp = create_sprite(ball_xpm,270,530);
   set_bounds(ball.sp, 0, 768, 0, 568);
-  ball.real_x_pos = 400; ball.real_y_pos = 100;
   ball.velocity_norm = 6;
-  ball.x_velocity = 0; ball.y_velocity = 0;
 
-  bool running = true;
+  service_positions(&ball, &player1, &player2, true);
 
-  while (running) {
+  game_state_t state = PLAYING;
+
+  while (player1.points < 4 && player2.points < 4) {
     uint32_t interrupts = get_interrupts();
     if(interrupts & MOUSE_IRQ_SET){
       mouse_ih();
@@ -237,6 +250,7 @@ int multi_player_2(){
         struct packet pp = make_packet();
         change_sprite_pos(crosshair, pp.delta_x, -pp.delta_y);
         if(process_event(&pp) == PRESSED_LB && can_shoot(&ball, &player2)){
+          if(state == SERVICE) state = PLAYING;
           send_ball_message(crosshair->x_pos, crosshair->y_pos);
           go_to_selected_point(&ball, crosshair->x_pos, crosshair->y_pos);
         }
@@ -244,11 +258,10 @@ int multi_player_2(){
     }
     if (interrupts & KB_IRQ_SET){
         kbc_ih(); //handler reads bytes from the KBC's Output_buf
-        if(code_completed){
+        if(code_completed && state != SERVICE){
           send_player_message(scancode[size-1]);
           change_player_velocity(&player2,scancode[size-1]);
         }
-      if(scancode[size-1] == ESC_BREAK_CODE) running = false;
     }
     if(interrupts & UART_IRQ_SET){
       uart_ih();
@@ -256,8 +269,8 @@ int multi_player_2(){
         if(handle_message(top(reciever))){
           if(from_player)change_remote_player_velocity(&player1, mess[1]);
           else {
-            uint16_t x_pos = (mess[0] << 8) | mess[1];
-            uint16_t y_pos = (mess[2] << 8) | mess[3];
+            uint16_t x_pos = ((mess[0] >> 3) << 8) | mess[1];
+            uint16_t y_pos = ((mess[0] & 0x07) << 8) | mess[2];
             go_to_selected_point(&ball, x_pos, y_pos);
           }
         }
@@ -273,7 +286,17 @@ int multi_player_2(){
       change_player_position(&player1);
       change_player_position(&player2);
       change_ball_position(&ball);
-      if(is_ball_out_of_bounds(&ball) == 2) running = false;
+      switch(get_ball_state(&ball)){
+        case OUT_OF_BOUNDS_TOP: service_positions(&ball, &player1, &player2, true); 
+                                state = PLAYING;
+                                player1.points++;
+                                break;
+        case OUT_OF_BOUNDS_BOT: service_positions(&ball, &player1, &player2, false); 
+                                state = SERVICE;
+                                player2.points++;
+                                break;
+        case INSIDE: break;
+      }
       if(timer_interrupts % 2 == 0){
         display_sprite(court);
         display_sprite(player2.asprite->sp);
@@ -295,4 +318,3 @@ int multi_player_2(){
   destroy_sprite(ball.sp);
   return 0;
 }
-

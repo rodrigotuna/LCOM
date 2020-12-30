@@ -39,6 +39,8 @@ int change_player_velocity(player_t * player, uint8_t scancode){
     s_pressed = false;
     a_pressed = false;
     d_pressed = false;
+    player->x_velocity = 0;
+    player->y_velocity = 0;
   } 
 
   switch(scancode){
@@ -89,6 +91,8 @@ int change_remote_player_velocity(player_t * player, uint8_t scancode){
     s_pressed = false;
     a_pressed = false;
     d_pressed = false;
+    player->y_velocity = 0;
+    player->x_velocity = 0;
   } 
 
   switch(scancode){
@@ -142,4 +146,25 @@ void change_racket_side(ball_t * ball, player_t * player){
 
   player->asprite->frame_count = (player->asprite->set_index != last_set) ?                  
                                   player->asprite->frame_delay : player->asprite->frame_count;
+}
+
+void service_positions(ball_t * ball, player_t *player1, player_t *player2, bool turn){
+  change_player_velocity(player1, 0);
+  change_remote_player_velocity(player2, 0);
+
+  player1->asprite->sp->x_pos = 200;
+  player1->asprite->sp->y_pos = 500;
+
+  player2->asprite->sp->x_pos = 500;
+  player2->asprite->sp->y_pos = 0;
+
+  ball->x_velocity = 0; ball->y_velocity = 0;
+
+  if(turn) {
+    ball->real_x_pos = 270; 
+    ball->real_y_pos = 530;
+  }else{
+    ball->real_y_pos = 30;
+    ball->real_x_pos = 500;
+  }
 }

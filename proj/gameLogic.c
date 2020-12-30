@@ -1,20 +1,20 @@
 #include "gameLogic.h"
 
 
-int is_ball_out_of_bounds(ball_t * ball){
-  if(ball->real_y_pos <= 0) return 1;
-  if(ball->real_y_pos >= 600) return 2;
+ball_state_t get_ball_state(ball_t * ball){
+  if(ball->real_y_pos <= 0) return OUT_OF_BOUNDS_TOP;
+  if(ball->real_y_pos >= 600) return OUT_OF_BOUNDS_BOT;
   if(ball->real_x_pos <= 0 || ball->real_x_pos >= 800){
-    if(ball->real_y_pos <= 300) return 1;
-    return 2;
+    if(ball->real_y_pos <= 334) return OUT_OF_BOUNDS_TOP;
+    else return OUT_OF_BOUNDS_BOT;
   }
-  return 0;
+  return INSIDE;
 }
 
 int shoot_ball(ball_t *ball){
   ball->real_x_pos = 390; ball->real_y_pos = 100;
   ball->velocity_norm += 0.25;
-  go_to_selected_point(ball, rand()%500 + 150, rand()%200 + 400);
+  go_to_selected_point(ball, rand()%461 + 171, rand()%256 + 334);
   return 0;
 }
 

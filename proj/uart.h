@@ -6,7 +6,6 @@
 #include <stdint.h>
 
 int uart_hook_id;
-queue_t *transmiter;
 queue_t *reciever;
 
 int uart_init();
@@ -25,10 +24,6 @@ int uart_send_char(uint8_t c);
 
 int uart_send_string(uint8_t *s, int sz);
 
-int uart_read_char(uint8_t *c);
-
-void clear_buffer();
-
-int uart_clean_buffer();
+int uart_read_fifo();
 
 void uart_ih();

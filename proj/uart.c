@@ -5,7 +5,6 @@
 #include <lcom/liblm.h>
 #include <lcom/proj.h>
 
-queue_t *transmiter;
 queue_t *reciever;
 
 int uart_init(){
@@ -59,7 +58,7 @@ int uart_send_char(uint8_t c){
       if(uart_write_to_port(THR, c)) return 1;
       return 0;
     }
-    tickdelay(micros_to_ticks(20000));
+    tickdelay(micros_to_ticks(2000));
   }
     return 1;
 }
@@ -71,59 +70,17 @@ int uart_send_string(uint8_t *s, int sz){
   return 0;
 }
 
-int uart_read_char(uint8_t *c){
-    int tries = 5;
-    while(tries--){
-      uint8_t lsr;
-      if(uart_read_from_port(LSR, &lsr)) return 1;
-      if(lsr & PAR_ERR || lsr & OR_ERR) return 1;
-      if(lsr & R_READY){
-        if(uart_read_from_port(RBR, c)) return 1;
-        return 0;
-      }
-      tickdelay(micros_to_ticks(10000));
-    }
-    return 1;
-}
-
-void clear_buffer(){
-  uint8_t dum;
-  while(uart_read_char(&dum) == 0){};
-}
-
 int uart_read_fifo(){
   uint8_t lsr;
   if(uart_read_from_port(LSR, &lsr)) return 1;
   while(lsr & R_READY){
     uint8_t c;
-    if(uart_read_char(&c)) return 1;
+    if(uart_read_from_port(RBR, &c)) return 1;
     push(reciever,c);
     if(uart_read_from_port(LSR, &lsr)) return 1;
   }
   return 0;
 }
-
-int uart_write_fifo(){
-  uint8_t lsr;
-  if(uart_read_from_port(LSR, &lsr)) return 1;
-  while(!empty(transmiter) && lsr & TRANS_HOLD_EMPTY){
-    if(uart_send_char(top(transmiter))) return 1;
-    pop(transmiter);
-  }
-  return 0;
-}
-
-int uart_clean_buffer(){
-  uint8_t dum;
-  uint8_t lsr;
-  if(uart_read_from_port(LSR, &lsr)) return 1;
-  if(lsr & R_READY){
-    if(uart_read_from_port(RBR, &dum)) return 1;
-      return 0;
-  }
-  return 1;
-}
-
 
 void uart_ih(){
   uint8_t iir;
