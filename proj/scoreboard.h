@@ -13,6 +13,6 @@ int check_highscore(int points);
 
 int add_new_score(char * name, int points, int place);
 
-int display_scores();
+int display_scores(sprite_t * font);
 
 char * write_name(char * name, uint8_t scancode);

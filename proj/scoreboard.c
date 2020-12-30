@@ -1,5 +1,4 @@
 #include "scoreboard.h"
-#include "font.xpm"
 
 int check_highscore(int points){
   FILE *scoreboard;
@@ -63,9 +62,7 @@ int add_new_score(char * name, int points, int place){
   return 0;
 }
 
-int display_scores(){
-  sprite_t font = *create_sprite(font_xpm,70,191);
-
+int display_scores(sprite_t * font){
   FILE *scoreboard;
   scoreboard = fopen(SCOREBOARDPATH, "r+");
 
@@ -76,14 +73,15 @@ int display_scores(){
 
    while(getline(&line,&len,scoreboard) != -1){
     score_str = strtok(line,delim);
-    if(print_string(score_str,&font,652,font.y_pos)) return 1;
+    if(print_string(score_str,font,652,font->y_pos)) return 1;
     score_str = strtok(NULL,delim);
-    if(print_string(score_str,&font,294,font.y_pos)) return 1;
+    if(print_string(score_str,font,294,font->y_pos)) return 1;
     score_str = strtok(NULL,delim);
-    if(print_string(score_str,&font,80,font.y_pos)) return 1;
-    font.y_pos += 74;
+    if(print_string(score_str,font,80,font->y_pos)) return 1;
+    font->y_pos += 74;
   }
-  destroy_sprite(&font);
+
+  fclose(scoreboard);
   return 0;
 }
 
