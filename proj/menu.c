@@ -116,7 +116,8 @@ int entername_menu(int place, int points){
         kbc_ih();
         if(code_completed){
           if(strlen(name) < 10 || scancode[size-1] == BACKSPACE_MAKECODE){
-            strcpy(name,write_name(name,scancode[size-1]));}
+            strcpy(name,write_name(name,scancode[size-1]));
+          }
         }
     }
     if (interrupts & TIMER_IRQ_SET){
@@ -312,7 +313,7 @@ int connect_player2_menu(){
 }
 
 int scoreboard_menu(){
-  sprite_t * font = create_sprite(font_xpm,70,191);
+  sprite_t *font = create_sprite(font_xpm,70,191);
 
   sprite_t *cursor = create_sprite(cursor_xpm,400,300);
   set_bounds(cursor, 0, 776, 0, 576);
@@ -412,11 +413,11 @@ button_state_t gameover_menu_mode(sprite_t * cursor, animated_sprite_t * menu, b
 button_state_t chooseplayer_menu_mode(sprite_t * cursor, animated_sprite_t * menu, button_state_t mode){
   if(check_button_bounds(cursor->x_pos,cursor->y_pos,204,479, SMALL)){
     menu->set_index = 1;
-    mode = PLAYAGAIN;
+    mode = CREATE;
   }
   else if(check_button_bounds(cursor->x_pos,cursor->y_pos,461,479, SMALL)){
     menu->set_index = 2;
-    mode = HOME;
+    mode = JOIN;
   }
   else{
     menu->set_index = 0;
