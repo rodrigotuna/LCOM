@@ -24,3 +24,23 @@ bool can_shoot(ball_t * ball, player_t *player){
 
    return (y_dist >= 19 && y_dist <= 69 && x_dist >= -15 && x_dist <= 96);
 }
+
+bool update_score(player_t* winner, player_t * loser){
+  winner->points++;
+  if(winner->points == 4 && loser->points == 4){
+    winner->points--;
+    loser->points--;
+  }
+  return (winner->points - loser->points) > 1 && winner->points >= 4;
+}
+
+char * multiplayer_score(player_t *player){
+  switch(player->points){
+    case 0: return "00";
+    case 1: return "15";
+    case 2: return "30";
+    case 3: return "40";
+    case 4: return "45";
+  }
+  return "";
+}

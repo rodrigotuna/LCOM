@@ -104,6 +104,8 @@ int single_player(){
 }
 
 int multi_player_1(){
+  sprite_t *font = create_sprite(font_xpm,165,12);
+
   sprite_t *court = create_sprite(tenniscourt_xpm,0,0);
 
   sprite_t *net = create_sprite(net_xpm,0,0);
@@ -134,7 +136,7 @@ int multi_player_1(){
 
   game_state_t state = SERVICE;
 
-  while (player1.points < 4 && player2.points < 4) {
+  while (!(state == WIN || state == LOSE)) {
     uint32_t interrupts = get_interrupts();
     if(interrupts & MOUSE_IRQ_SET){
       mouse_ih();
@@ -181,16 +183,18 @@ int multi_player_1(){
        switch(get_ball_state(&ball)){
         case OUT_OF_BOUNDS_TOP: service_positions(&ball, &player1, &player2, true);
                                 state = SERVICE; 
-                                player1.points++;
+                                if(update_score(&player1, &player2)) state = WIN;
                                 break;
         case OUT_OF_BOUNDS_BOT: service_positions(&ball, &player1, &player2, false); 
                                 state = PLAYING;
-                                player2.points++;
+                                if(update_score(&player2, &player1)) state = LOSE;
                                 break;
         case INSIDE: break;
       }
       if(timer_interrupts % 2 == 0){
         display_sprite(court);
+        print_string(multiplayer_score(&player1), font, 165, 12);
+        print_string(multiplayer_score(&player2), font, 200, 12);
         display_sprite(player2.asprite->sp);
         display_sprite(net);
         display_sprite(ball.sp);
@@ -204,6 +208,7 @@ int multi_player_1(){
   change_player_velocity(&player2, 0);
   destroy_animated_sprite(player1.asprite);
   destroy_animated_sprite(player2.asprite);
+  destroy_sprite(font);
   destroy_sprite(court);
   destroy_sprite(net);
   destroy_sprite(crosshair);
@@ -212,6 +217,8 @@ int multi_player_1(){
 }
 
 int multi_player_2(){
+  sprite_t *font = create_sprite(font_xpm,165,12);
+
   sprite_t *court = create_sprite(tenniscourt_xpm,0,0);
 
   sprite_t *net = create_sprite(net_xpm,0,0);
@@ -236,13 +243,13 @@ int multi_player_2(){
   ball_t ball;
   ball.sp = create_sprite(ball_xpm,270,530);
   set_bounds(ball.sp, 0, 768, 0, 568);
-  ball.velocity_norm = 6;
+  ball.velocity_norm = 7;
 
   service_positions(&ball, &player1, &player2, true);
 
   game_state_t state = PLAYING;
 
-  while (player1.points < 4 && player2.points < 4) {
+  while (!(state == WIN || state == LOSE)) {
     uint32_t interrupts = get_interrupts();
     if(interrupts & MOUSE_IRQ_SET){
       mouse_ih();
@@ -289,16 +296,18 @@ int multi_player_2(){
       switch(get_ball_state(&ball)){
         case OUT_OF_BOUNDS_TOP: service_positions(&ball, &player1, &player2, true); 
                                 state = PLAYING;
-                                player1.points++;
+                                if(update_score(&player1, &player2)) state = LOSE;
                                 break;
         case OUT_OF_BOUNDS_BOT: service_positions(&ball, &player1, &player2, false); 
                                 state = SERVICE;
-                                player2.points++;
+                                if(update_score(&player2, &player1)) state = WIN;
                                 break;
         case INSIDE: break;
       }
       if(timer_interrupts % 2 == 0){
         display_sprite(court);
+        print_string(multiplayer_score(&player1), font, 165, 12);
+        print_string(multiplayer_score(&player2), font, 200, 12);
         display_sprite(player2.asprite->sp);
         display_sprite(net);
         display_sprite(ball.sp);
@@ -312,6 +321,7 @@ int multi_player_2(){
   change_player_velocity(&player2, 0);
   destroy_animated_sprite(player1.asprite);
   destroy_animated_sprite(player2.asprite);
+  destroy_sprite(font);
   destroy_sprite(court);
   destroy_sprite(net);
   destroy_sprite(crosshair);
