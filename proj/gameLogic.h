@@ -8,7 +8,7 @@
 
 typedef enum{INSIDE, OUT_OF_BOUNDS} ball_state_t;
 
-typedef enum{SERVICE, PLAYING, WIN, LOSE} game_state_t;
+typedef enum{PLAYING, WIN, LOSE} game_state_t;
 
 typedef enum{PLAYER1, PLAYER2} won_service_t;
 

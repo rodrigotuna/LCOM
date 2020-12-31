@@ -99,9 +99,9 @@ void mouse_poll(){
   }
 }
 
-shooting_ev process_event(struct packet * packet){
+click_ev process_event(struct packet * packet){
   static bool lb_pressed = 0;
-  shooting_ev event;
+  click_ev event;
   if(packet->lb ^ lb_pressed && packet->lb){
     event = PRESSED_LB;
   }else {
