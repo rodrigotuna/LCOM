@@ -245,6 +245,7 @@ int choose_player_menu(){
 int connect_player1_menu(){
   bool running = true;
   int found = 0;
+  rtc_set_alarm(30);
   sprite_t * wait_menu = create_sprite(waiting2_xpm, 0, 0);
   while (running) {
     uint32_t interrupts = get_interrupts();
@@ -262,7 +263,14 @@ int connect_player1_menu(){
         page_flipping();
       }
     }
+    if(interrupts & RTC_IRQ_SET){
+      uint8_t stat;
+      rtc_read_status(REG_C,&stat);
 
+      if(stat & AF){
+        running = false;
+      }
+    }
     if(interrupts & UART_IRQ_SET){
       uart_ih();
       if(top(reciever) == '2'){

@@ -96,14 +96,6 @@ int rtc_set_alarm(uint8_t tseconds){
 
 }
 
-void rtc_ih(){
-  uint8_t stat;
-  if(rtc_read_status(REG_C,&stat)) return;
-
-  if(stat & AF){
-    //Does something
-  }
-}
 
 uint8_t bcd_to_int(uint8_t value){
   return (value >> 4 )*10 + (value & 0x0F);

@@ -22,8 +22,6 @@ int rtc_get_date(uint8_t * date);
 
 int rtc_set_alarm(uint8_t tseconds);
 
-void rtc_ih();
-
 uint8_t bcd_to_int(uint8_t value);
 
 uint8_t int_to_bcd(uint8_t value);
