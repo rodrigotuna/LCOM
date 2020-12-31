@@ -15,12 +15,14 @@ struct ball{
   double x_velocity;
   double y_velocity;
   double velocity_norm;
+  int last_player;
+  bool valid_shot;
   sprite_t *sp;
 };
 
 typedef struct ball ball_t;
 
-int go_to_selected_point(ball_t * ball, uint16_t x, uint16_t y);
+int go_to_selected_point(ball_t * ball, uint16_t x, uint16_t y, int player);
 
 int change_ball_position(ball_t * ball);
 

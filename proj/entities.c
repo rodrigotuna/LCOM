@@ -1,8 +1,9 @@
 #include "entities.h"
+#include "gameLogic.h"
 
 //Ball Functions
 
-int go_to_selected_point(ball_t * ball, uint16_t x, uint16_t y){
+int go_to_selected_point(ball_t * ball, uint16_t x, uint16_t y, int player){
   if(ball == NULL) return 1;
 
   double y_dev = y - ball->real_y_pos;
@@ -10,6 +11,8 @@ int go_to_selected_point(ball_t * ball, uint16_t x, uint16_t y){
   double norm = sqrt(y_dev*y_dev + x_dev*x_dev);
   ball->x_velocity = ball->velocity_norm*x_dev/norm;
   ball->y_velocity = ball->velocity_norm*y_dev/norm;
+  ball->last_player = player;
+  ball->valid_shot = valid_shot(x,y,player);
   return 0;
 }
 

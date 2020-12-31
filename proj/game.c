@@ -55,7 +55,7 @@ int single_player(){
         struct packet pp = make_packet();
         change_sprite_pos(crosshair, pp.delta_x, -pp.delta_y);
         if(process_event(&pp) == PRESSED_LB && can_shoot(&ball, &player)){
-          go_to_selected_point(&ball, crosshair->x_pos, crosshair->y_pos);
+          go_to_selected_point(&ball, crosshair->x_pos, crosshair->y_pos, 1);
         }
       }
     }
@@ -72,13 +72,14 @@ int single_player(){
       change_racket_side(&ball, &player);
       change_player_position(&player);
       change_ball_position(&ball);
-      switch(get_ball_state(&ball)){
-        case OUT_OF_BOUNDS_TOP: shoot_ball(&ball); 
-                                player.points++; 
-                                break;
-        case OUT_OF_BOUNDS_BOT: running = false;
-                                break;
-        case INSIDE:            break;
+      if(get_ball_state(&ball) == OUT_OF_BOUNDS){
+        switch(get_winner_of_set(&ball)){
+          case PLAYER1: shoot_ball(&ball); 
+                        player.points++; 
+                        break;
+          case PLAYER2: running = false;
+                        break;
+        }
       }
       if(timer_interrupts % 2 == 0){
         display_sprite(court);
@@ -146,7 +147,7 @@ int multi_player_1(){
         if(process_event(&pp) == PRESSED_LB && can_shoot(&ball, &player1)){
           if(state == SERVICE) state = PLAYING;
           send_ball_message(crosshair->x_pos, crosshair->y_pos);
-          go_to_selected_point(&ball, crosshair->x_pos, crosshair->y_pos);
+          go_to_selected_point(&ball, crosshair->x_pos, crosshair->y_pos, 1);
         }
       }
     }
@@ -165,7 +166,7 @@ int multi_player_1(){
           else {
             uint16_t x_pos = ((mess[0] >> 3) << 8) | mess[1];
             uint16_t y_pos = ((mess[0] & 0x07) << 8) | mess[2];
-            go_to_selected_point(&ball, x_pos, y_pos);
+            go_to_selected_point(&ball, x_pos, y_pos, 2);
           }         
         }
         pop(reciever);
@@ -180,16 +181,17 @@ int multi_player_1(){
       change_player_position(&player1);
       change_player_position(&player2);
       change_ball_position(&ball);
-       switch(get_ball_state(&ball)){
-        case OUT_OF_BOUNDS_TOP: service_positions(&ball, &player1, &player2, true);
-                                state = SERVICE; 
-                                if(update_score(&player1, &player2)) state = WIN;
-                                break;
-        case OUT_OF_BOUNDS_BOT: service_positions(&ball, &player1, &player2, false); 
-                                state = PLAYING;
-                                if(update_score(&player2, &player1)) state = LOSE;
-                                break;
-        case INSIDE: break;
+      if(get_ball_state(&ball) == OUT_OF_BOUNDS){
+        switch(get_winner_of_set(&ball)){
+          case PLAYER1: service_positions(&ball, &player1, &player2, true);
+                        state = SERVICE; 
+                        if(update_score(&player1, &player2)) state = WIN;
+                        break;
+          case PLAYER2: service_positions(&ball, &player1, &player2, false); 
+                        state = PLAYING;
+                        if(update_score(&player2, &player1)) state = LOSE;
+                        break;
+        }
       }
       if(timer_interrupts % 2 == 0){
         display_sprite(court);
@@ -259,7 +261,7 @@ int multi_player_2(){
         if(process_event(&pp) == PRESSED_LB && can_shoot(&ball, &player2)){
           if(state == SERVICE) state = PLAYING;
           send_ball_message(crosshair->x_pos, crosshair->y_pos);
-          go_to_selected_point(&ball, crosshair->x_pos, crosshair->y_pos);
+          go_to_selected_point(&ball, crosshair->x_pos, crosshair->y_pos, 2);
         }
       }
     }
@@ -278,7 +280,7 @@ int multi_player_2(){
           else {
             uint16_t x_pos = ((mess[0] >> 3) << 8) | mess[1];
             uint16_t y_pos = ((mess[0] & 0x07) << 8) | mess[2];
-            go_to_selected_point(&ball, x_pos, y_pos);
+            go_to_selected_point(&ball, x_pos, y_pos, 1);
           }
         }
         pop(reciever);
@@ -293,16 +295,17 @@ int multi_player_2(){
       change_player_position(&player1);
       change_player_position(&player2);
       change_ball_position(&ball);
-      switch(get_ball_state(&ball)){
-        case OUT_OF_BOUNDS_TOP: service_positions(&ball, &player1, &player2, true); 
-                                state = PLAYING;
-                                if(update_score(&player1, &player2)) state = LOSE;
-                                break;
-        case OUT_OF_BOUNDS_BOT: service_positions(&ball, &player1, &player2, false); 
-                                state = SERVICE;
-                                if(update_score(&player2, &player1)) state = WIN;
-                                break;
-        case INSIDE: break;
+      if(get_ball_state(&ball) == OUT_OF_BOUNDS){
+        switch(get_winner_of_set(&ball)){
+          case PLAYER1: service_positions(&ball, &player1, &player2, true);
+                        state = PLAYING; 
+                        if(update_score(&player1, &player2)) state = LOSE;
+                        break;
+          case PLAYER2: service_positions(&ball, &player1, &player2, false); 
+                        state = SERVICE;
+                        if(update_score(&player2, &player1)) state = WIN;
+                        break;
+        }
       }
       if(timer_interrupts % 2 == 0){
         display_sprite(court);
