@@ -135,7 +135,7 @@ int multi_player_1(){
 
   service_positions(&ball, &player1, &player2, true);
 
-  game_state_t state = PLAYING;
+  game_state_t state = SERVICE;
 
   char score[10];
 
@@ -147,6 +147,7 @@ int multi_player_1(){
         struct packet pp = make_packet();
         change_sprite_pos(crosshair, pp.delta_x, -pp.delta_y);
         if(process_event(&pp) == PRESSED_LB && can_shoot(&ball, &player1)){
+          if(state == SERVICE) state = PLAYING;
           send_ball_message(crosshair->x_pos, crosshair->y_pos);
           go_to_selected_point(&ball, crosshair->x_pos, crosshair->y_pos, 1);
         }
@@ -154,7 +155,7 @@ int multi_player_1(){
     }
     if (interrupts & KB_IRQ_SET){
         kbc_ih(); //handler reads bytes from the KBC's Output_buf
-        if(code_completed){
+        if(code_completed && state != SERVICE){
           change_player_velocity(&player1, scancode[size-1]);
           send_player_message(scancode[size-1]);
         }
@@ -185,12 +186,15 @@ int multi_player_1(){
       if(get_ball_state(&ball) == OUT_OF_BOUNDS){
         switch(get_winner_of_set(&ball)){
           case PLAYER1: service_positions(&ball, &player1, &player2, true);
+                        state = SERVICE;
                         if(update_score(&player1, &player2)) state = WIN;
                         break;
           case PLAYER2: service_positions(&ball, &player1, &player2, false); 
+                        state = PLAYING;
                         if(update_score(&player2, &player1)) state = LOSE;
                         break;
         }
+        reset_communication();
       }
       if(timer_interrupts % 2 == 0){
         display_sprite(court);
@@ -265,6 +269,7 @@ int multi_player_2(){
         struct packet pp = make_packet();
         change_sprite_pos(crosshair, pp.delta_x, -pp.delta_y);
         if(process_event(&pp) == PRESSED_LB && can_shoot(&ball, &player2)){
+          if(state == SERVICE) state = PLAYING;
           send_ball_message(crosshair->x_pos, crosshair->y_pos);
           go_to_selected_point(&ball, crosshair->x_pos, crosshair->y_pos, 2);
         }
@@ -272,7 +277,7 @@ int multi_player_2(){
     }
     if (interrupts & KB_IRQ_SET){
         kbc_ih(); //handler reads bytes from the KBC's Output_buf
-        if(code_completed){
+        if(code_completed && state != SERVICE){
           send_player_message(scancode[size-1]);
           change_player_velocity(&player2,scancode[size-1]);
         }
@@ -303,12 +308,15 @@ int multi_player_2(){
       if(get_ball_state(&ball) == OUT_OF_BOUNDS){
         switch(get_winner_of_set(&ball)){
           case PLAYER1: service_positions(&ball, &player1, &player2, true);
+                        state = PLAYING;
                         if(update_score(&player1, &player2)) state = LOSE;
                         break;
           case PLAYER2: service_positions(&ball, &player1, &player2, false); 
+                        state = SERVICE;
                         if(update_score(&player2, &player1)) state = WIN;
                         break;
         }
+        reset_communication();
       }
       if(timer_interrupts % 2 == 0){
         display_sprite(court);

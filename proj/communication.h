@@ -17,3 +17,5 @@ int send_player_message(uint8_t scancode);
 int send_ball_message(uint16_t x_pos, uint16_t y_pos);
 
 int handle_message(uint8_t c);
+
+int reset_communication();
