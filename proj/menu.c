@@ -264,12 +264,8 @@ int connect_player1_menu(){
       }
     }
     if(interrupts & RTC_IRQ_SET){
-      uint8_t stat;
-      rtc_read_status(REG_C,&stat);
-
-      if(stat & AF){
-        running = false;
-      }
+      rtc_ih();
+      if(alarm_int) running = false;
     }
     if(interrupts & UART_IRQ_SET){
       uart_ih();

@@ -137,6 +137,8 @@ int multi_player_1(){
 
   game_state_t state = PLAYING;
 
+  char score[10];
+
   while (!(state == WIN || state == LOSE)) {
     uint32_t interrupts = get_interrupts();
     if(interrupts & MOUSE_IRQ_SET){
@@ -192,8 +194,10 @@ int multi_player_1(){
       }
       if(timer_interrupts % 2 == 0){
         display_sprite(court);
-        print_string(multiplayer_score(&player1), font, 165, 12);
-        print_string(multiplayer_score(&player2), font, 200, 12);
+        strcpy(score,multiplayer_score(&player1));
+        strcat(score, " - ");
+        strcat(score,multiplayer_score(&player2));
+        print_string(score, font, 165, 12);
         display_sprite(player2.asprite->sp);
         display_sprite(net);
         display_sprite(ball.sp);
@@ -201,6 +205,9 @@ int multi_player_1(){
         display_sprite(crosshair);
         page_flipping();
       }
+    }
+    if(interrupts & RTC_IRQ_SET){
+      rtc_ih();
     }
   }
   change_player_velocity(&player1, 0);
@@ -247,6 +254,8 @@ int multi_player_2(){
   service_positions(&ball, &player1, &player2, true);
 
   game_state_t state = PLAYING;
+
+  char score[10];
 
   while (!(state == WIN || state == LOSE)) {
     uint32_t interrupts = get_interrupts();
@@ -303,8 +312,10 @@ int multi_player_2(){
       }
       if(timer_interrupts % 2 == 0){
         display_sprite(court);
-        print_string(multiplayer_score(&player1), font, 165, 12);
-        print_string(multiplayer_score(&player2), font, 200, 12);
+        strcpy(score,multiplayer_score(&player1));
+        strcat(score, " - ");
+        strcat(score,multiplayer_score(&player2));
+        print_string(score, font, 165, 12);
         display_sprite(player2.asprite->sp);
         display_sprite(net);
         display_sprite(ball.sp);

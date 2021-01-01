@@ -4,6 +4,9 @@
 
 #include "rtc_macros.h"
 
+int rtc_hook_id;
+bool alarm_int;
+
 int rtc_subscribe_int(uint8_t *bit_no);
 
 int rtc_unsubscribe_int();
@@ -21,6 +24,8 @@ int rtc_read_date(uint8_t cmd, uint8_t * data);
 int rtc_get_date(uint8_t * date);
 
 int rtc_set_alarm(uint8_t tseconds);
+
+void rtc_ih();
 
 uint8_t bcd_to_int(uint8_t value);
 

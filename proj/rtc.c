@@ -1,6 +1,6 @@
 #include "rtc.h"
 
-int rtc_hook_id;
+bool alarm_int = false;
 
 int rtc_subscribe_int(uint8_t *bit_no){
   *bit_no = RTC_IRQ;  
@@ -94,6 +94,15 @@ int rtc_set_alarm(uint8_t tseconds){
 
   return 0;
 
+}
+
+void rtc_ih(){
+  uint8_t stat;
+  if(rtc_read_status(REG_C,&stat)) return;
+
+  if(stat & UF) return;
+  if(stat & AF) alarm_int = true;
+  if(stat & PF) return;
 }
 
 
