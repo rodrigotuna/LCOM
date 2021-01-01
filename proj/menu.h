@@ -13,7 +13,7 @@ int main_menu();
 
 int entername_menu(int place, int points);
 
-int gameover_menu(int points);
+int gameover_menu(int points, int type);
 
 int choose_player_menu();
 

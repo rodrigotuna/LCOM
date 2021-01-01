@@ -12,6 +12,10 @@
 #include "gameover.xpm"
 #include "gameover_playagain.xpm"
 #include "gameover_home.xpm"
+#include "go_lost.xpm"
+#include "go_sp.xpm"
+#include "go_won.xpm"
+#include "sp_score.xpm"
 #include "waiting1.xpm"
 #include "waiting2.xpm"
 #include "chooseplayer.xpm"
@@ -31,6 +35,9 @@ int main_menu(){
   animated_sprite_t *mainmenu = create_animated_sprite(main_menu_xpm,5,1,0,0,0);
 
   button_state_t mode = NO_MODE;
+
+  int type = 0;
+
   bool running = true;
 
   while (running) {
@@ -48,7 +55,7 @@ int main_menu(){
               int points = single_player();
               int place = check_highscore(points);
               if(place != 0) entername_menu(place, points);
-              if(gameover_menu(points)) mode = QUIT;
+              if(gameover_menu(points,type)) mode = QUIT;
             }
               break;
             case MULTIPLAYER: 
@@ -138,14 +145,23 @@ int entername_menu(int place, int points){
   return 0;
 }
 
-int gameover_menu(int points){
+int gameover_menu(int points, int type){
+  
+  sprite_t * score = create_sprite(sp_score_xpm,260,308);
+
+  sprite_t * gameover = create_sprite(go_sp_xpm,0,0);
+
+  sprite_t * won = create_sprite(go_won_xpm,0,0);
+
+  sprite_t * lost = create_sprite(go_lost_xpm,0,0);
+
   sprite_t * font = create_sprite(font_xpm,409,312);
  
   sprite_t *cursor = create_sprite(cursor_xpm,400,300);
   set_bounds(cursor, 0, 776, 0, 576);
 
   xpm_map_t gameover_menu_xpm[] = {gameover_xpm, gameover_playagain_xpm, gameover_home_xpm};
-  animated_sprite_t *gameover = create_animated_sprite(gameover_menu_xpm,3,1,0,0,0);
+  animated_sprite_t *menu = create_animated_sprite(gameover_menu_xpm,3,1,0,0,0);
 
   button_state_t mode = NO_MODE;
   bool running = true;
@@ -158,7 +174,7 @@ int gameover_menu(int points){
       if(mouse_count == 3){
         struct packet pp = make_packet();
         change_sprite_pos(cursor, pp.delta_x, -pp.delta_y);
-        mode = gameover_menu_mode(cursor,gameover, mode);
+        mode = gameover_menu_mode(cursor,menu, mode);
         if(process_event(&pp) == PRESSED_LB && mode != NO_MODE) running = false;
       }
     }
@@ -167,17 +183,27 @@ int gameover_menu(int points){
     }
     if (interrupts & TIMER_IRQ_SET){
       timer_int_handler();
-      update_sprite_animation(gameover);
+      update_sprite_animation(menu);
       if(timer_interrupts % 2 == 0){
-        display_sprite(gameover->sp);
-        int_to_char(points,points_str);
-        print_string(points_str,font,416,313);
+        display_sprite(menu->sp);
+        if(type == 0){
+          display_sprite(gameover);
+          display_sprite(score);
+          int_to_char(points,points_str);
+          print_string(points_str,font,416,313);
+        }
+        if(type == 1) display_sprite(won);
+        if(type == 2) display_sprite(lost);
         display_sprite(cursor);
         page_flipping();
       }
     }
   }
-  destroy_animated_sprite(gameover);
+  destroy_animated_sprite(menu);
+  destroy_sprite(score);
+  destroy_sprite(gameover);
+  destroy_sprite(won);
+  destroy_sprite(lost);
   destroy_sprite(font);
   destroy_sprite(cursor);
   if(mode == PLAYAGAIN) return 0;
@@ -192,6 +218,10 @@ int choose_player_menu(){
   animated_sprite_t *chooseplayermenu = create_animated_sprite(choose_menu_xpm,3,1,0,0,0);
 
   button_state_t mode = NO_MODE;
+  int type;
+
+  int points = 0;
+
   bool running = true;
 
   while (running) {
@@ -206,12 +236,22 @@ int choose_player_menu(){
           switch(mode){
             case CREATE:
             if(connect_player1_menu()){ 
-               multi_player_1();
+               type = multi_player_1();
+               if(gameover_menu(points,type)){
+                   destroy_animated_sprite(chooseplayermenu);
+                   destroy_sprite(cursor);
+                   return 0;
+               }
             }
               break;
             case JOIN: 
             if(connect_player2_menu()){ 
-               multi_player_2();
+               type = multi_player_2();
+                if(gameover_menu(points,type)){
+                   destroy_animated_sprite(chooseplayermenu);
+                   destroy_sprite(cursor);
+                   return 0;
+               }
             }
               break;
             default:
@@ -265,7 +305,10 @@ int connect_player1_menu(){
     }
     if(interrupts & RTC_IRQ_SET){
       rtc_ih();
-      if(alarm_int) running = false;
+      if(alarm_int){
+        alarm_int = false;
+        running = false;
+      }
     }
     if(interrupts & UART_IRQ_SET){
       uart_ih();

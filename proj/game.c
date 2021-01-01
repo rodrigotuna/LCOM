@@ -2,6 +2,8 @@
 
 #include "font.xpm"
 #include "tenniscourt.xpm"
+#include "sp_score.xpm"
+#include "mp_score.xpm"
 #include "net.xpm"
 #include "playerdownright_0.xpm"
 #include "playerdownright_1.xpm"
@@ -18,6 +20,8 @@
 extern uint32_t timer_interrupts;
 
 int single_player(){
+
+  sprite_t *score = create_sprite(sp_score_xpm,12,7);
 
   sprite_t *font = create_sprite(font_xpm,165,12);
 
@@ -83,6 +87,7 @@ int single_player(){
       }
       if(timer_interrupts % 2 == 0){
         display_sprite(court);
+        display_sprite(score);
         int_to_char(player.points,points);
         print_string(points,font,165,12);
         display_sprite(net);
@@ -97,6 +102,7 @@ int single_player(){
   change_player_velocity(&player, 0);
   destroy_animated_sprite(player.asprite);
   destroy_sprite(court);
+  destroy_sprite(score);
   destroy_sprite(machine);
   destroy_sprite(net);
   destroy_sprite(crosshair);
@@ -105,6 +111,9 @@ int single_player(){
 }
 
 int multi_player_1(){
+
+  sprite_t *scores = create_sprite(mp_score_xpm,12,7);
+
   sprite_t *font = create_sprite(font_xpm,165,12);
 
   sprite_t *court = create_sprite(tenniscourt_xpm,0,0);
@@ -198,10 +207,11 @@ int multi_player_1(){
       }
       if(timer_interrupts % 2 == 0){
         display_sprite(court);
+        display_sprite(scores);
         strcpy(score,multiplayer_score(&player1));
-        strcat(score, " - ");
+        strcat(score, "-");
         strcat(score,multiplayer_score(&player2));
-        print_string(score, font, 165, 12);
+        print_string(score, font, 60, 7);
         display_sprite(player2.asprite->sp);
         display_sprite(net);
         display_sprite(ball.sp);
@@ -219,14 +229,20 @@ int multi_player_1(){
   destroy_animated_sprite(player1.asprite);
   destroy_animated_sprite(player2.asprite);
   destroy_sprite(font);
+  destroy_sprite(scores);
   destroy_sprite(court);
   destroy_sprite(net);
   destroy_sprite(crosshair);
   destroy_sprite(ball.sp);
-  return 0;
+
+  if(state == WIN) return 1;
+  else return 2;
 }
 
 int multi_player_2(){
+
+  sprite_t *scores = create_sprite(mp_score_xpm,12,7);
+
   sprite_t *font = create_sprite(font_xpm,165,12);
 
   sprite_t *court = create_sprite(tenniscourt_xpm,0,0);
@@ -320,10 +336,11 @@ int multi_player_2(){
       }
       if(timer_interrupts % 2 == 0){
         display_sprite(court);
+        display_sprite(scores);
         strcpy(score,multiplayer_score(&player1));
-        strcat(score, " - ");
+        strcat(score, "-");
         strcat(score,multiplayer_score(&player2));
-        print_string(score, font, 165, 12);
+        print_string(score, font, 60, 7);
         display_sprite(player2.asprite->sp);
         display_sprite(net);
         display_sprite(ball.sp);
@@ -338,9 +355,12 @@ int multi_player_2(){
   destroy_animated_sprite(player1.asprite);
   destroy_animated_sprite(player2.asprite);
   destroy_sprite(font);
+  destroy_sprite(scores);
   destroy_sprite(court);
   destroy_sprite(net);
   destroy_sprite(crosshair);
   destroy_sprite(ball.sp);
-  return 0;
+  
+  if(state == WIN) return 1;
+  else return 2;
 }
