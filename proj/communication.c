@@ -1,5 +1,9 @@
 #include "communication.h"
 
+#include "uart.h"
+#include "utilities.h"
+#include "entities.h"
+
 int len = 0;
 
 int send_player_message(uint8_t scancode){

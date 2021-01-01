@@ -16,8 +16,6 @@ ball_state_t get_ball_state(ball_t *ball);
 
 won_service_t get_winner_of_set(ball_t *ball);
 
-int shoot_ball(ball_t *ball);
-
 bool valid_shot(uint16_t x_pos, uint16_t y_pos, int player);
 
 bool can_shoot(ball_t *ball, player_t *player);

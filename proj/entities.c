@@ -1,5 +1,10 @@
 #include "entities.h"
+
+#include "math.h"
+
 #include "gameLogic.h"
+#include "mouse.h"
+#include "i8042.h"
 
 //Ball Functions
 
@@ -24,6 +29,12 @@ int change_ball_position(ball_t * ball){
   ball->sp->x_pos = ball->real_x_pos;
   ball->sp->y_pos = ball->real_y_pos;
   return (keep_sprite_in_bounds(ball->sp));
+}
+
+int shoot_ball(ball_t *ball){
+  ball->real_x_pos = 390; ball->real_y_pos = 100;
+  ball->velocity_norm += 0.25;
+  return go_to_selected_point(ball, rand()%461 + 171, rand()%256 + 334, 2);
 }
 
 //Player Functions

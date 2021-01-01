@@ -24,13 +24,6 @@ won_service_t get_winner_of_set(ball_t *ball){
   return PLAYER1;
 }
 
-int shoot_ball(ball_t *ball){
-  ball->real_x_pos = 390; ball->real_y_pos = 100;
-  ball->velocity_norm += 0.25;
-  go_to_selected_point(ball, rand()%461 + 171, rand()%256 + 334, 2);
-  return 0;
-}
-
 bool valid_shot(uint16_t x_pos, uint16_t y_pos, int player){
   if(player == 1){
     return x_pos >= 171 && x_pos <= 632 && y_pos >= 76 && y_pos <= 334;

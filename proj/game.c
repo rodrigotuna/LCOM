@@ -17,6 +17,11 @@
 #include "ball.xpm"
 #include "tennismachine.xpm"
 
+#include "drivers.h"
+#include "entities.h"
+#include "gameLogic.h"
+#include "communication.h"
+
 extern uint32_t timer_interrupts;
 
 int single_player(){
