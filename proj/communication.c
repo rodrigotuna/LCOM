@@ -42,3 +42,8 @@ int handle_message(uint8_t c){
 
   return 0;
 }
+
+int reset_communication(){
+  len = 0;
+  return uart_clean();
+}

@@ -27,6 +27,14 @@ void uart_reset(){
   destroy_queue(reciever);
 }
 
+int uart_clean(){
+  uint8_t fcr = EN_FIFO| EMPTY_RX | EMPTY_TX | TRIG_LEVEL_8;
+  if(uart_write_to_port(FCR,fcr)) return 1;
+
+  reciever->sz = 0;
+  return 0;
+}
+
 int uart_subscribe_int(uint8_t * bit_no){
   uart_hook_id = COM1_IRQ;
   *bit_no = uart_hook_id;

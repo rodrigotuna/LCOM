@@ -12,6 +12,8 @@ int uart_init();
 
 void uart_reset();
 
+int uart_clean();
+
 int uart_subscribe_int(uint8_t * bit_no);
 
 int uart_unsubscribe_int();
