@@ -80,7 +80,6 @@ int single_player(){
           case PLAYER2: running = false;
                         break;
         }
-        reset_communication();
       }
       if(timer_interrupts % 2 == 0){
         display_sprite(court);
@@ -193,6 +192,7 @@ int multi_player_1(){
                         if(update_score(&player2, &player1)) state = LOSE;
                         break;
         }
+        reset_communication();
       }
       if(timer_interrupts % 2 == 0){
         display_sprite(court);
