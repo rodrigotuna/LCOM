@@ -103,6 +103,9 @@ int single_player(){
         page_flipping();
       }
     }
+    if(interrupts & RTC_IRQ_SET){
+      rtc_ih();
+    }
   }
   change_player_velocity(&player, 0);
   destroy_animated_sprite(player.asprite);
