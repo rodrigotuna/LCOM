@@ -15,12 +15,18 @@ int check_highscore(int points){
   while(getline(&line,&len,scoreboard) != -1){
     score_str = strtok(line,delim);
     score = atoi(score_str);
-    if(points > score) return place;
+    if(points > score){
+      fclose(scoreboard);
+      return place;
+    }
     place++;
     counter++;
   }
 
-  if(counter < 4) return place;
+  if(counter < 4){
+    fclose(scoreboard);
+    return place;
+  }
 
   fclose(scoreboard);
   return 0;
