@@ -14,13 +14,6 @@ int mouse_unsubscribe_int(){
   return 0;
 }
 
-int mouse_data_report(bool mode){
-  uint8_t arg;
-  arg = (mode)? EN_DATA_REP : DIS_DATA_REP;
-  if(mouse_set_arg(arg)) return 1;
-  return 0;
-}
-
 struct packet make_packet(){
   struct packet p;
   p.bytes[0] = mouse_packet[0];
@@ -29,18 +22,20 @@ struct packet make_packet(){
   p.lb = mouse_packet[0] & L_BUTTON;
   p.rb = mouse_packet[0] & R_BUTTON;
   p.mb = mouse_packet[0] & M_BUTTON;
-  p.delta_x = sign_extend(mouse_packet[0] & MSB_X_DELTA, mouse_packet[1]);
-  p.delta_y = sign_extend(mouse_packet[0] & MSB_Y_DELTA, mouse_packet[2]);
+  if(mouse_packet[0] & MSB_X_DELTA){
+    p.delta_x = (0xFF << 8)|mouse_packet[1];
+  } else{
+    p.delta_x = mouse_packet[1];
+  }
+  if(mouse_packet[0] & MSB_Y_DELTA){
+    p.delta_y = (0xFF << 8)|mouse_packet[2];
+  } else{
+    p.delta_y = mouse_packet[2];
+  }
   p.x_ov = mouse_packet[0] & X_OVFL;
   p.y_ov = mouse_packet[0] & Y_OVFL;
   return p;
 
-}
-
-uint16_t sign_extend(bool sign, uint8_t byte){
-  uint16_t res = 0;
-  res = (sign)?  (0xFF << 8)|byte : byte;
-  return res;
 }
 
 void (mouse_ih)(void){

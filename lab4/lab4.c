@@ -39,8 +39,7 @@ int main(int argc, char *argv[]) {
 
 int (mouse_test_packet)(uint32_t cnt) {
   uint8_t bit_no;
-  if(mouse_set_arg(0xEA)) return 1;
-  if(mouse_data_report(true)) return 1;
+  if(mouse_set_arg(EN_DATA_REP)) return 1;
   //if(mouse_enable_data_reporting()) return 1;
   if(mouse_subscribe_int(&bit_no)) return 1; //subscribe KBC 
   int ipc_status;
@@ -70,14 +69,14 @@ int (mouse_test_packet)(uint32_t cnt) {
     }
   }
   if(mouse_unsubscribe_int()) return 1;
-  if(mouse_data_report(false)) return 1;
+  if(mouse_set_arg(DIS_DATA_REP)) return 1;
   return 0;
 }
 
 int (mouse_test_async)(uint8_t idle_time) {
   uint8_t timer_bit_no, mouse_bit_no;
 
-  if(mouse_data_report(true)) return 1;
+  if(mouse_set_arg(EN_DATA_REP)) return 1;
   if(mouse_subscribe_int(&mouse_bit_no)) return 1; //subscribe KBC;
 
   if(timer_subscribe_int(&timer_bit_no)) return 1;
@@ -118,14 +117,14 @@ int (mouse_test_async)(uint8_t idle_time) {
     }
   }
   if(mouse_unsubscribe_int()) return 1;
-  if(mouse_data_report(false)) return 1;
+  if(mouse_set_arg(DIS_DATA_REP)) return 1;
 
   return 0;
 }
 
 int (mouse_test_gesture)(uint8_t x_len, uint8_t tolerance) {
   uint8_t bit_no;
-  if(mouse_data_report(true)) return 1; 
+  if(mouse_set_arg(EN_DATA_REP)) return 1;
   if(mouse_subscribe_int(&bit_no)) return 1; //subscribe KBC 
   int ipc_status;
   message msg;
@@ -157,7 +156,7 @@ int (mouse_test_gesture)(uint8_t x_len, uint8_t tolerance) {
     }
   }
   if(mouse_unsubscribe_int()) return 1;
-  if(mouse_data_report(false)) return 1;
+  if(mouse_set_arg(DIS_DATA_REP)) return 1;
   return 0;
 }
 
