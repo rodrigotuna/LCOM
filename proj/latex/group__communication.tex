@@ -1,0 +1,95 @@
+\hypertarget{group__communication}{}\doxysection{communication}
+\label{group__communication}\index{communication@{communication}}
+
+
+Functions for the communication protocol via serial port.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__communication_ga12f5380cb7d913dd79dd73f99e0159db}{send\+\_\+player\+\_\+message}} (uint8\+\_\+t scancode)
+\begin{DoxyCompactList}\small\item\em Sends a message related to the player. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__communication_ga814f6e311333907d02b3c4a811bdf00a}{send\+\_\+ball\+\_\+message}} (uint16\+\_\+t x\+\_\+pos, uint16\+\_\+t y\+\_\+pos)
+\begin{DoxyCompactList}\small\item\em Sends a message related to the ball. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__communication_ga76a3d60d929a11e19a01bfa7a7c8b095}{handle\+\_\+message}} (uint8\+\_\+t c)
+\begin{DoxyCompactList}\small\item\em Handles the byte recieved. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__communication_gafe8d85adab74a257ba6e03ab3e044ec0}{reset\+\_\+communication}} ()
+\begin{DoxyCompactList}\small\item\em Resets the communication variables. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions for the communication protocol via serial port. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__communication_ga76a3d60d929a11e19a01bfa7a7c8b095}\label{group__communication_ga76a3d60d929a11e19a01bfa7a7c8b095}} 
+\index{communication@{communication}!handle\_message@{handle\_message}}
+\index{handle\_message@{handle\_message}!communication@{communication}}
+\doxysubsubsection{\texorpdfstring{handle\_message()}{handle\_message()}}
+{\footnotesize\ttfamily int handle\+\_\+message (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{c }\end{DoxyParamCaption})}
+
+
+
+Handles the byte recieved. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & the byte recieved \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retrun 1 if the message is completed, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__communication_gafe8d85adab74a257ba6e03ab3e044ec0}\label{group__communication_gafe8d85adab74a257ba6e03ab3e044ec0}} 
+\index{communication@{communication}!reset\_communication@{reset\_communication}}
+\index{reset\_communication@{reset\_communication}!communication@{communication}}
+\doxysubsubsection{\texorpdfstring{reset\_communication()}{reset\_communication()}}
+{\footnotesize\ttfamily int reset\+\_\+communication (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Resets the communication variables. 
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__communication_ga814f6e311333907d02b3c4a811bdf00a}\label{group__communication_ga814f6e311333907d02b3c4a811bdf00a}} 
+\index{communication@{communication}!send\_ball\_message@{send\_ball\_message}}
+\index{send\_ball\_message@{send\_ball\_message}!communication@{communication}}
+\doxysubsubsection{\texorpdfstring{send\_ball\_message()}{send\_ball\_message()}}
+{\footnotesize\ttfamily int send\+\_\+ball\+\_\+message (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x\+\_\+pos,  }\item[{uint16\+\_\+t}]{y\+\_\+pos }\end{DoxyParamCaption})}
+
+
+
+Sends a message related to the ball. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+\_\+pos} & the position in the x-\/axis selected to send the ball to \\
+\hline
+{\em y\+\_\+pos} & the position in the y-\/axis selected to send the ball to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__communication_ga12f5380cb7d913dd79dd73f99e0159db}\label{group__communication_ga12f5380cb7d913dd79dd73f99e0159db}} 
+\index{communication@{communication}!send\_player\_message@{send\_player\_message}}
+\index{send\_player\_message@{send\_player\_message}!communication@{communication}}
+\doxysubsubsection{\texorpdfstring{send\_player\_message()}{send\_player\_message()}}
+{\footnotesize\ttfamily int send\+\_\+player\+\_\+message (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{scancode }\end{DoxyParamCaption})}
+
+
+
+Sends a message related to the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scancode} & the scancode pressed by the user \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}

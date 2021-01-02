@@ -1,0 +1,111 @@
+\hypertarget{group__drivers}{}\doxysection{drivers}
+\label{group__drivers}\index{drivers@{drivers}}
+
+
+Functions for the drivers.  
+
+
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__drivers_gac837147b01141517103b9fcf4448ea7e}\label{group__drivers_gac837147b01141517103b9fcf4448ea7e}} 
+\#define \mbox{\hyperlink{group__drivers_gac837147b01141517103b9fcf4448ea7e}{T\+I\+M\+E\+R\+\_\+\+I\+R\+Q\+\_\+\+S\+ET}}~B\+IT(0)
+\begin{DoxyCompactList}\small\item\em Timer I\+RQ set. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__drivers_ga540b90899d4646e460784ccc6576a65f}\label{group__drivers_ga540b90899d4646e460784ccc6576a65f}} 
+\#define \mbox{\hyperlink{group__drivers_ga540b90899d4646e460784ccc6576a65f}{K\+B\+\_\+\+I\+R\+Q\+\_\+\+S\+ET}}~B\+IT(1)
+\begin{DoxyCompactList}\small\item\em Keyboard I\+RQ set. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__drivers_ga29ab95dbd0de5f22baee3ac48ea4adbb}\label{group__drivers_ga29ab95dbd0de5f22baee3ac48ea4adbb}} 
+\#define \mbox{\hyperlink{group__drivers_ga29ab95dbd0de5f22baee3ac48ea4adbb}{M\+O\+U\+S\+E\+\_\+\+I\+R\+Q\+\_\+\+S\+ET}}~B\+IT(12)
+\begin{DoxyCompactList}\small\item\em Mouse I\+RQ set. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__drivers_ga681111a71072281fcdf4995e5d5d9a62}\label{group__drivers_ga681111a71072281fcdf4995e5d5d9a62}} 
+\#define \mbox{\hyperlink{group__drivers_ga681111a71072281fcdf4995e5d5d9a62}{R\+T\+C\+\_\+\+I\+R\+Q\+\_\+\+S\+ET}}~B\+IT(8)
+\begin{DoxyCompactList}\small\item\em R\+TC I\+RQ set. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__drivers_gacb1c20e34059be3edc97bc6f528bdfeb}\label{group__drivers_gacb1c20e34059be3edc97bc6f528bdfeb}} 
+\#define \mbox{\hyperlink{group__drivers_gacb1c20e34059be3edc97bc6f528bdfeb}{U\+A\+R\+T\+\_\+\+I\+R\+Q\+\_\+\+S\+ET}}~B\+IT(4)
+\begin{DoxyCompactList}\small\item\em U\+A\+RT I\+RQ set. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__drivers_gad5b50004d8c50176b450efb5d517e5f4}{subscribe\+\_\+all}} ()
+\begin{DoxyCompactList}\small\item\em Subscribes the interrupts of all drivers. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__drivers_ga8f68ee1cf924bd43d0b1b60fe05f15c0}{unsubscribe\+\_\+all}} ()
+\begin{DoxyCompactList}\small\item\em Unsubscribes the interrupts of all drivers. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group__drivers_gacfa2c74627be0e50879d0969f610e60a}{get\+\_\+interrupts}} ()
+\begin{DoxyCompactList}\small\item\em Function that calls driver-\/recieve gets the interrupts. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__drivers_ga554f3d6478bee3655d51e7fa668b941d}{init\+\_\+all}} ()
+\begin{DoxyCompactList}\small\item\em Initializes and configures all drivers. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__drivers_gaa6e7e19e570a120b6368e2254a4686f4}{reset\+\_\+all}} ()
+\begin{DoxyCompactList}\small\item\em Initializes and configures all drivers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions for the drivers. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__drivers_gacfa2c74627be0e50879d0969f610e60a}\label{group__drivers_gacfa2c74627be0e50879d0969f610e60a}} 
+\index{drivers@{drivers}!get\_interrupts@{get\_interrupts}}
+\index{get\_interrupts@{get\_interrupts}!drivers@{drivers}}
+\doxysubsubsection{\texorpdfstring{get\_interrupts()}{get\_interrupts()}}
+{\footnotesize\ttfamily uint32\+\_\+t get\+\_\+interrupts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function that calls driver-\/recieve gets the interrupts. 
+
+\begin{DoxyReturn}{Returns}
+32-\/bit unsigned integer with all interrupts 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__drivers_ga554f3d6478bee3655d51e7fa668b941d}\label{group__drivers_ga554f3d6478bee3655d51e7fa668b941d}} 
+\index{drivers@{drivers}!init\_all@{init\_all}}
+\index{init\_all@{init\_all}!drivers@{drivers}}
+\doxysubsubsection{\texorpdfstring{init\_all()}{init\_all()}}
+{\footnotesize\ttfamily int init\+\_\+all (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes and configures all drivers. 
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__drivers_gaa6e7e19e570a120b6368e2254a4686f4}\label{group__drivers_gaa6e7e19e570a120b6368e2254a4686f4}} 
+\index{drivers@{drivers}!reset\_all@{reset\_all}}
+\index{reset\_all@{reset\_all}!drivers@{drivers}}
+\doxysubsubsection{\texorpdfstring{reset\_all()}{reset\_all()}}
+{\footnotesize\ttfamily int reset\+\_\+all (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes and configures all drivers. 
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__drivers_gad5b50004d8c50176b450efb5d517e5f4}\label{group__drivers_gad5b50004d8c50176b450efb5d517e5f4}} 
+\index{drivers@{drivers}!subscribe\_all@{subscribe\_all}}
+\index{subscribe\_all@{subscribe\_all}!drivers@{drivers}}
+\doxysubsubsection{\texorpdfstring{subscribe\_all()}{subscribe\_all()}}
+{\footnotesize\ttfamily int subscribe\+\_\+all (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Subscribes the interrupts of all drivers. 
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__drivers_ga8f68ee1cf924bd43d0b1b60fe05f15c0}\label{group__drivers_ga8f68ee1cf924bd43d0b1b60fe05f15c0}} 
+\index{drivers@{drivers}!unsubscribe\_all@{unsubscribe\_all}}
+\index{unsubscribe\_all@{unsubscribe\_all}!drivers@{drivers}}
+\doxysubsubsection{\texorpdfstring{unsubscribe\_all()}{unsubscribe\_all()}}
+{\footnotesize\ttfamily int unsubscribe\+\_\+all (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Unsubscribes the interrupts of all drivers. 
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
