@@ -15,7 +15,7 @@ int rtc_unsubscribe_int(){
   return 0;
 }
 
-int rtc_write(uint8_t cmd, uint8_t stat){
+int rtc_write(uint8_t cmd, uint8_t data){
   if(sys_outb(RTC_ADDR_REG, cmd)) return 1;
   if(sys_outb(RTC_DATA_REG,stat)) return 1;
   return 0;
