@@ -89,6 +89,9 @@ int main_menu(){
     if(interrupts & UART_IRQ_SET){
       uart_ih();
     }
+    if(interrupts & RTC_IRQ_SET){
+      rtc_ih();
+    }
   }
   destroy_animated_sprite(mainmenu);
   destroy_sprite(cursor);
@@ -198,6 +201,9 @@ int gameover_menu(int points, int type){
         page_flipping();
       }
     }
+    if(interrupts & RTC_IRQ_SET){
+      rtc_ih();
+    }
   }
   destroy_animated_sprite(menu);
   destroy_sprite(score);
@@ -273,6 +279,9 @@ int choose_player_menu(){
         page_flipping();
       }
     }
+    if(interrupts & RTC_IRQ_SET){
+      rtc_ih();
+    }
     if(interrupts & UART_IRQ_SET){
       uart_ih();
     }
@@ -345,7 +354,9 @@ int connect_player2_menu(){
         page_flipping();
       }
     }
-
+    if(interrupts & RTC_IRQ_SET){
+      rtc_ih();
+    }
     if(interrupts & UART_IRQ_SET){
       uart_ih();
       if(top(reciever)  == '1'){
@@ -396,6 +407,9 @@ int scoreboard_menu(){
         font->y_pos = 191;
         page_flipping();
       }
+    }
+    if(interrupts & RTC_IRQ_SET){
+      rtc_ih();
     }
   }
   destroy_animated_sprite(scoreboardmenu);

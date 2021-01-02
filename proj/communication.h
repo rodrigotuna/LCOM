@@ -32,7 +32,7 @@ int send_ball_message(uint16_t x_pos, uint16_t y_pos);
  * @brief Handles the byte recieved
  * 
  * @param c the byte recieved
- * @return Retrun 1 if the message is completed, 0 otherwise
+ * @return Return 1 if the message is completed, 0 otherwise
  */
 int handle_message(uint8_t c);
 

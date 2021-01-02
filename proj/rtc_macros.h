@@ -1,5 +1,11 @@
 #pragma once
 
+/** @defgroup RTC Macros
+ * @{
+ *
+ * Constants for programming the RTC
+ */
+
 /* IRQ LINES*/
 #define RTC_IRQ 8
 
@@ -37,4 +43,4 @@
 #define AF BIT(5)
 #define UF BIT(4)
 
-#define DONT_CARE (BIT(7) | BIT(6))
+/**@}*/

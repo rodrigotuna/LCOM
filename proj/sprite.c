@@ -94,10 +94,6 @@ int change_sprite_pos(sprite_t * sp, int16_t x_dev, int16_t y_dev){
   return keep_sprite_in_bounds(sp);
 }
 
-int check_collisions(sprite_t * sp){
-  return 0;
-}
-
 int update_sprite_animation(animated_sprite_t * asprite){
   asprite->frame_count ++;
   if(asprite->frame_count >= asprite->frame_delay){

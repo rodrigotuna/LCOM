@@ -5,23 +5,32 @@
 #include "video.h"
 #include "i8042.h"
 
+/** @defgroup sprites sprites
+ * @{
+ * Functions for the sprites inside the game
+*/
 
+/**
+ * @brief Represents a sprite object
+ */
 struct sprite{
-  int16_t x_pos, y_pos; //x and y positions
+  int16_t x_pos, y_pos;
 
-  uint16_t width, height;// dimensions
+  uint16_t width, height;
   uint32_t transparency_color; 
 
   int16_t x_upper_lim, x_lower_lim;
   int16_t y_upper_lim, y_lower_lim;
 
-  uint32_t * current_pic;     // the pixmap
+  uint32_t * current_pic;    
 };
 
 typedef struct sprite sprite_t;
 
+/**
+ * @brief Represents an animated sprite object
+ */
 struct animated_sprite{
-
   sprite_t *sp;
 
   int frame_count; 
@@ -31,30 +40,102 @@ struct animated_sprite{
   int no_frames;
   int no_sets;
 
-  uint32_t * *map;     // the pixmap
-  
+  uint32_t * *map; 
 };
 
 typedef struct animated_sprite animated_sprite_t;
 
+/**
+ * @brief Creates a sprite object
+ * 
+ * @param xpm_map pixmap of the sprite
+ * @param x x-axis position of the sprite
+ * @param y y-axis position of the sprite
+ * @return A pointer to the sprite object created
+ */
 sprite_t * create_sprite(xpm_map_t xpm_map, int x, int y);
 
+/**
+ * @brief Creates an animated sprite object
+ * 
+ * @param xpm_map array of pixmaps of the sprite's animation
+ * @param nsets number of sets of animation to go through
+ * @param nframes number of frames in each frame set
+ * @param delay delay between frames
+ * @param x x-axis position of the sprite
+ * @param y y-axis position of the sprite
+ * @return A pointer to the sprite object created
+ */
 animated_sprite_t * create_animated_sprite(xpm_map_t xpm_map[], int nsets, int nframes, int delay, int x, int y);
 
+/**
+ * @brief Destroys a sprite object
+ * 
+ * @param sp sprite object to be destroyed
+ */
 void destroy_sprite(sprite_t * sp);
 
+/**
+ * @brief Destroys an animated sprite object
+ * 
+ * @param asprite animated sprite object to be destroyed
+ */
 void destroy_animated_sprite(animated_sprite_t * asprite);
 
+/**
+ * @brief Displays a sprite object in it's inherent position
+ * 
+ * @param sp sprite object to be displayed on screen
+ * @return Return 0 upon success and non-zero otherwise
+ */
 int display_sprite(sprite_t * sp);
 
+/**
+ * @brief Changes the sprite position
+ * 
+ * @param sp sprite object to be updated
+ * @param x_dev x-axis deviation of the position
+ * @param y_dev y-axis deviation of the position
+ * @return Keeps the sprite in it's screen bounds, returns 0 upon success and non-zero otherwise
+ */
 int change_sprite_pos(sprite_t * sp, int16_t x_dev, int16_t y_dev);
 
-int check_collisions(sprite_t * sp);
-
+/**
+ * @brief Updates the animation of an animated sprite 
+ * 
+ * @param asprite animated sprite object to be updated
+ * @return Return 0 upon success and non-zero otherwise
+ */
 int update_sprite_animation(animated_sprite_t * asprite);
 
+/**
+ * @brief Changes the sprite's screen bounds
+ * 
+ * @param sp sprite object to be updated
+ * @param x_low x-axis lower bound position
+ * @param x_up x-axis higher bound position
+ * @param y_low y-axis lower bound position
+ * @param y_up y-axis higher bound position
+ * @return Return 0 upon success and non-zero otherwise
+ */
 void set_bounds(sprite_t *sp, int16_t x_low, int16_t x_up, int16_t y_low, int16_t y_up);
 
+/**
+ * @brief Keeps the sprite position inside it's screen bounds
+ * 
+ * @param sp sprite object to be updated
+ * @return Return 0 upon success and non-zero otherwise
+ */
 int keep_sprite_in_bounds(sprite_t * sp);
 
+/**
+ * @brief Displays any string on screen
+ * 
+ * @param string c-string to be displayed 
+ * @param font font sprite object to be used
+ * @param xi x-axis position to display the string
+ * @param yi y-axis position to display the string
+ * @return Return 0 upon success and non-zero otherwise
+ */
 int print_string(const char *string, sprite_t * font, int xi, int yi);
+/**@}*/
