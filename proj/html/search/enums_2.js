@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['won_5fservice_5ft_96',['won_service_t',['../group__gameLogic.html#ga94809074e2b600c3f3ea0c1322d367dd',1,'gameLogic.h']]]
+  ['game_5fstate_5ft_635',['game_state_t',['../group__gameLogic.html#ga4edce1ca040716922b6e4a79be4e414d',1,'gameLogic.h']]]
 ];

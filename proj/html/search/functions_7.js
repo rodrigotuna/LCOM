@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['unsubscribe_5fall_91',['unsubscribe_all',['../group__drivers.html#ga8f68ee1cf924bd43d0b1b60fe05f15c0',1,'unsubscribe_all():&#160;drivers.c'],['../group__drivers.html#ga8f68ee1cf924bd43d0b1b60fe05f15c0',1,'unsubscribe_all():&#160;drivers.c']]],
-  ['update_5fscore_92',['update_score',['../group__gameLogic.html#ga6c86cfce90c3ca581cc37e58a5283edc',1,'update_score(player_t *winner, player_t *loser):&#160;gameLogic.c'],['../group__gameLogic.html#ga6c86cfce90c3ca581cc37e58a5283edc',1,'update_score(player_t *winner, player_t *loser):&#160;gameLogic.c']]]
+  ['init_5fall_491',['init_all',['../group__drivers.html#ga554f3d6478bee3655d51e7fa668b941d',1,'init_all():&#160;drivers.c'],['../group__drivers.html#ga554f3d6478bee3655d51e7fa668b941d',1,'init_all():&#160;drivers.c']]],
+  ['int_5fto_5fbcd_492',['int_to_bcd',['../group__RTC.html#gabf63dcaac87e542f9c1ffb796ff63264',1,'int_to_bcd(uint8_t value):&#160;rtc.c'],['../group__RTC.html#gabf63dcaac87e542f9c1ffb796ff63264',1,'int_to_bcd(uint8_t value):&#160;rtc.c']]],
+  ['int_5fto_5fchar_493',['int_to_char',['../utilities_8c.html#ad048f8d8bf513dd8f460ab7461fbb176',1,'int_to_char(int value, char *str):&#160;utilities.c'],['../utilities_8h.html#ad048f8d8bf513dd8f460ab7461fbb176',1,'int_to_char(int value, char *str):&#160;utilities.c']]]
 ];

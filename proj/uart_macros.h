@@ -1,5 +1,10 @@
 #pragma once
 
+/** @defgroup uart_macros uart_macros
+ * @{
+ *
+ * Constants for programming the UART
+ */
 /* IRQ LINES*/
 #define COM1_IRQ 4
 #define COM2_IRQ 3
@@ -56,4 +61,4 @@
 #define EMPTY_RX BIT(1)
 #define EMPTY_TX BIT(2)
 #define TRIG_LEVEL_8 BIT(7)
-
+/**@}*/

@@ -13,5 +13,3 @@
 #define VBE_CALL 0x4F
 
 #define MODE 0x115
-
-#define BLACK 0

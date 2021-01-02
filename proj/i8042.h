@@ -3,6 +3,11 @@
 
 #include <lcom/lcf.h>
 
+/** @defgroup i8042 i8042
+ * @{
+ *
+ * Constants for programming the i8042 Keyboard.
+ */
 #define KB_IRQ 1
 #define DELAY_US    20000
 
@@ -45,3 +50,4 @@
 
 
 #endif
+/**@}*/

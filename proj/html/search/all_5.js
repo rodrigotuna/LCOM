@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['game_12',['game',['../group__game.html',1,'']]],
-  ['game_5fstate_5ft_13',['game_state_t',['../group__gameLogic.html#ga4edce1ca040716922b6e4a79be4e414d',1,'gameLogic.h']]],
-  ['gamelogic_14',['gameLogic',['../group__gameLogic.html',1,'']]],
-  ['get_5fball_5fstate_15',['get_ball_state',['../group__gameLogic.html#ga0a70ce3e533dddf1e050b3bc5f0040c1',1,'get_ball_state(ball_t *ball):&#160;gameLogic.c'],['../group__gameLogic.html#ga0a70ce3e533dddf1e050b3bc5f0040c1',1,'get_ball_state(ball_t *ball):&#160;gameLogic.c']]],
-  ['get_5finterrupts_16',['get_interrupts',['../group__drivers.html#gacfa2c74627be0e50879d0969f610e60a',1,'get_interrupts():&#160;drivers.c'],['../group__drivers.html#gacfa2c74627be0e50879d0969f610e60a',1,'get_interrupts():&#160;drivers.c']]],
-  ['get_5fwinner_5fof_5fset_17',['get_winner_of_set',['../group__gameLogic.html#ga9ecfcac375fe4957ba3e8469940b5366',1,'get_winner_of_set(ball_t *ball):&#160;gameLogic.c'],['../group__gameLogic.html#ga9ecfcac375fe4957ba3e8469940b5366',1,'get_winner_of_set(ball_t *ball):&#160;gameLogic.c']]],
-  ['go_5fto_5fselected_5fpoint_18',['go_to_selected_point',['../group__entities.html#gaf63db8b8eb1bf05063f96352ce67d7be',1,'go_to_selected_point(ball_t *ball, uint16_t x, uint16_t y, int player):&#160;entities.c'],['../group__entities.html#gaf63db8b8eb1bf05063f96352ce67d7be',1,'go_to_selected_point(ball_t *ball, uint16_t x, uint16_t y, int player):&#160;entities.c']]]
+  ['fcr_88',['FCR',['../uart__macros_8h.html#a264b36b13386e3f62fe69e04711bc006',1,'uart_macros.h']]],
+  ['fram_5ferr_89',['FRAM_ERR',['../uart__macros_8h.html#a9ec2433f1512238d52b9ce20832e6d69',1,'uart_macros.h']]],
+  ['frame_5fcount_90',['frame_count',['../structanimated__sprite.html#a9cd1c8ac4eafc3d1b4efadaf5176fcba',1,'animated_sprite']]],
+  ['frame_5fdelay_91',['frame_delay',['../structanimated__sprite.html#aa9800fd08b63c756e029faacaac45728',1,'animated_sprite']]],
+  ['frame_5findex_92',['frame_index',['../structanimated__sprite.html#a979cd01dcc875bcdd1d1792492b2de32',1,'animated_sprite']]],
+  ['from_5fplayer_93',['from_player',['../communication_8h.html#abb41f3853f7d19cc63063628f59ca97d',1,'communication.h']]],
+  ['front_5fvideo_5fmem_94',['front_video_mem',['../video_8h.html#ad481a17862e3d08ddef7921334d6bb5c',1,'video.h']]]
 ];

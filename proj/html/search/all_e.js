@@ -1,21 +1,5 @@
 var searchData=
 [
-  ['timer0_5firq_40',['TIMER0_IRQ',['../group__i8254.html#ga30bf84c312af248cb81bb224e09f9ba8',1,'i8254.h']]],
-  ['timer_5f0_41',['TIMER_0',['../group__i8254.html#gacc9ff9df4a9674a1ce9ba08fc4a4679e',1,'i8254.h']]],
-  ['timer_5f1_42',['TIMER_1',['../group__i8254.html#gac62c99c2a9289891c1b83052242cca49',1,'i8254.h']]],
-  ['timer_5f2_43',['TIMER_2',['../group__i8254.html#ga1f34f18ad0ab8cace46b615773b48735',1,'i8254.h']]],
-  ['timer_5fbcd_44',['TIMER_BCD',['../group__i8254.html#ga325b992a371d5d981c4eceff42fa5956',1,'i8254.h']]],
-  ['timer_5fbin_45',['TIMER_BIN',['../group__i8254.html#gad2913dcf2f91453317bd035589ac0a7d',1,'i8254.h']]],
-  ['timer_5fctrl_46',['TIMER_CTRL',['../group__i8254.html#ga282832448fb0281ef53d243c1cd48491',1,'i8254.h']]],
-  ['timer_5ffreq_47',['TIMER_FREQ',['../group__i8254.html#gacf926951944b6cf370b7229ebd50dd8b',1,'i8254.h']]],
-  ['timer_5firq_5fset_48',['TIMER_IRQ_SET',['../group__drivers.html#gac837147b01141517103b9fcf4448ea7e',1,'drivers.h']]],
-  ['timer_5flsb_49',['TIMER_LSB',['../group__i8254.html#gac18cb814ebd0d67235392c330e0e3504',1,'i8254.h']]],
-  ['timer_5flsb_5fmsb_50',['TIMER_LSB_MSB',['../group__i8254.html#ga8c0f1933323274c765e23837e4fbc8c7',1,'i8254.h']]],
-  ['timer_5fmsb_51',['TIMER_MSB',['../group__i8254.html#ga2a8a6d363c612d756cd8d78480f7cd04',1,'i8254.h']]],
-  ['timer_5frate_5fgen_52',['TIMER_RATE_GEN',['../group__i8254.html#ga5d4449e0fa1cf4a4d107a48a04a1265f',1,'i8254.h']]],
-  ['timer_5frb_5fcmd_53',['TIMER_RB_CMD',['../group__i8254.html#ga4c2eecbfb96744a9c2af71dba75ecb18',1,'i8254.h']]],
-  ['timer_5fsel0_54',['TIMER_SEL0',['../group__i8254.html#ga6a4822642d40c248435692324a818010',1,'i8254.h']]],
-  ['timer_5fsel1_55',['TIMER_SEL1',['../group__i8254.html#ga8349623fd8d99f9cc5d8ae29d78594fc',1,'i8254.h']]],
-  ['timer_5fsel2_56',['TIMER_SEL2',['../group__i8254.html#ga142a255de0dbc48aeabd45fc10c33672',1,'i8254.h']]],
-  ['timer_5fsqr_5fwave_57',['TIMER_SQR_WAVE',['../group__i8254.html#ga4745cbf21da3d3fea5dbb080b2b73bac',1,'i8254.h']]]
+  ['or_5ferr_209',['OR_ERR',['../uart__macros_8h.html#ae76411a7f7d8d0472dd04b5a40fabd2d',1,'uart_macros.h']]],
+  ['out_5fof_5fbounds_210',['OUT_OF_BOUNDS',['../group__gameLogic.html#ggac0fce8cc5c3dd3783df55521a86bdf30aa1e81e4fe9fc3d41fffdb945abc5d4d7',1,'gameLogic.h']]]
 ];

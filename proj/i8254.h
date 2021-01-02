@@ -10,7 +10,7 @@
  */
 
 #define TIMER_FREQ 1193182 /**< @brief clock frequency for timer in PC and AT */
-#define TIMER_MIN_FREQ 19
+#define TIMER_MIN_FREQ 19 /**< @brief Minimum frequency possible */
 #define TIMER0_IRQ 0 /**< @brief Timer 0 IRQ line */
 
 /* I/O port addresses */
@@ -19,7 +19,7 @@
 #define TIMER_1    0x41 /**< @brief Timer 1 count register */
 #define TIMER_2    0x42 /**< @brief Timer 2 count register */
 #define TIMER_CTRL 0x43 /**< @brief Control register */
-#define TIMER_(n) TIMER_0 + n 
+#define TIMER_(n) TIMER_0 + n /**< @brief Timers count register */
 
 #define SPEAKER_CTRL 0x61 /**< @brief Register for speaker control  */
 

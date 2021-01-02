@@ -8,7 +8,7 @@ Functions for the communication protocol via serial port.
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{group__communication_ga12f5380cb7d913dd79dd73f99e0159db}{send\+\_\+player\+\_\+message}} (uint8\+\_\+t scancode)
+int \mbox{\hyperlink{group__communication_ga12f5380cb7d913dd79dd73f99e0159db}{send\+\_\+player\+\_\+message}} (uint8\+\_\+t \mbox{\hyperlink{keyboard_8h_a01577ed8d3646775ae6a8e00d24c1d94}{scancode}})
 \begin{DoxyCompactList}\small\item\em Sends a message related to the player. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{group__communication_ga814f6e311333907d02b3c4a811bdf00a}{send\+\_\+ball\+\_\+message}} (uint16\+\_\+t x\+\_\+pos, uint16\+\_\+t y\+\_\+pos)
 \begin{DoxyCompactList}\small\item\em Sends a message related to the ball. \end{DoxyCompactList}\item 
@@ -40,8 +40,16 @@ Handles the byte recieved.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Retrun 1 if the message is completed, 0 otherwise 
+Return 1 if the message is completed, 0 otherwise 
 \end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__communication_ga76a3d60d929a11e19a01bfa7a7c8b095_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{group__communication_gafe8d85adab74a257ba6e03ab3e044ec0}\label{group__communication_gafe8d85adab74a257ba6e03ab3e044ec0}} 
 \index{communication@{communication}!reset\_communication@{reset\_communication}}
 \index{reset\_communication@{reset\_communication}!communication@{communication}}
@@ -55,6 +63,21 @@ Resets the communication variables.
 \begin{DoxyReturn}{Returns}
 Return 0 upon success and non-\/zero otherwise 
 \end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__communication_gafe8d85adab74a257ba6e03ab3e044ec0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__communication_gafe8d85adab74a257ba6e03ab3e044ec0_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{group__communication_ga814f6e311333907d02b3c4a811bdf00a}\label{group__communication_ga814f6e311333907d02b3c4a811bdf00a}} 
 \index{communication@{communication}!send\_ball\_message@{send\_ball\_message}}
 \index{send\_ball\_message@{send\_ball\_message}!communication@{communication}}
@@ -75,6 +98,21 @@ Sends a message related to the ball.
 \begin{DoxyReturn}{Returns}
 Return 0 upon success and non-\/zero otherwise 
 \end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__communication_ga814f6e311333907d02b3c4a811bdf00a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__communication_ga814f6e311333907d02b3c4a811bdf00a_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{group__communication_ga12f5380cb7d913dd79dd73f99e0159db}\label{group__communication_ga12f5380cb7d913dd79dd73f99e0159db}} 
 \index{communication@{communication}!send\_player\_message@{send\_player\_message}}
 \index{send\_player\_message@{send\_player\_message}!communication@{communication}}
@@ -93,3 +131,18 @@ Sends a message related to the player.
 \begin{DoxyReturn}{Returns}
 Return 0 upon success and non-\/zero otherwise 
 \end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__communication_ga12f5380cb7d913dd79dd73f99e0159db_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__communication_ga12f5380cb7d913dd79dd73f99e0159db_icgraph}
+\end{center}
+\end{figure}

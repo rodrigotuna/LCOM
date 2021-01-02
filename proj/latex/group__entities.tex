@@ -15,31 +15,29 @@ struct \mbox{\hyperlink{structplayer}{player}}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{group__entities_gae0d42bea834ce8ae4fde528ab890c28c}\label{group__entities_gae0d42bea834ce8ae4fde528ab890c28c}} 
-typedef struct \mbox{\hyperlink{structball}{ball}} {\bfseries ball\+\_\+t}
+typedef struct \mbox{\hyperlink{structball}{ball}} \mbox{\hyperlink{group__entities_gae0d42bea834ce8ae4fde528ab890c28c}{ball\+\_\+t}}
 \item 
-\mbox{\Hypertarget{group__entities_ga9df65ef34efcf40007091fa0e679ea0c}\label{group__entities_ga9df65ef34efcf40007091fa0e679ea0c}} 
-typedef struct \mbox{\hyperlink{structplayer}{player}} {\bfseries player\+\_\+t}
+typedef struct \mbox{\hyperlink{structplayer}{player}} \mbox{\hyperlink{group__entities_ga9df65ef34efcf40007091fa0e679ea0c}{player\+\_\+t}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{group__entities_gaf63db8b8eb1bf05063f96352ce67d7be}{go\+\_\+to\+\_\+selected\+\_\+point}} (\mbox{\hyperlink{structball}{ball\+\_\+t}} $\ast$\mbox{\hyperlink{structball}{ball}}, uint16\+\_\+t x, uint16\+\_\+t y, int \mbox{\hyperlink{structplayer}{player}})
+int \mbox{\hyperlink{group__entities_gaf63db8b8eb1bf05063f96352ce67d7be}{go\+\_\+to\+\_\+selected\+\_\+point}} (\mbox{\hyperlink{group__entities_gae0d42bea834ce8ae4fde528ab890c28c}{ball\+\_\+t}} $\ast$\mbox{\hyperlink{structball}{ball}}, uint16\+\_\+t x, uint16\+\_\+t y, int \mbox{\hyperlink{structplayer}{player}})
 \begin{DoxyCompactList}\small\item\em Changes the velocity of the ball in order to reach a given point and updates variable ~\newline
  last\+\_\+player. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{group__entities_ga6ee79c2231d92a2835ebbbfa5c126448}{change\+\_\+ball\+\_\+position}} (\mbox{\hyperlink{structball}{ball\+\_\+t}} $\ast$\mbox{\hyperlink{structball}{ball}})
+int \mbox{\hyperlink{group__entities_ga6ee79c2231d92a2835ebbbfa5c126448}{change\+\_\+ball\+\_\+position}} (\mbox{\hyperlink{group__entities_gae0d42bea834ce8ae4fde528ab890c28c}{ball\+\_\+t}} $\ast$\mbox{\hyperlink{structball}{ball}})
 \begin{DoxyCompactList}\small\item\em Updates the position of the ball. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{group__entities_ga40b387a86e67e63590704e0f3779a33c}{shoot\+\_\+ball}} (\mbox{\hyperlink{structball}{ball\+\_\+t}} $\ast$\mbox{\hyperlink{structball}{ball}})
+int \mbox{\hyperlink{group__entities_ga40b387a86e67e63590704e0f3779a33c}{shoot\+\_\+ball}} (\mbox{\hyperlink{group__entities_gae0d42bea834ce8ae4fde528ab890c28c}{ball\+\_\+t}} $\ast$\mbox{\hyperlink{structball}{ball}})
 \begin{DoxyCompactList}\small\item\em Shoots the ball to a random point inside the lower side of the field. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{group__entities_gadac68d2750dd574c10e195ebdeb01cc1}{change\+\_\+player\+\_\+velocity}} (\mbox{\hyperlink{structplayer}{player\+\_\+t}} $\ast$\mbox{\hyperlink{structplayer}{player}}, uint8\+\_\+t scancode)
+int \mbox{\hyperlink{group__entities_gadac68d2750dd574c10e195ebdeb01cc1}{change\+\_\+player\+\_\+velocity}} (\mbox{\hyperlink{group__entities_ga9df65ef34efcf40007091fa0e679ea0c}{player\+\_\+t}} $\ast$\mbox{\hyperlink{structplayer}{player}}, uint8\+\_\+t \mbox{\hyperlink{keyboard_8h_a01577ed8d3646775ae6a8e00d24c1d94}{scancode}})
 \begin{DoxyCompactList}\small\item\em Changes a player velocity. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{group__entities_gaf3249b00493aa0be2fe732d2385edba1}{change\+\_\+remote\+\_\+player\+\_\+velocity}} (\mbox{\hyperlink{structplayer}{player\+\_\+t}} $\ast$\mbox{\hyperlink{structplayer}{player}}, uint8\+\_\+t scancode)
+int \mbox{\hyperlink{group__entities_gaf3249b00493aa0be2fe732d2385edba1}{change\+\_\+remote\+\_\+player\+\_\+velocity}} (\mbox{\hyperlink{group__entities_ga9df65ef34efcf40007091fa0e679ea0c}{player\+\_\+t}} $\ast$\mbox{\hyperlink{structplayer}{player}}, uint8\+\_\+t \mbox{\hyperlink{keyboard_8h_a01577ed8d3646775ae6a8e00d24c1d94}{scancode}})
 \begin{DoxyCompactList}\small\item\em Changes the velocity of the remote player. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{group__entities_ga45957c1478e7a8a142cd127374738983}{change\+\_\+player\+\_\+position}} (\mbox{\hyperlink{structplayer}{player\+\_\+t}} $\ast$\mbox{\hyperlink{structplayer}{player}})
+int \mbox{\hyperlink{group__entities_ga45957c1478e7a8a142cd127374738983}{change\+\_\+player\+\_\+position}} (\mbox{\hyperlink{group__entities_ga9df65ef34efcf40007091fa0e679ea0c}{player\+\_\+t}} $\ast$\mbox{\hyperlink{structplayer}{player}})
 \begin{DoxyCompactList}\small\item\em Updates the position of the player. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{group__entities_gabf676bc0cf7f067e3597f95d43462d01}{change\+\_\+racket\+\_\+side}} (\mbox{\hyperlink{structball}{ball\+\_\+t}} $\ast$\mbox{\hyperlink{structball}{ball}}, \mbox{\hyperlink{structplayer}{player\+\_\+t}} $\ast$\mbox{\hyperlink{structplayer}{player}})
+void \mbox{\hyperlink{group__entities_gabf676bc0cf7f067e3597f95d43462d01}{change\+\_\+racket\+\_\+side}} (\mbox{\hyperlink{group__entities_gae0d42bea834ce8ae4fde528ab890c28c}{ball\+\_\+t}} $\ast$\mbox{\hyperlink{structball}{ball}}, \mbox{\hyperlink{group__entities_ga9df65ef34efcf40007091fa0e679ea0c}{player\+\_\+t}} $\ast$\mbox{\hyperlink{structplayer}{player}})
 \begin{DoxyCompactList}\small\item\em Changes the side of the player\textquotesingle{}s racket to match the ball. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{group__entities_ga4b6a6aabd65aafc585e7adb6eb9e3129}{service\+\_\+positions}} (\mbox{\hyperlink{structball}{ball\+\_\+t}} $\ast$\mbox{\hyperlink{structball}{ball}}, \mbox{\hyperlink{structplayer}{player\+\_\+t}} $\ast$player1, \mbox{\hyperlink{structplayer}{player\+\_\+t}} $\ast$player2, bool turn)
+void \mbox{\hyperlink{group__entities_ga4b6a6aabd65aafc585e7adb6eb9e3129}{service\+\_\+positions}} (\mbox{\hyperlink{group__entities_gae0d42bea834ce8ae4fde528ab890c28c}{ball\+\_\+t}} $\ast$\mbox{\hyperlink{structball}{ball}}, \mbox{\hyperlink{group__entities_ga9df65ef34efcf40007091fa0e679ea0c}{player\+\_\+t}} $\ast$player1, \mbox{\hyperlink{group__entities_ga9df65ef34efcf40007091fa0e679ea0c}{player\+\_\+t}} $\ast$player2, bool turn)
 \begin{DoxyCompactList}\small\item\em Changes the position of the entities to serivce positions. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -48,12 +46,27 @@ Functions for the entities inside the game.
 
 
 
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__entities_gae0d42bea834ce8ae4fde528ab890c28c}\label{group__entities_gae0d42bea834ce8ae4fde528ab890c28c}} 
+\index{entities@{entities}!ball\_t@{ball\_t}}
+\index{ball\_t@{ball\_t}!entities@{entities}}
+\doxysubsubsection{\texorpdfstring{ball\_t}{ball\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structball}{ball}} \mbox{\hyperlink{group__entities_gae0d42bea834ce8ae4fde528ab890c28c}{ball\+\_\+t}}}
+
+\mbox{\Hypertarget{group__entities_ga9df65ef34efcf40007091fa0e679ea0c}\label{group__entities_ga9df65ef34efcf40007091fa0e679ea0c}} 
+\index{entities@{entities}!player\_t@{player\_t}}
+\index{player\_t@{player\_t}!entities@{entities}}
+\doxysubsubsection{\texorpdfstring{player\_t}{player\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structplayer}{player}} \mbox{\hyperlink{group__entities_ga9df65ef34efcf40007091fa0e679ea0c}{player\+\_\+t}}}
+
+
+
 \doxysubsection{Function Documentation}
 \mbox{\Hypertarget{group__entities_ga6ee79c2231d92a2835ebbbfa5c126448}\label{group__entities_ga6ee79c2231d92a2835ebbbfa5c126448}} 
 \index{entities@{entities}!change\_ball\_position@{change\_ball\_position}}
 \index{change\_ball\_position@{change\_ball\_position}!entities@{entities}}
 \doxysubsubsection{\texorpdfstring{change\_ball\_position()}{change\_ball\_position()}}
-{\footnotesize\ttfamily int change\+\_\+ball\+\_\+position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structball}{ball\+\_\+t}} $\ast$}]{ball }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int change\+\_\+ball\+\_\+position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__entities_gae0d42bea834ce8ae4fde528ab890c28c}{ball\+\_\+t}} $\ast$}]{ball }\end{DoxyParamCaption})}
 
 
 
@@ -67,11 +80,26 @@ Updates the position of the ball.
 \begin{DoxyReturn}{Returns}
 Return 0 upon success and non-\/zero otherwise 
 \end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__entities_ga6ee79c2231d92a2835ebbbfa5c126448_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__entities_ga6ee79c2231d92a2835ebbbfa5c126448_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{group__entities_ga45957c1478e7a8a142cd127374738983}\label{group__entities_ga45957c1478e7a8a142cd127374738983}} 
 \index{entities@{entities}!change\_player\_position@{change\_player\_position}}
 \index{change\_player\_position@{change\_player\_position}!entities@{entities}}
 \doxysubsubsection{\texorpdfstring{change\_player\_position()}{change\_player\_position()}}
-{\footnotesize\ttfamily int change\+\_\+player\+\_\+position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer}{player\+\_\+t}} $\ast$}]{player }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int change\+\_\+player\+\_\+position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__entities_ga9df65ef34efcf40007091fa0e679ea0c}{player\+\_\+t}} $\ast$}]{player }\end{DoxyParamCaption})}
 
 
 
@@ -85,11 +113,26 @@ Updates the position of the player.
 \begin{DoxyReturn}{Returns}
 Return 0 upon success and non-\/zero otherwise 
 \end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__entities_ga45957c1478e7a8a142cd127374738983_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__entities_ga45957c1478e7a8a142cd127374738983_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{group__entities_gadac68d2750dd574c10e195ebdeb01cc1}\label{group__entities_gadac68d2750dd574c10e195ebdeb01cc1}} 
 \index{entities@{entities}!change\_player\_velocity@{change\_player\_velocity}}
 \index{change\_player\_velocity@{change\_player\_velocity}!entities@{entities}}
 \doxysubsubsection{\texorpdfstring{change\_player\_velocity()}{change\_player\_velocity()}}
-{\footnotesize\ttfamily int change\+\_\+player\+\_\+velocity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer}{player\+\_\+t}} $\ast$}]{player,  }\item[{uint8\+\_\+t}]{scancode }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int change\+\_\+player\+\_\+velocity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__entities_ga9df65ef34efcf40007091fa0e679ea0c}{player\+\_\+t}} $\ast$}]{player,  }\item[{uint8\+\_\+t}]{scancode }\end{DoxyParamCaption})}
 
 
 
@@ -105,11 +148,19 @@ Changes a player velocity.
 \begin{DoxyReturn}{Returns}
 Return 0 upon success and non-\/zero otherwise 
 \end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__entities_gadac68d2750dd574c10e195ebdeb01cc1_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{group__entities_gabf676bc0cf7f067e3597f95d43462d01}\label{group__entities_gabf676bc0cf7f067e3597f95d43462d01}} 
 \index{entities@{entities}!change\_racket\_side@{change\_racket\_side}}
 \index{change\_racket\_side@{change\_racket\_side}!entities@{entities}}
 \doxysubsubsection{\texorpdfstring{change\_racket\_side()}{change\_racket\_side()}}
-{\footnotesize\ttfamily void change\+\_\+racket\+\_\+side (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structball}{ball\+\_\+t}} $\ast$}]{ball,  }\item[{\mbox{\hyperlink{structplayer}{player\+\_\+t}} $\ast$}]{player }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void change\+\_\+racket\+\_\+side (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__entities_gae0d42bea834ce8ae4fde528ab890c28c}{ball\+\_\+t}} $\ast$}]{ball,  }\item[{\mbox{\hyperlink{group__entities_ga9df65ef34efcf40007091fa0e679ea0c}{player\+\_\+t}} $\ast$}]{player }\end{DoxyParamCaption})}
 
 
 
@@ -122,11 +173,19 @@ Changes the side of the player\textquotesingle{}s racket to match the ball.
 {\em player} & player object \\
 \hline
 \end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__entities_gabf676bc0cf7f067e3597f95d43462d01_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{group__entities_gaf3249b00493aa0be2fe732d2385edba1}\label{group__entities_gaf3249b00493aa0be2fe732d2385edba1}} 
 \index{entities@{entities}!change\_remote\_player\_velocity@{change\_remote\_player\_velocity}}
 \index{change\_remote\_player\_velocity@{change\_remote\_player\_velocity}!entities@{entities}}
 \doxysubsubsection{\texorpdfstring{change\_remote\_player\_velocity()}{change\_remote\_player\_velocity()}}
-{\footnotesize\ttfamily int change\+\_\+remote\+\_\+player\+\_\+velocity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer}{player\+\_\+t}} $\ast$}]{player,  }\item[{uint8\+\_\+t}]{scancode }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int change\+\_\+remote\+\_\+player\+\_\+velocity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__entities_ga9df65ef34efcf40007091fa0e679ea0c}{player\+\_\+t}} $\ast$}]{player,  }\item[{uint8\+\_\+t}]{scancode }\end{DoxyParamCaption})}
 
 
 
@@ -142,11 +201,19 @@ Changes the velocity of the remote player.
 \begin{DoxyReturn}{Returns}
 Return 0 upon success and non-\/zero otherwise 
 \end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__entities_gaf3249b00493aa0be2fe732d2385edba1_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{group__entities_gaf63db8b8eb1bf05063f96352ce67d7be}\label{group__entities_gaf63db8b8eb1bf05063f96352ce67d7be}} 
 \index{entities@{entities}!go\_to\_selected\_point@{go\_to\_selected\_point}}
 \index{go\_to\_selected\_point@{go\_to\_selected\_point}!entities@{entities}}
 \doxysubsubsection{\texorpdfstring{go\_to\_selected\_point()}{go\_to\_selected\_point()}}
-{\footnotesize\ttfamily int go\+\_\+to\+\_\+selected\+\_\+point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structball}{ball\+\_\+t}} $\ast$}]{ball,  }\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{int}]{player }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int go\+\_\+to\+\_\+selected\+\_\+point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__entities_gae0d42bea834ce8ae4fde528ab890c28c}{ball\+\_\+t}} $\ast$}]{ball,  }\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{int}]{player }\end{DoxyParamCaption})}
 
 
 
@@ -167,11 +234,26 @@ Changes the velocity of the ball in order to reach a given point and updates var
 \begin{DoxyReturn}{Returns}
 Return 0 upon success and non-\/zero otherwise 
 \end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=303pt]{group__entities_gaf63db8b8eb1bf05063f96352ce67d7be_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__entities_gaf63db8b8eb1bf05063f96352ce67d7be_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{group__entities_ga4b6a6aabd65aafc585e7adb6eb9e3129}\label{group__entities_ga4b6a6aabd65aafc585e7adb6eb9e3129}} 
 \index{entities@{entities}!service\_positions@{service\_positions}}
 \index{service\_positions@{service\_positions}!entities@{entities}}
 \doxysubsubsection{\texorpdfstring{service\_positions()}{service\_positions()}}
-{\footnotesize\ttfamily void service\+\_\+positions (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structball}{ball\+\_\+t}} $\ast$}]{ball,  }\item[{\mbox{\hyperlink{structplayer}{player\+\_\+t}} $\ast$}]{player1,  }\item[{\mbox{\hyperlink{structplayer}{player\+\_\+t}} $\ast$}]{player2,  }\item[{bool}]{turn }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void service\+\_\+positions (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__entities_gae0d42bea834ce8ae4fde528ab890c28c}{ball\+\_\+t}} $\ast$}]{ball,  }\item[{\mbox{\hyperlink{group__entities_ga9df65ef34efcf40007091fa0e679ea0c}{player\+\_\+t}} $\ast$}]{player1,  }\item[{\mbox{\hyperlink{group__entities_ga9df65ef34efcf40007091fa0e679ea0c}{player\+\_\+t}} $\ast$}]{player2,  }\item[{bool}]{turn }\end{DoxyParamCaption})}
 
 
 
@@ -188,11 +270,26 @@ Changes the position of the entities to serivce positions.
 {\em turn} & variable indicating who is serving \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{group__entities_ga4b6a6aabd65aafc585e7adb6eb9e3129_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__entities_ga4b6a6aabd65aafc585e7adb6eb9e3129_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{group__entities_ga40b387a86e67e63590704e0f3779a33c}\label{group__entities_ga40b387a86e67e63590704e0f3779a33c}} 
 \index{entities@{entities}!shoot\_ball@{shoot\_ball}}
 \index{shoot\_ball@{shoot\_ball}!entities@{entities}}
 \doxysubsubsection{\texorpdfstring{shoot\_ball()}{shoot\_ball()}}
-{\footnotesize\ttfamily int shoot\+\_\+ball (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structball}{ball\+\_\+t}} $\ast$}]{ball }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int shoot\+\_\+ball (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__entities_gae0d42bea834ce8ae4fde528ab890c28c}{ball\+\_\+t}} $\ast$}]{ball }\end{DoxyParamCaption})}
 
 
 
@@ -206,3 +303,18 @@ Shoots the ball to a random point inside the lower side of the field.
 \begin{DoxyReturn}{Returns}
 Return 0 upon success and non-\/zero otherwise 
 \end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__entities_ga40b387a86e67e63590704e0f3779a33c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__entities_ga40b387a86e67e63590704e0f3779a33c_icgraph}
+\end{center}
+\end{figure}

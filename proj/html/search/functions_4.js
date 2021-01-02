@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['multi_5fplayer_5f1_80',['multi_player_1',['../group__game.html#gaff3eae8f45aa908e857832037be6b68b',1,'multi_player_1():&#160;game.c'],['../group__game.html#gaff3eae8f45aa908e857832037be6b68b',1,'multi_player_1():&#160;game.c']]],
-  ['multi_5fplayer_5f2_81',['multi_player_2',['../group__game.html#gad3d26a3cfd89c9412d7e886cd6edbe17',1,'multi_player_2():&#160;game.c'],['../group__game.html#gad3d26a3cfd89c9412d7e886cd6edbe17',1,'multi_player_2():&#160;game.c']]],
-  ['multiplayer_5fscore_82',['multiplayer_score',['../group__gameLogic.html#ga112bc136533433e90a210b469691c469',1,'multiplayer_score(player_t *player):&#160;gameLogic.c'],['../group__gameLogic.html#ga112bc136533433e90a210b469691c469',1,'multiplayer_score(player_t *player):&#160;gameLogic.c']]]
+  ['empty_482',['empty',['../utilities_8c.html#a89031d97e56983824082ca9e18d5897e',1,'empty(queue_t *q):&#160;utilities.c'],['../utilities_8h.html#a89031d97e56983824082ca9e18d5897e',1,'empty(queue_t *q):&#160;utilities.c']]],
+  ['entername_5fmenu_483',['entername_menu',['../group__menu.html#ga5e1bba404f1f9ea1b95cbdc8be1e7f3c',1,'entername_menu(int place, int points):&#160;menu.c'],['../group__menu.html#ga5e1bba404f1f9ea1b95cbdc8be1e7f3c',1,'entername_menu(int place, int points):&#160;menu.c']]]
 ];

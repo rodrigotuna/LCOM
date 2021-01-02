@@ -73,7 +73,7 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga12f5380cb7d913dd79dd73f99e0159db"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__communication.html#ga12f5380cb7d913dd79dd73f99e0159db">send_player_message</a> (uint8_t scancode)</td></tr>
+<tr class="memitem:ga12f5380cb7d913dd79dd73f99e0159db"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__communication.html#ga12f5380cb7d913dd79dd73f99e0159db">send_player_message</a> (uint8_t <a class="el" href="keyboard_8h.html#a01577ed8d3646775ae6a8e00d24c1d94">scancode</a>)</td></tr>
 <tr class="memdesc:ga12f5380cb7d913dd79dd73f99e0159db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a message related to the player.  <a href="group__communication.html#ga12f5380cb7d913dd79dd73f99e0159db">More...</a><br /></td></tr>
 <tr class="separator:ga12f5380cb7d913dd79dd73f99e0159db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga814f6e311333907d02b3c4a811bdf00a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__communication.html#ga814f6e311333907d02b3c4a811bdf00a">send_ball_message</a> (uint16_t x_pos, uint16_t y_pos)</td></tr>
@@ -112,7 +112,20 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Retrun 1 if the message is completed, 0 otherwise </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Return 1 if the message is completed, 0 otherwise </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__communication_ga76a3d60d929a11e19a01bfa7a7c8b095_icgraph.png" border="0" usemap="#group__communication_ga76a3d60d929a11e19a01bfa7a7c8b095_icgraph" alt=""/></div>
+<map name="group__communication_ga76a3d60d929a11e19a01bfa7a7c8b095_icgraph" id="group__communication_ga76a3d60d929a11e19a01bfa7a7c8b095_icgraph">
+<area shape="rect" title="Handles the byte recieved." alt="" coords="697,31,829,57"/>
+<area shape="rect" href="group__game.html#gaff3eae8f45aa908e857832037be6b68b" title="The multiplayer mode in the perspective of player 1." alt="" coords="531,5,649,32"/>
+<area shape="rect" href="group__game.html#gad3d26a3cfd89c9412d7e886cd6edbe17" title="The multiplayer mode in the perspective of player 2." alt="" coords="531,56,649,83"/>
+<area shape="rect" href="group__menu.html#gac59a512bcf4260d121c4d1b278dc1b1f" title="The menu for choosing the player in multiplayer mode." alt="" coords="323,31,483,57"/>
+<area shape="rect" href="group__menu.html#ga7fe3adb8b69baff33af24e4a3a9c5048" title="The main menu." alt="" coords="176,31,275,57"/>
+<area shape="rect" href="proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,31,128,57"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -133,6 +146,29 @@ Functions</h2></td></tr>
 
 <p>Resets the communication variables. </p>
 <dl class="section return"><dt>Returns</dt><dd>Return 0 upon success and non-zero otherwise </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__communication_gafe8d85adab74a257ba6e03ab3e044ec0_cgraph.png" border="0" usemap="#group__communication_gafe8d85adab74a257ba6e03ab3e044ec0_cgraph" alt=""/></div>
+<map name="group__communication_gafe8d85adab74a257ba6e03ab3e044ec0_cgraph" id="group__communication_gafe8d85adab74a257ba6e03ab3e044ec0_cgraph">
+<area shape="rect" title="Resets the communication variables." alt="" coords="5,5,168,32"/>
+<area shape="rect" href="uart_8c.html#a6bc69bf595f62c9e74fb26c4ed293fed" title=" " alt="" coords="216,5,307,32"/>
+<area shape="rect" href="uart_8c.html#a1093ab24dd92365b8bb682b6c589fe5d" title=" " alt="" coords="355,5,496,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__communication_gafe8d85adab74a257ba6e03ab3e044ec0_icgraph.png" border="0" usemap="#group__communication_gafe8d85adab74a257ba6e03ab3e044ec0_icgraph" alt=""/></div>
+<map name="group__communication_gafe8d85adab74a257ba6e03ab3e044ec0_icgraph" id="group__communication_gafe8d85adab74a257ba6e03ab3e044ec0_icgraph">
+<area shape="rect" title="Resets the communication variables." alt="" coords="697,31,860,57"/>
+<area shape="rect" href="group__game.html#gaff3eae8f45aa908e857832037be6b68b" title="The multiplayer mode in the perspective of player 1." alt="" coords="531,5,649,32"/>
+<area shape="rect" href="group__game.html#gad3d26a3cfd89c9412d7e886cd6edbe17" title="The multiplayer mode in the perspective of player 2." alt="" coords="531,56,649,83"/>
+<area shape="rect" href="group__menu.html#gac59a512bcf4260d121c4d1b278dc1b1f" title="The menu for choosing the player in multiplayer mode." alt="" coords="323,31,483,57"/>
+<area shape="rect" href="group__menu.html#ga7fe3adb8b69baff33af24e4a3a9c5048" title="The main menu." alt="" coords="176,31,275,57"/>
+<area shape="rect" href="proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,31,128,57"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -171,6 +207,34 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Return 0 upon success and non-zero otherwise </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__communication_ga814f6e311333907d02b3c4a811bdf00a_cgraph.png" border="0" usemap="#group__communication_ga814f6e311333907d02b3c4a811bdf00a_cgraph" alt=""/></div>
+<map name="group__communication_ga814f6e311333907d02b3c4a811bdf00a_cgraph" id="group__communication_ga814f6e311333907d02b3c4a811bdf00a_cgraph">
+<area shape="rect" title="Sends a message related to the ball." alt="" coords="5,81,156,108"/>
+<area shape="rect" href="uart_8c.html#ac2cdc77ff6f0881092b0ff662f57b575" title=" " alt="" coords="204,31,335,57"/>
+<area shape="rect" href="utilities_8c.html#a81621440b3d65680979425e39aa8c789" title=" " alt="" coords="218,81,321,108"/>
+<area shape="rect" href="utilities_8c.html#a6a880076cd2ec468834438b6e0c58836" title=" " alt="" coords="216,132,323,159"/>
+<area shape="rect" href="uart_8c.html#a670b394681439966458785b8fc1b5b00" title=" " alt="" coords="383,31,504,57"/>
+<area shape="rect" href="uart_8c.html#a8d98030d0283fe09aa36341f27f8816f" title=" " alt="" coords="552,5,707,32"/>
+<area shape="rect" href="uart_8c.html#a1093ab24dd92365b8bb682b6c589fe5d" title=" " alt="" coords="559,56,700,83"/>
+<area shape="rect" href="utilities_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="755,5,853,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__communication_ga814f6e311333907d02b3c4a811bdf00a_icgraph.png" border="0" usemap="#group__communication_ga814f6e311333907d02b3c4a811bdf00a_icgraph" alt=""/></div>
+<map name="group__communication_ga814f6e311333907d02b3c4a811bdf00a_icgraph" id="group__communication_ga814f6e311333907d02b3c4a811bdf00a_icgraph">
+<area shape="rect" title="Sends a message related to the ball." alt="" coords="697,31,848,57"/>
+<area shape="rect" href="group__game.html#gaff3eae8f45aa908e857832037be6b68b" title="The multiplayer mode in the perspective of player 1." alt="" coords="531,5,649,32"/>
+<area shape="rect" href="group__game.html#gad3d26a3cfd89c9412d7e886cd6edbe17" title="The multiplayer mode in the perspective of player 2." alt="" coords="531,56,649,83"/>
+<area shape="rect" href="group__menu.html#gac59a512bcf4260d121c4d1b278dc1b1f" title="The menu for choosing the player in multiplayer mode." alt="" coords="323,31,483,57"/>
+<area shape="rect" href="group__menu.html#ga7fe3adb8b69baff33af24e4a3a9c5048" title="The main menu." alt="" coords="176,31,275,57"/>
+<area shape="rect" href="proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,31,128,57"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -198,6 +262,32 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Return 0 upon success and non-zero otherwise </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__communication_ga12f5380cb7d913dd79dd73f99e0159db_cgraph.png" border="0" usemap="#group__communication_ga12f5380cb7d913dd79dd73f99e0159db_cgraph" alt=""/></div>
+<map name="group__communication_ga12f5380cb7d913dd79dd73f99e0159db_cgraph" id="group__communication_ga12f5380cb7d913dd79dd73f99e0159db_cgraph">
+<area shape="rect" title="Sends a message related to the player." alt="" coords="5,31,172,57"/>
+<area shape="rect" href="uart_8c.html#ac2cdc77ff6f0881092b0ff662f57b575" title=" " alt="" coords="220,31,351,57"/>
+<area shape="rect" href="uart_8c.html#a670b394681439966458785b8fc1b5b00" title=" " alt="" coords="399,31,520,57"/>
+<area shape="rect" href="uart_8c.html#a8d98030d0283fe09aa36341f27f8816f" title=" " alt="" coords="568,5,723,32"/>
+<area shape="rect" href="uart_8c.html#a1093ab24dd92365b8bb682b6c589fe5d" title=" " alt="" coords="575,56,716,83"/>
+<area shape="rect" href="utilities_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="771,5,869,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__communication_ga12f5380cb7d913dd79dd73f99e0159db_icgraph.png" border="0" usemap="#group__communication_ga12f5380cb7d913dd79dd73f99e0159db_icgraph" alt=""/></div>
+<map name="group__communication_ga12f5380cb7d913dd79dd73f99e0159db_icgraph" id="group__communication_ga12f5380cb7d913dd79dd73f99e0159db_icgraph">
+<area shape="rect" title="Sends a message related to the player." alt="" coords="697,31,864,57"/>
+<area shape="rect" href="group__game.html#gaff3eae8f45aa908e857832037be6b68b" title="The multiplayer mode in the perspective of player 1." alt="" coords="531,5,649,32"/>
+<area shape="rect" href="group__game.html#gad3d26a3cfd89c9412d7e886cd6edbe17" title="The multiplayer mode in the perspective of player 2." alt="" coords="531,56,649,83"/>
+<area shape="rect" href="group__menu.html#gac59a512bcf4260d121c4d1b278dc1b1f" title="The menu for choosing the player in multiplayer mode." alt="" coords="323,31,483,57"/>
+<area shape="rect" href="group__menu.html#ga7fe3adb8b69baff33af24e4a3a9c5048" title="The main menu." alt="" coords="176,31,275,57"/>
+<area shape="rect" href="proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,31,128,57"/>
+</map>
+</div>
 
 </div>
 </div>

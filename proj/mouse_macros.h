@@ -2,6 +2,12 @@
 
 #include <lcom/lcf.h>
 
+/** @defgroup mouse_macros mouse_macros
+ * @{
+ *
+ * Constants for programming the mouse
+ */
+
 #define MOUSE_IRQ 12
 
 /*Package first byte macros*/
@@ -29,3 +35,4 @@
 #define ACK 0xFA
 #define NACK 0xFE
 #define ERROR 0xFC
+/**@}*/

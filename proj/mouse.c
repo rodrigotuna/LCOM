@@ -1,5 +1,7 @@
 #include "mouse.h"
 
+#include "kbc.h"
+
 uint8_t mouse_count = 0;
 
 int mouse_subscribe_int(uint8_t* bit_no){
