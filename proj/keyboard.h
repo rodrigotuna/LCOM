@@ -14,10 +14,10 @@ uint8_t scancode[2];
 uint8_t size;
 bool code_completed;
 
-/** @defgroup kbc kbc
+/** @defgroup keyboard keyboard
  * @{
  *
- * Functions for programming the kbc
+ * Functions for programming the keyboard
  */
 
 /**
