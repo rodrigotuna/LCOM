@@ -140,6 +140,9 @@ int entername_menu(int place, int points){
         page_flipping();
       }
     }
+    if(interrupts & RTC_IRQ_SET){
+      rtc_ih();
+    }
   }
   add_new_score(name,points,place);
   destroy_animated_sprite(namemenu);

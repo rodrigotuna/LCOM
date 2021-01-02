@@ -356,6 +356,9 @@ int multi_player_2(){
         display_sprite(crosshair);
         page_flipping();
       }
+    }    
+    if(interrupts & RTC_IRQ_SET){
+      rtc_ih();
     }
   }
   change_player_velocity(&player1, 0);
