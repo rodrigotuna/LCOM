@@ -42,7 +42,7 @@ int init_all(){
   map_memory();
 
   if(video_init_mode(MODE)) return 1;
-  if(mouse_data_report(true)) return 1;
+  if(mouse_set_arg(EN_DATA_REP)) return 1;
   if(rtc_enable_int(AIE)) return 1;
   if(uart_init()) return 1;
   return 0;
@@ -52,7 +52,8 @@ int reset_all(){
   free(front_video_mem);
   free(back_video_mem);
   if(rtc_disable_int(AIE)) return 1;
-  if(mouse_data_report(false)) return 1;
+  if(kbc_restore()) return 1;
+  if(mouse_set_arg(DIS_DATA_REP)) return 1;
   uart_reset();
   if(vg_exit()) return 1;
   return 0;

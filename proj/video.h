@@ -22,20 +22,4 @@ void map_memory();
 
 int bytesPerPixel();
 
-uint32_t getRed(uint32_t color);
-
-uint32_t getBlue(uint32_t color);
-
-uint32_t getGreen(uint32_t color);
-
-uint32_t setColor(uint32_t red, uint32_t green, uint32_t blue);
-
-uint32_t new_color(uint16_t x, uint16_t y, uint8_t no_rectangles, uint32_t first, uint8_t step);
-
 int set_pixel(uint16_t x, uint16_t y, uint32_t color);
-
-int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color);
-
-int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color);
-
-void free_mem_map();

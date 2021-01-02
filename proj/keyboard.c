@@ -28,19 +28,3 @@ void (kbc_ih)(void) {
   if(code == TWO_BYTE_CODE) code_completed = false;
   else code_completed = true;
 } 
-
-int kb_poll(){
-  size = 0;
-  while(true){
-  uint8_t stat,data;
-  if(util_sys_inb(KBC_ST_REG, &stat)) return 1; 
-  if((stat &(KBC_PAR_ERR | KBC_TO_ERR))) return 1;
-  if(stat & KBC_OBF) {
-      util_sys_inb(KBC_OUT_BUF, &data);
-      scancode[size] = data;
-      size++;
-      if(data != TWO_BYTE_CODE) return 0;
-  }
-  }
-  return 1;
-}
