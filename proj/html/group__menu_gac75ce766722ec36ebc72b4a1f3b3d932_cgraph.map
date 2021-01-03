@@ -1,26 +1,9 @@
 <map id="connect_player2_menu" name="connect_player2_menu">
-<area shape="rect" id="node1" title="The connecting menu for player 1." alt="" coords="5,309,179,336"/>
-<area shape="rect" id="node2" href="$group__sprites.html#gab157c542e1fcb61fd76dcbbf479fc991" title="Creates a sprite object." alt="" coords="242,5,349,32"/>
-<area shape="rect" id="node3" href="$group__sprites.html#gab78b0b42532b8c0b5322ddf0e1ed85e1" title="Destroys a sprite object." alt="" coords="425,31,540,57"/>
-<area shape="rect" id="node4" href="$group__sprites.html#ga74e2d82b03eaa572326d025fe314a3f7" title="Displays a sprite object in it&#39;s inherent position." alt="" coords="239,107,352,133"/>
-<area shape="rect" id="node7" href="$group__drivers.html#gacfa2c74627be0e50879d0969f610e60a" title="Function that calls driver&#45;recieve gets the interrupts." alt="" coords="239,157,352,184"/>
-<area shape="rect" id="node8" href="$group__keyboard.html#ga5761bd4aad91ac1d68916ad88f583d9f" title="Keyboard&#39;s interrupt handler." alt="" coords="263,208,327,235"/>
-<area shape="rect" id="node11" href="$group__mouse.html#gaed4404005e4c565ac36656307386e0ac" title="Mouse&#39;s interrupt handler." alt="" coords="253,259,338,285"/>
-<area shape="rect" id="node13" href="$group__video.html#ga243163f132ab9dce6b21d946df703fd4" title="Alternates between buffers calling the vbe." alt="" coords="241,309,350,336"/>
-<area shape="rect" id="node14" href="$group__utilities.html#ga15b3fcf286d6f0013eab16891d7fb5fe" title="Pops the first element of the queue." alt="" coords="272,360,319,387"/>
-<area shape="rect" id="node15" href="$group__RTC.html#ga75dad42881d64cf07cf1bdc2979a7056" title="Handles RTC interrupts." alt="" coords="266,411,325,437"/>
-<area shape="rect" id="node17" href="$timer_8c.html#a91a2072306c68353712a6b771287dc2c" title=" " alt="" coords="227,461,364,488"/>
-<area shape="rect" id="node18" href="$group__utilities.html#gad8a9a0c1c6525cebebf57399b9807601" title="Gets the element on top of the queue." alt="" coords="274,512,317,539"/>
-<area shape="rect" id="node19" href="$group__uart.html#ga67d2da4dd20c731989c130bbe2cd4c85" title="Uart&#39;s interrupt handler." alt="" coords="262,563,329,589"/>
-<area shape="rect" id="node23" href="$group__uart.html#ga670b394681439966458785b8fc1b5b00" title="Sends a char to the other computer." alt="" coords="235,613,356,640"/>
-<area shape="rect" id="node5" href="$group__video.html#gab20a606ca3d3aa819249eeca339aee79" title="Changes the color of a pixel to a specified one." alt="" coords="443,107,523,133"/>
-<area shape="rect" id="node6" href="$group__video.html#ga3cc5fc9cad5e43a1af5d3339388af1ce" title="Indicates the number of bytes per Pixel." alt="" coords="623,107,734,133"/>
-<area shape="rect" id="node9" href="$group__kbc.html#gaef6ef70e3fc1f34dfd977b3ac231b6c0" title="Reads a byte from the kbv." alt="" coords="638,223,719,249"/>
-<area shape="rect" id="node10" href="$group__utilities.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="Wrapper of function sys_inb()" alt="" coords="804,311,903,337"/>
-<area shape="rect" id="node12" href="$group__mouse.html#gae1cc406500640bfb1b8a2900150697bf" title="Reads one byte from the mouse." alt="" coords="627,291,730,317"/>
-<area shape="rect" id="node16" href="$group__RTC.html#ga6baf82806db2130368d67c4d68e8369a" title="Reads the status from a certain register of the RTC." alt="" coords="421,360,544,387"/>
-<area shape="rect" id="node20" href="$group__uart.html#ga03866a120549ba97667bd37de69a7a13" title="Reads a fifo." alt="" coords="427,512,539,539"/>
-<area shape="rect" id="node22" href="$group__uart.html#ga8d98030d0283fe09aa36341f27f8816f" title="Reads from a uart port." alt="" coords="601,563,756,589"/>
-<area shape="rect" id="node21" href="$group__utilities.html#gac71dd3b2de9fd044289ae077f37513d8" title="Adds a variable to the queue." alt="" coords="652,512,705,539"/>
-<area shape="rect" id="node24" href="$group__uart.html#ga1093ab24dd92365b8bb682b6c589fe5d" title="Writes to a uart port." alt="" coords="412,664,553,691"/>
+<area shape="rect" id="node1" title="The connecting menu for player 1." alt="" coords="5,132,179,159"/>
+<area shape="rect" id="node2" href="$group__sprites.html#gab157c542e1fcb61fd76dcbbf479fc991" title="Creates a sprite object." alt="" coords="230,5,337,32"/>
+<area shape="rect" id="node3" href="$group__sprites.html#gab78b0b42532b8c0b5322ddf0e1ed85e1" title="Destroys a sprite object." alt="" coords="388,31,503,57"/>
+<area shape="rect" id="node4" href="$group__sprites.html#ga74e2d82b03eaa572326d025fe314a3f7" title="Displays a sprite object in it&#39;s inherent position." alt="" coords="227,107,340,133"/>
+<area shape="rect" id="node5" href="$group__drivers.html#gacfa2c74627be0e50879d0969f610e60a" title="Function that calls driver&#45;recieve gets the interrupts." alt="" coords="227,157,340,184"/>
+<area shape="rect" id="node6" href="$group__utilities.html#ga15b3fcf286d6f0013eab16891d7fb5fe" title="Pops the first element of the queue." alt="" coords="260,208,307,235"/>
+<area shape="rect" id="node7" href="$group__utilities.html#gad8a9a0c1c6525cebebf57399b9807601" title="Gets the element on top of the queue." alt="" coords="262,259,305,285"/>
 </map>

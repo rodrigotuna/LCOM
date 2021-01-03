@@ -1,29 +1,32 @@
 \hypertarget{menu_8c}{}\doxysection{menu.\+c File Reference}
 \label{menu_8c}\index{menu.c@{menu.c}}
 {\ttfamily \#include \char`\"{}menu.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}cursor.\+xpm\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}font.\+xpm\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}mainmenu.\+xpm\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}mainmenu\+\_\+sp.\+xpm\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}mainmenu\+\_\+mp.\+xpm\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}mainmenu\+\_\+scores.\+xpm\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}mainmenu\+\_\+quit.\+xpm\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}entername.\+xpm\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}entername\+\_\+done.\+xpm\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}gameover.\+xpm\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}gameover\+\_\+playagain.\+xpm\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}gameover\+\_\+home.\+xpm\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}go\+\_\+lost.\+xpm\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}go\+\_\+sp.\+xpm\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}go\+\_\+won.\+xpm\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}sp\+\_\+score.\+xpm\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}waiting1.\+xpm\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}waiting2.\+xpm\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}chooseplayer.\+xpm\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}chooseplayer\+\_\+create.\+xpm\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}chooseplayer\+\_\+join.\+xpm\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}scoreboard.\+xpm\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}scoreboard\+\_\+home.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}img/cursor.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}img/font.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}img/mainmenu.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}img/mainmenu\+\_\+sp.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}img/mainmenu\+\_\+mp.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}img/mainmenu\+\_\+scores.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}img/mainmenu\+\_\+quit.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}img/entername.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}img/entername\+\_\+done.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}img/gameover.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}img/gameover\+\_\+playagain.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}img/gameover\+\_\+home.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}img/go\+\_\+lost.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}img/go\+\_\+sp.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}img/go\+\_\+won.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}img/sp\+\_\+score.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}img/waiting1.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}img/waiting2.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}img/chooseplayer.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}img/chooseplayer\+\_\+create.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}img/chooseplayer\+\_\+join.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}img/scoreboard.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}img/scoreboard\+\_\+home.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}drivers.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}game.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}scoreboard.\+h\char`\"{}}\newline
 Include dependency graph for menu.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -58,7 +61,7 @@ int \mbox{\hyperlink{group__menu_ga6a8428667b9b4b4c218bb345b7d9fe6a}{scoreboard\
 \begin{DoxyCompactList}\small\item\em Checks which choose player menu mode is selected. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{group__menu_ga7bb8494816c8065ae6ff0eeb548a5896}{button\+\_\+state\+\_\+t}} \mbox{\hyperlink{group__menu_gafceda32ba4d2a5523007f7f8f1707338}{scoreboard\+\_\+menu\+\_\+mode}} (\mbox{\hyperlink{group__sprites_gaab4f7e34894259f3dc700a86476c02bf}{sprite\+\_\+t}} $\ast$cursor, \mbox{\hyperlink{group__sprites_ga66cd6afa3327cc5fcaf1827cbf66243b}{animated\+\_\+sprite\+\_\+t}} $\ast$menu, \mbox{\hyperlink{group__menu_ga7bb8494816c8065ae6ff0eeb548a5896}{button\+\_\+state\+\_\+t}} mode)
 \begin{DoxyCompactList}\small\item\em Checks which scoreboard menu mode is selected. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{group__menu_ga55105e164681a479d3110b267d596fca}{check\+\_\+button\+\_\+bounds}} (int16\+\_\+t cursor\+\_\+x, int16\+\_\+t cursor\+\_\+y, int xi, int yi, \mbox{\hyperlink{group__menu_gafd24f3af13af1d0840db36d6a159ff60}{button\+\_\+sizes\+\_\+t}} \mbox{\hyperlink{keyboard_8h_ae5dc6ffcd9b7605c7787791e40cc6bb0}{size}})
+bool \mbox{\hyperlink{group__menu_ga55105e164681a479d3110b267d596fca}{check\+\_\+button\+\_\+bounds}} (int16\+\_\+t cursor\+\_\+x, int16\+\_\+t cursor\+\_\+y, int xi, int yi, \mbox{\hyperlink{group__menu_gafd24f3af13af1d0840db36d6a159ff60}{button\+\_\+sizes\+\_\+t}} size)
 \begin{DoxyCompactList}\small\item\em Checks if the cursor is inside the button bounds. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}

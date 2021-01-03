@@ -73,7 +73,7 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga12f5380cb7d913dd79dd73f99e0159db"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__communication.html#ga12f5380cb7d913dd79dd73f99e0159db">send_player_message</a> (uint8_t <a class="el" href="keyboard_8h.html#a01577ed8d3646775ae6a8e00d24c1d94">scancode</a>)</td></tr>
+<tr class="memitem:ga12f5380cb7d913dd79dd73f99e0159db"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__communication.html#ga12f5380cb7d913dd79dd73f99e0159db">send_player_message</a> (uint8_t scancode)</td></tr>
 <tr class="memdesc:ga12f5380cb7d913dd79dd73f99e0159db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a message related to the player.  <a href="group__communication.html#ga12f5380cb7d913dd79dd73f99e0159db">More...</a><br /></td></tr>
 <tr class="separator:ga12f5380cb7d913dd79dd73f99e0159db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga814f6e311333907d02b3c4a811bdf00a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__communication.html#ga814f6e311333907d02b3c4a811bdf00a">send_ball_message</a> (uint16_t x_pos, uint16_t y_pos)</td></tr>
@@ -147,16 +147,6 @@ Here is the caller graph for this function:</div>
 <p>Resets the communication variables. </p>
 <dl class="section return"><dt>Returns</dt><dd>Return 0 upon success and non-zero otherwise </dd></dl>
 <div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group__communication_gafe8d85adab74a257ba6e03ab3e044ec0_cgraph.png" border="0" usemap="#group__communication_gafe8d85adab74a257ba6e03ab3e044ec0_cgraph" alt=""/></div>
-<map name="group__communication_gafe8d85adab74a257ba6e03ab3e044ec0_cgraph" id="group__communication_gafe8d85adab74a257ba6e03ab3e044ec0_cgraph">
-<area shape="rect" title="Resets the communication variables." alt="" coords="5,5,168,32"/>
-<area shape="rect" href="group__uart.html#ga6bc69bf595f62c9e74fb26c4ed293fed" title="Cleans the the fifo&#39;s." alt="" coords="216,5,307,32"/>
-<area shape="rect" href="group__uart.html#ga1093ab24dd92365b8bb682b6c589fe5d" title="Writes to a uart port." alt="" coords="355,5,496,32"/>
-</map>
-</div>
-<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__communication_gafe8d85adab74a257ba6e03ab3e044ec0_icgraph.png" border="0" usemap="#group__communication_gafe8d85adab74a257ba6e03ab3e044ec0_icgraph" alt=""/></div>
@@ -212,14 +202,9 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__communication_ga814f6e311333907d02b3c4a811bdf00a_cgraph.png" border="0" usemap="#group__communication_ga814f6e311333907d02b3c4a811bdf00a_cgraph" alt=""/></div>
 <map name="group__communication_ga814f6e311333907d02b3c4a811bdf00a_cgraph" id="group__communication_ga814f6e311333907d02b3c4a811bdf00a_cgraph">
-<area shape="rect" title="Sends a message related to the ball." alt="" coords="5,81,156,108"/>
-<area shape="rect" href="group__uart.html#gac2cdc77ff6f0881092b0ff662f57b575" title="Sends a string to the other computer." alt="" coords="204,31,335,57"/>
-<area shape="rect" href="group__utilities.html#ga81621440b3d65680979425e39aa8c789" title="Gets the LSB of a 16&#45;bit number." alt="" coords="218,81,321,108"/>
-<area shape="rect" href="group__utilities.html#ga6a880076cd2ec468834438b6e0c58836" title="Gets the MSB of a 16&#45;bit number." alt="" coords="216,132,323,159"/>
-<area shape="rect" href="group__uart.html#ga670b394681439966458785b8fc1b5b00" title="Sends a char to the other computer." alt="" coords="383,31,504,57"/>
-<area shape="rect" href="group__uart.html#ga8d98030d0283fe09aa36341f27f8816f" title="Reads from a uart port." alt="" coords="552,5,707,32"/>
-<area shape="rect" href="group__uart.html#ga1093ab24dd92365b8bb682b6c589fe5d" title="Writes to a uart port." alt="" coords="559,56,700,83"/>
-<area shape="rect" href="group__utilities.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="Wrapper of function sys_inb()" alt="" coords="755,5,853,32"/>
+<area shape="rect" title="Sends a message related to the ball." alt="" coords="5,31,156,57"/>
+<area shape="rect" href="group__utilities.html#ga81621440b3d65680979425e39aa8c789" title="Gets the LSB of a 16&#45;bit number." alt="" coords="206,5,309,32"/>
+<area shape="rect" href="group__utilities.html#ga6a880076cd2ec468834438b6e0c58836" title="Gets the MSB of a 16&#45;bit number." alt="" coords="204,56,311,83"/>
 </map>
 </div>
 <div class="dynheader">
@@ -262,19 +247,6 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Return 0 upon success and non-zero otherwise </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group__communication_ga12f5380cb7d913dd79dd73f99e0159db_cgraph.png" border="0" usemap="#group__communication_ga12f5380cb7d913dd79dd73f99e0159db_cgraph" alt=""/></div>
-<map name="group__communication_ga12f5380cb7d913dd79dd73f99e0159db_cgraph" id="group__communication_ga12f5380cb7d913dd79dd73f99e0159db_cgraph">
-<area shape="rect" title="Sends a message related to the player." alt="" coords="5,31,172,57"/>
-<area shape="rect" href="group__uart.html#gac2cdc77ff6f0881092b0ff662f57b575" title="Sends a string to the other computer." alt="" coords="220,31,351,57"/>
-<area shape="rect" href="group__uart.html#ga670b394681439966458785b8fc1b5b00" title="Sends a char to the other computer." alt="" coords="399,31,520,57"/>
-<area shape="rect" href="group__uart.html#ga8d98030d0283fe09aa36341f27f8816f" title="Reads from a uart port." alt="" coords="568,5,723,32"/>
-<area shape="rect" href="group__uart.html#ga1093ab24dd92365b8bb682b6c589fe5d" title="Writes to a uart port." alt="" coords="575,56,716,83"/>
-<area shape="rect" href="group__utilities.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="Wrapper of function sys_inb()" alt="" coords="771,5,869,32"/>
-</map>
-</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

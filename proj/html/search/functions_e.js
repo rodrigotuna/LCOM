@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['timer_5fdisplay_5fconf_556',['timer_display_conf',['../timer_8c.html#a140d8f092c0913cabdca949c4a1cc650',1,'timer.c']]],
-  ['timer_5fget_5fconf_557',['timer_get_conf',['../timer_8c.html#a703c60b40c8c49607d6ecb6fef82d27a',1,'timer.c']]],
-  ['timer_5fint_5fhandler_558',['timer_int_handler',['../timer_8c.html#a91a2072306c68353712a6b771287dc2c',1,'timer.c']]],
-  ['timer_5fset_5ffrequency_559',['timer_set_frequency',['../timer_8c.html#af2c04fa8e97ffa748fd3f612886a92a7',1,'timer.c']]],
-  ['timer_5fsubscribe_5fint_560',['timer_subscribe_int',['../timer_8c.html#ac57a7e1140a7e00ad95ac5488d2a671b',1,'timer.c']]],
-  ['timer_5funsubscribe_5fint_561',['timer_unsubscribe_int',['../timer_8c.html#afabd21de449be154dd65d5fdb2d8045d',1,'timer.c']]],
-  ['top_562',['top',['../group__utilities.html#gad8a9a0c1c6525cebebf57399b9807601',1,'top(queue_t *q):&#160;utilities.c'],['../group__utilities.html#gad8a9a0c1c6525cebebf57399b9807601',1,'top(queue_t *q):&#160;utilities.c']]]
+  ['unsubscribe_5fall_255',['unsubscribe_all',['../group__drivers.html#ga8f68ee1cf924bd43d0b1b60fe05f15c0',1,'unsubscribe_all():&#160;drivers.c'],['../group__drivers.html#ga8f68ee1cf924bd43d0b1b60fe05f15c0',1,'unsubscribe_all():&#160;drivers.c']]],
+  ['update_5fscore_256',['update_score',['../group__gameLogic.html#ga6c86cfce90c3ca581cc37e58a5283edc',1,'update_score(player_t *winner, player_t *loser):&#160;gameLogic.c'],['../group__gameLogic.html#ga6c86cfce90c3ca581cc37e58a5283edc',1,'update_score(player_t *winner, player_t *loser):&#160;gameLogic.c']]],
+  ['update_5fsprite_5fanimation_257',['update_sprite_animation',['../group__sprites.html#ga32c487131259e6dc36d6d140b2e34b85',1,'update_sprite_animation(animated_sprite_t *asprite):&#160;sprite.c'],['../group__sprites.html#ga32c487131259e6dc36d6d140b2e34b85',1,'update_sprite_animation(animated_sprite_t *asprite):&#160;sprite.c']]],
+  ['util_5fget_5flsb_258',['util_get_LSB',['../group__utilities.html#ga81621440b3d65680979425e39aa8c789',1,'util_get_LSB(uint16_t val, uint8_t *lsb):&#160;utilities.c'],['../group__utilities.html#ga81621440b3d65680979425e39aa8c789',1,'util_get_LSB(uint16_t val, uint8_t *lsb):&#160;utilities.c']]],
+  ['util_5fget_5fmsb_259',['util_get_MSB',['../group__utilities.html#ga6a880076cd2ec468834438b6e0c58836',1,'util_get_MSB(uint16_t val, uint8_t *msb):&#160;utilities.c'],['../group__utilities.html#ga6a880076cd2ec468834438b6e0c58836',1,'util_get_MSB(uint16_t val, uint8_t *msb):&#160;utilities.c']]],
+  ['util_5fsys_5finb_260',['util_sys_inb',['../group__utilities.html#ga79a031a8611f5b2d6afa4158e92b0fb4',1,'util_sys_inb(int port, uint8_t *value):&#160;utilities.c'],['../group__utilities.html#ga79a031a8611f5b2d6afa4158e92b0fb4',1,'util_sys_inb(int port, uint8_t *value):&#160;utilities.c']]]
 ];

@@ -1,32 +1,19 @@
 <map id="scoreboard_menu" name="scoreboard_menu">
-<area shape="rect" id="node1" title="The scoreboard menu." alt="" coords="5,461,144,488"/>
+<area shape="rect" id="node1" title="The scoreboard menu." alt="" coords="5,284,144,311"/>
 <area shape="rect" id="node2" href="$group__sprites.html#gae3ebb06a689316060c7768421ece42b9" title="Changes the sprite position." alt="" coords="213,31,355,57"/>
 <area shape="rect" id="node6" href="$group__sprites.html#ga26644c0d45bd108c6eef3aa057fdc8f7" title="Creates an animated sprite object." alt="" coords="196,132,372,159"/>
 <area shape="rect" id="node7" href="$group__sprites.html#gab157c542e1fcb61fd76dcbbf479fc991" title="Creates a sprite object." alt="" coords="463,132,569,159"/>
 <area shape="rect" id="node8" href="$group__sprites.html#gab78b0b42532b8c0b5322ddf0e1ed85e1" title="Destroys a sprite object." alt="" coords="656,183,771,209"/>
 <area shape="rect" id="node9" href="$group__sprites.html#ga00ca0ab0be00e4dba670f31cb68e3f04" title="Destroys an animated sprite object." alt="" coords="424,183,608,209"/>
 <area shape="rect" id="node10" href="$group__scoreboard.html#ga8c360f486fe99f820172030353c33089" title="Displays the scoreboard on screen." alt="" coords="225,284,343,311"/>
-<area shape="rect" id="node14" href="$group__sprites.html#ga74e2d82b03eaa572326d025fe314a3f7" title="Displays a sprite object in it&#39;s inherent position." alt="" coords="459,335,573,361"/>
-<area shape="rect" id="node15" href="$group__drivers.html#gacfa2c74627be0e50879d0969f610e60a" title="Function that calls driver&#45;recieve gets the interrupts." alt="" coords="227,385,341,412"/>
-<area shape="rect" id="node16" href="$group__keyboard.html#ga5761bd4aad91ac1d68916ad88f583d9f" title="Keyboard&#39;s interrupt handler." alt="" coords="252,436,316,463"/>
-<area shape="rect" id="node19" href="$group__mouse.html#gaff31c6df8b061b45ddc634e1e1515878" title="Constructs a packet with the mouse information." alt="" coords="230,487,338,513"/>
-<area shape="rect" id="node20" href="$group__mouse.html#gaed4404005e4c565ac36656307386e0ac" title="Mouse&#39;s interrupt handler." alt="" coords="241,537,327,564"/>
-<area shape="rect" id="node22" href="$group__video.html#ga243163f132ab9dce6b21d946df703fd4" title="Alternates between buffers calling the vbe." alt="" coords="229,588,339,615"/>
-<area shape="rect" id="node23" href="$group__mouse.html#ga8a2865ecb1de0b38cc3bd33638121e6d" title="Processes an event of hte mouse." alt="" coords="226,639,342,665"/>
-<area shape="rect" id="node24" href="$group__RTC.html#ga75dad42881d64cf07cf1bdc2979a7056" title="Handles RTC interrupts." alt="" coords="255,689,313,716"/>
-<area shape="rect" id="node26" href="$group__menu.html#gafceda32ba4d2a5523007f7f8f1707338" title="Checks which scoreboard menu mode is selected." alt="" coords="193,740,375,767"/>
-<area shape="rect" id="node28" href="$group__sprites.html#ga3862af3c4ed93ce281ecd729e37537d6" title="Changes the sprite&#39;s screen bounds." alt="" coords="236,791,332,817"/>
-<area shape="rect" id="node29" href="$timer_8c.html#a91a2072306c68353712a6b771287dc2c" title=" " alt="" coords="215,841,353,868"/>
-<area shape="rect" id="node30" href="$group__sprites.html#ga32c487131259e6dc36d6d140b2e34b85" title="Updates the animation of an animated sprite." alt="" coords="192,892,376,919"/>
+<area shape="rect" id="node12" href="$group__sprites.html#ga74e2d82b03eaa572326d025fe314a3f7" title="Displays a sprite object in it&#39;s inherent position." alt="" coords="227,335,341,361"/>
+<area shape="rect" id="node13" href="$group__drivers.html#gacfa2c74627be0e50879d0969f610e60a" title="Function that calls driver&#45;recieve gets the interrupts." alt="" coords="227,385,341,412"/>
+<area shape="rect" id="node14" href="$group__menu.html#gafceda32ba4d2a5523007f7f8f1707338" title="Checks which scoreboard menu mode is selected." alt="" coords="193,436,375,463"/>
+<area shape="rect" id="node16" href="$group__sprites.html#ga3862af3c4ed93ce281ecd729e37537d6" title="Changes the sprite&#39;s screen bounds." alt="" coords="236,487,332,513"/>
+<area shape="rect" id="node17" href="$group__sprites.html#ga32c487131259e6dc36d6d140b2e34b85" title="Updates the animation of an animated sprite." alt="" coords="192,537,376,564"/>
 <area shape="rect" id="node3" href="$group__sprites.html#gaf6a3974a4b1528b2340c02dc6f94c91f" title="Keeps the sprite position inside it&#39;s screen bounds." alt="" coords="431,31,601,57"/>
 <area shape="rect" id="node4" href="$group__utilities.html#gabfe9bd035a0195eebca322468e35e0ce" title="Gets the biggest of 2 numbers." alt="" coords="688,5,739,32"/>
 <area shape="rect" id="node5" href="$group__utilities.html#gad3fbed5388f426898da70ccce6c6637b" title="Gets the smallest of 2 numbers." alt="" coords="690,56,737,83"/>
 <area shape="rect" id="node11" href="$group__sprites.html#ga75f6636529bf63a1e4ad80ddbb499226" title="Displays any string on screen." alt="" coords="468,284,564,311"/>
-<area shape="rect" id="node12" href="$group__video.html#gab20a606ca3d3aa819249eeca339aee79" title="Changes the color of a pixel to a specified one." alt="" coords="673,309,753,336"/>
-<area shape="rect" id="node13" href="$group__video.html#ga3cc5fc9cad5e43a1af5d3339388af1ce" title="Indicates the number of bytes per Pixel." alt="" coords="819,309,929,336"/>
-<area shape="rect" id="node17" href="$group__kbc.html#gaef6ef70e3fc1f34dfd977b3ac231b6c0" title="Reads a byte from the kbv." alt="" coords="475,461,557,488"/>
-<area shape="rect" id="node18" href="$group__utilities.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="Wrapper of function sys_inb()" alt="" coords="664,537,763,564"/>
-<area shape="rect" id="node21" href="$group__mouse.html#gae1cc406500640bfb1b8a2900150697bf" title="Reads one byte from the mouse." alt="" coords="465,537,567,564"/>
-<area shape="rect" id="node25" href="$group__RTC.html#ga6baf82806db2130368d67c4d68e8369a" title="Reads the status from a certain register of the RTC." alt="" coords="455,639,577,665"/>
-<area shape="rect" id="node27" href="$group__menu.html#ga55105e164681a479d3110b267d596fca" title="Checks if the cursor is inside the button bounds." alt="" coords="435,740,597,767"/>
+<area shape="rect" id="node15" href="$group__menu.html#ga55105e164681a479d3110b267d596fca" title="Checks if the cursor is inside the button bounds." alt="" coords="435,436,597,463"/>
 </map>

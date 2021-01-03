@@ -11,15 +11,19 @@
  * @brief Represents a sprite object
  */
 struct sprite{
-  int16_t x_pos, y_pos;
+  int16_t x_pos; /**< @brief Sprite x-axis position*/
+  int16_t y_pos; /**< @brief Sprite y-axis position*/
 
-  uint16_t width, height;
-  uint32_t transparency_color; 
+  uint16_t width; /**< @brief Sprite width*/
+  uint16_t height; /**< @brief Sprite height*/
+  uint32_t transparency_color; /**< @brief Sprite transparency color*/
 
-  int16_t x_upper_lim, x_lower_lim;
-  int16_t y_upper_lim, y_lower_lim;
+  int16_t x_upper_lim; /**< @brief Sprite x-axis upper limit*/
+  int16_t x_lower_lim; /**< @brief Sprite x-axis lower limit*/
+  int16_t y_upper_lim; /**< @brief Sprite y-axis upper limit*/
+  int16_t y_lower_lim; /**< @brief Sprite y-axis lower limit*/
 
-  uint32_t * current_pic;    
+  uint32_t * current_pic; /**< @brief Sprite map*/
 };
 
 typedef struct sprite sprite_t;
@@ -28,16 +32,16 @@ typedef struct sprite sprite_t;
  * @brief Represents an animated sprite object
  */
 struct animated_sprite{
-  sprite_t *sp;
+  sprite_t *sp; /**< @brief Animated sprite sprite*/
 
-  int frame_count; 
-  int frame_delay;
-  int frame_index;
-  int set_index;
-  int no_frames;
-  int no_sets;
+  int frame_count; /**< @brief Frame count*/
+  int frame_delay; /**< @brief Frame delay*/
+  int frame_index; /**< @brief Frame index*/
+  int set_index;   /**< @brief Set index*/
+  int no_frames;   /**< @brief Number of frames*/
+  int no_sets;     /**< @brief Number of sets*/
 
-  uint32_t * *map; 
+  uint32_t * *map; /**< @brief Array of maps*/
 };
 
 typedef struct animated_sprite animated_sprite_t;

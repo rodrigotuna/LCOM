@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['kbc_674',['kbc',['../group__kbc.html',1,'']]],
-  ['keyboard_675',['keyboard',['../group__keyboard.html',1,'']]]
+  ['scoreboard_333',['scoreboard',['../group__scoreboard.html',1,'']]],
+  ['sprites_334',['sprites',['../group__sprites.html',1,'']]]
 ];

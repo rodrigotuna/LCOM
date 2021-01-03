@@ -69,7 +69,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="communication_8h_source.html">communication.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="uart_8h_source.html">uart.h</a>&quot;</code><br />
+<code>#include &quot;libs/uart.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="utilities_8h_source.html">utilities.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="entities_8h_source.html">entities.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -77,27 +77,22 @@ Include dependency graph for communication.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="communication_8c__incl.png" border="0" usemap="#communication_8c" alt=""/></div>
 <map name="communication_8c" id="communication_8c">
-<area shape="rect" title=" " alt="" coords="659,5,794,32"/>
-<area shape="rect" href="communication_8h.html" title=" " alt="" coords="197,80,331,107"/>
-<area shape="rect" href="uart_8h.html" title=" " alt="" coords="771,155,831,181"/>
-<area shape="rect" href="utilities_8h.html" title=" " alt="" coords="907,229,989,256"/>
-<area shape="rect" href="entities_8h.html" title=" " alt="" coords="613,80,696,107"/>
-<area shape="rect" title=" " alt="" coords="295,379,380,405"/>
-<area shape="rect" href="uart__macros_8h.html" title=" " alt="" coords="717,229,832,256"/>
-<area shape="rect" title=" " alt="" coords="602,304,673,331"/>
-<area shape="rect" href="sprite_8h.html" title=" " alt="" coords="495,155,566,181"/>
-<area shape="rect" href="video_8h.html" title=" " alt="" coords="450,229,521,256"/>
-<area shape="rect" href="i8042_8h.html" title=" " alt="" coords="177,229,247,256"/>
-<area shape="rect" title=" " alt="" coords="198,304,301,331"/>
-<area shape="rect" title=" " alt="" coords="325,304,419,331"/>
-<area shape="rect" title=" " alt="" coords="444,304,527,331"/>
-<area shape="rect" href="video__macros_8h.html" title=" " alt="" coords="48,304,173,331"/>
+<area shape="rect" title=" " alt="" coords="415,5,549,32"/>
+<area shape="rect" href="communication_8h.html" title=" " alt="" coords="5,184,140,211"/>
+<area shape="rect" title=" " alt="" coords="520,95,607,121"/>
+<area shape="rect" title=" " alt="" coords="631,80,829,136"/>
+<area shape="rect" title=" " alt="" coords="853,95,935,121"/>
+<area shape="rect" title=" " alt="" coords="349,259,420,285"/>
+<area shape="rect" href="utilities_8h.html" title=" " alt="" coords="165,184,247,211"/>
+<area shape="rect" href="entities_8h.html" title=" " alt="" coords="339,95,422,121"/>
+<area shape="rect" title=" " alt="" coords="215,259,301,285"/>
+<area shape="rect" href="sprite_8h.html" title=" " alt="" coords="323,184,393,211"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga12f5380cb7d913dd79dd73f99e0159db"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__communication.html#ga12f5380cb7d913dd79dd73f99e0159db">send_player_message</a> (uint8_t <a class="el" href="keyboard_8h.html#a01577ed8d3646775ae6a8e00d24c1d94">scancode</a>)</td></tr>
+<tr class="memitem:ga12f5380cb7d913dd79dd73f99e0159db"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__communication.html#ga12f5380cb7d913dd79dd73f99e0159db">send_player_message</a> (uint8_t scancode)</td></tr>
 <tr class="memdesc:ga12f5380cb7d913dd79dd73f99e0159db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a message related to the player.  <a href="group__communication.html#ga12f5380cb7d913dd79dd73f99e0159db">More...</a><br /></td></tr>
 <tr class="separator:ga12f5380cb7d913dd79dd73f99e0159db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga814f6e311333907d02b3c4a811bdf00a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__communication.html#ga814f6e311333907d02b3c4a811bdf00a">send_ball_message</a> (uint16_t x_pos, uint16_t y_pos)</td></tr>

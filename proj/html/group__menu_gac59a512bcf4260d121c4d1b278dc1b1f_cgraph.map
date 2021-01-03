@@ -1,32 +1,32 @@
 <map id="choose_player_menu" name="choose_player_menu">
-<area shape="rect" id="node1" title="The menu for choosing the player in multiplayer mode." alt="" coords="5,917,165,944"/>
-<area shape="rect" id="node2" href="$group__sprites.html#gae3ebb06a689316060c7768421ece42b9" title="Changes the sprite position." alt="" coords="479,1576,622,1603"/>
-<area shape="rect" id="node4" href="$group__menu.html#ga90f220080e5c51aa85dc89eda6862c4f" title="Checks which choose player menu mode is selected." alt="" coords="213,5,411,32"/>
-<area shape="rect" id="node6" href="$group__menu.html#ga0d8f2f6a8a7d23bc0b41944745ead924" title="The connecting menu for player 1." alt="" coords="225,563,399,589"/>
-<area shape="rect" id="node7" href="$group__sprites.html#gab157c542e1fcb61fd76dcbbf479fc991" title="Creates a sprite object." alt="" coords="729,917,836,944"/>
-<area shape="rect" id="node8" href="$group__sprites.html#gab78b0b42532b8c0b5322ddf0e1ed85e1" title="Destroys a sprite object." alt="" coords="923,943,1037,969"/>
-<area shape="rect" id="node9" href="$group__sprites.html#ga74e2d82b03eaa572326d025fe314a3f7" title="Displays a sprite object in it&#39;s inherent position." alt="" coords="494,664,607,691"/>
-<area shape="rect" id="node10" href="$group__drivers.html#gacfa2c74627be0e50879d0969f610e60a" title="Function that calls driver&#45;recieve gets the interrupts." alt="" coords="494,765,607,792"/>
-<area shape="rect" id="node11" href="$group__keyboard.html#ga5761bd4aad91ac1d68916ad88f583d9f" title="Keyboard&#39;s interrupt handler." alt="" coords="519,715,583,741"/>
-<area shape="rect" id="node12" href="$group__mouse.html#gaed4404005e4c565ac36656307386e0ac" title="Mouse&#39;s interrupt handler." alt="" coords="508,613,593,640"/>
-<area shape="rect" id="node13" href="$group__video.html#ga243163f132ab9dce6b21d946df703fd4" title="Alternates between buffers calling the vbe." alt="" coords="496,816,605,843"/>
-<area shape="rect" id="node15" href="$group__RTC.html#ga75dad42881d64cf07cf1bdc2979a7056" title="Handles RTC interrupts." alt="" coords="521,867,580,893"/>
-<area shape="rect" id="node17" href="$timer_8c.html#a91a2072306c68353712a6b771287dc2c" title=" " alt="" coords="482,1069,619,1096"/>
-<area shape="rect" id="node19" href="$group__uart.html#ga67d2da4dd20c731989c130bbe2cd4c85" title="Uart&#39;s interrupt handler." alt="" coords="517,461,584,488"/>
-<area shape="rect" id="node21" href="$group__menu.html#gac75ce766722ec36ebc72b4a1f3b3d932" title="The connecting menu for player 1." alt="" coords="225,613,399,640"/>
-<area shape="rect" id="node22" href="$group__sprites.html#ga26644c0d45bd108c6eef3aa057fdc8f7" title="Creates an animated sprite object." alt="" coords="463,1373,639,1400"/>
-<area shape="rect" id="node23" href="$group__sprites.html#ga00ca0ab0be00e4dba670f31cb68e3f04" title="Destroys an animated sprite object." alt="" coords="691,1297,875,1324"/>
-<area shape="rect" id="node24" href="$group__menu.html#gadf831408d6f8828e5d3b07157084397f" title="The gameover menu." alt="" coords="246,1272,378,1299"/>
-<area shape="rect" id="node25" href="$group__mouse.html#gaff31c6df8b061b45ddc634e1e1515878" title="Constructs a packet with the mouse information." alt="" coords="497,1272,605,1299"/>
-<area shape="rect" id="node26" href="$group__mouse.html#ga8a2865ecb1de0b38cc3bd33638121e6d" title="Processes an event of hte mouse." alt="" coords="493,1475,609,1501"/>
-<area shape="rect" id="node27" href="$group__sprites.html#ga3862af3c4ed93ce281ecd729e37537d6" title="Changes the sprite&#39;s screen bounds." alt="" coords="503,1424,599,1451"/>
-<area shape="rect" id="node28" href="$group__sprites.html#ga32c487131259e6dc36d6d140b2e34b85" title="Updates the animation of an animated sprite." alt="" coords="459,1323,643,1349"/>
-<area shape="rect" id="node29" href="$group__game.html#gaff3eae8f45aa908e857832037be6b68b" title="The multiplayer mode in the perspective of player 1." alt="" coords="253,1069,371,1096"/>
-<area shape="rect" id="node30" href="$group__game.html#gad3d26a3cfd89c9412d7e886cd6edbe17" title="The multiplayer mode in the perspective of player 2." alt="" coords="253,968,371,995"/>
-<area shape="rect" id="node3" href="$group__sprites.html#gaf6a3974a4b1528b2340c02dc6f94c91f" title="Keeps the sprite position inside it&#39;s screen bounds." alt="" coords="697,1576,868,1603"/>
-<area shape="rect" id="node5" href="$group__menu.html#ga55105e164681a479d3110b267d596fca" title="Checks if the cursor is inside the button bounds." alt="" coords="469,5,632,32"/>
-<area shape="rect" id="node14" href="$group__utilities.html#ga15b3fcf286d6f0013eab16891d7fb5fe" title="Pops the first element of the queue." alt="" coords="527,512,574,539"/>
-<area shape="rect" id="node16" href="$group__RTC.html#gaffcc05e18413df2f8b468007d7fd13a6" title="Sets an alarm seconds from the current time on the RTC." alt="" coords="495,157,606,184"/>
-<area shape="rect" id="node18" href="$group__utilities.html#gad8a9a0c1c6525cebebf57399b9807601" title="Gets the element on top of the queue." alt="" coords="529,563,572,589"/>
-<area shape="rect" id="node20" href="$group__uart.html#ga670b394681439966458785b8fc1b5b00" title="Sends a char to the other computer." alt="" coords="490,309,611,336"/>
+<area shape="rect" id="node1" title="The menu for choosing the player in multiplayer mode." alt="" coords="5,637,165,663"/>
+<area shape="rect" id="node2" href="$group__sprites.html#gae3ebb06a689316060c7768421ece42b9" title="Changes the sprite position." alt="" coords="479,485,622,511"/>
+<area shape="rect" id="node4" href="$group__menu.html#ga90f220080e5c51aa85dc89eda6862c4f" title="Checks which choose player menu mode is selected." alt="" coords="213,79,411,106"/>
+<area shape="rect" id="node6" href="$group__menu.html#ga0d8f2f6a8a7d23bc0b41944745ead924" title="The connecting menu for player 1." alt="" coords="225,1438,399,1465"/>
+<area shape="rect" id="node7" href="$group__sprites.html#gab157c542e1fcb61fd76dcbbf479fc991" title="Creates a sprite object." alt="" coords="729,1185,836,1211"/>
+<area shape="rect" id="node8" href="$group__sprites.html#gab78b0b42532b8c0b5322ddf0e1ed85e1" title="Destroys a sprite object." alt="" coords="923,898,1037,925"/>
+<area shape="rect" id="node9" href="$group__sprites.html#ga74e2d82b03eaa572326d025fe314a3f7" title="Displays a sprite object in it&#39;s inherent position." alt="" coords="494,1362,607,1389"/>
+<area shape="rect" id="node10" href="$group__drivers.html#gacfa2c74627be0e50879d0969f610e60a" title="Function that calls driver&#45;recieve gets the interrupts." alt="" coords="494,1413,607,1439"/>
+<area shape="rect" id="node13" href="$group__menu.html#gac75ce766722ec36ebc72b4a1f3b3d932" title="The connecting menu for player 1." alt="" coords="225,1489,399,1515"/>
+<area shape="rect" id="node14" href="$group__sprites.html#ga26644c0d45bd108c6eef3aa057fdc8f7" title="Creates an animated sprite object." alt="" coords="463,586,639,613"/>
+<area shape="rect" id="node15" href="$group__sprites.html#ga00ca0ab0be00e4dba670f31cb68e3f04" title="Destroys an animated sprite object." alt="" coords="691,611,875,638"/>
+<area shape="rect" id="node16" href="$group__menu.html#gadf831408d6f8828e5d3b07157084397f" title="The gameover menu." alt="" coords="246,485,378,511"/>
+<area shape="rect" id="node20" href="$group__sprites.html#ga3862af3c4ed93ce281ecd729e37537d6" title="Changes the sprite&#39;s screen bounds." alt="" coords="503,434,599,461"/>
+<area shape="rect" id="node21" href="$group__sprites.html#ga32c487131259e6dc36d6d140b2e34b85" title="Updates the animation of an animated sprite." alt="" coords="459,535,643,562"/>
+<area shape="rect" id="node22" href="$group__game.html#gaff3eae8f45aa908e857832037be6b68b" title="The multiplayer mode in the perspective of player 1." alt="" coords="253,869,371,895"/>
+<area shape="rect" id="node30" href="$group__game.html#gad3d26a3cfd89c9412d7e886cd6edbe17" title="The multiplayer mode in the perspective of player 2." alt="" coords="253,1033,371,1059"/>
+<area shape="rect" id="node3" href="$group__sprites.html#gaf6a3974a4b1528b2340c02dc6f94c91f" title="Keeps the sprite position inside it&#39;s screen bounds." alt="" coords="697,1058,868,1085"/>
+<area shape="rect" id="node5" href="$group__menu.html#ga55105e164681a479d3110b267d596fca" title="Checks if the cursor is inside the button bounds." alt="" coords="701,130,864,157"/>
+<area shape="rect" id="node11" href="$group__utilities.html#ga15b3fcf286d6f0013eab16891d7fb5fe" title="Pops the first element of the queue." alt="" coords="527,1463,574,1490"/>
+<area shape="rect" id="node12" href="$group__utilities.html#gad8a9a0c1c6525cebebf57399b9807601" title="Gets the element on top of the queue." alt="" coords="529,1514,572,1541"/>
+<area shape="rect" id="node17" href="$group__menu.html#ga99e1c6100638cd58e78f7ea913bb13ba" title="Checks which gameover menu mode is selected." alt="" coords="463,181,639,207"/>
+<area shape="rect" id="node18" href="$group__utilities.html#gad048f8d8bf513dd8f460ab7461fbb176" title="Gets a string of an integer." alt="" coords="503,231,598,258"/>
+<area shape="rect" id="node19" href="$group__sprites.html#ga75f6636529bf63a1e4ad80ddbb499226" title="Displays any string on screen." alt="" coords="503,738,599,765"/>
+<area shape="rect" id="node23" href="$group__gameLogic.html#gaf24fa5cfbb79601a6fc2486ed22d722b" title="Determines if the ball is close enough to the player to make the shot." alt="" coords="507,957,595,983"/>
+<area shape="rect" id="node24" href="$group__entities.html#ga6ee79c2231d92a2835ebbbfa5c126448" title="Updates the position of the ball." alt="" coords="471,1109,630,1135"/>
+<area shape="rect" id="node25" href="$group__entities.html#ga45957c1478e7a8a142cd127374738983" title="Updates the position of the player." alt="" coords="463,1058,639,1085"/>
+<area shape="rect" id="node26" href="$group__entities.html#gadac68d2750dd574c10e195ebdeb01cc1" title="Changes a player velocity." alt="" coords="463,1007,639,1034"/>
+<area shape="rect" id="node27" href="$group__entities.html#gabf676bc0cf7f067e3597f95d43462d01" title="Changes the side of the player&#39;s racket to match the ball." alt="" coords="475,1159,626,1186"/>
+<area shape="rect" id="node28" href="$group__entities.html#gaf3249b00493aa0be2fe732d2385edba1" title="Changes the velocity of the remote player." alt="" coords="465,891,636,932"/>
+<area shape="rect" id="node29" href="$group__utilities.html#ga89031d97e56983824082ca9e18d5897e" title="Checks if a queue is empty." alt="" coords="519,839,583,866"/>
 </map>

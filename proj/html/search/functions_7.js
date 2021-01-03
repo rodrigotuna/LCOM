@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['init_5fall_499',['init_all',['../group__drivers.html#ga554f3d6478bee3655d51e7fa668b941d',1,'init_all():&#160;drivers.c'],['../group__drivers.html#ga554f3d6478bee3655d51e7fa668b941d',1,'init_all():&#160;drivers.c']]],
-  ['int_5fto_5fbcd_500',['int_to_bcd',['../group__RTC.html#gabf63dcaac87e542f9c1ffb796ff63264',1,'int_to_bcd(uint8_t value):&#160;rtc.c'],['../group__RTC.html#gabf63dcaac87e542f9c1ffb796ff63264',1,'int_to_bcd(uint8_t value):&#160;rtc.c']]],
-  ['int_5fto_5fchar_501',['int_to_char',['../group__utilities.html#gad048f8d8bf513dd8f460ab7461fbb176',1,'int_to_char(int value, char *str):&#160;utilities.c'],['../group__utilities.html#gad048f8d8bf513dd8f460ab7461fbb176',1,'int_to_char(int value, char *str):&#160;utilities.c']]]
+  ['keep_5fsprite_5fin_5fbounds_229',['keep_sprite_in_bounds',['../group__sprites.html#gaf6a3974a4b1528b2340c02dc6f94c91f',1,'keep_sprite_in_bounds(sprite_t *sp):&#160;sprite.c'],['../group__sprites.html#gaf6a3974a4b1528b2340c02dc6f94c91f',1,'keep_sprite_in_bounds(sprite_t *sp):&#160;sprite.c']]]
 ];

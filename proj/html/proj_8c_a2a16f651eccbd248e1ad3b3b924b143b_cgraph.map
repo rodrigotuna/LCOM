@@ -1,32 +1,32 @@
 <map id="proj_main_loop" name="proj_main_loop">
-<area shape="rect" id="node1" title=" " alt="" coords="5,943,128,969"/>
-<area shape="rect" id="node2" href="$group__drivers.html#ga554f3d6478bee3655d51e7fa668b941d" title="Initializes and configures all drivers." alt="" coords="204,157,271,184"/>
-<area shape="rect" id="node9" href="$group__menu.html#ga7fe3adb8b69baff33af24e4a3a9c5048" title="The main menu." alt="" coords="188,943,287,969"/>
-<area shape="rect" id="node28" href="$group__drivers.html#gaa6e7e19e570a120b6368e2254a4686f4" title="Initializes and configures all drivers." alt="" coords="198,56,277,83"/>
-<area shape="rect" id="node29" href="$group__drivers.html#gad5b50004d8c50176b450efb5d517e5f4" title="Subscribes the interrupts of all drivers." alt="" coords="184,993,291,1020"/>
-<area shape="rect" id="node30" href="$group__drivers.html#ga8f68ee1cf924bd43d0b1b60fe05f15c0" title="Unsubscribes the interrupts of all drivers." alt="" coords="176,1044,299,1071"/>
-<area shape="rect" id="node3" href="$group__video.html#gafceca757e975e61eb06d097b90b7f677" title="Maps the memory of the video card region." alt="" coords="370,208,483,235"/>
-<area shape="rect" id="node4" href="$group__mouse.html#gaafd943d471ebe8314612800462889205" title="Sets an argument to the mouse." alt="" coords="366,5,487,32"/>
-<area shape="rect" id="node5" href="$group__RTC.html#gaa8dcc2b9b3f99cf9c321d4853d12080c" title="Enables RTC&#39;s interrupts." alt="" coords="369,259,484,285"/>
-<area shape="rect" id="node6" href="$group__uart.html#ga5bfee77f43d287a477e32e10b3168430" title="Initializes the uart." alt="" coords="389,56,465,83"/>
-<area shape="rect" id="node7" href="$group__video.html#ga4bec9d888ca0a7ecb85711edf62f8930" title="Gets the information about a graphic mode." alt="" coords="371,107,482,133"/>
-<area shape="rect" id="node8" href="$group__video.html#gaf9cd224e8150b7acb0caf38a53b9ccf4" title="Initializes a specific mode." alt="" coords="361,157,492,184"/>
-<area shape="rect" id="node10" href="$group__sprites.html#gae3ebb06a689316060c7768421ece42b9" title="Changes the sprite position." alt="" coords="757,1323,899,1349"/>
-<area shape="rect" id="node11" href="$group__scoreboard.html#ga422347e40611f5b161d1c9f5c8a088b6" title="Checks for a highscore in the scoreboard file." alt="" coords="361,1069,492,1096"/>
-<area shape="rect" id="node12" href="$group__menu.html#gac59a512bcf4260d121c4d1b278dc1b1f" title="The menu for choosing the player in multiplayer mode." alt="" coords="347,1019,507,1045"/>
-<area shape="rect" id="node13" href="$group__sprites.html#ga26644c0d45bd108c6eef3aa057fdc8f7" title="Creates an animated sprite object." alt="" coords="740,1069,916,1096"/>
-<area shape="rect" id="node14" href="$group__sprites.html#gab157c542e1fcb61fd76dcbbf479fc991" title="Creates a sprite object." alt="" coords="1003,879,1109,905"/>
-<area shape="rect" id="node15" href="$group__sprites.html#gab78b0b42532b8c0b5322ddf0e1ed85e1" title="Destroys a sprite object." alt="" coords="1196,943,1311,969"/>
-<area shape="rect" id="node16" href="$group__sprites.html#ga00ca0ab0be00e4dba670f31cb68e3f04" title="Destroys an animated sprite object." alt="" coords="964,1095,1148,1121"/>
-<area shape="rect" id="node17" href="$group__sprites.html#ga74e2d82b03eaa572326d025fe314a3f7" title="Displays a sprite object in it&#39;s inherent position." alt="" coords="771,613,885,640"/>
-<area shape="rect" id="node18" href="$group__menu.html#gadf831408d6f8828e5d3b07157084397f" title="The gameover menu." alt="" coords="557,1120,689,1147"/>
-<area shape="rect" id="node19" href="$group__drivers.html#gacfa2c74627be0e50879d0969f610e60a" title="Function that calls driver&#45;recieve gets the interrupts." alt="" coords="771,664,885,691"/>
-<area shape="rect" id="node20" href="$group__keyboard.html#ga5761bd4aad91ac1d68916ad88f583d9f" title="Keyboard&#39;s interrupt handler." alt="" coords="796,715,860,741"/>
-<area shape="rect" id="node21" href="$group__mouse.html#gaff31c6df8b061b45ddc634e1e1515878" title="Constructs a packet with the mouse information." alt="" coords="774,563,882,589"/>
-<area shape="rect" id="node22" href="$group__mouse.html#gaed4404005e4c565ac36656307386e0ac" title="Mouse&#39;s interrupt handler." alt="" coords="785,917,871,944"/>
-<area shape="rect" id="node23" href="$group__video.html#ga243163f132ab9dce6b21d946df703fd4" title="Alternates between buffers calling the vbe." alt="" coords="773,1221,883,1248"/>
-<area shape="rect" id="node24" href="$group__mouse.html#ga8a2865ecb1de0b38cc3bd33638121e6d" title="Processes an event of hte mouse." alt="" coords="770,968,886,995"/>
-<area shape="rect" id="node25" href="$group__RTC.html#ga75dad42881d64cf07cf1bdc2979a7056" title="Handles RTC interrupts." alt="" coords="799,1272,857,1299"/>
-<area shape="rect" id="node26" href="$group__menu.html#ga5e1bba404f1f9ea1b95cbdc8be1e7f3c" title="The menu for entering the player&#39;s name upon a new highscore." alt="" coords="555,867,692,893"/>
-<area shape="rect" id="node27" href="$group__menu.html#ga3cb1012b0cb72dbefb39aa3046a0b8f3" title="Checks which main menu mode is selected." alt="" coords="355,1120,498,1147"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,1107,128,1133"/>
+<area shape="rect" id="node2" href="$group__drivers.html#ga554f3d6478bee3655d51e7fa668b941d" title="Initializes and configures all drivers." alt="" coords="204,1005,271,1032"/>
+<area shape="rect" id="node3" href="$group__menu.html#ga7fe3adb8b69baff33af24e4a3a9c5048" title="The main menu." alt="" coords="188,1056,287,1083"/>
+<area shape="rect" id="node28" href="$group__drivers.html#gaa6e7e19e570a120b6368e2254a4686f4" title="Initializes and configures all drivers." alt="" coords="198,1107,277,1133"/>
+<area shape="rect" id="node29" href="$group__drivers.html#gad5b50004d8c50176b450efb5d517e5f4" title="Subscribes the interrupts of all drivers." alt="" coords="184,1157,291,1184"/>
+<area shape="rect" id="node30" href="$group__drivers.html#ga8f68ee1cf924bd43d0b1b60fe05f15c0" title="Unsubscribes the interrupts of all drivers." alt="" coords="176,1208,299,1235"/>
+<area shape="rect" id="node4" href="$group__sprites.html#gae3ebb06a689316060c7768421ece42b9" title="Changes the sprite position." alt="" coords="821,1309,963,1336"/>
+<area shape="rect" id="node6" href="$group__scoreboard.html#ga422347e40611f5b161d1c9f5c8a088b6" title="Checks for a highscore in the scoreboard file." alt="" coords="361,1765,492,1792"/>
+<area shape="rect" id="node7" href="$group__menu.html#gac59a512bcf4260d121c4d1b278dc1b1f" title="The menu for choosing the player in multiplayer mode." alt="" coords="347,752,507,779"/>
+<area shape="rect" id="node10" href="$group__sprites.html#gab157c542e1fcb61fd76dcbbf479fc991" title="Creates a sprite object." alt="" coords="1071,701,1177,728"/>
+<area shape="rect" id="node11" href="$group__sprites.html#gab78b0b42532b8c0b5322ddf0e1ed85e1" title="Destroys a sprite object." alt="" coords="1264,676,1379,703"/>
+<area shape="rect" id="node12" href="$group__sprites.html#ga74e2d82b03eaa572326d025fe314a3f7" title="Displays a sprite object in it&#39;s inherent position." alt="" coords="835,549,949,576"/>
+<area shape="rect" id="node13" href="$group__drivers.html#gacfa2c74627be0e50879d0969f610e60a" title="Function that calls driver&#45;recieve gets the interrupts." alt="" coords="835,600,949,627"/>
+<area shape="rect" id="node15" href="$group__sprites.html#ga26644c0d45bd108c6eef3aa057fdc8f7" title="Creates an animated sprite object." alt="" coords="804,955,980,981"/>
+<area shape="rect" id="node16" href="$group__sprites.html#ga00ca0ab0be00e4dba670f31cb68e3f04" title="Destroys an animated sprite object." alt="" coords="1032,1031,1216,1057"/>
+<area shape="rect" id="node17" href="$group__menu.html#gadf831408d6f8828e5d3b07157084397f" title="The gameover menu." alt="" coords="587,828,719,855"/>
+<area shape="rect" id="node18" href="$group__sprites.html#ga3862af3c4ed93ce281ecd729e37537d6" title="Changes the sprite&#39;s screen bounds." alt="" coords="844,1208,940,1235"/>
+<area shape="rect" id="node19" href="$group__sprites.html#ga32c487131259e6dc36d6d140b2e34b85" title="Updates the animation of an animated sprite." alt="" coords="800,1005,984,1032"/>
+<area shape="rect" id="node22" href="$group__menu.html#ga5e1bba404f1f9ea1b95cbdc8be1e7f3c" title="The menu for entering the player&#39;s name upon a new highscore." alt="" coords="585,1335,722,1361"/>
+<area shape="rect" id="node25" href="$group__menu.html#ga3cb1012b0cb72dbefb39aa3046a0b8f3" title="Checks which main menu mode is selected." alt="" coords="355,1816,498,1843"/>
+<area shape="rect" id="node26" href="$group__menu.html#ga6a8428667b9b4b4c218bb345b7d9fe6a" title="The scoreboard menu." alt="" coords="584,1183,723,1209"/>
+<area shape="rect" id="node27" href="$group__game.html#ga920a25cd888a57a8be33e789bd25c872" title="The single player mode." alt="" coords="599,1081,708,1108"/>
+<area shape="rect" id="node5" href="$group__sprites.html#gaf6a3974a4b1528b2340c02dc6f94c91f" title="Keeps the sprite position inside it&#39;s screen bounds." alt="" coords="1039,1309,1209,1336"/>
+<area shape="rect" id="node8" href="$group__menu.html#ga90f220080e5c51aa85dc89eda6862c4f" title="Checks which choose player menu mode is selected." alt="" coords="555,625,752,652"/>
+<area shape="rect" id="node9" href="$group__menu.html#ga0d8f2f6a8a7d23bc0b41944745ead924" title="The connecting menu for player 1." alt="" coords="567,372,740,399"/>
+<area shape="rect" id="node14" href="$group__menu.html#gac75ce766722ec36ebc72b4a1f3b3d932" title="The connecting menu for player 1." alt="" coords="567,423,740,449"/>
+<area shape="rect" id="node20" href="$group__game.html#gaff3eae8f45aa908e857832037be6b68b" title="The multiplayer mode in the perspective of player 1." alt="" coords="594,727,713,753"/>
+<area shape="rect" id="node21" href="$group__game.html#gad3d26a3cfd89c9412d7e886cd6edbe17" title="The multiplayer mode in the perspective of player 2." alt="" coords="594,777,713,804"/>
+<area shape="rect" id="node23" href="$group__scoreboard.html#gaab980491872869ae9951ff99d49a5324" title="Adds a new score to the scoreboard file." alt="" coords="831,1613,953,1640"/>
+<area shape="rect" id="node24" href="$group__menu.html#gaf824ff2c49e884bbbb2b3f8ef3bdbf13" title="Checks which enter name menu mode is selected." alt="" coords="819,1563,965,1589"/>
 </map>

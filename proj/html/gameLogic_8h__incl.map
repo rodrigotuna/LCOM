@@ -1,13 +1,7 @@
 <map id="gameLogic.h" name="gameLogic.h">
-<area shape="rect" id="node1" title=" " alt="" coords="342,5,447,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="64,379,149,405"/>
-<area shape="rect" id="node3" title=" " alt="" coords="699,304,770,331"/>
-<area shape="rect" id="node4" href="$entities_8h.html" title=" " alt="" coords="353,80,436,107"/>
-<area shape="rect" id="node5" href="$sprite_8h.html" title=" " alt="" coords="359,155,430,181"/>
-<area shape="rect" id="node6" href="$video_8h.html" title=" " alt="" coords="359,229,430,256"/>
-<area shape="rect" id="node11" href="$i8042_8h.html" title=" " alt="" coords="185,229,255,256"/>
-<area shape="rect" id="node7" title=" " alt="" coords="422,304,525,331"/>
-<area shape="rect" id="node8" title=" " alt="" coords="145,304,239,331"/>
-<area shape="rect" id="node9" title=" " alt="" coords="264,304,347,331"/>
-<area shape="rect" id="node10" href="$video__macros_8h.html" title=" " alt="" coords="549,304,675,331"/>
+<area shape="rect" id="node1" title=" " alt="" coords="61,5,167,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="145,229,230,256"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,229,76,256"/>
+<area shape="rect" id="node4" href="$entities_8h.html" title=" " alt="" coords="73,80,155,107"/>
+<area shape="rect" id="node5" href="$sprite_8h.html" title=" " alt="" coords="79,155,149,181"/>
 </map>

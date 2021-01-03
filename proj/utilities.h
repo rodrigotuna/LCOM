@@ -58,8 +58,8 @@ int16_t max(int16_t a, int16_t b);
  * @brief struct that represents a queue
  */
 struct queue{
-  uint8_t * arr;
-  uint8_t sz;
+  uint8_t * arr; /**< @brief  Array where information is stored*/
+  uint8_t sz;    /**< @brief  Queue size*/
 };
 
 typedef struct queue queue_t;

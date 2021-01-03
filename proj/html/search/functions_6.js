@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['handle_5fmessage_498',['handle_message',['../group__communication.html#ga76a3d60d929a11e19a01bfa7a7c8b095',1,'handle_message(uint8_t c):&#160;communication.c'],['../group__communication.html#ga76a3d60d929a11e19a01bfa7a7c8b095',1,'handle_message(uint8_t c):&#160;communication.c']]]
+  ['init_5fall_227',['init_all',['../group__drivers.html#ga554f3d6478bee3655d51e7fa668b941d',1,'init_all():&#160;drivers.c'],['../group__drivers.html#ga554f3d6478bee3655d51e7fa668b941d',1,'init_all():&#160;drivers.c']]],
+  ['int_5fto_5fchar_228',['int_to_char',['../group__utilities.html#gad048f8d8bf513dd8f460ab7461fbb176',1,'int_to_char(int value, char *str):&#160;utilities.c'],['../group__utilities.html#gad048f8d8bf513dd8f460ab7461fbb176',1,'int_to_char(int value, char *str):&#160;utilities.c']]]
 ];

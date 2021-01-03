@@ -15,14 +15,14 @@
  * @brief Represents the ball object
  */
 struct ball{
-  double real_x_pos;
-  double real_y_pos;
-  double x_velocity;
-  double y_velocity;
-  double velocity_norm;
-  int last_player;
-  bool valid_shot;
-  sprite_t *sp;
+  double real_x_pos; /**< @brief The real position of the ball in the x-axis */
+  double real_y_pos; /**< @brief The real position of the ball in the y-axis */
+  double x_velocity; /**< @brief The velocity of the ball in the x-axis */
+  double y_velocity; /**< @brief The velocity of the ball in the y-axis */
+  double velocity_norm; /**< @brief The norm of the velocity */
+  int last_player; /**< @brief Variable indicating the last player to hit the ball */
+  bool valid_shot; /**< @brief Indicates wether the last shot was valid or not*/
+  sprite_t *sp; /**< @brief Sprite of the ball*/
 };
 
 typedef struct ball ball_t;
@@ -59,9 +59,10 @@ int shoot_ball(ball_t *ball);
  * @brief Represents the player object
  */
 struct player{
-  int x_velocity, y_velocity; //x and y velocities
-  int points;
-  animated_sprite_t  *asprite;
+  int x_velocity; /**< @brief The velocity of the player in the x-axis*/
+  int y_velocity; /**< @brief The velocity of the player in th e-axis */
+  int points;  /**< @brief The points scored by the player*/
+  animated_sprite_t  *asprite; /**< @brief Animated sprite of the player*/
 };
 
 typedef struct player player_t;

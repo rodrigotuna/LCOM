@@ -30,7 +30,7 @@
 #define TIMER_SEL0   0x00              /**< @brief Control Word for Timer 0 */
 #define TIMER_SEL1   BIT(6)            /**< @brief Control Word for Timer 1 */
 #define TIMER_SEL2   BIT(7)            /**< @brief Control Word for Timer 2 */
-#define TIMER_SEL(n) n << 6
+#define TIMER_SEL(n) n << 6            /**< @brief Timer Selection*/
 #define TIMER_RB_CMD (BIT(7) | BIT(6)) /**< @brief Read Back Command */
 
 /* Register selection: bits 5 and 4 */
@@ -38,27 +38,27 @@
 #define TIMER_LSB     BIT(4)                  /**< @brief Initialize Counter LSB only */
 #define TIMER_MSB     BIT(5)                  /**< @brief Initialize Counter MSB only */
 #define TIMER_LSB_MSB (TIMER_LSB | TIMER_MSB) /**< @brief Initialize LSB first and MSB afterwards */
-#define TIMER_INIT_MODE_POS 4
+#define TIMER_INIT_MODE_POS 4                 /**<@brief Position of initialization mode*/
 
 
 /* Operating mode: bits 3, 2 and 1 */
 
-#define TIMER_SQR_WAVE (BIT(2) | BIT(1)) /**< @brief Mode 3: square wave generator */
-#define TIMER_RATE_GEN BIT(2)            /**< @brief Mode 2: rate generator */
-#define TIMER_MODE_MASK (BIT(3) | BIT(2) | BIT(1)) 
-#define TIMER_MODE_POS 1
+#define TIMER_SQR_WAVE (BIT(2) | BIT(1))              /**< @brief Mode 3: square wave generator */
+#define TIMER_RATE_GEN BIT(2)                        /**< @brief Mode 2: rate generator */
+#define TIMER_MODE_MASK (BIT(3) | BIT(2) | BIT(1))   /**< @brief Mask for timer modes */
+#define TIMER_MODE_POS 1                             /**< @brief Position of timer modes */
 
 /* Counting mode: bit 0 */
 
-#define TIMER_BASE_MASK BIT(0)
+#define TIMER_BASE_MASK BIT(0) /**< @brief Mask for timer base counter*/
 #define TIMER_BCD 0x01 /**< @brief Count in BCD */
 #define TIMER_BIN 0x00 /**< @brief Count in binary */
 
 /* READ-BACK COMMAND FORMAT */
 
-#define TIMER_RB_COUNT_  BIT(5)
-#define TIMER_RB_STATUS_ BIT(4)
-#define TIMER_RB_SEL(n)  BIT((n) + 1)
+#define TIMER_RB_COUNT_  BIT(5) /**< @brief Read-back count */
+#define TIMER_RB_STATUS_ BIT(4) /**< @brief Read-back status */
+#define TIMER_RB_SEL(n)  BIT((n) + 1) /**< @brief Read-back selection*/
 
 /**@}*/
 
