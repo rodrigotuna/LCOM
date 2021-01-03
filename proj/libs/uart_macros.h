@@ -15,15 +15,15 @@
 
 #define UART_DELAY 1000 /**< @brief Uart delay*/
 
-#define RBR 0 /**< @brief Reciever buffer*/
-#define THR 0 /**< @brief Transmiter Holding*/
-#define IER 1 /**< @brief Interrupt enable*/
-#define IIR 2 /**< @brief Interrupt identification*/
-#define FCR 2 /**< @brief FIFO control*/
-#define LCR 3 /**< @brief Line control*/
-#define MCR 4 
-#define LSR 5
-#define MSR 6
+#define RBR 0 /**< @brief Reciever buffer register*/
+#define THR 0 /**< @brief Transmiter Holding register*/
+#define IER 1 /**< @brief Interrupt enable register*/
+#define IIR 2 /**< @brief Interrupt identification register*/
+#define FCR 2 /**< @brief FIFO control register*/
+#define LCR 3 /**< @brief Line control register*/
+#define MCR 4 /**< @brief Modem control register*/
+#define LSR 5 /**< @brief Line Status register*/
+#define MSR 6 /**< @brief Modem status register*/
 #define SR  7
 
 #define DDL 0 /**< @brief Divisor latch lsb*/
@@ -39,12 +39,12 @@
 #define TRANS_EMPTY BIT(6)      /**< @brief Transmiter empty*/
 
 /*IIR*/
-#define SER_NO_INT_PEND BIT(0)
-#define INT_ID (BIT(1) | BIT(2) | BIT(3))
-#define SER_RX_INT BIT(2)
-#define SER_TX_INT BIT(1)
-#define SER_RLS_INT (BIT(1) | BIT(2))
-#define SER_CHAR_TO_INT (BIT(2) | BIT(3))
+#define SER_NO_INT_PEND BIT(0)            /**< @brief No interrupt pending*/
+#define INT_ID (BIT(1) | BIT(2) | BIT(3)) /**< @brief Interrupt ID*/
+#define SER_RX_INT BIT(2)                 /**< @brief RX interrupt*/
+#define SER_TX_INT BIT(1)                 /**< @brief TX interrupt*/
+#define SER_RLS_INT (BIT(1) | BIT(2))     /**< @brief RLS interrupt*/
+#define SER_CHAR_TO_INT (BIT(2) | BIT(3)) /**< @brief Character timeout interrupt*/
 
 /*LCR*/
 #define BIT_NO_8 BIT(1) | BIT(0) /**< @brief 8 bits per char */
