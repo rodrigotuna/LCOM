@@ -1,0 +1,4 @@
+<map id="uart_clean" name="uart_clean">
+<area shape="rect" id="node1" title="Cleans the the fifo&#39;s." alt="" coords="5,5,96,32"/>
+<area shape="rect" id="node2" href="$group__uart.html#ga1093ab24dd92365b8bb682b6c589fe5d" title="Writes to a uart port." alt="" coords="144,5,285,32"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="kbc_restore" name="kbc_restore">
+<area shape="rect" id="node1" title="Restores the interrupts of the kbc." alt="" coords="5,56,104,83"/>
+<area shape="rect" id="node2" href="$group__kbc.html#ga4d01b87977dde6d295c19c982e5426ea" title="Reads a command from the kbc." alt="" coords="154,31,270,57"/>
+<area shape="rect" id="node6" href="$group__kbc.html#gab06ce595703807400f3d90171f7f9884" title="Writes a command to the kbc." alt="" coords="152,81,272,108"/>
+<area shape="rect" id="node3" href="$group__kbc.html#gabf6e77da648ded62b65bdb3f9a437424" title="Issues a command to the kbc." alt="" coords="320,56,441,83"/>
+<area shape="rect" id="node5" href="$group__kbc.html#gaef6ef70e3fc1f34dfd977b3ac231b6c0" title="Reads a byte from the kbv." alt="" coords="340,5,421,32"/>
+<area shape="rect" id="node4" href="$group__utilities.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="Wrapper of function sys_inb()" alt="" coords="489,56,588,83"/>
+<area shape="rect" id="node7" href="$group__kbc.html#ga4d8e5f92db8ceab45e7f7f3003728e80" title="Issues an argument to the kbc." alt="" coords="323,107,438,133"/>
+</map>

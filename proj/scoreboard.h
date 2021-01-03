@@ -1,7 +1,7 @@
 #pragma once
 
 #include <lcom/lcf.h>
-#include "rtc.h"
+
 #include "sprite.h"
 
 /** @defgroup scoreboard scoreboard

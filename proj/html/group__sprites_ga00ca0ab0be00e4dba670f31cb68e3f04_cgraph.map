@@ -1,0 +1,4 @@
+<map id="destroy_animated_sprite" name="destroy_animated_sprite">
+<area shape="rect" id="node1" title="Destroys an animated sprite object." alt="" coords="5,5,189,32"/>
+<area shape="rect" id="node2" href="$group__sprites.html#gab78b0b42532b8c0b5322ddf0e1ed85e1" title="Destroys a sprite object." alt="" coords="237,5,352,32"/>
+</map>

@@ -1,0 +1,38 @@
+\hypertarget{communication_8c}{}\doxysection{communication.\+c File Reference}
+\label{communication_8c}\index{communication.c@{communication.c}}
+{\ttfamily \#include \char`\"{}communication.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}uart.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utilities.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}entities.\+h\char`\"{}}\newline
+Include dependency graph for communication.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{communication_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__communication_ga12f5380cb7d913dd79dd73f99e0159db}{send\+\_\+player\+\_\+message}} (uint8\+\_\+t \mbox{\hyperlink{keyboard_8h_a01577ed8d3646775ae6a8e00d24c1d94}{scancode}})
+\begin{DoxyCompactList}\small\item\em Sends a message related to the player. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__communication_ga814f6e311333907d02b3c4a811bdf00a}{send\+\_\+ball\+\_\+message}} (uint16\+\_\+t x\+\_\+pos, uint16\+\_\+t y\+\_\+pos)
+\begin{DoxyCompactList}\small\item\em Sends a message related to the ball. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__communication_ga76a3d60d929a11e19a01bfa7a7c8b095}{handle\+\_\+message}} (uint8\+\_\+t c)
+\begin{DoxyCompactList}\small\item\em Handles the byte recieved. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__communication_gafe8d85adab74a257ba6e03ab3e044ec0}{reset\+\_\+communication}} ()
+\begin{DoxyCompactList}\small\item\em Resets the communication variables. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{communication_8c_afed088663f8704004425cdae2120b9b3}{len}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{communication_8c_afed088663f8704004425cdae2120b9b3}\label{communication_8c_afed088663f8704004425cdae2120b9b3}} 
+\index{communication.c@{communication.c}!len@{len}}
+\index{len@{len}!communication.c@{communication.c}}
+\doxysubsubsection{\texorpdfstring{len}{len}}
+{\footnotesize\ttfamily int len = 0}
+

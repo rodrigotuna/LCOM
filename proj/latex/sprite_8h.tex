@@ -1,0 +1,56 @@
+\hypertarget{sprite_8h}{}\doxysection{sprite.\+h File Reference}
+\label{sprite_8h}\index{sprite.h@{sprite.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}video.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}i8042.\+h\char`\"{}}\newline
+Include dependency graph for sprite.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sprite_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sprite_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structsprite}{sprite}}
+\begin{DoxyCompactList}\small\item\em Represents a sprite object. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structanimated__sprite}{animated\+\_\+sprite}}
+\begin{DoxyCompactList}\small\item\em Represents an animated sprite object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structsprite}{sprite}} \mbox{\hyperlink{group__sprites_gaab4f7e34894259f3dc700a86476c02bf}{sprite\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structanimated__sprite}{animated\+\_\+sprite}} \mbox{\hyperlink{group__sprites_ga66cd6afa3327cc5fcaf1827cbf66243b}{animated\+\_\+sprite\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__sprites_gaab4f7e34894259f3dc700a86476c02bf}{sprite\+\_\+t}} $\ast$ \mbox{\hyperlink{group__sprites_gab157c542e1fcb61fd76dcbbf479fc991}{create\+\_\+sprite}} (xpm\+\_\+map\+\_\+t xpm\+\_\+map, int x, int y)
+\begin{DoxyCompactList}\small\item\em Creates a sprite object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__sprites_ga66cd6afa3327cc5fcaf1827cbf66243b}{animated\+\_\+sprite\+\_\+t}} $\ast$ \mbox{\hyperlink{group__sprites_ga26644c0d45bd108c6eef3aa057fdc8f7}{create\+\_\+animated\+\_\+sprite}} (xpm\+\_\+map\+\_\+t xpm\+\_\+map\mbox{[}$\,$\mbox{]}, int nsets, int nframes, int delay, int x, int y)
+\begin{DoxyCompactList}\small\item\em Creates an animated sprite object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__sprites_gab78b0b42532b8c0b5322ddf0e1ed85e1}{destroy\+\_\+sprite}} (\mbox{\hyperlink{group__sprites_gaab4f7e34894259f3dc700a86476c02bf}{sprite\+\_\+t}} $\ast$sp)
+\begin{DoxyCompactList}\small\item\em Destroys a sprite object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__sprites_ga00ca0ab0be00e4dba670f31cb68e3f04}{destroy\+\_\+animated\+\_\+sprite}} (\mbox{\hyperlink{group__sprites_ga66cd6afa3327cc5fcaf1827cbf66243b}{animated\+\_\+sprite\+\_\+t}} $\ast$asprite)
+\begin{DoxyCompactList}\small\item\em Destroys an animated sprite object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__sprites_ga74e2d82b03eaa572326d025fe314a3f7}{display\+\_\+sprite}} (\mbox{\hyperlink{group__sprites_gaab4f7e34894259f3dc700a86476c02bf}{sprite\+\_\+t}} $\ast$sp)
+\begin{DoxyCompactList}\small\item\em Displays a sprite object in it\textquotesingle{}s inherent position. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__sprites_gae3ebb06a689316060c7768421ece42b9}{change\+\_\+sprite\+\_\+pos}} (\mbox{\hyperlink{group__sprites_gaab4f7e34894259f3dc700a86476c02bf}{sprite\+\_\+t}} $\ast$sp, int16\+\_\+t x\+\_\+dev, int16\+\_\+t y\+\_\+dev)
+\begin{DoxyCompactList}\small\item\em Changes the sprite position. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__sprites_ga32c487131259e6dc36d6d140b2e34b85}{update\+\_\+sprite\+\_\+animation}} (\mbox{\hyperlink{group__sprites_ga66cd6afa3327cc5fcaf1827cbf66243b}{animated\+\_\+sprite\+\_\+t}} $\ast$asprite)
+\begin{DoxyCompactList}\small\item\em Updates the animation of an animated sprite. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__sprites_ga3862af3c4ed93ce281ecd729e37537d6}{set\+\_\+bounds}} (\mbox{\hyperlink{group__sprites_gaab4f7e34894259f3dc700a86476c02bf}{sprite\+\_\+t}} $\ast$sp, int16\+\_\+t x\+\_\+low, int16\+\_\+t x\+\_\+up, int16\+\_\+t y\+\_\+low, int16\+\_\+t y\+\_\+up)
+\begin{DoxyCompactList}\small\item\em Changes the sprite\textquotesingle{}s screen bounds. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__sprites_gaf6a3974a4b1528b2340c02dc6f94c91f}{keep\+\_\+sprite\+\_\+in\+\_\+bounds}} (\mbox{\hyperlink{group__sprites_gaab4f7e34894259f3dc700a86476c02bf}{sprite\+\_\+t}} $\ast$sp)
+\begin{DoxyCompactList}\small\item\em Keeps the sprite position inside it\textquotesingle{}s screen bounds. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__sprites_ga75f6636529bf63a1e4ad80ddbb499226}{print\+\_\+string}} (const char $\ast$string, \mbox{\hyperlink{group__sprites_gaab4f7e34894259f3dc700a86476c02bf}{sprite\+\_\+t}} $\ast$font, int xi, int yi)
+\begin{DoxyCompactList}\small\item\em Displays any string on screen. \end{DoxyCompactList}\end{DoxyCompactItemize}

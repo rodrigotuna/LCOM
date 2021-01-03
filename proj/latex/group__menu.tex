@@ -1,0 +1,557 @@
+\hypertarget{group__menu}{}\doxysection{menu}
+\label{group__menu}\index{menu@{menu}}
+
+
+Functions that implement the different menus throughout the game.  
+
+
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group__menu_gafd24f3af13af1d0840db36d6a159ff60}{button\+\_\+sizes\+\_\+t}} \{ \mbox{\hyperlink{group__menu_ggafd24f3af13af1d0840db36d6a159ff60aea5e596a553757a677cb4da4c8a1f935}{S\+M\+A\+LL}}, 
+\mbox{\hyperlink{group__menu_ggafd24f3af13af1d0840db36d6a159ff60a4e4825dfb3c3a4c83ed71e2a38a3a70d}{B\+IG}}
+ \}
+\begin{DoxyCompactList}\small\item\em Represents the different sizes of the buttons. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group__menu_ga7bb8494816c8065ae6ff0eeb548a5896}{button\+\_\+state\+\_\+t}} \{ \newline
+\mbox{\hyperlink{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a3e51fb946570e643ba0a3ffd95c70537}{N\+O\+\_\+\+M\+O\+DE}}, 
+\mbox{\hyperlink{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896adf9c53b97637b5e5ac722fb2f6d26512}{S\+I\+N\+G\+L\+E\+P\+L\+A\+Y\+ER}}, 
+\mbox{\hyperlink{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a403778345700cbd36b5b26352b144f78}{M\+U\+L\+T\+I\+P\+L\+A\+Y\+ER}}, 
+\mbox{\hyperlink{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a90001ad69ab9874fbdfbbae899a92b1a}{S\+C\+O\+R\+ES}}, 
+\newline
+\mbox{\hyperlink{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a76bdc8adfd6c6463ab269ff4c06be9b4}{Q\+U\+IT}}, 
+\mbox{\hyperlink{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a8bd68b27c1bc0f0c2b67e020bf079bc8}{P\+L\+A\+Y\+A\+G\+A\+IN}}, 
+\mbox{\hyperlink{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a8f280224da64e98f2d52d50ec43bc197}{H\+O\+ME}}, 
+\mbox{\hyperlink{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a9c954bcf443428c80b0f107b3bc48749}{D\+O\+NE}}, 
+\newline
+\mbox{\hyperlink{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a473b49382a20dcc5b0ee10ddbc6338b4}{C\+R\+E\+A\+TE}}, 
+\mbox{\hyperlink{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a4925a399dab94b9b58f6d1b5cd246af7}{J\+O\+IN}}
+ \}
+\begin{DoxyCompactList}\small\item\em Represents the different modes of the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__menu_ga7fe3adb8b69baff33af24e4a3a9c5048}{main\+\_\+menu}} ()
+\begin{DoxyCompactList}\small\item\em The main menu. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__menu_ga5e1bba404f1f9ea1b95cbdc8be1e7f3c}{entername\+\_\+menu}} (int place, int points)
+\begin{DoxyCompactList}\small\item\em The menu for entering the player\textquotesingle{}s name upon a new highscore. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__menu_gadf831408d6f8828e5d3b07157084397f}{gameover\+\_\+menu}} (int points, int type)
+\begin{DoxyCompactList}\small\item\em The gameover menu. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__menu_gac59a512bcf4260d121c4d1b278dc1b1f}{choose\+\_\+player\+\_\+menu}} ()
+\begin{DoxyCompactList}\small\item\em The menu for choosing the player in multiplayer mode. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__menu_ga0d8f2f6a8a7d23bc0b41944745ead924}{connect\+\_\+player1\+\_\+menu}} ()
+\begin{DoxyCompactList}\small\item\em The connecting menu for player 1. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__menu_gac75ce766722ec36ebc72b4a1f3b3d932}{connect\+\_\+player2\+\_\+menu}} ()
+\begin{DoxyCompactList}\small\item\em The connecting menu for player 1. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__menu_ga6a8428667b9b4b4c218bb345b7d9fe6a}{scoreboard\+\_\+menu}} ()
+\begin{DoxyCompactList}\small\item\em The scoreboard menu. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__menu_ga7bb8494816c8065ae6ff0eeb548a5896}{button\+\_\+state\+\_\+t}} \mbox{\hyperlink{group__menu_ga3cb1012b0cb72dbefb39aa3046a0b8f3}{main\+\_\+menu\+\_\+mode}} (\mbox{\hyperlink{group__sprites_gaab4f7e34894259f3dc700a86476c02bf}{sprite\+\_\+t}} $\ast$cursor, \mbox{\hyperlink{group__sprites_ga66cd6afa3327cc5fcaf1827cbf66243b}{animated\+\_\+sprite\+\_\+t}} $\ast$menu, \mbox{\hyperlink{group__menu_ga7bb8494816c8065ae6ff0eeb548a5896}{button\+\_\+state\+\_\+t}} button)
+\begin{DoxyCompactList}\small\item\em Checks which main menu mode is selected. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__menu_ga7bb8494816c8065ae6ff0eeb548a5896}{button\+\_\+state\+\_\+t}} \mbox{\hyperlink{group__menu_gaf824ff2c49e884bbbb2b3f8ef3bdbf13}{name\+\_\+menu\+\_\+mode}} (\mbox{\hyperlink{group__sprites_gaab4f7e34894259f3dc700a86476c02bf}{sprite\+\_\+t}} $\ast$cursor, \mbox{\hyperlink{group__sprites_ga66cd6afa3327cc5fcaf1827cbf66243b}{animated\+\_\+sprite\+\_\+t}} $\ast$menu, \mbox{\hyperlink{group__menu_ga7bb8494816c8065ae6ff0eeb548a5896}{button\+\_\+state\+\_\+t}} mode)
+\begin{DoxyCompactList}\small\item\em Checks which enter name menu mode is selected. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__menu_ga7bb8494816c8065ae6ff0eeb548a5896}{button\+\_\+state\+\_\+t}} \mbox{\hyperlink{group__menu_ga99e1c6100638cd58e78f7ea913bb13ba}{gameover\+\_\+menu\+\_\+mode}} (\mbox{\hyperlink{group__sprites_gaab4f7e34894259f3dc700a86476c02bf}{sprite\+\_\+t}} $\ast$cursor, \mbox{\hyperlink{group__sprites_ga66cd6afa3327cc5fcaf1827cbf66243b}{animated\+\_\+sprite\+\_\+t}} $\ast$menu, \mbox{\hyperlink{group__menu_ga7bb8494816c8065ae6ff0eeb548a5896}{button\+\_\+state\+\_\+t}} mode)
+\begin{DoxyCompactList}\small\item\em Checks which gameover menu mode is selected. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__menu_ga7bb8494816c8065ae6ff0eeb548a5896}{button\+\_\+state\+\_\+t}} \mbox{\hyperlink{group__menu_ga90f220080e5c51aa85dc89eda6862c4f}{chooseplayer\+\_\+menu\+\_\+mode}} (\mbox{\hyperlink{group__sprites_gaab4f7e34894259f3dc700a86476c02bf}{sprite\+\_\+t}} $\ast$cursor, \mbox{\hyperlink{group__sprites_ga66cd6afa3327cc5fcaf1827cbf66243b}{animated\+\_\+sprite\+\_\+t}} $\ast$menu, \mbox{\hyperlink{group__menu_ga7bb8494816c8065ae6ff0eeb548a5896}{button\+\_\+state\+\_\+t}} mode)
+\begin{DoxyCompactList}\small\item\em Checks which choose player menu mode is selected. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__menu_ga7bb8494816c8065ae6ff0eeb548a5896}{button\+\_\+state\+\_\+t}} \mbox{\hyperlink{group__menu_gafceda32ba4d2a5523007f7f8f1707338}{scoreboard\+\_\+menu\+\_\+mode}} (\mbox{\hyperlink{group__sprites_gaab4f7e34894259f3dc700a86476c02bf}{sprite\+\_\+t}} $\ast$cursor, \mbox{\hyperlink{group__sprites_ga66cd6afa3327cc5fcaf1827cbf66243b}{animated\+\_\+sprite\+\_\+t}} $\ast$menu, \mbox{\hyperlink{group__menu_ga7bb8494816c8065ae6ff0eeb548a5896}{button\+\_\+state\+\_\+t}} mode)
+\begin{DoxyCompactList}\small\item\em Checks which scoreboard menu mode is selected. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__menu_ga55105e164681a479d3110b267d596fca}{check\+\_\+button\+\_\+bounds}} (int16\+\_\+t cursor\+\_\+x, int16\+\_\+t cursor\+\_\+y, int xi, int yi, \mbox{\hyperlink{group__menu_gafd24f3af13af1d0840db36d6a159ff60}{button\+\_\+sizes\+\_\+t}} \mbox{\hyperlink{keyboard_8h_ae5dc6ffcd9b7605c7787791e40cc6bb0}{size}})
+\begin{DoxyCompactList}\small\item\em Checks if the cursor is inside the button bounds. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions that implement the different menus throughout the game. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group__menu_gafd24f3af13af1d0840db36d6a159ff60}\label{group__menu_gafd24f3af13af1d0840db36d6a159ff60}} 
+\index{menu@{menu}!button\_sizes\_t@{button\_sizes\_t}}
+\index{button\_sizes\_t@{button\_sizes\_t}!menu@{menu}}
+\doxysubsubsection{\texorpdfstring{button\_sizes\_t}{button\_sizes\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__menu_gafd24f3af13af1d0840db36d6a159ff60}{button\+\_\+sizes\+\_\+t}}}
+
+
+
+Represents the different sizes of the buttons. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SMALL@{SMALL}!menu@{menu}}\index{menu@{menu}!SMALL@{SMALL}}}\mbox{\Hypertarget{group__menu_ggafd24f3af13af1d0840db36d6a159ff60aea5e596a553757a677cb4da4c8a1f935}\label{group__menu_ggafd24f3af13af1d0840db36d6a159ff60aea5e596a553757a677cb4da4c8a1f935}} 
+S\+M\+A\+LL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BIG@{BIG}!menu@{menu}}\index{menu@{menu}!BIG@{BIG}}}\mbox{\Hypertarget{group__menu_ggafd24f3af13af1d0840db36d6a159ff60a4e4825dfb3c3a4c83ed71e2a38a3a70d}\label{group__menu_ggafd24f3af13af1d0840db36d6a159ff60a4e4825dfb3c3a4c83ed71e2a38a3a70d}} 
+B\+IG&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{group__menu_ga7bb8494816c8065ae6ff0eeb548a5896}\label{group__menu_ga7bb8494816c8065ae6ff0eeb548a5896}} 
+\index{menu@{menu}!button\_state\_t@{button\_state\_t}}
+\index{button\_state\_t@{button\_state\_t}!menu@{menu}}
+\doxysubsubsection{\texorpdfstring{button\_state\_t}{button\_state\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__menu_ga7bb8494816c8065ae6ff0eeb548a5896}{button\+\_\+state\+\_\+t}}}
+
+
+
+Represents the different modes of the game. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NO\_MODE@{NO\_MODE}!menu@{menu}}\index{menu@{menu}!NO\_MODE@{NO\_MODE}}}\mbox{\Hypertarget{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a3e51fb946570e643ba0a3ffd95c70537}\label{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a3e51fb946570e643ba0a3ffd95c70537}} 
+N\+O\+\_\+\+M\+O\+DE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SINGLEPLAYER@{SINGLEPLAYER}!menu@{menu}}\index{menu@{menu}!SINGLEPLAYER@{SINGLEPLAYER}}}\mbox{\Hypertarget{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896adf9c53b97637b5e5ac722fb2f6d26512}\label{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896adf9c53b97637b5e5ac722fb2f6d26512}} 
+S\+I\+N\+G\+L\+E\+P\+L\+A\+Y\+ER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MULTIPLAYER@{MULTIPLAYER}!menu@{menu}}\index{menu@{menu}!MULTIPLAYER@{MULTIPLAYER}}}\mbox{\Hypertarget{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a403778345700cbd36b5b26352b144f78}\label{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a403778345700cbd36b5b26352b144f78}} 
+M\+U\+L\+T\+I\+P\+L\+A\+Y\+ER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SCORES@{SCORES}!menu@{menu}}\index{menu@{menu}!SCORES@{SCORES}}}\mbox{\Hypertarget{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a90001ad69ab9874fbdfbbae899a92b1a}\label{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a90001ad69ab9874fbdfbbae899a92b1a}} 
+S\+C\+O\+R\+ES&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{QUIT@{QUIT}!menu@{menu}}\index{menu@{menu}!QUIT@{QUIT}}}\mbox{\Hypertarget{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a76bdc8adfd6c6463ab269ff4c06be9b4}\label{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a76bdc8adfd6c6463ab269ff4c06be9b4}} 
+Q\+U\+IT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PLAYAGAIN@{PLAYAGAIN}!menu@{menu}}\index{menu@{menu}!PLAYAGAIN@{PLAYAGAIN}}}\mbox{\Hypertarget{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a8bd68b27c1bc0f0c2b67e020bf079bc8}\label{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a8bd68b27c1bc0f0c2b67e020bf079bc8}} 
+P\+L\+A\+Y\+A\+G\+A\+IN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HOME@{HOME}!menu@{menu}}\index{menu@{menu}!HOME@{HOME}}}\mbox{\Hypertarget{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a8f280224da64e98f2d52d50ec43bc197}\label{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a8f280224da64e98f2d52d50ec43bc197}} 
+H\+O\+ME&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DONE@{DONE}!menu@{menu}}\index{menu@{menu}!DONE@{DONE}}}\mbox{\Hypertarget{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a9c954bcf443428c80b0f107b3bc48749}\label{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a9c954bcf443428c80b0f107b3bc48749}} 
+D\+O\+NE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CREATE@{CREATE}!menu@{menu}}\index{menu@{menu}!CREATE@{CREATE}}}\mbox{\Hypertarget{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a473b49382a20dcc5b0ee10ddbc6338b4}\label{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a473b49382a20dcc5b0ee10ddbc6338b4}} 
+C\+R\+E\+A\+TE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{JOIN@{JOIN}!menu@{menu}}\index{menu@{menu}!JOIN@{JOIN}}}\mbox{\Hypertarget{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a4925a399dab94b9b58f6d1b5cd246af7}\label{group__menu_gga7bb8494816c8065ae6ff0eeb548a5896a4925a399dab94b9b58f6d1b5cd246af7}} 
+J\+O\+IN&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__menu_ga55105e164681a479d3110b267d596fca}\label{group__menu_ga55105e164681a479d3110b267d596fca}} 
+\index{menu@{menu}!check\_button\_bounds@{check\_button\_bounds}}
+\index{check\_button\_bounds@{check\_button\_bounds}!menu@{menu}}
+\doxysubsubsection{\texorpdfstring{check\_button\_bounds()}{check\_button\_bounds()}}
+{\footnotesize\ttfamily bool check\+\_\+button\+\_\+bounds (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{cursor\+\_\+x,  }\item[{int16\+\_\+t}]{cursor\+\_\+y,  }\item[{int}]{xi,  }\item[{int}]{yi,  }\item[{\mbox{\hyperlink{group__menu_gafd24f3af13af1d0840db36d6a159ff60}{button\+\_\+sizes\+\_\+t}}}]{size }\end{DoxyParamCaption})}
+
+
+
+Checks if the cursor is inside the button bounds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cursor\+\_\+x} & cursor x-\/axis position \\
+\hline
+{\em cursor\+\_\+y} & cursor y-\/axis position \\
+\hline
+{\em xi} & x-\/axis position of the first pixel of the button \\
+\hline
+{\em yi} & y-\/axis position of the first pixel of the button \\
+\hline
+{\em size} & button size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the cursor is in bounds, false otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__menu_ga55105e164681a479d3110b267d596fca_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__menu_gac59a512bcf4260d121c4d1b278dc1b1f}\label{group__menu_gac59a512bcf4260d121c4d1b278dc1b1f}} 
+\index{menu@{menu}!choose\_player\_menu@{choose\_player\_menu}}
+\index{choose\_player\_menu@{choose\_player\_menu}!menu@{menu}}
+\doxysubsubsection{\texorpdfstring{choose\_player\_menu()}{choose\_player\_menu()}}
+{\footnotesize\ttfamily int choose\+\_\+player\+\_\+menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The menu for choosing the player in multiplayer mode. 
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{group__menu_gac59a512bcf4260d121c4d1b278dc1b1f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__menu_gac59a512bcf4260d121c4d1b278dc1b1f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__menu_ga90f220080e5c51aa85dc89eda6862c4f}\label{group__menu_ga90f220080e5c51aa85dc89eda6862c4f}} 
+\index{menu@{menu}!chooseplayer\_menu\_mode@{chooseplayer\_menu\_mode}}
+\index{chooseplayer\_menu\_mode@{chooseplayer\_menu\_mode}!menu@{menu}}
+\doxysubsubsection{\texorpdfstring{chooseplayer\_menu\_mode()}{chooseplayer\_menu\_mode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__menu_ga7bb8494816c8065ae6ff0eeb548a5896}{button\+\_\+state\+\_\+t}} chooseplayer\+\_\+menu\+\_\+mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__sprites_gaab4f7e34894259f3dc700a86476c02bf}{sprite\+\_\+t}} $\ast$}]{cursor,  }\item[{\mbox{\hyperlink{group__sprites_ga66cd6afa3327cc5fcaf1827cbf66243b}{animated\+\_\+sprite\+\_\+t}} $\ast$}]{menu,  }\item[{\mbox{\hyperlink{group__menu_ga7bb8494816c8065ae6ff0eeb548a5896}{button\+\_\+state\+\_\+t}}}]{mode }\end{DoxyParamCaption})}
+
+
+
+Checks which choose player menu mode is selected. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cursor} & cursor\textquotesingle{}s sprite object \\
+\hline
+{\em menu} & menu\textquotesingle{}s animated sprite object \\
+\hline
+{\em button} & the menu mode to be updated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The choose player menu mode selected 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__menu_ga90f220080e5c51aa85dc89eda6862c4f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__menu_ga90f220080e5c51aa85dc89eda6862c4f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__menu_ga0d8f2f6a8a7d23bc0b41944745ead924}\label{group__menu_ga0d8f2f6a8a7d23bc0b41944745ead924}} 
+\index{menu@{menu}!connect\_player1\_menu@{connect\_player1\_menu}}
+\index{connect\_player1\_menu@{connect\_player1\_menu}!menu@{menu}}
+\doxysubsubsection{\texorpdfstring{connect\_player1\_menu()}{connect\_player1\_menu()}}
+{\footnotesize\ttfamily int connect\+\_\+player1\+\_\+menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The connecting menu for player 1. 
+
+\begin{DoxyReturn}{Returns}
+True if the other player is connected, false otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__menu_ga0d8f2f6a8a7d23bc0b41944745ead924_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__menu_ga0d8f2f6a8a7d23bc0b41944745ead924_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__menu_gac75ce766722ec36ebc72b4a1f3b3d932}\label{group__menu_gac75ce766722ec36ebc72b4a1f3b3d932}} 
+\index{menu@{menu}!connect\_player2\_menu@{connect\_player2\_menu}}
+\index{connect\_player2\_menu@{connect\_player2\_menu}!menu@{menu}}
+\doxysubsubsection{\texorpdfstring{connect\_player2\_menu()}{connect\_player2\_menu()}}
+{\footnotesize\ttfamily int connect\+\_\+player2\+\_\+menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The connecting menu for player 1. 
+
+\begin{DoxyReturn}{Returns}
+True if the other player is connected, false otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__menu_gac75ce766722ec36ebc72b4a1f3b3d932_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__menu_gac75ce766722ec36ebc72b4a1f3b3d932_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__menu_ga5e1bba404f1f9ea1b95cbdc8be1e7f3c}\label{group__menu_ga5e1bba404f1f9ea1b95cbdc8be1e7f3c}} 
+\index{menu@{menu}!entername\_menu@{entername\_menu}}
+\index{entername\_menu@{entername\_menu}!menu@{menu}}
+\doxysubsubsection{\texorpdfstring{entername\_menu()}{entername\_menu()}}
+{\footnotesize\ttfamily int entername\+\_\+menu (\begin{DoxyParamCaption}\item[{int}]{place,  }\item[{int}]{points }\end{DoxyParamCaption})}
+
+
+
+The menu for entering the player\textquotesingle{}s name upon a new highscore. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em place} & place that the player finished the game \\
+\hline
+{\em points} & points made by the player \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__menu_ga5e1bba404f1f9ea1b95cbdc8be1e7f3c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__menu_ga5e1bba404f1f9ea1b95cbdc8be1e7f3c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__menu_gadf831408d6f8828e5d3b07157084397f}\label{group__menu_gadf831408d6f8828e5d3b07157084397f}} 
+\index{menu@{menu}!gameover\_menu@{gameover\_menu}}
+\index{gameover\_menu@{gameover\_menu}!menu@{menu}}
+\doxysubsubsection{\texorpdfstring{gameover\_menu()}{gameover\_menu()}}
+{\footnotesize\ttfamily int gameover\+\_\+menu (\begin{DoxyParamCaption}\item[{int}]{points,  }\item[{int}]{type }\end{DoxyParamCaption})}
+
+
+
+The gameover menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em points} & points made by the player \\
+\hline
+{\em type} & type of the gameover menu (Won or Lost, or gameover for singleplayer) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 if the next mode is P\+L\+A\+Y\+A\+G\+A\+IN or 1 otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__menu_gadf831408d6f8828e5d3b07157084397f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__menu_gadf831408d6f8828e5d3b07157084397f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__menu_ga99e1c6100638cd58e78f7ea913bb13ba}\label{group__menu_ga99e1c6100638cd58e78f7ea913bb13ba}} 
+\index{menu@{menu}!gameover\_menu\_mode@{gameover\_menu\_mode}}
+\index{gameover\_menu\_mode@{gameover\_menu\_mode}!menu@{menu}}
+\doxysubsubsection{\texorpdfstring{gameover\_menu\_mode()}{gameover\_menu\_mode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__menu_ga7bb8494816c8065ae6ff0eeb548a5896}{button\+\_\+state\+\_\+t}} gameover\+\_\+menu\+\_\+mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__sprites_gaab4f7e34894259f3dc700a86476c02bf}{sprite\+\_\+t}} $\ast$}]{cursor,  }\item[{\mbox{\hyperlink{group__sprites_ga66cd6afa3327cc5fcaf1827cbf66243b}{animated\+\_\+sprite\+\_\+t}} $\ast$}]{menu,  }\item[{\mbox{\hyperlink{group__menu_ga7bb8494816c8065ae6ff0eeb548a5896}{button\+\_\+state\+\_\+t}}}]{mode }\end{DoxyParamCaption})}
+
+
+
+Checks which gameover menu mode is selected. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cursor} & cursor\textquotesingle{}s sprite object \\
+\hline
+{\em menu} & menu\textquotesingle{}s animated sprite object \\
+\hline
+{\em button} & the menu mode to be updated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The gameover menu mode selected 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__menu_ga99e1c6100638cd58e78f7ea913bb13ba_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__menu_ga99e1c6100638cd58e78f7ea913bb13ba_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__menu_ga7fe3adb8b69baff33af24e4a3a9c5048}\label{group__menu_ga7fe3adb8b69baff33af24e4a3a9c5048}} 
+\index{menu@{menu}!main\_menu@{main\_menu}}
+\index{main\_menu@{main\_menu}!menu@{menu}}
+\doxysubsubsection{\texorpdfstring{main\_menu()}{main\_menu()}}
+{\footnotesize\ttfamily int main\+\_\+menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The main menu. 
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{group__menu_ga7fe3adb8b69baff33af24e4a3a9c5048_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{group__menu_ga7fe3adb8b69baff33af24e4a3a9c5048_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__menu_ga3cb1012b0cb72dbefb39aa3046a0b8f3}\label{group__menu_ga3cb1012b0cb72dbefb39aa3046a0b8f3}} 
+\index{menu@{menu}!main\_menu\_mode@{main\_menu\_mode}}
+\index{main\_menu\_mode@{main\_menu\_mode}!menu@{menu}}
+\doxysubsubsection{\texorpdfstring{main\_menu\_mode()}{main\_menu\_mode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__menu_ga7bb8494816c8065ae6ff0eeb548a5896}{button\+\_\+state\+\_\+t}} main\+\_\+menu\+\_\+mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__sprites_gaab4f7e34894259f3dc700a86476c02bf}{sprite\+\_\+t}} $\ast$}]{cursor,  }\item[{\mbox{\hyperlink{group__sprites_ga66cd6afa3327cc5fcaf1827cbf66243b}{animated\+\_\+sprite\+\_\+t}} $\ast$}]{menu,  }\item[{\mbox{\hyperlink{group__menu_ga7bb8494816c8065ae6ff0eeb548a5896}{button\+\_\+state\+\_\+t}}}]{button }\end{DoxyParamCaption})}
+
+
+
+Checks which main menu mode is selected. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cursor} & cursor\textquotesingle{}s sprite object \\
+\hline
+{\em menu} & menu\textquotesingle{}s animated sprite object \\
+\hline
+{\em button} & the menu mode to be updated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The main menu mode selected 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{group__menu_ga3cb1012b0cb72dbefb39aa3046a0b8f3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__menu_ga3cb1012b0cb72dbefb39aa3046a0b8f3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__menu_gaf824ff2c49e884bbbb2b3f8ef3bdbf13}\label{group__menu_gaf824ff2c49e884bbbb2b3f8ef3bdbf13}} 
+\index{menu@{menu}!name\_menu\_mode@{name\_menu\_mode}}
+\index{name\_menu\_mode@{name\_menu\_mode}!menu@{menu}}
+\doxysubsubsection{\texorpdfstring{name\_menu\_mode()}{name\_menu\_mode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__menu_ga7bb8494816c8065ae6ff0eeb548a5896}{button\+\_\+state\+\_\+t}} name\+\_\+menu\+\_\+mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__sprites_gaab4f7e34894259f3dc700a86476c02bf}{sprite\+\_\+t}} $\ast$}]{cursor,  }\item[{\mbox{\hyperlink{group__sprites_ga66cd6afa3327cc5fcaf1827cbf66243b}{animated\+\_\+sprite\+\_\+t}} $\ast$}]{menu,  }\item[{\mbox{\hyperlink{group__menu_ga7bb8494816c8065ae6ff0eeb548a5896}{button\+\_\+state\+\_\+t}}}]{mode }\end{DoxyParamCaption})}
+
+
+
+Checks which enter name menu mode is selected. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cursor} & cursor\textquotesingle{}s sprite object \\
+\hline
+{\em menu} & menu\textquotesingle{}s animated sprite object \\
+\hline
+{\em button} & the menu mode to be updated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The enter name menu mode selected 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{group__menu_gaf824ff2c49e884bbbb2b3f8ef3bdbf13_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__menu_gaf824ff2c49e884bbbb2b3f8ef3bdbf13_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__menu_ga6a8428667b9b4b4c218bb345b7d9fe6a}\label{group__menu_ga6a8428667b9b4b4c218bb345b7d9fe6a}} 
+\index{menu@{menu}!scoreboard\_menu@{scoreboard\_menu}}
+\index{scoreboard\_menu@{scoreboard\_menu}!menu@{menu}}
+\doxysubsubsection{\texorpdfstring{scoreboard\_menu()}{scoreboard\_menu()}}
+{\footnotesize\ttfamily int scoreboard\+\_\+menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The scoreboard menu. 
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__menu_ga6a8428667b9b4b4c218bb345b7d9fe6a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__menu_ga6a8428667b9b4b4c218bb345b7d9fe6a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__menu_gafceda32ba4d2a5523007f7f8f1707338}\label{group__menu_gafceda32ba4d2a5523007f7f8f1707338}} 
+\index{menu@{menu}!scoreboard\_menu\_mode@{scoreboard\_menu\_mode}}
+\index{scoreboard\_menu\_mode@{scoreboard\_menu\_mode}!menu@{menu}}
+\doxysubsubsection{\texorpdfstring{scoreboard\_menu\_mode()}{scoreboard\_menu\_mode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__menu_ga7bb8494816c8065ae6ff0eeb548a5896}{button\+\_\+state\+\_\+t}} scoreboard\+\_\+menu\+\_\+mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__sprites_gaab4f7e34894259f3dc700a86476c02bf}{sprite\+\_\+t}} $\ast$}]{cursor,  }\item[{\mbox{\hyperlink{group__sprites_ga66cd6afa3327cc5fcaf1827cbf66243b}{animated\+\_\+sprite\+\_\+t}} $\ast$}]{menu,  }\item[{\mbox{\hyperlink{group__menu_ga7bb8494816c8065ae6ff0eeb548a5896}{button\+\_\+state\+\_\+t}}}]{mode }\end{DoxyParamCaption})}
+
+
+
+Checks which scoreboard menu mode is selected. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cursor} & cursor\textquotesingle{}s sprite object \\
+\hline
+{\em menu} & menu\textquotesingle{}s animated sprite object \\
+\hline
+{\em button} & the menu mode to be updated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The scoreboard menu mode selected 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__menu_gafceda32ba4d2a5523007f7f8f1707338_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__menu_gafceda32ba4d2a5523007f7f8f1707338_icgraph}
+\end{center}
+\end{figure}

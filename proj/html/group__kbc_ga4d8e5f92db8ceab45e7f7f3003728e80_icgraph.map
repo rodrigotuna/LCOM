@@ -1,0 +1,9 @@
+<map id="kbc_issue_arg" name="kbc_issue_arg">
+<area shape="rect" id="node1" title="Issues an argument to the kbc." alt="" coords="640,31,755,57"/>
+<area shape="rect" id="node2" href="$group__kbc.html#gab06ce595703807400f3d90171f7f9884" title="Writes a command to the kbc." alt="" coords="472,5,592,32"/>
+<area shape="rect" id="node6" href="$group__mouse.html#gaafd943d471ebe8314612800462889205" title="Sets an argument to the mouse." alt="" coords="303,56,424,83"/>
+<area shape="rect" id="node3" href="$group__kbc.html#gaadded535aadcef84a6ed404780215328" title="Restores the interrupts of the kbc." alt="" coords="314,5,413,32"/>
+<area shape="rect" id="node4" href="$group__drivers.html#gaa6e7e19e570a120b6368e2254a4686f4" title="Initializes and configures all drivers." alt="" coords="176,5,255,32"/>
+<area shape="rect" id="node5" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,31,128,57"/>
+<area shape="rect" id="node7" href="$group__drivers.html#ga554f3d6478bee3655d51e7fa668b941d" title="Initializes and configures all drivers." alt="" coords="182,56,249,83"/>
+</map>

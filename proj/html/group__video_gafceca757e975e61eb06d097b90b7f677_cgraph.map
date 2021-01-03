@@ -1,0 +1,4 @@
+<map id="map_memory" name="map_memory">
+<area shape="rect" id="node1" title="Maps the memory of the video card region." alt="" coords="5,5,119,32"/>
+<area shape="rect" id="node2" href="$group__video.html#ga3cc5fc9cad5e43a1af5d3339388af1ce" title="Indicates the number of bytes per Pixel." alt="" coords="167,5,277,32"/>
+</map>

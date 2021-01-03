@@ -1,0 +1,51 @@
+\hypertarget{rtc_8c}{}\doxysection{rtc.\+c File Reference}
+\label{rtc_8c}\index{rtc.c@{rtc.c}}
+{\ttfamily \#include \char`\"{}rtc.\+h\char`\"{}}\newline
+Include dependency graph for rtc.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{rtc_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__RTC_ga5171a9c0f54940fe60f7500896afcc86}{rtc\+\_\+subscribe\+\_\+int}} (uint8\+\_\+t $\ast$bit\+\_\+no)
+\begin{DoxyCompactList}\small\item\em Subscribes R\+TC\textquotesingle{}s interrupts. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__RTC_gab8f17bf5280c908c8b199a90fefcc758}{rtc\+\_\+unsubscribe\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em Unsubscribes R\+TC\textquotesingle{}s interrupts. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__RTC_gaa70be8bcc213943e1567b8eba097b388}{rtc\+\_\+write}} (uint8\+\_\+t cmd, uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Writes data to a certain register of the R\+TC. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__RTC_gaa8dcc2b9b3f99cf9c321d4853d12080c}{rtc\+\_\+enable\+\_\+int}} (uint8\+\_\+t flag)
+\begin{DoxyCompactList}\small\item\em Enables R\+TC\textquotesingle{}s interrupts. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__RTC_gaf211913356b00f1cfdd640138be1d7d6}{rtc\+\_\+disable\+\_\+int}} (uint8\+\_\+t flag)
+\begin{DoxyCompactList}\small\item\em Disables R\+TC\textquotesingle{}s interrupts. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__RTC_ga6baf82806db2130368d67c4d68e8369a}{rtc\+\_\+read\+\_\+status}} (uint8\+\_\+t cmd, uint8\+\_\+t $\ast$stat)
+\begin{DoxyCompactList}\small\item\em Reads the status from a certain register of the R\+TC. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__RTC_ga78a98915aeadca4562138f2bf3cb7235}{rtc\+\_\+read\+\_\+date}} (uint8\+\_\+t cmd, uint8\+\_\+t $\ast$data)
+\begin{DoxyCompactList}\small\item\em Checks if an update is in progress, if not reads data from a certain register of the R\+TC. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__RTC_gafc610cbc86eb9f9e10839ee6a6d0316c}{rtc\+\_\+get\+\_\+date}} (uint8\+\_\+t $\ast$date)
+\begin{DoxyCompactList}\small\item\em Reads the year, month, day, hours, minutes and seconds from the R\+TC. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__RTC_gaffcc05e18413df2f8b468007d7fd13a6}{rtc\+\_\+set\+\_\+alarm}} (uint8\+\_\+t tseconds)
+\begin{DoxyCompactList}\small\item\em Sets an alarm seconds from the current time on the R\+TC. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__RTC_ga75dad42881d64cf07cf1bdc2979a7056}{rtc\+\_\+ih}} ()
+\begin{DoxyCompactList}\small\item\em Handles R\+TC interrupts. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__RTC_gafe873c55e04751c398276445cb9a2820}{bcd\+\_\+to\+\_\+int}} (uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Converts value in B\+CD to a decimal integer. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__RTC_gabf63dcaac87e542f9c1ffb796ff63264}{int\+\_\+to\+\_\+bcd}} (uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Converts a decimal integer to B\+CD. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{rtc_8c_a75be18d64c03630bf5d22a6fcb0b6063}{alarm\+\_\+int}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{rtc_8c_a75be18d64c03630bf5d22a6fcb0b6063}\label{rtc_8c_a75be18d64c03630bf5d22a6fcb0b6063}} 
+\index{rtc.c@{rtc.c}!alarm\_int@{alarm\_int}}
+\index{alarm\_int@{alarm\_int}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{alarm\_int}{alarm\_int}}
+{\footnotesize\ttfamily bool alarm\+\_\+int = false}
+

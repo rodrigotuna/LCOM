@@ -8,9 +8,7 @@
 
 
 #include "menu.h"
-#include "uart.h"
-#include "utilities.h"
-#include "waiting1.xpm"
+#include "drivers.h"
 
 // Any header files included below this line should have been created by you
 extern int timer_interrupts;

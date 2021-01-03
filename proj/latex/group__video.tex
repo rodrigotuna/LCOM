@@ -1,0 +1,177 @@
+\hypertarget{group__video}{}\doxysection{video}
+\label{group__video}\index{video@{video}}
+
+
+Functions for programming the video card.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__video_ga4bec9d888ca0a7ecb85711edf62f8930}{video\+\_\+get\+\_\+inf}} (uint16\+\_\+t mode)
+\begin{DoxyCompactList}\small\item\em Gets the information about a graphic mode. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__video_gaf9cd224e8150b7acb0caf38a53b9ccf4}{video\+\_\+init\+\_\+mode}} (uint16\+\_\+t mode)
+\begin{DoxyCompactList}\small\item\em Initializes a specific mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__video_ga243163f132ab9dce6b21d946df703fd4}{page\+\_\+flipping}} ()
+\begin{DoxyCompactList}\small\item\em Alternates between buffers calling the vbe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__video_gafceca757e975e61eb06d097b90b7f677}{map\+\_\+memory}} ()
+\begin{DoxyCompactList}\small\item\em Maps the memory of the video card region. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__video_ga3cc5fc9cad5e43a1af5d3339388af1ce}{bytes\+Per\+Pixel}} ()
+\begin{DoxyCompactList}\small\item\em Indicates the number of bytes per Pixel. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__video_gab20a606ca3d3aa819249eeca339aee79}{set\+\_\+pixel}} (uint16\+\_\+t x, uint16\+\_\+t y, uint32\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Changes the color of a pixel to a specified one. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions for programming the video card. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__video_ga3cc5fc9cad5e43a1af5d3339388af1ce}\label{group__video_ga3cc5fc9cad5e43a1af5d3339388af1ce}} 
+\index{video@{video}!bytesPerPixel@{bytesPerPixel}}
+\index{bytesPerPixel@{bytesPerPixel}!video@{video}}
+\doxysubsubsection{\texorpdfstring{bytesPerPixel()}{bytesPerPixel()}}
+{\footnotesize\ttfamily int bytes\+Per\+Pixel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Indicates the number of bytes per Pixel. 
+
+\begin{DoxyReturn}{Returns}
+The number of bytes per pixel 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__video_ga3cc5fc9cad5e43a1af5d3339388af1ce_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__video_gafceca757e975e61eb06d097b90b7f677}\label{group__video_gafceca757e975e61eb06d097b90b7f677}} 
+\index{video@{video}!map\_memory@{map\_memory}}
+\index{map\_memory@{map\_memory}!video@{video}}
+\doxysubsubsection{\texorpdfstring{map\_memory()}{map\_memory()}}
+{\footnotesize\ttfamily void map\+\_\+memory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Maps the memory of the video card region. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{group__video_gafceca757e975e61eb06d097b90b7f677_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__video_gafceca757e975e61eb06d097b90b7f677_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__video_ga243163f132ab9dce6b21d946df703fd4}\label{group__video_ga243163f132ab9dce6b21d946df703fd4}} 
+\index{video@{video}!page\_flipping@{page\_flipping}}
+\index{page\_flipping@{page\_flipping}!video@{video}}
+\doxysubsubsection{\texorpdfstring{page\_flipping()}{page\_flipping()}}
+{\footnotesize\ttfamily void page\+\_\+flipping (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Alternates between buffers calling the vbe. 
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__video_ga243163f132ab9dce6b21d946df703fd4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__video_gab20a606ca3d3aa819249eeca339aee79}\label{group__video_gab20a606ca3d3aa819249eeca339aee79}} 
+\index{video@{video}!set\_pixel@{set\_pixel}}
+\index{set\_pixel@{set\_pixel}!video@{video}}
+\doxysubsubsection{\texorpdfstring{set\_pixel()}{set\_pixel()}}
+{\footnotesize\ttfamily int set\+\_\+pixel (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint32\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Changes the color of a pixel to a specified one. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x-\/axis position of the pixel to be changed \\
+\hline
+{\em y} & y-\/axis position of the pixel to be changed \\
+\hline
+{\em color} & color to be changed to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=259pt]{group__video_gab20a606ca3d3aa819249eeca339aee79_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__video_gab20a606ca3d3aa819249eeca339aee79_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__video_ga4bec9d888ca0a7ecb85711edf62f8930}\label{group__video_ga4bec9d888ca0a7ecb85711edf62f8930}} 
+\index{video@{video}!video\_get\_inf@{video\_get\_inf}}
+\index{video\_get\_inf@{video\_get\_inf}!video@{video}}
+\doxysubsubsection{\texorpdfstring{video\_get\_inf()}{video\_get\_inf()}}
+{\footnotesize\ttfamily int video\+\_\+get\+\_\+inf (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{mode }\end{DoxyParamCaption})}
+
+
+
+Gets the information about a graphic mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & indicates the specific mode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__video_ga4bec9d888ca0a7ecb85711edf62f8930_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__video_gaf9cd224e8150b7acb0caf38a53b9ccf4}\label{group__video_gaf9cd224e8150b7acb0caf38a53b9ccf4}} 
+\index{video@{video}!video\_init\_mode@{video\_init\_mode}}
+\index{video\_init\_mode@{video\_init\_mode}!video@{video}}
+\doxysubsubsection{\texorpdfstring{video\_init\_mode()}{video\_init\_mode()}}
+{\footnotesize\ttfamily int video\+\_\+init\+\_\+mode (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{mode }\end{DoxyParamCaption})}
+
+
+
+Initializes a specific mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & indicates specific mode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__video_gaf9cd224e8150b7acb0caf38a53b9ccf4_icgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,8 @@
+<map id="unsubscribe_all" name="unsubscribe_all">
+<area shape="rect" id="node1" title="Unsubscribes the interrupts of all drivers." alt="" coords="5,107,128,133"/>
+<area shape="rect" id="node2" href="$group__keyboard.html#ga7cf9ff7b2a68cc388492c91756a55153" title="Unsubsribes the interrupts of the keyboard." alt="" coords="190,5,337,32"/>
+<area shape="rect" id="node3" href="$group__mouse.html#ga685ad2706aca36d9869a30a19b9f446a" title="Unsubsribes the interrupts of the keyboard." alt="" coords="176,56,351,83"/>
+<area shape="rect" id="node4" href="$group__RTC.html#gab8f17bf5280c908c8b199a90fefcc758" title="Unsubscribes RTC&#39;s interrupts." alt="" coords="189,107,337,133"/>
+<area shape="rect" id="node5" href="$timer_8c.html#afabd21de449be154dd65d5fdb2d8045d" title=" " alt="" coords="180,157,347,184"/>
+<area shape="rect" id="node6" href="$group__uart.html#gaf1ff3ad84fc50b3da2bf271b569af0da" title="Unsubscribes uart interrupts." alt="" coords="185,208,342,235"/>
+</map>

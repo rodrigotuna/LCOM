@@ -1,0 +1,5 @@
+<map id="uart_init" name="uart_init">
+<area shape="rect" id="node1" title="Initializes the uart." alt="" coords="5,31,81,57"/>
+<area shape="rect" id="node2" href="$group__utilities.html#ga8cbb47f21eedee20759ca5bbccad8ddb" title="Constructor." alt="" coords="145,5,255,32"/>
+<area shape="rect" id="node3" href="$group__uart.html#ga1093ab24dd92365b8bb682b6c589fe5d" title="Writes to a uart port." alt="" coords="129,56,271,83"/>
+</map>

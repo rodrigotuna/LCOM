@@ -1,0 +1,5 @@
+<map id="player" name="player">
+<area shape="rect" id="node1" title="Represents the player object." alt="" coords="38,184,101,211"/>
+<area shape="rect" id="node2" href="$structanimated__sprite.html" title="Represents an animated sprite object." alt="" coords="5,95,133,121"/>
+<area shape="rect" id="node3" href="$structsprite.html" title="Represents a sprite object." alt="" coords="40,5,99,32"/>
+</map>

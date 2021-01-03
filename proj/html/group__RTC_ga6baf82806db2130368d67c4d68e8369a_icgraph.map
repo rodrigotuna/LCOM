@@ -1,0 +1,23 @@
+<map id="rtc_read_status" name="rtc_read_status">
+<area shape="rect" id="node1" title="Reads the status from a certain register of the RTC." alt="" coords="1239,81,1361,108"/>
+<area shape="rect" id="node2" href="$group__RTC.html#gaf211913356b00f1cfdd640138be1d7d6" title="Disables RTC&#39;s interrupts." alt="" coords="1073,5,1191,32"/>
+<area shape="rect" id="node5" href="$group__RTC.html#gaa8dcc2b9b3f99cf9c321d4853d12080c" title="Enables RTC&#39;s interrupts." alt="" coords="1075,56,1189,83"/>
+<area shape="rect" id="node7" href="$group__RTC.html#ga75dad42881d64cf07cf1bdc2979a7056" title="Handles RTC interrupts." alt="" coords="784,309,843,336"/>
+<area shape="rect" id="node18" href="$group__RTC.html#ga78a98915aeadca4562138f2bf3cb7235" title="Checks if an update is in progress, if not reads data from a certain register of the RTC." alt="" coords="1077,157,1187,184"/>
+<area shape="rect" id="node3" href="$group__drivers.html#gaa6e7e19e570a120b6368e2254a4686f4" title="Initializes and configures all drivers." alt="" coords="363,5,442,32"/>
+<area shape="rect" id="node4" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,56,128,83"/>
+<area shape="rect" id="node6" href="$group__drivers.html#ga554f3d6478bee3655d51e7fa668b941d" title="Initializes and configures all drivers." alt="" coords="192,56,259,83"/>
+<area shape="rect" id="node8" href="$group__menu.html#gac59a512bcf4260d121c4d1b278dc1b1f" title="The menu for choosing the player in multiplayer mode." alt="" coords="323,259,483,285"/>
+<area shape="rect" id="node9" href="$group__menu.html#ga7fe3adb8b69baff33af24e4a3a9c5048" title="The main menu." alt="" coords="176,411,275,437"/>
+<area shape="rect" id="node10" href="$group__menu.html#ga0d8f2f6a8a7d23bc0b41944745ead924" title="The connecting menu for player 1." alt="" coords="531,107,704,133"/>
+<area shape="rect" id="node11" href="$group__menu.html#gac75ce766722ec36ebc72b4a1f3b3d932" title="The connecting menu for player 1." alt="" coords="531,208,704,235"/>
+<area shape="rect" id="node12" href="$group__menu.html#ga5e1bba404f1f9ea1b95cbdc8be1e7f3c" title="The menu for entering the player&#39;s name upon a new highscore." alt="" coords="549,411,686,437"/>
+<area shape="rect" id="node13" href="$group__menu.html#gadf831408d6f8828e5d3b07157084397f" title="The gameover menu." alt="" coords="551,360,683,387"/>
+<area shape="rect" id="node14" href="$group__game.html#gaff3eae8f45aa908e857832037be6b68b" title="The multiplayer mode in the perspective of player 1." alt="" coords="558,259,677,285"/>
+<area shape="rect" id="node15" href="$group__game.html#gad3d26a3cfd89c9412d7e886cd6edbe17" title="The multiplayer mode in the perspective of player 2." alt="" coords="558,309,677,336"/>
+<area shape="rect" id="node16" href="$group__menu.html#ga6a8428667b9b4b4c218bb345b7d9fe6a" title="The scoreboard menu." alt="" coords="333,461,472,488"/>
+<area shape="rect" id="node17" href="$group__game.html#ga920a25cd888a57a8be33e789bd25c872" title="The single player mode." alt="" coords="348,512,457,539"/>
+<area shape="rect" id="node19" href="$group__RTC.html#gafc610cbc86eb9f9e10839ee6a6d0316c" title="Reads the year, month, day, hours, minutes and seconds from the RTC." alt="" coords="923,157,1025,184"/>
+<area shape="rect" id="node20" href="$group__scoreboard.html#gaab980491872869ae9951ff99d49a5324" title="Adds a new score to the scoreboard file." alt="" coords="752,385,875,412"/>
+<area shape="rect" id="node21" href="$group__RTC.html#gaffcc05e18413df2f8b468007d7fd13a6" title="Sets an alarm seconds from the current time on the RTC." alt="" coords="758,132,869,159"/>
+</map>

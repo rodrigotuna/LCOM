@@ -3,8 +3,7 @@
 #include "math.h"
 
 #include "gameLogic.h"
-#include "mouse.h"
-#include "i8042.h"
+#include "libs/i8042.h"
 
 //Ball Functions
 

@@ -1,0 +1,11 @@
+<map id="valid_shot" name="valid_shot">
+<area shape="rect" id="node1" title="Determines wether a shot was valid or not." alt="" coords="905,81,995,108"/>
+<area shape="rect" id="node2" href="$group__entities.html#gaf63db8b8eb1bf05063f96352ce67d7be" title="Changes the velocity of the ball in order to reach a given point and updates variable &#160;&#160;last_player." alt="" coords="697,81,857,108"/>
+<area shape="rect" id="node3" href="$group__game.html#gaff3eae8f45aa908e857832037be6b68b" title="The multiplayer mode in the perspective of player 1." alt="" coords="531,5,649,32"/>
+<area shape="rect" id="node7" href="$group__game.html#gad3d26a3cfd89c9412d7e886cd6edbe17" title="The multiplayer mode in the perspective of player 2." alt="" coords="531,56,649,83"/>
+<area shape="rect" id="node8" href="$group__entities.html#ga40b387a86e67e63590704e0f3779a33c" title="Shoots the ball to a random point inside the lower side of the field." alt="" coords="545,107,635,133"/>
+<area shape="rect" id="node9" href="$group__game.html#ga920a25cd888a57a8be33e789bd25c872" title="The single player mode." alt="" coords="348,107,457,133"/>
+<area shape="rect" id="node4" href="$group__menu.html#gac59a512bcf4260d121c4d1b278dc1b1f" title="The menu for choosing the player in multiplayer mode." alt="" coords="323,56,483,83"/>
+<area shape="rect" id="node5" href="$group__menu.html#ga7fe3adb8b69baff33af24e4a3a9c5048" title="The main menu." alt="" coords="176,81,275,108"/>
+<area shape="rect" id="node6" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,81,128,108"/>
+</map>

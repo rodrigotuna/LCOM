@@ -1,0 +1,4 @@
+<map id="uart_reset" name="uart_reset">
+<area shape="rect" id="node1" title="Resets the uart." alt="" coords="5,5,93,32"/>
+<area shape="rect" id="node2" href="$group__utilities.html#ga78e524d03b78021657b50a6fec2c3c97" title="Destructor." alt="" coords="141,5,260,32"/>
+</map>

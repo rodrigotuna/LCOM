@@ -1,0 +1,4 @@
+<map id="chooseplayer_menu_mode" name="chooseplayer_menu_mode">
+<area shape="rect" id="node1" title="Checks which choose player menu mode is selected." alt="" coords="5,5,203,32"/>
+<area shape="rect" id="node2" href="$group__menu.html#ga55105e164681a479d3110b267d596fca" title="Checks if the cursor is inside the button bounds." alt="" coords="251,5,413,32"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="send_player_message" name="send_player_message">
+<area shape="rect" id="node1" title="Sends a message related to the player." alt="" coords="5,31,172,57"/>
+<area shape="rect" id="node2" href="$group__uart.html#gac2cdc77ff6f0881092b0ff662f57b575" title="Sends a string to the other computer." alt="" coords="220,31,351,57"/>
+<area shape="rect" id="node3" href="$group__uart.html#ga670b394681439966458785b8fc1b5b00" title="Sends a char to the other computer." alt="" coords="399,31,520,57"/>
+<area shape="rect" id="node4" href="$group__uart.html#ga8d98030d0283fe09aa36341f27f8816f" title="Reads from a uart port." alt="" coords="568,5,723,32"/>
+<area shape="rect" id="node6" href="$group__uart.html#ga1093ab24dd92365b8bb682b6c589fe5d" title="Writes to a uart port." alt="" coords="575,56,716,83"/>
+<area shape="rect" id="node5" href="$group__utilities.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="Wrapper of function sys_inb()" alt="" coords="771,5,869,32"/>
+</map>

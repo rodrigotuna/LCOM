@@ -1,0 +1,358 @@
+\hypertarget{group__utilities}{}\doxysection{utilities}
+\label{group__utilities}\index{utilities@{utilities}}
+
+
+Functions with utility functions.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structqueue}{queue}}
+\begin{DoxyCompactList}\small\item\em struct that represents a queue \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structqueue}{queue}} \mbox{\hyperlink{group__utilities_gaa8acf648f3b0c69d7e132fcc61dc58c7}{queue\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int() \mbox{\hyperlink{group__utilities_ga81621440b3d65680979425e39aa8c789}{util\+\_\+get\+\_\+\+L\+SB}} (uint16\+\_\+t val, uint8\+\_\+t $\ast$lsb)
+\begin{DoxyCompactList}\small\item\em Gets the L\+SB of a 16-\/bit number. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{group__utilities_ga6a880076cd2ec468834438b6e0c58836}{util\+\_\+get\+\_\+\+M\+SB}} (uint16\+\_\+t val, uint8\+\_\+t $\ast$msb)
+\begin{DoxyCompactList}\small\item\em Gets the M\+SB of a 16-\/bit number. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{group__utilities_ga79a031a8611f5b2d6afa4158e92b0fb4}{util\+\_\+sys\+\_\+inb}} (int port, uint8\+\_\+t $\ast$value)
+\begin{DoxyCompactList}\small\item\em Wrapper of function sys\+\_\+inb() \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{group__utilities_gad3fbed5388f426898da70ccce6c6637b}{min}} (uint16\+\_\+t a, uint16\+\_\+t b)
+\begin{DoxyCompactList}\small\item\em Gets the smallest of 2 numbers. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{group__utilities_gabfe9bd035a0195eebca322468e35e0ce}{max}} (int16\+\_\+t a, int16\+\_\+t b)
+\begin{DoxyCompactList}\small\item\em Gets the biggest of 2 numbers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utilities_gaa8acf648f3b0c69d7e132fcc61dc58c7}{queue\+\_\+t}} $\ast$ \mbox{\hyperlink{group__utilities_ga8cbb47f21eedee20759ca5bbccad8ddb}{create\+\_\+queue}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__utilities_ga78e524d03b78021657b50a6fec2c3c97}{destroy\+\_\+queue}} (\mbox{\hyperlink{group__utilities_gaa8acf648f3b0c69d7e132fcc61dc58c7}{queue\+\_\+t}} $\ast$\mbox{\hyperlink{structqueue}{queue}})
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__utilities_gac71dd3b2de9fd044289ae077f37513d8}{push}} (\mbox{\hyperlink{group__utilities_gaa8acf648f3b0c69d7e132fcc61dc58c7}{queue\+\_\+t}} $\ast$q, uint8\+\_\+t c)
+\begin{DoxyCompactList}\small\item\em Adds a variable to the queue. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__utilities_gad8a9a0c1c6525cebebf57399b9807601}{top}} (\mbox{\hyperlink{group__utilities_gaa8acf648f3b0c69d7e132fcc61dc58c7}{queue\+\_\+t}} $\ast$q)
+\begin{DoxyCompactList}\small\item\em Gets the element on top of the queue. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__utilities_ga15b3fcf286d6f0013eab16891d7fb5fe}{pop}} (\mbox{\hyperlink{group__utilities_gaa8acf648f3b0c69d7e132fcc61dc58c7}{queue\+\_\+t}} $\ast$q)
+\begin{DoxyCompactList}\small\item\em Pops the first element of the queue. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utilities_ga89031d97e56983824082ca9e18d5897e}{empty}} (\mbox{\hyperlink{group__utilities_gaa8acf648f3b0c69d7e132fcc61dc58c7}{queue\+\_\+t}} $\ast$q)
+\begin{DoxyCompactList}\small\item\em Checks if a queue is empty. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__utilities_gad048f8d8bf513dd8f460ab7461fbb176}{int\+\_\+to\+\_\+char}} (int value, char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Gets a string of an integer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions with utility functions. 
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__utilities_gaa8acf648f3b0c69d7e132fcc61dc58c7}\label{group__utilities_gaa8acf648f3b0c69d7e132fcc61dc58c7}} 
+\index{utilities@{utilities}!queue\_t@{queue\_t}}
+\index{queue\_t@{queue\_t}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{queue\_t}{queue\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structqueue}{queue}} \mbox{\hyperlink{group__utilities_gaa8acf648f3b0c69d7e132fcc61dc58c7}{queue\+\_\+t}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__utilities_ga8cbb47f21eedee20759ca5bbccad8ddb}\label{group__utilities_ga8cbb47f21eedee20759ca5bbccad8ddb}} 
+\index{utilities@{utilities}!create\_queue@{create\_queue}}
+\index{create\_queue@{create\_queue}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{create\_queue()}{create\_queue()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utilities_gaa8acf648f3b0c69d7e132fcc61dc58c7}{queue\+\_\+t}}$\ast$ create\+\_\+queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the queue created 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__utilities_ga8cbb47f21eedee20759ca5bbccad8ddb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__utilities_ga78e524d03b78021657b50a6fec2c3c97}\label{group__utilities_ga78e524d03b78021657b50a6fec2c3c97}} 
+\index{utilities@{utilities}!destroy\_queue@{destroy\_queue}}
+\index{destroy\_queue@{destroy\_queue}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{destroy\_queue()}{destroy\_queue()}}
+{\footnotesize\ttfamily void destroy\+\_\+queue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utilities_gaa8acf648f3b0c69d7e132fcc61dc58c7}{queue\+\_\+t}} $\ast$}]{queue }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em queue} & object to be destroyed \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__utilities_ga78e524d03b78021657b50a6fec2c3c97_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__utilities_ga89031d97e56983824082ca9e18d5897e}\label{group__utilities_ga89031d97e56983824082ca9e18d5897e}} 
+\index{utilities@{utilities}!empty@{empty}}
+\index{empty@{empty}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily bool empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utilities_gaa8acf648f3b0c69d7e132fcc61dc58c7}{queue\+\_\+t}} $\ast$}]{q }\end{DoxyParamCaption})}
+
+
+
+Checks if a queue is empty. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & queue object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if queue is empty, false otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__utilities_ga89031d97e56983824082ca9e18d5897e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__utilities_gad048f8d8bf513dd8f460ab7461fbb176}\label{group__utilities_gad048f8d8bf513dd8f460ab7461fbb176}} 
+\index{utilities@{utilities}!int\_to\_char@{int\_to\_char}}
+\index{int\_to\_char@{int\_to\_char}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{int\_to\_char()}{int\_to\_char()}}
+{\footnotesize\ttfamily void int\+\_\+to\+\_\+char (\begin{DoxyParamCaption}\item[{int}]{value,  }\item[{char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Gets a string of an integer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & integer to be converted \\
+\hline
+{\em str} & where the string will be placed \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__utilities_gad048f8d8bf513dd8f460ab7461fbb176_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__utilities_gabfe9bd035a0195eebca322468e35e0ce}\label{group__utilities_gabfe9bd035a0195eebca322468e35e0ce}} 
+\index{utilities@{utilities}!max@{max}}
+\index{max@{max}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{max()}{max()}}
+{\footnotesize\ttfamily int16\+\_\+t max (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{a,  }\item[{int16\+\_\+t}]{b }\end{DoxyParamCaption})}
+
+
+
+Gets the biggest of 2 numbers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & number to be compared \\
+\hline
+{\em b} & number to be compared \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The biggest number 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__utilities_gabfe9bd035a0195eebca322468e35e0ce_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__utilities_gad3fbed5388f426898da70ccce6c6637b}\label{group__utilities_gad3fbed5388f426898da70ccce6c6637b}} 
+\index{utilities@{utilities}!min@{min}}
+\index{min@{min}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{min()}{min()}}
+{\footnotesize\ttfamily uint16\+\_\+t min (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{a,  }\item[{uint16\+\_\+t}]{b }\end{DoxyParamCaption})}
+
+
+
+Gets the smallest of 2 numbers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & number to be compared \\
+\hline
+{\em b} & number to be compared \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The smallest number 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__utilities_gad3fbed5388f426898da70ccce6c6637b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__utilities_ga15b3fcf286d6f0013eab16891d7fb5fe}\label{group__utilities_ga15b3fcf286d6f0013eab16891d7fb5fe}} 
+\index{utilities@{utilities}!pop@{pop}}
+\index{pop@{pop}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{pop()}{pop()}}
+{\footnotesize\ttfamily void pop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utilities_gaa8acf648f3b0c69d7e132fcc61dc58c7}{queue\+\_\+t}} $\ast$}]{q }\end{DoxyParamCaption})}
+
+
+
+Pops the first element of the queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & queue object \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__utilities_ga15b3fcf286d6f0013eab16891d7fb5fe_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__utilities_gac71dd3b2de9fd044289ae077f37513d8}\label{group__utilities_gac71dd3b2de9fd044289ae077f37513d8}} 
+\index{utilities@{utilities}!push@{push}}
+\index{push@{push}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{push()}{push()}}
+{\footnotesize\ttfamily void push (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utilities_gaa8acf648f3b0c69d7e132fcc61dc58c7}{queue\+\_\+t}} $\ast$}]{q,  }\item[{uint8\+\_\+t}]{c }\end{DoxyParamCaption})}
+
+
+
+Adds a variable to the queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & queue object \\
+\hline
+{\em c} & variable to add \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__utilities_gac71dd3b2de9fd044289ae077f37513d8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__utilities_gad8a9a0c1c6525cebebf57399b9807601}\label{group__utilities_gad8a9a0c1c6525cebebf57399b9807601}} 
+\index{utilities@{utilities}!top@{top}}
+\index{top@{top}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{top()}{top()}}
+{\footnotesize\ttfamily uint8\+\_\+t top (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utilities_gaa8acf648f3b0c69d7e132fcc61dc58c7}{queue\+\_\+t}} $\ast$}]{q }\end{DoxyParamCaption})}
+
+
+
+Gets the element on top of the queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & queue object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Element on top of the queue 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__utilities_gad8a9a0c1c6525cebebf57399b9807601_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__utilities_ga81621440b3d65680979425e39aa8c789}\label{group__utilities_ga81621440b3d65680979425e39aa8c789}} 
+\index{utilities@{utilities}!util\_get\_LSB@{util\_get\_LSB}}
+\index{util\_get\_LSB@{util\_get\_LSB}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{util\_get\_LSB()}{util\_get\_LSB()}}
+{\footnotesize\ttfamily int() util\+\_\+get\+\_\+\+L\+SB (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{val,  }\item[{uint8\+\_\+t $\ast$}]{lsb }\end{DoxyParamCaption})}
+
+
+
+Gets the L\+SB of a 16-\/bit number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & 16-\/bit number \\
+\hline
+{\em lsb} & variable where the L\+SB will be stored \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__utilities_ga81621440b3d65680979425e39aa8c789_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__utilities_ga6a880076cd2ec468834438b6e0c58836}\label{group__utilities_ga6a880076cd2ec468834438b6e0c58836}} 
+\index{utilities@{utilities}!util\_get\_MSB@{util\_get\_MSB}}
+\index{util\_get\_MSB@{util\_get\_MSB}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{util\_get\_MSB()}{util\_get\_MSB()}}
+{\footnotesize\ttfamily int() util\+\_\+get\+\_\+\+M\+SB (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{val,  }\item[{uint8\+\_\+t $\ast$}]{msb }\end{DoxyParamCaption})}
+
+
+
+Gets the M\+SB of a 16-\/bit number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & 16-\/bit number \\
+\hline
+{\em msb} & variable where the M\+SB will be stored \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__utilities_ga6a880076cd2ec468834438b6e0c58836_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__utilities_ga79a031a8611f5b2d6afa4158e92b0fb4}\label{group__utilities_ga79a031a8611f5b2d6afa4158e92b0fb4}} 
+\index{utilities@{utilities}!util\_sys\_inb@{util\_sys\_inb}}
+\index{util\_sys\_inb@{util\_sys\_inb}!utilities@{utilities}}
+\doxysubsubsection{\texorpdfstring{util\_sys\_inb()}{util\_sys\_inb()}}
+{\footnotesize\ttfamily int() util\+\_\+sys\+\_\+inb (\begin{DoxyParamCaption}\item[{int}]{port,  }\item[{uint8\+\_\+t $\ast$}]{value }\end{DoxyParamCaption})}
+
+
+
+Wrapper of function sys\+\_\+inb() 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & port to read from \\
+\hline
+{\em value} & variable where the value will be stored \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__utilities_ga79a031a8611f5b2d6afa4158e92b0fb4_icgraph}
+\end{center}
+\end{figure}

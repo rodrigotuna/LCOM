@@ -1,0 +1,8 @@
+<map id="int_to_bcd" name="int_to_bcd">
+<area shape="rect" id="node1" title="Converts a decimal integer to BCD." alt="" coords="911,5,1000,32"/>
+<area shape="rect" id="node2" href="$group__RTC.html#gaffcc05e18413df2f8b468007d7fd13a6" title="Sets an alarm seconds from the current time on the RTC." alt="" coords="752,5,863,32"/>
+<area shape="rect" id="node3" href="$group__menu.html#ga0d8f2f6a8a7d23bc0b41944745ead924" title="The connecting menu for player 1." alt="" coords="531,5,704,32"/>
+<area shape="rect" id="node4" href="$group__menu.html#gac59a512bcf4260d121c4d1b278dc1b1f" title="The menu for choosing the player in multiplayer mode." alt="" coords="323,5,483,32"/>
+<area shape="rect" id="node5" href="$group__menu.html#ga7fe3adb8b69baff33af24e4a3a9c5048" title="The main menu." alt="" coords="176,5,275,32"/>
+<area shape="rect" id="node6" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,5,128,32"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="send_ball_message" name="send_ball_message">
+<area shape="rect" id="node1" title="Sends a message related to the ball." alt="" coords="5,81,156,108"/>
+<area shape="rect" id="node2" href="$group__uart.html#gac2cdc77ff6f0881092b0ff662f57b575" title="Sends a string to the other computer." alt="" coords="204,31,335,57"/>
+<area shape="rect" id="node7" href="$group__utilities.html#ga81621440b3d65680979425e39aa8c789" title="Gets the LSB of a 16&#45;bit number." alt="" coords="218,81,321,108"/>
+<area shape="rect" id="node8" href="$group__utilities.html#ga6a880076cd2ec468834438b6e0c58836" title="Gets the MSB of a 16&#45;bit number." alt="" coords="216,132,323,159"/>
+<area shape="rect" id="node3" href="$group__uart.html#ga670b394681439966458785b8fc1b5b00" title="Sends a char to the other computer." alt="" coords="383,31,504,57"/>
+<area shape="rect" id="node4" href="$group__uart.html#ga8d98030d0283fe09aa36341f27f8816f" title="Reads from a uart port." alt="" coords="552,5,707,32"/>
+<area shape="rect" id="node6" href="$group__uart.html#ga1093ab24dd92365b8bb682b6c589fe5d" title="Writes to a uart port." alt="" coords="559,56,700,83"/>
+<area shape="rect" id="node5" href="$group__utilities.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="Wrapper of function sys_inb()" alt="" coords="755,5,853,32"/>
+</map>

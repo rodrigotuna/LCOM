@@ -1,0 +1,7 @@
+<map id="rtc_get_date" name="rtc_get_date">
+<area shape="rect" id="node1" title="Reads the year, month, day, hours, minutes and seconds from the RTC." alt="" coords="5,31,108,57"/>
+<area shape="rect" id="node2" href="$group__RTC.html#gafe873c55e04751c398276445cb9a2820" title="Converts value in BCD to a decimal integer." alt="" coords="167,5,256,32"/>
+<area shape="rect" id="node3" href="$group__RTC.html#ga78a98915aeadca4562138f2bf3cb7235" title="Checks if an update is in progress, if not reads data from a certain register of the RTC." alt="" coords="156,56,267,83"/>
+<area shape="rect" id="node4" href="$group__RTC.html#ga6baf82806db2130368d67c4d68e8369a" title="Reads the status from a certain register of the RTC." alt="" coords="315,31,437,57"/>
+<area shape="rect" id="node5" href="$group__utilities.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="Wrapper of function sys_inb()" alt="" coords="485,56,584,83"/>
+</map>

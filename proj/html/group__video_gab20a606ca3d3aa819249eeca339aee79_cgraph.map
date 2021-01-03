@@ -1,0 +1,4 @@
+<map id="set_pixel" name="set_pixel">
+<area shape="rect" id="node1" title="Changes the color of a pixel to a specified one." alt="" coords="5,5,85,32"/>
+<area shape="rect" id="node2" href="$group__video.html#ga3cc5fc9cad5e43a1af5d3339388af1ce" title="Indicates the number of bytes per Pixel." alt="" coords="133,5,244,32"/>
+</map>

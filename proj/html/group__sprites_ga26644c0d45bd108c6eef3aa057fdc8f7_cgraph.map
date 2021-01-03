@@ -1,0 +1,6 @@
+<map id="create_animated_sprite" name="create_animated_sprite">
+<area shape="rect" id="node1" title="Creates an animated sprite object." alt="" coords="5,31,181,57"/>
+<area shape="rect" id="node2" href="$group__sprites.html#gab157c542e1fcb61fd76dcbbf479fc991" title="Creates a sprite object." alt="" coords="268,5,375,32"/>
+<area shape="rect" id="node4" href="$group__sprites.html#ga00ca0ab0be00e4dba670f31cb68e3f04" title="Destroys an animated sprite object." alt="" coords="229,56,413,83"/>
+<area shape="rect" id="node3" href="$group__sprites.html#gab78b0b42532b8c0b5322ddf0e1ed85e1" title="Destroys a sprite object." alt="" coords="461,31,576,57"/>
+</map>

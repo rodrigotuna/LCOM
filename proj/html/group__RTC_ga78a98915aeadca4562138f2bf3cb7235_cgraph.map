@@ -1,0 +1,5 @@
+<map id="rtc_read_date" name="rtc_read_date">
+<area shape="rect" id="node1" title="Checks if an update is in progress, if not reads data from a certain register of the RTC." alt="" coords="5,31,116,57"/>
+<area shape="rect" id="node2" href="$group__RTC.html#ga6baf82806db2130368d67c4d68e8369a" title="Reads the status from a certain register of the RTC." alt="" coords="164,5,287,32"/>
+<area shape="rect" id="node3" href="$group__utilities.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="Wrapper of function sys_inb()" alt="" coords="335,31,433,57"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="reset_communication" name="reset_communication">
+<area shape="rect" id="node1" title="Resets the communication variables." alt="" coords="5,5,168,32"/>
+<area shape="rect" id="node2" href="$group__uart.html#ga6bc69bf595f62c9e74fb26c4ed293fed" title="Cleans the the fifo&#39;s." alt="" coords="216,5,307,32"/>
+<area shape="rect" id="node3" href="$group__uart.html#ga1093ab24dd92365b8bb682b6c589fe5d" title="Writes to a uart port." alt="" coords="355,5,496,32"/>
+</map>

@@ -1,9 +1,6 @@
 #pragma once
-
+#include<lcom/lcf.h>
 #include <stdint.h>
-
-#include "video.h"
-#include "i8042.h"
 
 /** @defgroup sprites sprites
  * @{

@@ -1,0 +1,25 @@
+\hypertarget{gameLogic_8c}{}\doxysection{game\+Logic.\+c File Reference}
+\label{gameLogic_8c}\index{gameLogic.c@{gameLogic.c}}
+{\ttfamily \#include \char`\"{}game\+Logic.\+h\char`\"{}}\newline
+Include dependency graph for game\+Logic.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gameLogic_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__gameLogic_gac0fce8cc5c3dd3783df55521a86bdf30}{ball\+\_\+state\+\_\+t}} \mbox{\hyperlink{group__gameLogic_ga0a70ce3e533dddf1e050b3bc5f0040c1}{get\+\_\+ball\+\_\+state}} (\mbox{\hyperlink{group__entities_gae0d42bea834ce8ae4fde528ab890c28c}{ball\+\_\+t}} $\ast$\mbox{\hyperlink{structball}{ball}})
+\begin{DoxyCompactList}\small\item\em Gets the state of the ball. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__gameLogic_ga94809074e2b600c3f3ea0c1322d367dd}{won\+\_\+service\+\_\+t}} \mbox{\hyperlink{group__gameLogic_ga9ecfcac375fe4957ba3e8469940b5366}{get\+\_\+winner\+\_\+of\+\_\+set}} (\mbox{\hyperlink{group__entities_gae0d42bea834ce8ae4fde528ab890c28c}{ball\+\_\+t}} $\ast$\mbox{\hyperlink{structball}{ball}})
+\begin{DoxyCompactList}\small\item\em Gets the winner of the service. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__gameLogic_gae1ed583c0e89c9b5cf58ff180ace0d16}{valid\+\_\+shot}} (uint16\+\_\+t x\+\_\+pos, uint16\+\_\+t y\+\_\+pos, int \mbox{\hyperlink{structplayer}{player}})
+\begin{DoxyCompactList}\small\item\em Determines wether a shot was valid or not. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__gameLogic_gaf24fa5cfbb79601a6fc2486ed22d722b}{can\+\_\+shoot}} (\mbox{\hyperlink{group__entities_gae0d42bea834ce8ae4fde528ab890c28c}{ball\+\_\+t}} $\ast$\mbox{\hyperlink{structball}{ball}}, \mbox{\hyperlink{group__entities_ga9df65ef34efcf40007091fa0e679ea0c}{player\+\_\+t}} $\ast$\mbox{\hyperlink{structplayer}{player}})
+\begin{DoxyCompactList}\small\item\em Determines if the ball is close enough to the player to make the shot. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__gameLogic_ga6c86cfce90c3ca581cc37e58a5283edc}{update\+\_\+score}} (\mbox{\hyperlink{group__entities_ga9df65ef34efcf40007091fa0e679ea0c}{player\+\_\+t}} $\ast$winner, \mbox{\hyperlink{group__entities_ga9df65ef34efcf40007091fa0e679ea0c}{player\+\_\+t}} $\ast$loser)
+\begin{DoxyCompactList}\small\item\em Updates the score of the multiplayer game. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__gameLogic_ga112bc136533433e90a210b469691c469}{multiplayer\+\_\+score}} (\mbox{\hyperlink{group__entities_ga9df65ef34efcf40007091fa0e679ea0c}{player\+\_\+t}} $\ast$\mbox{\hyperlink{structplayer}{player}})
+\begin{DoxyCompactList}\small\item\em Transforms the score of the player to the respective string. \end{DoxyCompactList}\end{DoxyCompactItemize}

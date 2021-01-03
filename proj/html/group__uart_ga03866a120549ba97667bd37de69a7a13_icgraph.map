@@ -1,0 +1,11 @@
+<map id="uart_read_fifo" name="uart_read_fifo">
+<area shape="rect" id="node1" title="Reads a fifo." alt="" coords="867,98,979,124"/>
+<area shape="rect" id="node2" href="$group__uart.html#ga67d2da4dd20c731989c130bbe2cd4c85" title="Uart&#39;s interrupt handler." alt="" coords="752,98,819,124"/>
+<area shape="rect" id="node3" href="$group__menu.html#gac59a512bcf4260d121c4d1b278dc1b1f" title="The menu for choosing the player in multiplayer mode." alt="" coords="323,98,483,124"/>
+<area shape="rect" id="node4" href="$group__menu.html#ga7fe3adb8b69baff33af24e4a3a9c5048" title="The main menu." alt="" coords="176,47,275,74"/>
+<area shape="rect" id="node6" href="$group__menu.html#ga0d8f2f6a8a7d23bc0b41944745ead924" title="The connecting menu for player 1." alt="" coords="531,72,704,99"/>
+<area shape="rect" id="node7" href="$group__menu.html#gac75ce766722ec36ebc72b4a1f3b3d932" title="The connecting menu for player 1." alt="" coords="531,123,704,150"/>
+<area shape="rect" id="node8" href="$group__game.html#gaff3eae8f45aa908e857832037be6b68b" title="The multiplayer mode in the perspective of player 1." alt="" coords="558,174,677,200"/>
+<area shape="rect" id="node9" href="$group__game.html#gad3d26a3cfd89c9412d7e886cd6edbe17" title="The multiplayer mode in the perspective of player 2." alt="" coords="558,224,677,251"/>
+<area shape="rect" id="node5" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,47,128,74"/>
+</map>

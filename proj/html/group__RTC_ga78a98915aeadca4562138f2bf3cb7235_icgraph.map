@@ -1,0 +1,11 @@
+<map id="rtc_read_date" name="rtc_read_date">
+<area shape="rect" id="node1" title="Checks if an update is in progress, if not reads data from a certain register of the RTC." alt="" coords="1073,31,1184,57"/>
+<area shape="rect" id="node2" href="$group__RTC.html#gafc610cbc86eb9f9e10839ee6a6d0316c" title="Reads the year, month, day, hours, minutes and seconds from the RTC." alt="" coords="923,31,1025,57"/>
+<area shape="rect" id="node3" href="$group__scoreboard.html#gaab980491872869ae9951ff99d49a5324" title="Adds a new score to the scoreboard file." alt="" coords="752,5,875,32"/>
+<area shape="rect" id="node7" href="$group__RTC.html#gaffcc05e18413df2f8b468007d7fd13a6" title="Sets an alarm seconds from the current time on the RTC." alt="" coords="758,56,869,83"/>
+<area shape="rect" id="node4" href="$group__menu.html#ga5e1bba404f1f9ea1b95cbdc8be1e7f3c" title="The menu for entering the player&#39;s name upon a new highscore." alt="" coords="334,5,471,32"/>
+<area shape="rect" id="node5" href="$group__menu.html#ga7fe3adb8b69baff33af24e4a3a9c5048" title="The main menu." alt="" coords="176,31,275,57"/>
+<area shape="rect" id="node6" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,31,128,57"/>
+<area shape="rect" id="node8" href="$group__menu.html#ga0d8f2f6a8a7d23bc0b41944745ead924" title="The connecting menu for player 1." alt="" coords="531,56,704,83"/>
+<area shape="rect" id="node9" href="$group__menu.html#gac59a512bcf4260d121c4d1b278dc1b1f" title="The menu for choosing the player in multiplayer mode." alt="" coords="323,56,483,83"/>
+</map>

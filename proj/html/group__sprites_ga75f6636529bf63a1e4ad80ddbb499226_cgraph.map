@@ -1,0 +1,5 @@
+<map id="print_string" name="print_string">
+<area shape="rect" id="node1" title="Displays any string on screen." alt="" coords="5,5,101,32"/>
+<area shape="rect" id="node2" href="$group__video.html#gab20a606ca3d3aa819249eeca339aee79" title="Changes the color of a pixel to a specified one." alt="" coords="149,5,229,32"/>
+<area shape="rect" id="node3" href="$group__video.html#ga3cc5fc9cad5e43a1af5d3339388af1ce" title="Indicates the number of bytes per Pixel." alt="" coords="277,5,388,32"/>
+</map>

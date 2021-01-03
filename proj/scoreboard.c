@@ -1,5 +1,7 @@
 #include "scoreboard.h"
 
+#include "libs/rtc.h"
+
 int check_highscore(int points){
   FILE *scoreboard;
   scoreboard = fopen(SCOREBOARDPATH, "r+");

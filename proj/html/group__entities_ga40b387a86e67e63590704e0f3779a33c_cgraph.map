@@ -1,0 +1,5 @@
+<map id="shoot_ball" name="shoot_ball">
+<area shape="rect" id="node1" title="Shoots the ball to a random point inside the lower side of the field." alt="" coords="5,5,95,32"/>
+<area shape="rect" id="node2" href="$group__entities.html#gaf63db8b8eb1bf05063f96352ce67d7be" title="Changes the velocity of the ball in order to reach a given point and updates variable &#160;&#160;last_player." alt="" coords="143,5,303,32"/>
+<area shape="rect" id="node3" href="$group__gameLogic.html#gae1ed583c0e89c9b5cf58ff180ace0d16" title="Determines wether a shot was valid or not." alt="" coords="351,5,440,32"/>
+</map>

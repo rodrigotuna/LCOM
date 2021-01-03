@@ -1,0 +1,4 @@
+<map id="kbc_read" name="kbc_read">
+<area shape="rect" id="node1" title="Reads a byte from the kbv." alt="" coords="5,5,87,32"/>
+<area shape="rect" id="node2" href="$group__utilities.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="Wrapper of function sys_inb()" alt="" coords="135,5,233,32"/>
+</map>

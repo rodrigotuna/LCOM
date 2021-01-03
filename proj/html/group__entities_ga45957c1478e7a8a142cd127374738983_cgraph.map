@@ -1,0 +1,6 @@
+<map id="change_player_position" name="change_player_position">
+<area shape="rect" id="node1" title="Updates the position of the player." alt="" coords="5,31,181,57"/>
+<area shape="rect" id="node2" href="$group__sprites.html#gaf6a3974a4b1528b2340c02dc6f94c91f" title="Keeps the sprite position inside it&#39;s screen bounds." alt="" coords="229,31,400,57"/>
+<area shape="rect" id="node3" href="$group__utilities.html#gabfe9bd035a0195eebca322468e35e0ce" title="Gets the biggest of 2 numbers." alt="" coords="448,5,499,32"/>
+<area shape="rect" id="node4" href="$group__utilities.html#gad3fbed5388f426898da70ccce6c6637b" title="Gets the smallest of 2 numbers." alt="" coords="450,56,497,83"/>
+</map>

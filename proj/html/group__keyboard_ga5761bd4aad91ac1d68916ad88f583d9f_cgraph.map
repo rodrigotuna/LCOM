@@ -1,0 +1,5 @@
+<map id="kbc_ih" name="kbc_ih">
+<area shape="rect" id="node1" title="Keyboard&#39;s interrupt handler." alt="" coords="5,5,69,32"/>
+<area shape="rect" id="node2" href="$group__kbc.html#gaef6ef70e3fc1f34dfd977b3ac231b6c0" title="Reads a byte from the kbv." alt="" coords="117,5,199,32"/>
+<area shape="rect" id="node3" href="$group__utilities.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="Wrapper of function sys_inb()" alt="" coords="247,5,345,32"/>
+</map>

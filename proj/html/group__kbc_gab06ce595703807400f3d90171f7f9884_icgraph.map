@@ -1,0 +1,6 @@
+<map id="kbc_write_cmd" name="kbc_write_cmd">
+<area shape="rect" id="node1" title="Writes a command to the kbc." alt="" coords="449,5,569,32"/>
+<area shape="rect" id="node2" href="$group__kbc.html#gaadded535aadcef84a6ed404780215328" title="Restores the interrupts of the kbc." alt="" coords="303,5,401,32"/>
+<area shape="rect" id="node3" href="$group__drivers.html#gaa6e7e19e570a120b6368e2254a4686f4" title="Initializes and configures all drivers." alt="" coords="176,5,255,32"/>
+<area shape="rect" id="node4" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,5,128,32"/>
+</map>

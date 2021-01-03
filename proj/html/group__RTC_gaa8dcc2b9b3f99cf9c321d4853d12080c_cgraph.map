@@ -1,0 +1,6 @@
+<map id="rtc_enable_int" name="rtc_enable_int">
+<area shape="rect" id="node1" title="Enables RTC&#39;s interrupts." alt="" coords="5,31,120,57"/>
+<area shape="rect" id="node2" href="$group__RTC.html#ga6baf82806db2130368d67c4d68e8369a" title="Reads the status from a certain register of the RTC." alt="" coords="168,5,291,32"/>
+<area shape="rect" id="node4" href="$group__RTC.html#gaa70be8bcc213943e1567b8eba097b388" title="Writes data to a certain register of the RTC." alt="" coords="190,56,269,83"/>
+<area shape="rect" id="node3" href="$group__utilities.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="Wrapper of function sys_inb()" alt="" coords="339,5,437,32"/>
+</map>

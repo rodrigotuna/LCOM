@@ -1,6 +1,6 @@
 #include "communication.h"
 
-#include "uart.h"
+#include "libs/uart.h"
 #include "utilities.h"
 #include "entities.h"
 

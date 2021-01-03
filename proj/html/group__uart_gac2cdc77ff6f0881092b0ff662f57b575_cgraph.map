@@ -1,0 +1,7 @@
+<map id="uart_send_string" name="uart_send_string">
+<area shape="rect" id="node1" title="Sends a string to the other computer." alt="" coords="5,31,136,57"/>
+<area shape="rect" id="node2" href="$group__uart.html#ga670b394681439966458785b8fc1b5b00" title="Sends a char to the other computer." alt="" coords="184,31,305,57"/>
+<area shape="rect" id="node3" href="$group__uart.html#ga8d98030d0283fe09aa36341f27f8816f" title="Reads from a uart port." alt="" coords="353,5,508,32"/>
+<area shape="rect" id="node5" href="$group__uart.html#ga1093ab24dd92365b8bb682b6c589fe5d" title="Writes to a uart port." alt="" coords="360,56,501,83"/>
+<area shape="rect" id="node4" href="$group__utilities.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="Wrapper of function sys_inb()" alt="" coords="556,5,655,32"/>
+</map>

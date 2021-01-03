@@ -1,0 +1,17 @@
+<map id="reset_all" name="reset_all">
+<area shape="rect" id="node1" title="Initializes and configures all drivers." alt="" coords="5,157,84,184"/>
+<area shape="rect" id="node2" href="$group__kbc.html#gaadded535aadcef84a6ed404780215328" title="Restores the interrupts of the kbc." alt="" coords="141,81,240,108"/>
+<area shape="rect" id="node9" href="$group__mouse.html#gaafd943d471ebe8314612800462889205" title="Sets an argument to the mouse." alt="" coords="297,132,419,159"/>
+<area shape="rect" id="node11" href="$group__RTC.html#gaf211913356b00f1cfdd640138be1d7d6" title="Disables RTC&#39;s interrupts." alt="" coords="132,183,249,209"/>
+<area shape="rect" id="node14" href="$group__uart.html#ga4a76e6882caaefaebdb593de866c3d2b" title="Resets the uart." alt="" coords="147,259,235,285"/>
+<area shape="rect" id="node3" href="$group__kbc.html#ga4d01b87977dde6d295c19c982e5426ea" title="Reads a command from the kbc." alt="" coords="300,31,416,57"/>
+<area shape="rect" id="node7" href="$group__kbc.html#gab06ce595703807400f3d90171f7f9884" title="Writes a command to the kbc." alt="" coords="298,81,418,108"/>
+<area shape="rect" id="node4" href="$group__kbc.html#gabf6e77da648ded62b65bdb3f9a437424" title="Issues a command to the kbc." alt="" coords="467,56,589,83"/>
+<area shape="rect" id="node6" href="$group__kbc.html#gaef6ef70e3fc1f34dfd977b3ac231b6c0" title="Reads a byte from the kbv." alt="" coords="487,5,569,32"/>
+<area shape="rect" id="node5" href="$group__utilities.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="Wrapper of function sys_inb()" alt="" coords="637,107,736,133"/>
+<area shape="rect" id="node8" href="$group__kbc.html#ga4d8e5f92db8ceab45e7f7f3003728e80" title="Issues an argument to the kbc." alt="" coords="471,107,585,133"/>
+<area shape="rect" id="node10" href="$group__mouse.html#gae1cc406500640bfb1b8a2900150697bf" title="Reads one byte from the mouse." alt="" coords="477,157,579,184"/>
+<area shape="rect" id="node12" href="$group__RTC.html#ga6baf82806db2130368d67c4d68e8369a" title="Reads the status from a certain register of the RTC." alt="" coords="467,208,589,235"/>
+<area shape="rect" id="node13" href="$group__RTC.html#gaa70be8bcc213943e1567b8eba097b388" title="Writes data to a certain register of the RTC." alt="" coords="319,233,397,260"/>
+<area shape="rect" id="node15" href="$group__utilities.html#ga78e524d03b78021657b50a6fec2c3c97" title="Destructor." alt="" coords="299,284,417,311"/>
+</map>

@@ -1,0 +1,15 @@
+var searchData=
+[
+  ['reset_5fall_534',['reset_all',['../group__drivers.html#gaa6e7e19e570a120b6368e2254a4686f4',1,'reset_all():&#160;drivers.c'],['../group__drivers.html#gaa6e7e19e570a120b6368e2254a4686f4',1,'reset_all():&#160;drivers.c']]],
+  ['reset_5fcommunication_535',['reset_communication',['../group__communication.html#gafe8d85adab74a257ba6e03ab3e044ec0',1,'reset_communication():&#160;communication.c'],['../group__communication.html#gafe8d85adab74a257ba6e03ab3e044ec0',1,'reset_communication():&#160;communication.c']]],
+  ['rtc_5fdisable_5fint_536',['rtc_disable_int',['../group__RTC.html#gaf211913356b00f1cfdd640138be1d7d6',1,'rtc_disable_int(uint8_t flag):&#160;rtc.c'],['../group__RTC.html#gaf211913356b00f1cfdd640138be1d7d6',1,'rtc_disable_int(uint8_t flag):&#160;rtc.c']]],
+  ['rtc_5fenable_5fint_537',['rtc_enable_int',['../group__RTC.html#gaa8dcc2b9b3f99cf9c321d4853d12080c',1,'rtc_enable_int(uint8_t flag):&#160;rtc.c'],['../group__RTC.html#gaa8dcc2b9b3f99cf9c321d4853d12080c',1,'rtc_enable_int(uint8_t flag):&#160;rtc.c']]],
+  ['rtc_5fget_5fdate_538',['rtc_get_date',['../group__RTC.html#gafc610cbc86eb9f9e10839ee6a6d0316c',1,'rtc_get_date(uint8_t *date):&#160;rtc.c'],['../group__RTC.html#gafc610cbc86eb9f9e10839ee6a6d0316c',1,'rtc_get_date(uint8_t *date):&#160;rtc.c']]],
+  ['rtc_5fih_539',['rtc_ih',['../group__RTC.html#ga75dad42881d64cf07cf1bdc2979a7056',1,'rtc_ih():&#160;rtc.c'],['../group__RTC.html#ga75dad42881d64cf07cf1bdc2979a7056',1,'rtc_ih():&#160;rtc.c']]],
+  ['rtc_5fread_5fdate_540',['rtc_read_date',['../group__RTC.html#ga78a98915aeadca4562138f2bf3cb7235',1,'rtc_read_date(uint8_t cmd, uint8_t *data):&#160;rtc.c'],['../group__RTC.html#ga78a98915aeadca4562138f2bf3cb7235',1,'rtc_read_date(uint8_t cmd, uint8_t *data):&#160;rtc.c']]],
+  ['rtc_5fread_5fstatus_541',['rtc_read_status',['../group__RTC.html#ga6baf82806db2130368d67c4d68e8369a',1,'rtc_read_status(uint8_t cmd, uint8_t *stat):&#160;rtc.c'],['../group__RTC.html#ga6baf82806db2130368d67c4d68e8369a',1,'rtc_read_status(uint8_t cmd, uint8_t *stat):&#160;rtc.c']]],
+  ['rtc_5fset_5falarm_542',['rtc_set_alarm',['../group__RTC.html#gaffcc05e18413df2f8b468007d7fd13a6',1,'rtc_set_alarm(uint8_t tseconds):&#160;rtc.c'],['../group__RTC.html#gaffcc05e18413df2f8b468007d7fd13a6',1,'rtc_set_alarm(uint8_t tseconds):&#160;rtc.c']]],
+  ['rtc_5fsubscribe_5fint_543',['rtc_subscribe_int',['../group__RTC.html#ga5171a9c0f54940fe60f7500896afcc86',1,'rtc_subscribe_int(uint8_t *bit_no):&#160;rtc.c'],['../group__RTC.html#ga5171a9c0f54940fe60f7500896afcc86',1,'rtc_subscribe_int(uint8_t *bit_no):&#160;rtc.c']]],
+  ['rtc_5funsubscribe_5fint_544',['rtc_unsubscribe_int',['../group__RTC.html#gab8f17bf5280c908c8b199a90fefcc758',1,'rtc_unsubscribe_int():&#160;rtc.c'],['../group__RTC.html#gab8f17bf5280c908c8b199a90fefcc758',1,'rtc_unsubscribe_int():&#160;rtc.c']]],
+  ['rtc_5fwrite_545',['rtc_write',['../group__RTC.html#gaa70be8bcc213943e1567b8eba097b388',1,'rtc_write(uint8_t cmd, uint8_t data):&#160;rtc.c'],['../group__RTC.html#gaa70be8bcc213943e1567b8eba097b388',1,'rtc_write(uint8_t cmd, uint8_t data):&#160;rtc.c']]]
+];

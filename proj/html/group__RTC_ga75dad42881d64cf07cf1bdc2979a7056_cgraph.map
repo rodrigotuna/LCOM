@@ -1,0 +1,5 @@
+<map id="rtc_ih" name="rtc_ih">
+<area shape="rect" id="node1" title="Handles RTC interrupts." alt="" coords="5,5,64,32"/>
+<area shape="rect" id="node2" href="$group__RTC.html#ga6baf82806db2130368d67c4d68e8369a" title="Reads the status from a certain register of the RTC." alt="" coords="112,5,235,32"/>
+<area shape="rect" id="node3" href="$group__utilities.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="Wrapper of function sys_inb()" alt="" coords="283,5,381,32"/>
+</map>

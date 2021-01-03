@@ -1,0 +1,13 @@
+<map id="destroy_animated_sprite" name="destroy_animated_sprite">
+<area shape="rect" id="node1" title="Destroys an animated sprite object." alt="" coords="941,196,1125,223"/>
+<area shape="rect" id="node2" href="$group__menu.html#gac59a512bcf4260d121c4d1b278dc1b1f" title="The menu for choosing the player in multiplayer mode." alt="" coords="323,171,483,197"/>
+<area shape="rect" id="node3" href="$group__menu.html#ga7fe3adb8b69baff33af24e4a3a9c5048" title="The main menu." alt="" coords="176,297,275,324"/>
+<area shape="rect" id="node5" href="$group__sprites.html#ga26644c0d45bd108c6eef3aa057fdc8f7" title="Creates an animated sprite object." alt="" coords="717,247,893,273"/>
+<area shape="rect" id="node6" href="$group__menu.html#ga5e1bba404f1f9ea1b95cbdc8be1e7f3c" title="The menu for entering the player&#39;s name upon a new highscore." alt="" coords="531,348,669,375"/>
+<area shape="rect" id="node7" href="$group__menu.html#gadf831408d6f8828e5d3b07157084397f" title="The gameover menu." alt="" coords="534,44,666,71"/>
+<area shape="rect" id="node8" href="$group__game.html#gaff3eae8f45aa908e857832037be6b68b" title="The multiplayer mode in the perspective of player 1." alt="" coords="541,196,659,223"/>
+<area shape="rect" id="node9" href="$group__game.html#gad3d26a3cfd89c9412d7e886cd6edbe17" title="The multiplayer mode in the perspective of player 2." alt="" coords="541,145,659,172"/>
+<area shape="rect" id="node10" href="$group__menu.html#ga6a8428667b9b4b4c218bb345b7d9fe6a" title="The scoreboard menu." alt="" coords="531,399,669,425"/>
+<area shape="rect" id="node11" href="$group__game.html#ga920a25cd888a57a8be33e789bd25c872" title="The single player mode." alt="" coords="545,449,655,476"/>
+<area shape="rect" id="node4" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,297,128,324"/>
+</map>

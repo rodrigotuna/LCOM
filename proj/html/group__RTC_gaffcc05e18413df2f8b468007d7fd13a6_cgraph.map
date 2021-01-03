@@ -1,0 +1,10 @@
+<map id="rtc_set_alarm" name="rtc_set_alarm">
+<area shape="rect" id="node1" title="Sets an alarm seconds from the current time on the RTC." alt="" coords="5,56,116,83"/>
+<area shape="rect" id="node2" href="$group__RTC.html#gabf63dcaac87e542f9c1ffb796ff63264" title="Converts a decimal integer to BCD." alt="" coords="171,5,260,32"/>
+<area shape="rect" id="node3" href="$group__RTC.html#gafc610cbc86eb9f9e10839ee6a6d0316c" title="Reads the year, month, day, hours, minutes and seconds from the RTC." alt="" coords="164,56,267,83"/>
+<area shape="rect" id="node8" href="$group__RTC.html#gaa70be8bcc213943e1567b8eba097b388" title="Writes data to a certain register of the RTC." alt="" coords="176,107,255,133"/>
+<area shape="rect" id="node4" href="$group__RTC.html#gafe873c55e04751c398276445cb9a2820" title="Converts value in BCD to a decimal integer." alt="" coords="325,31,415,57"/>
+<area shape="rect" id="node5" href="$group__RTC.html#ga78a98915aeadca4562138f2bf3cb7235" title="Checks if an update is in progress, if not reads data from a certain register of the RTC." alt="" coords="315,81,425,108"/>
+<area shape="rect" id="node6" href="$group__RTC.html#ga6baf82806db2130368d67c4d68e8369a" title="Reads the status from a certain register of the RTC." alt="" coords="473,56,596,83"/>
+<area shape="rect" id="node7" href="$group__utilities.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="Wrapper of function sys_inb()" alt="" coords="644,81,743,108"/>
+</map>

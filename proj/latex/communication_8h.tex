@@ -1,0 +1,58 @@
+\hypertarget{communication_8h}{}\doxysection{communication.\+h File Reference}
+\label{communication_8h}\index{communication.h@{communication.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+Include dependency graph for communication.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{communication_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{communication_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__communication_ga12f5380cb7d913dd79dd73f99e0159db}{send\+\_\+player\+\_\+message}} (uint8\+\_\+t \mbox{\hyperlink{keyboard_8h_a01577ed8d3646775ae6a8e00d24c1d94}{scancode}})
+\begin{DoxyCompactList}\small\item\em Sends a message related to the player. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__communication_ga814f6e311333907d02b3c4a811bdf00a}{send\+\_\+ball\+\_\+message}} (uint16\+\_\+t x\+\_\+pos, uint16\+\_\+t y\+\_\+pos)
+\begin{DoxyCompactList}\small\item\em Sends a message related to the ball. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__communication_ga76a3d60d929a11e19a01bfa7a7c8b095}{handle\+\_\+message}} (uint8\+\_\+t c)
+\begin{DoxyCompactList}\small\item\em Handles the byte recieved. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__communication_gafe8d85adab74a257ba6e03ab3e044ec0}{reset\+\_\+communication}} ()
+\begin{DoxyCompactList}\small\item\em Resets the communication variables. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{communication_8h_a4eca3e50fe728457687a229fae00677f}{mess}} \mbox{[}4\mbox{]}
+\item 
+int \mbox{\hyperlink{communication_8h_afed088663f8704004425cdae2120b9b3}{len}}
+\item 
+bool \mbox{\hyperlink{communication_8h_abb41f3853f7d19cc63063628f59ca97d}{from\+\_\+player}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{communication_8h_abb41f3853f7d19cc63063628f59ca97d}\label{communication_8h_abb41f3853f7d19cc63063628f59ca97d}} 
+\index{communication.h@{communication.h}!from\_player@{from\_player}}
+\index{from\_player@{from\_player}!communication.h@{communication.h}}
+\doxysubsubsection{\texorpdfstring{from\_player}{from\_player}}
+{\footnotesize\ttfamily bool from\+\_\+player}
+
+\mbox{\Hypertarget{communication_8h_afed088663f8704004425cdae2120b9b3}\label{communication_8h_afed088663f8704004425cdae2120b9b3}} 
+\index{communication.h@{communication.h}!len@{len}}
+\index{len@{len}!communication.h@{communication.h}}
+\doxysubsubsection{\texorpdfstring{len}{len}}
+{\footnotesize\ttfamily int len}
+
+\mbox{\Hypertarget{communication_8h_a4eca3e50fe728457687a229fae00677f}\label{communication_8h_a4eca3e50fe728457687a229fae00677f}} 
+\index{communication.h@{communication.h}!mess@{mess}}
+\index{mess@{mess}!communication.h@{communication.h}}
+\doxysubsubsection{\texorpdfstring{mess}{mess}}
+{\footnotesize\ttfamily uint8\+\_\+t mess\mbox{[}4\mbox{]}}
+

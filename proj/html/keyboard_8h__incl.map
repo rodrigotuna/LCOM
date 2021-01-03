@@ -1,0 +1,10 @@
+<map id="keyboard.h" name="keyboard.h">
+<area shape="rect" id="node1" title=" " alt="" coords="214,5,309,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="15,229,100,256"/>
+<area shape="rect" id="node3" title=" " alt="" coords="118,155,216,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="292,155,410,181"/>
+<area shape="rect" id="node5" title=" " alt="" coords="434,155,505,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="530,155,612,181"/>
+<area shape="rect" id="node7" href="$i8042_8h.html" title=" " alt="" coords="22,155,93,181"/>
+<area shape="rect" id="node8" href="$kbc_8h.html" title=" " alt="" coords="233,80,290,107"/>
+</map>

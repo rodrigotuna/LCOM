@@ -1,0 +1,5 @@
+<map id="keep_sprite_in_bounds" name="keep_sprite_in_bounds">
+<area shape="rect" id="node1" title="Keeps the sprite position inside it&#39;s screen bounds." alt="" coords="5,31,176,57"/>
+<area shape="rect" id="node2" href="$group__utilities.html#gabfe9bd035a0195eebca322468e35e0ce" title="Gets the biggest of 2 numbers." alt="" coords="224,5,275,32"/>
+<area shape="rect" id="node3" href="$group__utilities.html#gad3fbed5388f426898da70ccce6c6637b" title="Gets the smallest of 2 numbers." alt="" coords="226,56,273,83"/>
+</map>

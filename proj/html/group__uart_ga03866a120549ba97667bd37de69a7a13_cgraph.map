@@ -1,0 +1,6 @@
+<map id="uart_read_fifo" name="uart_read_fifo">
+<area shape="rect" id="node1" title="Reads a fifo." alt="" coords="5,31,117,57"/>
+<area shape="rect" id="node2" href="$group__utilities.html#gac71dd3b2de9fd044289ae077f37513d8" title="Adds a variable to the queue." alt="" coords="216,5,269,32"/>
+<area shape="rect" id="node3" href="$group__uart.html#ga8d98030d0283fe09aa36341f27f8816f" title="Reads from a uart port." alt="" coords="165,56,320,83"/>
+<area shape="rect" id="node4" href="$group__utilities.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="Wrapper of function sys_inb()" alt="" coords="368,56,467,83"/>
+</map>

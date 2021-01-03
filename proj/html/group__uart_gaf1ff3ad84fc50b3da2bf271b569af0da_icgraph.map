@@ -1,0 +1,5 @@
+<map id="uart_unsubscribe_int" name="uart_unsubscribe_int">
+<area shape="rect" id="node1" title="Unsubscribes uart interrupts." alt="" coords="347,5,504,32"/>
+<area shape="rect" id="node2" href="$group__drivers.html#ga8f68ee1cf924bd43d0b1b60fe05f15c0" title="Unsubscribes the interrupts of all drivers." alt="" coords="176,5,299,32"/>
+<area shape="rect" id="node3" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,5,128,32"/>
+</map>

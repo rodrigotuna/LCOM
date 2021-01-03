@@ -2,9 +2,7 @@
 
 #include <lcom/lcf.h>
 
-#include "drivers.h"
-#include "game.h"
-#include "scoreboard.h"
+#include "sprite.h"
 
 /** @defgroup menu menu
  * @{

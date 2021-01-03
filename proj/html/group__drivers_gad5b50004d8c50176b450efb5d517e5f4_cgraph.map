@@ -1,0 +1,8 @@
+<map id="subscribe_all" name="subscribe_all">
+<area shape="rect" id="node1" title="Subscribes the interrupts of all drivers." alt="" coords="5,107,112,133"/>
+<area shape="rect" id="node2" href="$group__keyboard.html#gab1f27c240a6c7b800a98edcab59a0977" title="Subscribes the interrupts of the keyboard." alt="" coords="174,5,305,32"/>
+<area shape="rect" id="node3" href="$group__mouse.html#ga9da18257ff113b686bb826d154bfaa87" title="Subscribes the interrupts of the mouse." alt="" coords="160,56,319,83"/>
+<area shape="rect" id="node4" href="$group__RTC.html#ga5171a9c0f54940fe60f7500896afcc86" title="Subscribes RTC&#39;s interrupts." alt="" coords="173,107,305,133"/>
+<area shape="rect" id="node5" href="$timer_8c.html#ac57a7e1140a7e00ad95ac5488d2a671b" title=" " alt="" coords="164,157,315,184"/>
+<area shape="rect" id="node6" href="$group__uart.html#gac0d5ac077c28fa582ed60b1c3d977d83" title="Subscribes the interrupts of the uart." alt="" coords="169,208,310,235"/>
+</map>

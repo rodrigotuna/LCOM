@@ -1,0 +1,240 @@
+\hypertarget{group__mouse}{}\doxysection{mouse}
+\label{group__mouse}\index{mouse@{mouse}}
+
+
+Functions for programming the mouse.  
+
+
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group__mouse_ga71c62f6721ef350c3cd15bb0c393d665}{click\+\_\+ev}} \{ \mbox{\hyperlink{group__mouse_gga71c62f6721ef350c3cd15bb0c393d665a02c2f7d689e4fd48bedc4c42a9a79d2d}{P\+R\+E\+S\+S\+E\+D\+\_\+\+LB}}, 
+\mbox{\hyperlink{group__mouse_gga71c62f6721ef350c3cd15bb0c393d665a5cfb854da24ab6a30ae87ca6912e689b}{M\+O\+V\+E\+M\+E\+NT}}
+ \}
+\begin{DoxyCompactList}\small\item\em Represents the events of the mouse. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__mouse_ga9da18257ff113b686bb826d154bfaa87}{mouse\+\_\+subscribe\+\_\+int}} (uint8\+\_\+t $\ast$bit\+\_\+no)
+\begin{DoxyCompactList}\small\item\em Subscribes the interrupts of the mouse. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__mouse_ga685ad2706aca36d9869a30a19b9f446a}{mouse\+\_\+unsubscribe\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em Unsubsribes the interrupts of the keyboard. \end{DoxyCompactList}\item 
+struct packet \mbox{\hyperlink{group__mouse_gaff31c6df8b061b45ddc634e1e1515878}{make\+\_\+packet}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a packet with the mouse information. \end{DoxyCompactList}\item 
+void() \mbox{\hyperlink{group__mouse_gaed4404005e4c565ac36656307386e0ac}{mouse\+\_\+ih}} (void)
+\begin{DoxyCompactList}\small\item\em Mouse\textquotesingle{}s interrupt handler. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__mouse_gae1cc406500640bfb1b8a2900150697bf}{mouse\+\_\+read}} (uint8\+\_\+t $\ast$data)
+\begin{DoxyCompactList}\small\item\em Reads one byte from the mouse. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__mouse_gaafd943d471ebe8314612800462889205}{mouse\+\_\+set\+\_\+arg}} (uint8\+\_\+t arg)
+\begin{DoxyCompactList}\small\item\em Sets an argument to the mouse. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__mouse_ga71c62f6721ef350c3cd15bb0c393d665}{click\+\_\+ev}} \mbox{\hyperlink{group__mouse_ga8a2865ecb1de0b38cc3bd33638121e6d}{process\+\_\+event}} (struct packet $\ast$packet)
+\begin{DoxyCompactList}\small\item\em Processes an event of hte mouse. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions for programming the mouse. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group__mouse_ga71c62f6721ef350c3cd15bb0c393d665}\label{group__mouse_ga71c62f6721ef350c3cd15bb0c393d665}} 
+\index{mouse@{mouse}!click\_ev@{click\_ev}}
+\index{click\_ev@{click\_ev}!mouse@{mouse}}
+\doxysubsubsection{\texorpdfstring{click\_ev}{click\_ev}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__mouse_ga71c62f6721ef350c3cd15bb0c393d665}{click\+\_\+ev}}}
+
+
+
+Represents the events of the mouse. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PRESSED\_LB@{PRESSED\_LB}!mouse@{mouse}}\index{mouse@{mouse}!PRESSED\_LB@{PRESSED\_LB}}}\mbox{\Hypertarget{group__mouse_gga71c62f6721ef350c3cd15bb0c393d665a02c2f7d689e4fd48bedc4c42a9a79d2d}\label{group__mouse_gga71c62f6721ef350c3cd15bb0c393d665a02c2f7d689e4fd48bedc4c42a9a79d2d}} 
+P\+R\+E\+S\+S\+E\+D\+\_\+\+LB&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MOVEMENT@{MOVEMENT}!mouse@{mouse}}\index{mouse@{mouse}!MOVEMENT@{MOVEMENT}}}\mbox{\Hypertarget{group__mouse_gga71c62f6721ef350c3cd15bb0c393d665a5cfb854da24ab6a30ae87ca6912e689b}\label{group__mouse_gga71c62f6721ef350c3cd15bb0c393d665a5cfb854da24ab6a30ae87ca6912e689b}} 
+M\+O\+V\+E\+M\+E\+NT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__mouse_gaff31c6df8b061b45ddc634e1e1515878}\label{group__mouse_gaff31c6df8b061b45ddc634e1e1515878}} 
+\index{mouse@{mouse}!make\_packet@{make\_packet}}
+\index{make\_packet@{make\_packet}!mouse@{mouse}}
+\doxysubsubsection{\texorpdfstring{make\_packet()}{make\_packet()}}
+{\footnotesize\ttfamily struct packet make\+\_\+packet (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructs a packet with the mouse information. 
+
+\begin{DoxyReturn}{Returns}
+Packet with mouse information 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__mouse_gaff31c6df8b061b45ddc634e1e1515878_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__mouse_gaed4404005e4c565ac36656307386e0ac}\label{group__mouse_gaed4404005e4c565ac36656307386e0ac}} 
+\index{mouse@{mouse}!mouse\_ih@{mouse\_ih}}
+\index{mouse\_ih@{mouse\_ih}!mouse@{mouse}}
+\doxysubsubsection{\texorpdfstring{mouse\_ih()}{mouse\_ih()}}
+{\footnotesize\ttfamily void() mouse\+\_\+ih (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Mouse\textquotesingle{}s interrupt handler. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__mouse_gaed4404005e4c565ac36656307386e0ac_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__mouse_gaed4404005e4c565ac36656307386e0ac_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__mouse_gae1cc406500640bfb1b8a2900150697bf}\label{group__mouse_gae1cc406500640bfb1b8a2900150697bf}} 
+\index{mouse@{mouse}!mouse\_read@{mouse\_read}}
+\index{mouse\_read@{mouse\_read}!mouse@{mouse}}
+\doxysubsubsection{\texorpdfstring{mouse\_read()}{mouse\_read()}}
+{\footnotesize\ttfamily int mouse\+\_\+read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+Reads one byte from the mouse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & variable where the byte will be stored \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{group__mouse_gae1cc406500640bfb1b8a2900150697bf_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__mouse_gae1cc406500640bfb1b8a2900150697bf_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__mouse_gaafd943d471ebe8314612800462889205}\label{group__mouse_gaafd943d471ebe8314612800462889205}} 
+\index{mouse@{mouse}!mouse\_set\_arg@{mouse\_set\_arg}}
+\index{mouse\_set\_arg@{mouse\_set\_arg}!mouse@{mouse}}
+\doxysubsubsection{\texorpdfstring{mouse\_set\_arg()}{mouse\_set\_arg()}}
+{\footnotesize\ttfamily int mouse\+\_\+set\+\_\+arg (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{arg }\end{DoxyParamCaption})}
+
+
+
+Sets an argument to the mouse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & argument to be set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__mouse_gaafd943d471ebe8314612800462889205_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__mouse_gaafd943d471ebe8314612800462889205_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__mouse_ga9da18257ff113b686bb826d154bfaa87}\label{group__mouse_ga9da18257ff113b686bb826d154bfaa87}} 
+\index{mouse@{mouse}!mouse\_subscribe\_int@{mouse\_subscribe\_int}}
+\index{mouse\_subscribe\_int@{mouse\_subscribe\_int}!mouse@{mouse}}
+\doxysubsubsection{\texorpdfstring{mouse\_subscribe\_int()}{mouse\_subscribe\_int()}}
+{\footnotesize\ttfamily int mouse\+\_\+subscribe\+\_\+int (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{bit\+\_\+no }\end{DoxyParamCaption})}
+
+
+
+Subscribes the interrupts of the mouse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bit\+\_\+no} & variable that will store the mouse\textquotesingle{}s irq line \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__mouse_ga9da18257ff113b686bb826d154bfaa87_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__mouse_ga685ad2706aca36d9869a30a19b9f446a}\label{group__mouse_ga685ad2706aca36d9869a30a19b9f446a}} 
+\index{mouse@{mouse}!mouse\_unsubscribe\_int@{mouse\_unsubscribe\_int}}
+\index{mouse\_unsubscribe\_int@{mouse\_unsubscribe\_int}!mouse@{mouse}}
+\doxysubsubsection{\texorpdfstring{mouse\_unsubscribe\_int()}{mouse\_unsubscribe\_int()}}
+{\footnotesize\ttfamily int mouse\+\_\+unsubscribe\+\_\+int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Unsubsribes the interrupts of the keyboard. 
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__mouse_ga685ad2706aca36d9869a30a19b9f446a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group__mouse_ga8a2865ecb1de0b38cc3bd33638121e6d}\label{group__mouse_ga8a2865ecb1de0b38cc3bd33638121e6d}} 
+\index{mouse@{mouse}!process\_event@{process\_event}}
+\index{process\_event@{process\_event}!mouse@{mouse}}
+\doxysubsubsection{\texorpdfstring{process\_event()}{process\_event()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__mouse_ga71c62f6721ef350c3cd15bb0c393d665}{click\+\_\+ev}} process\+\_\+event (\begin{DoxyParamCaption}\item[{struct packet $\ast$}]{packet }\end{DoxyParamCaption})}
+
+
+
+Processes an event of hte mouse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em packet} & struct with the mouse information \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__mouse_ga8a2865ecb1de0b38cc3bd33638121e6d_icgraph}
+\end{center}
+\end{figure}

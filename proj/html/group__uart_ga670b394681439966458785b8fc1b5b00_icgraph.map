@@ -1,0 +1,13 @@
+<map id="uart_send_char" name="uart_send_char">
+<area shape="rect" id="node1" title="Sends a char to the other computer." alt="" coords="1140,56,1261,83"/>
+<area shape="rect" id="node2" href="$group__menu.html#ga0d8f2f6a8a7d23bc0b41944745ead924" title="The connecting menu for player 1." alt="" coords="697,5,871,32"/>
+<area shape="rect" id="node6" href="$group__menu.html#gac75ce766722ec36ebc72b4a1f3b3d932" title="The connecting menu for player 1." alt="" coords="919,56,1092,83"/>
+<area shape="rect" id="node7" href="$group__uart.html#gac2cdc77ff6f0881092b0ff662f57b575" title="Sends a string to the other computer." alt="" coords="940,107,1071,133"/>
+<area shape="rect" id="node3" href="$group__menu.html#gac59a512bcf4260d121c4d1b278dc1b1f" title="The menu for choosing the player in multiplayer mode." alt="" coords="323,81,483,108"/>
+<area shape="rect" id="node4" href="$group__menu.html#ga7fe3adb8b69baff33af24e4a3a9c5048" title="The main menu." alt="" coords="176,81,275,108"/>
+<area shape="rect" id="node5" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,81,128,108"/>
+<area shape="rect" id="node8" href="$group__communication.html#ga814f6e311333907d02b3c4a811bdf00a" title="Sends a message related to the ball." alt="" coords="709,107,859,133"/>
+<area shape="rect" id="node11" href="$group__communication.html#ga12f5380cb7d913dd79dd73f99e0159db" title="Sends a message related to the player." alt="" coords="701,157,867,184"/>
+<area shape="rect" id="node9" href="$group__game.html#gaff3eae8f45aa908e857832037be6b68b" title="The multiplayer mode in the perspective of player 1." alt="" coords="531,107,649,133"/>
+<area shape="rect" id="node10" href="$group__game.html#gad3d26a3cfd89c9412d7e886cd6edbe17" title="The multiplayer mode in the perspective of player 2." alt="" coords="531,157,649,184"/>
+</map>

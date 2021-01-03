@@ -1,0 +1,4 @@
+<map id="go_to_selected_point" name="go_to_selected_point">
+<area shape="rect" id="node1" title="Changes the velocity of the ball in order to reach a given point and updates variable &#160;&#160;last_player." alt="" coords="5,5,165,32"/>
+<area shape="rect" id="node2" href="$group__gameLogic.html#gae1ed583c0e89c9b5cf58ff180ace0d16" title="Determines wether a shot was valid or not." alt="" coords="213,5,303,32"/>
+</map>

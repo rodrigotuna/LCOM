@@ -1,0 +1,73 @@
+\hypertarget{mouse_8h}{}\doxysection{mouse.\+h File Reference}
+\label{mouse_8h}\index{mouse.h@{mouse.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}mouse\+\_\+macros.\+h\char`\"{}}\newline
+Include dependency graph for mouse.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{mouse_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mouse_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group__mouse_ga71c62f6721ef350c3cd15bb0c393d665}{click\+\_\+ev}} \{ \mbox{\hyperlink{group__mouse_gga71c62f6721ef350c3cd15bb0c393d665a02c2f7d689e4fd48bedc4c42a9a79d2d}{P\+R\+E\+S\+S\+E\+D\+\_\+\+LB}}, 
+\mbox{\hyperlink{group__mouse_gga71c62f6721ef350c3cd15bb0c393d665a5cfb854da24ab6a30ae87ca6912e689b}{M\+O\+V\+E\+M\+E\+NT}}
+ \}
+\begin{DoxyCompactList}\small\item\em Represents the events of the mouse. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__mouse_ga9da18257ff113b686bb826d154bfaa87}{mouse\+\_\+subscribe\+\_\+int}} (uint8\+\_\+t $\ast$bit\+\_\+no)
+\begin{DoxyCompactList}\small\item\em Subscribes the interrupts of the mouse. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__mouse_ga685ad2706aca36d9869a30a19b9f446a}{mouse\+\_\+unsubscribe\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em Unsubsribes the interrupts of the keyboard. \end{DoxyCompactList}\item 
+struct packet \mbox{\hyperlink{group__mouse_gaff31c6df8b061b45ddc634e1e1515878}{make\+\_\+packet}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a packet with the mouse information. \end{DoxyCompactList}\item 
+void() \mbox{\hyperlink{group__mouse_gaed4404005e4c565ac36656307386e0ac}{mouse\+\_\+ih}} (void)
+\begin{DoxyCompactList}\small\item\em Mouse\textquotesingle{}s interrupt handler. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__mouse_gae1cc406500640bfb1b8a2900150697bf}{mouse\+\_\+read}} (uint8\+\_\+t $\ast$data)
+\begin{DoxyCompactList}\small\item\em Reads one byte from the mouse. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__mouse_gaafd943d471ebe8314612800462889205}{mouse\+\_\+set\+\_\+arg}} (uint8\+\_\+t arg)
+\begin{DoxyCompactList}\small\item\em Sets an argument to the mouse. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__mouse_ga71c62f6721ef350c3cd15bb0c393d665}{click\+\_\+ev}} \mbox{\hyperlink{group__mouse_ga8a2865ecb1de0b38cc3bd33638121e6d}{process\+\_\+event}} (struct packet $\ast$packet)
+\begin{DoxyCompactList}\small\item\em Processes an event of hte mouse. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{mouse_8h_a37cad7cad93664f8a1ed1b0258fe958b}{mouse\+\_\+hook\+\_\+id}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{mouse_8h_ad37554a8b2f6fe22b01b22cda1273bfc}{mouse\+\_\+packet}} \mbox{[}3\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{mouse_8h_adf424476c4755694cb40b3a264235a0d}{mouse\+\_\+count}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{mouse_8h_adf424476c4755694cb40b3a264235a0d}\label{mouse_8h_adf424476c4755694cb40b3a264235a0d}} 
+\index{mouse.h@{mouse.h}!mouse\_count@{mouse\_count}}
+\index{mouse\_count@{mouse\_count}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_count}{mouse\_count}}
+{\footnotesize\ttfamily uint8\+\_\+t mouse\+\_\+count}
+
+\mbox{\Hypertarget{mouse_8h_a37cad7cad93664f8a1ed1b0258fe958b}\label{mouse_8h_a37cad7cad93664f8a1ed1b0258fe958b}} 
+\index{mouse.h@{mouse.h}!mouse\_hook\_id@{mouse\_hook\_id}}
+\index{mouse\_hook\_id@{mouse\_hook\_id}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_hook\_id}{mouse\_hook\_id}}
+{\footnotesize\ttfamily int mouse\+\_\+hook\+\_\+id}
+
+\mbox{\Hypertarget{mouse_8h_ad37554a8b2f6fe22b01b22cda1273bfc}\label{mouse_8h_ad37554a8b2f6fe22b01b22cda1273bfc}} 
+\index{mouse.h@{mouse.h}!mouse\_packet@{mouse\_packet}}
+\index{mouse\_packet@{mouse\_packet}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_packet}{mouse\_packet}}
+{\footnotesize\ttfamily uint8\+\_\+t mouse\+\_\+packet\mbox{[}3\mbox{]}}
+
