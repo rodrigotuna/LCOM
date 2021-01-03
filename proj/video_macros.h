@@ -2,6 +2,11 @@
 
 #include <lcom/lcf.h>
 
+/** @defgroup video_macros video_macros
+ * @{
+ *
+ * Constants for programming the video card
+ */
 #define VBE_MODE_INFO 0x4F01
 #define VBE_MODE 0x4F02
 #define VBE_SET_GET_DISPLAY_START 0x4F07
@@ -13,3 +18,4 @@
 #define VBE_CALL 0x4F
 
 #define MODE 0x115
+/**@}*/

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['fcr_88',['FCR',['../uart__macros_8h.html#a264b36b13386e3f62fe69e04711bc006',1,'uart_macros.h']]],
-  ['fram_5ferr_89',['FRAM_ERR',['../uart__macros_8h.html#a9ec2433f1512238d52b9ce20832e6d69',1,'uart_macros.h']]],
+  ['fcr_88',['FCR',['../group__uart__macros.html#ga264b36b13386e3f62fe69e04711bc006',1,'uart_macros.h']]],
+  ['fram_5ferr_89',['FRAM_ERR',['../group__uart__macros.html#ga9ec2433f1512238d52b9ce20832e6d69',1,'uart_macros.h']]],
   ['frame_5fcount_90',['frame_count',['../structanimated__sprite.html#a9cd1c8ac4eafc3d1b4efadaf5176fcba',1,'animated_sprite']]],
   ['frame_5fdelay_91',['frame_delay',['../structanimated__sprite.html#aa9800fd08b63c756e029faacaac45728',1,'animated_sprite']]],
   ['frame_5findex_92',['frame_index',['../structanimated__sprite.html#a979cd01dcc875bcdd1d1792492b2de32',1,'animated_sprite']]],

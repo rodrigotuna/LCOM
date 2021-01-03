@@ -8,8 +8,7 @@ var indexSectionsWithContent =
   5: "abpqs",
   6: "bcgw",
   7: "bcdhijlmnopqsw",
-  8: "abcdefilmnoprstuvwxy",
-  9: "cdegikmrs"
+  8: "cdegikmrsuv"
 };
 
 var indexSectionNames =
@@ -22,8 +21,7 @@ var indexSectionNames =
   5: "typedefs",
   6: "enums",
   7: "enumvalues",
-  8: "defines",
-  9: "groups"
+  8: "groups"
 };
 
 var indexSectionLabels =
@@ -36,7 +34,6 @@ var indexSectionLabels =
   5: "Typedefs",
   6: "Enumerations",
   7: "Enumerator",
-  8: "Macros",
-  9: "Modules"
+  8: "Modules"
 };
 

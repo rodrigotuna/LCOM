@@ -5,8 +5,8 @@ var searchData=
   ['kb_5finterr_5fen_130',['KB_INTERR_EN',['../group__i8042.html#gadd47e250597405a84eb5a2613c85ab04',1,'i8042.h']]],
   ['kb_5firq_131',['KB_IRQ',['../group__i8042.html#gae36fc325bc821e866e90d0e66f9cc168',1,'i8042.h']]],
   ['kb_5firq_5fset_132',['KB_IRQ_SET',['../group__drivers.html#ga540b90899d4646e460784ccc6576a65f',1,'drivers.h']]],
-  ['kb_5fsubscribe_5fint_133',['kb_subscribe_int',['../group__kbc.html#gab1f27c240a6c7b800a98edcab59a0977',1,'kb_subscribe_int(uint8_t *bit_no):&#160;keyboard.c'],['../group__kbc.html#gab1f27c240a6c7b800a98edcab59a0977',1,'kb_subscribe_int(uint8_t *bit_no):&#160;keyboard.c']]],
-  ['kb_5funsubscribe_5fint_134',['kb_unsubscribe_int',['../group__kbc.html#ga7cf9ff7b2a68cc388492c91756a55153',1,'kb_unsubscribe_int():&#160;keyboard.c'],['../group__kbc.html#ga7cf9ff7b2a68cc388492c91756a55153',1,'kb_unsubscribe_int():&#160;keyboard.c']]],
+  ['kb_5fsubscribe_5fint_133',['kb_subscribe_int',['../group__keyboard.html#gab1f27c240a6c7b800a98edcab59a0977',1,'kb_subscribe_int(uint8_t *bit_no):&#160;keyboard.c'],['../group__keyboard.html#gab1f27c240a6c7b800a98edcab59a0977',1,'kb_subscribe_int(uint8_t *bit_no):&#160;keyboard.c']]],
+  ['kb_5funsubscribe_5fint_134',['kb_unsubscribe_int',['../group__keyboard.html#ga7cf9ff7b2a68cc388492c91756a55153',1,'kb_unsubscribe_int():&#160;keyboard.c'],['../group__keyboard.html#ga7cf9ff7b2a68cc388492c91756a55153',1,'kb_unsubscribe_int():&#160;keyboard.c']]],
   ['kbc_135',['kbc',['../group__kbc.html',1,'']]],
   ['kbc_2ec_136',['kbc.c',['../kbc_8c.html',1,'']]],
   ['kbc_2eh_137',['kbc.h',['../kbc_8h.html',1,'']]],
@@ -14,7 +14,7 @@ var searchData=
   ['kbc_5faux_139',['KBC_AUX',['../group__i8042.html#gaaa796d09d1e94025da456738295342f2',1,'i8042.h']]],
   ['kbc_5fcmd_5freg_140',['KBC_CMD_REG',['../group__i8042.html#ga6d57c7927a10f638c83046b52c8caac9',1,'i8042.h']]],
   ['kbc_5fibf_141',['KBC_IBF',['../group__i8042.html#gac1649d41f8ba9a02fa70ec4e600d5e4a',1,'i8042.h']]],
-  ['kbc_5fih_142',['kbc_ih',['../group__kbc.html#ga5761bd4aad91ac1d68916ad88f583d9f',1,'kbc_ih(void):&#160;keyboard.c'],['../group__kbc.html#ga5761bd4aad91ac1d68916ad88f583d9f',1,'kbc_ih(void):&#160;keyboard.c']]],
+  ['kbc_5fih_142',['kbc_ih',['../group__keyboard.html#ga5761bd4aad91ac1d68916ad88f583d9f',1,'kbc_ih(void):&#160;keyboard.c'],['../group__keyboard.html#ga5761bd4aad91ac1d68916ad88f583d9f',1,'kbc_ih(void):&#160;keyboard.c']]],
   ['kbc_5fissue_5farg_143',['kbc_issue_arg',['../group__kbc.html#ga4d8e5f92db8ceab45e7f7f3003728e80',1,'kbc_issue_arg(uint8_t cmd):&#160;kbc.c'],['../group__kbc.html#ga4d8e5f92db8ceab45e7f7f3003728e80',1,'kbc_issue_arg(uint8_t cmd):&#160;kbc.c']]],
   ['kbc_5fissue_5fcmd_144',['kbc_issue_cmd',['../group__kbc.html#gabf6e77da648ded62b65bdb3f9a437424',1,'kbc_issue_cmd(uint8_t cmd):&#160;kbc.c'],['../group__kbc.html#gabf6e77da648ded62b65bdb3f9a437424',1,'kbc_issue_cmd(uint8_t cmd):&#160;kbc.c']]],
   ['kbc_5fobf_145',['KBC_OBF',['../group__i8042.html#ga36930de8a703505c95fe133095dcfe06',1,'i8042.h']]],
@@ -27,7 +27,8 @@ var searchData=
   ['kbc_5fto_5ferr_152',['KBC_TO_ERR',['../group__i8042.html#gae31c3653f5881b02cbfdd4ccbb7ccf50',1,'i8042.h']]],
   ['kbc_5fwrite_5fcmd_153',['kbc_write_cmd',['../group__kbc.html#gab06ce595703807400f3d90171f7f9884',1,'kbc_write_cmd(uint8_t cmd):&#160;kbc.c'],['../group__kbc.html#gab06ce595703807400f3d90171f7f9884',1,'kbc_write_cmd(uint8_t cmd):&#160;kbc.c']]],
   ['keep_5fsprite_5fin_5fbounds_154',['keep_sprite_in_bounds',['../group__sprites.html#gaf6a3974a4b1528b2340c02dc6f94c91f',1,'keep_sprite_in_bounds(sprite_t *sp):&#160;sprite.c'],['../group__sprites.html#gaf6a3974a4b1528b2340c02dc6f94c91f',1,'keep_sprite_in_bounds(sprite_t *sp):&#160;sprite.c']]],
-  ['keyboard_2ec_155',['keyboard.c',['../keyboard_8c.html',1,'']]],
-  ['keyboard_2eh_156',['keyboard.h',['../keyboard_8h.html',1,'']]],
-  ['keycodes_157',['keycodes',['../group__scoreboard.html#ga2c00c1ca78ecf0128047359e07c63577',1,'scoreboard.h']]]
+  ['keyboard_155',['keyboard',['../group__keyboard.html',1,'']]],
+  ['keyboard_2ec_156',['keyboard.c',['../keyboard_8c.html',1,'']]],
+  ['keyboard_2eh_157',['keyboard.h',['../keyboard_8h.html',1,'']]],
+  ['keycodes_158',['keycodes',['../group__scoreboard.html#ga2c00c1ca78ecf0128047359e07c63577',1,'scoreboard.h']]]
 ];
