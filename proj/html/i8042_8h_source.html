@@ -70,47 +70,36 @@ $(function() {
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;lcom/lcf.h&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="group__i8042.html#gae36fc325bc821e866e90d0e66f9cc168">   11</a></span>&#160;<span class="preprocessor">#define KB_IRQ 1</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="group__i8042.html#ga1a522aa19bcb695a9df30032a893bee3">   12</a></span>&#160;<span class="preprocessor">#define DELAY_US    20000</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="group__i8042.html#ga6f977b36b770dca3092d0bdf8c949cfe">   15</a></span>&#160;<span class="preprocessor">#define KBC_ST_REG  0x64</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="group__i8042.html#ga6d57c7927a10f638c83046b52c8caac9">   16</a></span>&#160;<span class="preprocessor">#define KBC_CMD_REG 0x64</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="group__i8042.html#ga1ccde68b2b6d4e45b50eef1403e10bb7">   17</a></span>&#160;<span class="preprocessor">#define KBC_OUT_BUF 0x60</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="group__i8042.html#gaf4cd2a6365d38e35ff54b89ff2c2526b">   18</a></span>&#160;<span class="preprocessor">#define KBC_ARG_REG 0x60 </span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="group__i8042.html#ga3c8f3d570f82da1110d0f57effa3112f">   20</a></span>&#160;<span class="preprocessor">#define READ_CMD_B   0x20    // Reads command byte </span></div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="group__i8042.html#ga13e4516a13006d3acfd054edaddb8beb">   21</a></span>&#160;<span class="preprocessor">#define WRITE_CMD_B  0x60    // Writes command byte (must pass command byte as argument to port 0x60</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="group__i8042.html#ga55fefff08c94153a53592686472a6c80">   22</a></span>&#160;<span class="preprocessor">#define CHECK_KBC    0xAA    // Self-test: returns 0x55 if OK, returns 0xFC if error </span></div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="group__i8042.html#ga4bb66dcc0ed36ebb4d85a6f162679546">   23</a></span>&#160;<span class="preprocessor">#define CHECK_KB_IFC 0xAB    // Check Keyboard interface : returns 0 if OK </span></div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="group__i8042.html#ga316ec87df8c322f99c9eb65b107dd285">   24</a></span>&#160;<span class="preprocessor">#define DISABLE_KBD  0xAD    // Disables Keyboard interface </span></div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="group__i8042.html#ga79c461a1646b2d71703346390a67cf55">   25</a></span>&#160;<span class="preprocessor">#define ENABLE_KBS   0xAE    // Enables Keyboard interface </span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="group__i8042.html#ga36930de8a703505c95fe133095dcfe06">   27</a></span>&#160;<span class="preprocessor">#define KBC_OBF BIT(0)</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="group__i8042.html#gac1649d41f8ba9a02fa70ec4e600d5e4a">   28</a></span>&#160;<span class="preprocessor">#define KBC_IBF  BIT(1)</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="group__i8042.html#gaaa796d09d1e94025da456738295342f2">   29</a></span>&#160;<span class="preprocessor">#define KBC_AUX BIT(5)</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="group__i8042.html#gaea2ef6dda1aabebf291eeee29b66c04a">   30</a></span>&#160;<span class="preprocessor">#define KBC_PAR_ERR BIT(7)</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="group__i8042.html#gae31c3653f5881b02cbfdd4ccbb7ccf50">   31</a></span>&#160;<span class="preprocessor">#define KBC_TO_ERR BIT(6)</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="group__i8042.html#ga4632e822e6e47ce1983506928ca4adbf">   33</a></span>&#160;<span class="preprocessor">#define KB_INT_DIS BIT(4)</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="group__i8042.html#gadd47e250597405a84eb5a2613c85ab04">   34</a></span>&#160;<span class="preprocessor">#define KB_INTERR_EN BIT(0)</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="group__i8042.html#gac6b47609a951e77244ef2be1691c298a">   36</a></span>&#160;<span class="preprocessor">#define BREAK_CODE BIT(7)</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="group__i8042.html#ga592dfdf397b21913348b4dd6b7759b2d">   38</a></span>&#160;<span class="preprocessor">#define ESC_BREAK_CODE 0x81</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="group__i8042.html#gacb777c7c7af1e6859732e4ab59adf681">   39</a></span>&#160;<span class="preprocessor">#define W_MAKE_CODE 0x11</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="group__i8042.html#ga45fda238c36661e22a2bda60110aed09">   40</a></span>&#160;<span class="preprocessor">#define W_BREAK_CODE 0x91</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="group__i8042.html#ga33aa421fd3c2491284a71ad577933fd0">   41</a></span>&#160;<span class="preprocessor">#define A_MAKE_CODE 0x1E</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="group__i8042.html#ga6b3bc710b60263bd76130540a24b74b6">   42</a></span>&#160;<span class="preprocessor">#define A_BREAK_CODE 0x9E</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="group__i8042.html#ga05c2d71abe8bdd210f3424fd7615a59e">   43</a></span>&#160;<span class="preprocessor">#define S_MAKE_CODE 0x1F</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="group__i8042.html#gaec37aea52a2989fbb1da1f848206997e">   44</a></span>&#160;<span class="preprocessor">#define S_BREAK_CODE 0x9F</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="group__i8042.html#ga23f867dcf757da71f03cbe28e41ed98d">   45</a></span>&#160;<span class="preprocessor">#define D_MAKE_CODE 0x20</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="group__i8042.html#gaeb7fb0b62eabc29ca24eb9ce77b07152">   46</a></span>&#160;<span class="preprocessor">#define D_BREAK_CODE 0xA0</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="group__i8042.html#ga2877405e9b042d1e29cc09bcc8daccfa">   49</a></span>&#160;<span class="preprocessor">#define TWO_BYTE_CODE 0xE0</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="group__i8042.html#gae36fc325bc821e866e90d0e66f9cc168">   11</a></span>&#160;<span class="preprocessor">#define KB_IRQ 1            </span></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="group__i8042.html#ga1a522aa19bcb695a9df30032a893bee3">   12</a></span>&#160;<span class="preprocessor">#define DELAY_US  20000     </span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="group__i8042.html#ga6f977b36b770dca3092d0bdf8c949cfe">   15</a></span>&#160;<span class="preprocessor">#define KBC_ST_REG  0x64  </span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="group__i8042.html#ga6d57c7927a10f638c83046b52c8caac9">   16</a></span>&#160;<span class="preprocessor">#define KBC_CMD_REG 0x64  </span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="group__i8042.html#ga1ccde68b2b6d4e45b50eef1403e10bb7">   17</a></span>&#160;<span class="preprocessor">#define KBC_OUT_BUF 0x60  </span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="group__i8042.html#gaf4cd2a6365d38e35ff54b89ff2c2526b">   18</a></span>&#160;<span class="preprocessor">#define KBC_ARG_REG 0x60  </span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="group__i8042.html#ga3c8f3d570f82da1110d0f57effa3112f">   20</a></span>&#160;<span class="preprocessor">#define READ_CMD_B   0x20    </span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="group__i8042.html#ga13e4516a13006d3acfd054edaddb8beb">   21</a></span>&#160;<span class="preprocessor">#define WRITE_CMD_B  0x60    </span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="group__i8042.html#ga55fefff08c94153a53592686472a6c80">   22</a></span>&#160;<span class="preprocessor">#define CHECK_KBC    0xAA    </span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="group__i8042.html#ga4bb66dcc0ed36ebb4d85a6f162679546">   23</a></span>&#160;<span class="preprocessor">#define CHECK_KB_IFC 0xAB    </span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="group__i8042.html#ga316ec87df8c322f99c9eb65b107dd285">   24</a></span>&#160;<span class="preprocessor">#define DISABLE_KBD  0xAD    </span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="group__i8042.html#ga79c461a1646b2d71703346390a67cf55">   25</a></span>&#160;<span class="preprocessor">#define ENABLE_KBS   0xAE    </span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="group__i8042.html#ga36930de8a703505c95fe133095dcfe06">   27</a></span>&#160;<span class="preprocessor">#define KBC_OBF BIT(0)     </span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="group__i8042.html#gac1649d41f8ba9a02fa70ec4e600d5e4a">   28</a></span>&#160;<span class="preprocessor">#define KBC_IBF  BIT(1)    </span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="group__i8042.html#gaaa796d09d1e94025da456738295342f2">   29</a></span>&#160;<span class="preprocessor">#define KBC_AUX BIT(5)     </span></div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="group__i8042.html#gaea2ef6dda1aabebf291eeee29b66c04a">   30</a></span>&#160;<span class="preprocessor">#define KBC_PAR_ERR BIT(7) </span></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="group__i8042.html#gae31c3653f5881b02cbfdd4ccbb7ccf50">   31</a></span>&#160;<span class="preprocessor">#define KBC_TO_ERR BIT(6)  </span></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="group__i8042.html#ga4632e822e6e47ce1983506928ca4adbf">   33</a></span>&#160;<span class="preprocessor">#define KB_INT_DIS BIT(4)   </span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="group__i8042.html#gadd47e250597405a84eb5a2613c85ab04">   34</a></span>&#160;<span class="preprocessor">#define KB_INTERR_EN BIT(0) </span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="group__i8042.html#gac6b47609a951e77244ef2be1691c298a">   36</a></span>&#160;<span class="preprocessor">#define BREAK_CODE BIT(7)  </span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="group__i8042.html#ga592dfdf397b21913348b4dd6b7759b2d">   38</a></span>&#160;<span class="preprocessor">#define ESC_BREAK_CODE 0x81 </span></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="group__i8042.html#gacb777c7c7af1e6859732e4ab59adf681">   39</a></span>&#160;<span class="preprocessor">#define W_MAKE_CODE 0x11  </span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="group__i8042.html#ga45fda238c36661e22a2bda60110aed09">   40</a></span>&#160;<span class="preprocessor">#define W_BREAK_CODE 0x91 </span></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="group__i8042.html#ga33aa421fd3c2491284a71ad577933fd0">   41</a></span>&#160;<span class="preprocessor">#define A_MAKE_CODE 0x1E  </span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="group__i8042.html#ga6b3bc710b60263bd76130540a24b74b6">   42</a></span>&#160;<span class="preprocessor">#define A_BREAK_CODE 0x9E </span></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="group__i8042.html#ga05c2d71abe8bdd210f3424fd7615a59e">   43</a></span>&#160;<span class="preprocessor">#define S_MAKE_CODE 0x1F  </span></div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="group__i8042.html#gaec37aea52a2989fbb1da1f848206997e">   44</a></span>&#160;<span class="preprocessor">#define S_BREAK_CODE 0x9F </span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="group__i8042.html#ga23f867dcf757da71f03cbe28e41ed98d">   45</a></span>&#160;<span class="preprocessor">#define D_MAKE_CODE 0x20  </span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="group__i8042.html#gaeb7fb0b62eabc29ca24eb9ce77b07152">   46</a></span>&#160;<span class="preprocessor">#define D_BREAK_CODE 0xA0 </span></div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="group__i8042.html#ga2877405e9b042d1e29cc09bcc8daccfa">   49</a></span>&#160;<span class="preprocessor">#define TWO_BYTE_CODE 0xE0 </span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->

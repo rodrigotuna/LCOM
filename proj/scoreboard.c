@@ -1,6 +1,6 @@
 #include "scoreboard.h"
 
-#include "libs/rtc.h"
+#include "rtc.h"
 
 int check_highscore(int points){
   FILE *scoreboard;

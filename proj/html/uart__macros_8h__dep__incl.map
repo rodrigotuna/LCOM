@@ -1,12 +1,11 @@
 <map id="uart_macros.h" name="uart_macros.h">
-<area shape="rect" id="node1" title=" " alt="" coords="215,5,330,32"/>
-<area shape="rect" id="node2" href="$uart_8h.html" title=" " alt="" coords="243,80,303,107"/>
-<area shape="rect" id="node3" href="$communication_8c.html" title=" " alt="" coords="36,155,171,181"/>
-<area shape="rect" id="node4" href="$drivers_8h.html" title=" " alt="" coords="195,155,273,181"/>
-<area shape="rect" id="node9" href="$proj_8c.html" title=" " alt="" coords="282,304,341,331"/>
-<area shape="rect" id="node10" href="$uart_8c.html" title=" " alt="" coords="349,155,407,181"/>
-<area shape="rect" id="node5" href="$drivers_8c.html" title=" " alt="" coords="5,229,84,256"/>
-<area shape="rect" id="node6" href="$game_8c.html" title=" " alt="" coords="108,229,179,256"/>
-<area shape="rect" id="node7" href="$menu_8h.html" title=" " alt="" coords="203,229,273,256"/>
-<area shape="rect" id="node8" href="$menu_8c.html" title=" " alt="" coords="187,304,257,331"/>
+<area shape="rect" id="node1" title=" " alt="" coords="146,5,261,32"/>
+<area shape="rect" id="node2" href="$uart_8h.html" title=" " alt="" coords="173,80,233,107"/>
+<area shape="rect" id="node3" href="$communication_8c.html" title=" " alt="" coords="5,155,140,181"/>
+<area shape="rect" id="node4" href="$drivers_8h.html" title=" " alt="" coords="164,155,243,181"/>
+<area shape="rect" id="node9" href="$uart_8c.html" title=" " alt="" coords="267,155,326,181"/>
+<area shape="rect" id="node5" href="$drivers_8c.html" title=" " alt="" coords="19,229,97,256"/>
+<area shape="rect" id="node6" href="$game_8c.html" title=" " alt="" coords="121,229,192,256"/>
+<area shape="rect" id="node7" href="$menu_8c.html" title=" " alt="" coords="216,229,287,256"/>
+<area shape="rect" id="node8" href="$proj_8c.html" title=" " alt="" coords="311,229,370,256"/>
 </map>

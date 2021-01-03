@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['real_5fx_5fpos_279',['real_x_pos',['../structball.html#af39590856b1a602157af3737feebf664',1,'ball']]],
-  ['real_5fy_5fpos_280',['real_y_pos',['../structball.html#a3658fef4bee59b44f21c0441f0da049e',1,'ball']]]
+  ['no_5fframes_607',['no_frames',['../structanimated__sprite.html#ae83a1c3222be7819e170fec8d8a3fdc5',1,'animated_sprite']]],
+  ['no_5fsets_608',['no_sets',['../structanimated__sprite.html#a33d80d1db97445a3dcbe0ab8e1065d16',1,'animated_sprite']]]
 ];

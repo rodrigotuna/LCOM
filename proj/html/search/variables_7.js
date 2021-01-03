@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['no_5fframes_276',['no_frames',['../structanimated__sprite.html#ae83a1c3222be7819e170fec8d8a3fdc5',1,'animated_sprite']]],
-  ['no_5fsets_277',['no_sets',['../structanimated__sprite.html#a33d80d1db97445a3dcbe0ab8e1065d16',1,'animated_sprite']]]
+  ['last_5fplayer_600',['last_player',['../structball.html#af44fac0d1dea66cb2602b516a7a7dc0d',1,'ball']]],
+  ['len_601',['len',['../communication_8c.html#afed088663f8704004425cdae2120b9b3',1,'len():&#160;communication.c'],['../communication_8h.html#afed088663f8704004425cdae2120b9b3',1,'len():&#160;communication.h']]]
 ];

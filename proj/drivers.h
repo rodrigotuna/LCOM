@@ -2,11 +2,11 @@
 
 #include <lcom/lcf.h>
 
-#include "libs/keyboard.h"
-#include "libs/mouse.h"
-#include "libs/video.h"
-#include "libs/rtc.h"
-#include "libs/uart.h"
+#include "keyboard.h"
+#include "mouse.h"
+#include "video.h"
+#include "rtc.h"
+#include "uart.h"
 
 /** @defgroup drivers drivers
  * @{

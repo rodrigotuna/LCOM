@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['menu_332',['menu',['../group__menu.html',1,'']]]
+  ['i8042_672',['i8042',['../group__i8042.html',1,'']]],
+  ['i8254_673',['i8254',['../group__i8254.html',1,'']]]
 ];

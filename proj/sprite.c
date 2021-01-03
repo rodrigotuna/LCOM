@@ -1,8 +1,8 @@
 #include "sprite.h"
 #include "utilities.h"
 
-#include "libs/video.h"
-#include "libs/i8042.h"
+#include "video.h"
+#include "i8042.h"
 
 sprite_t * create_sprite(xpm_map_t xpm_map, int x, int y){
   sprite_t *sp = (sprite_t*) malloc ( sizeof(sprite_t));

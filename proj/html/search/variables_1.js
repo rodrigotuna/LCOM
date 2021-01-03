@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['current_5fpic_265',['current_pic',['../structsprite.html#a42386454eefb2a537bcde91bd15a66d6',1,'sprite']]]
+  ['back_5fvideo_5fmem_587',['back_video_mem',['../video_8h.html#a37c90ffa85711f31f91a05d1d9105e58',1,'video.h']]]
 ];

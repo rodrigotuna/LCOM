@@ -1,12 +1,11 @@
 <map id="communication.c" name="communication.c">
-<area shape="rect" id="node1" title=" " alt="" coords="415,5,549,32"/>
-<area shape="rect" id="node2" href="$communication_8h.html" title=" " alt="" coords="5,184,140,211"/>
-<area shape="rect" id="node4" title=" " alt="" coords="520,95,607,121"/>
-<area shape="rect" id="node5" title=" " alt="" coords="631,80,829,136"/>
-<area shape="rect" id="node6" title=" " alt="" coords="853,95,935,121"/>
-<area shape="rect" id="node7" title=" " alt="" coords="349,259,420,285"/>
-<area shape="rect" id="node8" href="$utilities_8h.html" title=" " alt="" coords="165,184,247,211"/>
-<area shape="rect" id="node9" href="$entities_8h.html" title=" " alt="" coords="339,95,422,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="215,259,301,285"/>
-<area shape="rect" id="node10" href="$sprite_8h.html" title=" " alt="" coords="323,184,393,211"/>
+<area shape="rect" id="node1" title=" " alt="" coords="193,5,328,32"/>
+<area shape="rect" id="node2" href="$communication_8h.html" title=" " alt="" coords="5,80,140,107"/>
+<area shape="rect" id="node4" href="$uart_8h.html" title=" " alt="" coords="356,80,416,107"/>
+<area shape="rect" id="node6" href="$utilities_8h.html" title=" " alt="" coords="275,155,358,181"/>
+<area shape="rect" id="node8" href="$entities_8h.html" title=" " alt="" coords="181,80,263,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="97,229,182,256"/>
+<area shape="rect" id="node5" href="$uart__macros_8h.html" title=" " alt="" coords="433,155,547,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="228,229,299,256"/>
+<area shape="rect" id="node9" href="$sprite_8h.html" title=" " alt="" coords="129,155,200,181"/>
 </map>

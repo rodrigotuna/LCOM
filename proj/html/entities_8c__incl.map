@@ -1,10 +1,10 @@
 <map id="entities.c" name="entities.c">
-<area shape="rect" id="node1" title=" " alt="" coords="180,5,263,32"/>
-<area shape="rect" id="node2" href="$entities_8h.html" title=" " alt="" coords="80,155,163,181"/>
-<area shape="rect" id="node6" title=" " alt="" coords="243,80,311,107"/>
-<area shape="rect" id="node7" href="$gameLogic_8h.html" title=" " alt="" coords="114,80,219,107"/>
-<area shape="rect" id="node8" title=" " alt="" coords="335,80,433,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,304,91,331"/>
-<area shape="rect" id="node4" title=" " alt="" coords="159,304,230,331"/>
-<area shape="rect" id="node5" href="$sprite_8h.html" title=" " alt="" coords="86,229,157,256"/>
+<area shape="rect" id="node1" title=" " alt="" coords="217,5,299,32"/>
+<area shape="rect" id="node2" href="$entities_8h.html" title=" " alt="" coords="81,155,163,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="341,80,409,107"/>
+<area shape="rect" id="node7" href="$gameLogic_8h.html" title=" " alt="" coords="160,80,265,107"/>
+<area shape="rect" id="node8" href="$i8042_8h.html" title=" " alt="" coords="276,155,347,181"/>
+<area shape="rect" id="node3" title=" " alt="" coords="170,304,255,331"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,304,76,331"/>
+<area shape="rect" id="node5" href="$sprite_8h.html" title=" " alt="" coords="79,229,149,256"/>
 </map>

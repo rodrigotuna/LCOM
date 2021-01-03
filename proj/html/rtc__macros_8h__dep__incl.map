@@ -1,13 +1,11 @@
 <map id="rtc_macros.h" name="rtc_macros.h">
-<area shape="rect" id="node1" title=" " alt="" coords="207,5,314,32"/>
-<area shape="rect" id="node2" href="$rtc_8h.html" title=" " alt="" coords="235,80,286,107"/>
-<area shape="rect" id="node3" href="$drivers_8h.html" title=" " alt="" coords="104,155,183,181"/>
-<area shape="rect" id="node9" href="$scoreboard_8h.html" title=" " alt="" coords="207,155,314,181"/>
-<area shape="rect" id="node11" href="$rtc_8c.html" title=" " alt="" coords="338,155,389,181"/>
+<area shape="rect" id="node1" title=" " alt="" coords="226,5,333,32"/>
+<area shape="rect" id="node2" href="$rtc_8h.html" title=" " alt="" coords="254,80,305,107"/>
+<area shape="rect" id="node3" href="$drivers_8h.html" title=" " alt="" coords="151,155,229,181"/>
+<area shape="rect" id="node8" href="$rtc_8c.html" title=" " alt="" coords="254,155,305,181"/>
+<area shape="rect" id="node9" href="$scoreboard_8c.html" title=" " alt="" coords="329,155,435,181"/>
 <area shape="rect" id="node4" href="$drivers_8c.html" title=" " alt="" coords="5,229,84,256"/>
 <area shape="rect" id="node5" href="$game_8c.html" title=" " alt="" coords="108,229,179,256"/>
-<area shape="rect" id="node6" href="$menu_8h.html" title=" " alt="" coords="203,229,273,256"/>
-<area shape="rect" id="node7" href="$menu_8c.html" title=" " alt="" coords="159,304,229,331"/>
-<area shape="rect" id="node8" href="$proj_8c.html" title=" " alt="" coords="254,304,313,331"/>
-<area shape="rect" id="node10" href="$scoreboard_8c.html" title=" " alt="" coords="297,229,403,256"/>
+<area shape="rect" id="node6" href="$menu_8c.html" title=" " alt="" coords="203,229,273,256"/>
+<area shape="rect" id="node7" href="$proj_8c.html" title=" " alt="" coords="298,229,357,256"/>
 </map>

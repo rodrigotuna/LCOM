@@ -1,4 +1,6 @@
 <map id="display_scores" name="display_scores">
 <area shape="rect" id="node1" title="Displays the scoreboard on screen." alt="" coords="5,5,124,32"/>
 <area shape="rect" id="node2" href="$group__sprites.html#ga75f6636529bf63a1e4ad80ddbb499226" title="Displays any string on screen." alt="" coords="172,5,268,32"/>
+<area shape="rect" id="node3" href="$group__video.html#gab20a606ca3d3aa819249eeca339aee79" title="Changes the color of a pixel to a specified one." alt="" coords="316,5,396,32"/>
+<area shape="rect" id="node4" href="$group__video.html#ga3cc5fc9cad5e43a1af5d3339388af1ce" title="Indicates the number of bytes per Pixel." alt="" coords="444,5,555,32"/>
 </map>

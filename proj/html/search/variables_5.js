@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['last_5fplayer_272',['last_player',['../structball.html#af44fac0d1dea66cb2602b516a7a7dc0d',1,'ball']]],
-  ['len_273',['len',['../communication_8c.html#afed088663f8704004425cdae2120b9b3',1,'len():&#160;communication.c'],['../communication_8h.html#afed088663f8704004425cdae2120b9b3',1,'len():&#160;communication.h']]]
+  ['inf_597',['inf',['../video_8h.html#af3d60ccdbbe73401c5aa11f9551c06e8',1,'video.h']]]
 ];
