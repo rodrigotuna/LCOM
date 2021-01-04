@@ -1,8 +1,0 @@
-<map id="int_to_char" name="int_to_char">
-<area shape="rect" id="node1" title=" " alt="" coords="711,81,805,108"/>
-<area shape="rect" id="node2" href="$group__menu.html#gadf831408d6f8828e5d3b07157084397f" title="The gameover menu." alt="" coords="531,56,663,83"/>
-<area shape="rect" id="node6" href="$group__game.html#ga920a25cd888a57a8be33e789bd25c872" title="The single player mode." alt="" coords="348,107,457,133"/>
-<area shape="rect" id="node3" href="$group__menu.html#gac59a512bcf4260d121c4d1b278dc1b1f" title="The menu for choosing the player in multiplayer mode." alt="" coords="323,5,483,32"/>
-<area shape="rect" id="node4" href="$group__menu.html#ga7fe3adb8b69baff33af24e4a3a9c5048" title="The main menu." alt="" coords="176,56,275,83"/>
-<area shape="rect" id="node5" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,56,128,83"/>
-</map>
