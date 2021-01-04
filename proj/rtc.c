@@ -45,12 +45,14 @@ int rtc_read_status(uint8_t cmd, uint8_t * stat){
 
 int rtc_read_date(uint8_t cmd, uint8_t * data){
   uint8_t stat;
-  if(rtc_read_status(REG_A, &stat)) return 1;
-  if((stat & UIP) == 0){
-    if(sys_outb(RTC_ADDR_REG,cmd)) return 1;
-    if(util_sys_inb(RTC_DATA_REG, data)) return 1;
+  while(true){
+    if(rtc_read_status(REG_A, &stat)) return 1;
+    if((stat & UIP) == 0){
+      if(sys_outb(RTC_ADDR_REG,cmd)) return 1;
+      if(util_sys_inb(RTC_DATA_REG, data)) return 1;
+      return 0;
+    }
   }
-  return 0;
 }
 
 int rtc_get_date(uint8_t * date){
